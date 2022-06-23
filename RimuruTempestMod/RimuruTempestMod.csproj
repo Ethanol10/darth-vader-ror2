@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Configurations>Release;Debug</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Modules\Characters\Rimuru.cs~RF6221a098.TMP" />
+    <None Remove="RimuruAssetBundle" />
+    <None Remove="RimuruBank.bnk" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="BepInEx.Core" Version="5.4.19" />
+		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.4-r.0" />
+		<PackageReference Include="UnityEngine.Modules" Version="2019.4.26" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Include="RimuruBank.bnk" />
+    <EmbeddedResource Include="RimuruAssetBundle" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CustomEmotesAPI">
+      <HintPath>..\libs\CustomEmotesAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API">
+      <HintPath>..\libs\R2API.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_RoR2">
+      <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

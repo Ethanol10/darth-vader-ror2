@@ -1,0 +1,147 @@
+ManifestFileVersion: 0
+CRC: 1123286498
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 80845c0f9c1747405dd6e5a23d3b2b18
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9f24a19e90670432b929aeb3a42117fc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 144
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 319
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Rimuru/Assets/VFX/Material/StarFlare.mat
+- Assets/Rimuru/Assets/VFX/BlackLightning.prefab
+- Assets/Rimuru/Assets/VFX/WaterBladeImpact.prefab
+- Assets/Rimuru/Assets/Slime/mdlRimuruSlime.prefab
+- Assets/Rimuru/Assets/Animation/Slime/animMenuRimuruSlime.controller
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquarered.mat
+- Assets/Rimuru/Assets/Animation/Human/Jump.anim
+- Assets/Rimuru/Assets/VFX/Material/BlackLightningParticle 1.mat
+- Assets/Rimuru/Assets/VFX/Material/BlackLightningParticleBlack.mat
+- Assets/Rimuru/Assets/VFX/MainLightningStraight.prefab
+- Assets/Rimuru/Assets/Animation/Human/animMenuRimuruHuman.controller
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempest_Entrance.anim
+- Assets/Rimuru/Assets/VFX/SkillGet.prefab
+- Assets/Rimuru/Assets/Animation/Human/MaskLeftArm.mask
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquare.mat
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquaregreen.mat
+- Assets/Rimuru/Assets/Human/RimuruHumanMesh.mesh
+- Assets/Rimuru/Assets/VFX/BlacklightningLight.prefab
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Land.anim
+- Assets/Rimuru/Assets/VFX/Texture/blacklightning.tif
+- Assets/Rimuru/Assets/VFX/Square.prefab
+- Assets/Rimuru/Assets/Slime/RimuruSlimeDisplay.prefab
+- Assets/Rimuru/Assets/Human/RimuruWingMesh.mesh
+- Assets/Rimuru/Assets/Animation/Human/animRimuruHuman.controller
+- Assets/Rimuru/Assets/VFX/WetEffect.prefab
+- Assets/Rimuru/Assets/Animation/Human/DoubleJump.anim
+- Assets/Rimuru/Assets/VFX/MainLightning2.prefab
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Walk.anim
+- Assets/Rimuru/Assets/Materials/EmptyMat.mat
+- Assets/Rimuru/Assets/VFX/SecondaryBeam.prefab
+- Assets/Rimuru/Assets/Animation/Human/Run.anim
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempest_EntranceLoop.anim
+- Assets/Rimuru/Assets/VFX/Material/blacklightning.mat
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_AAIdle.anim
+- Assets/Rimuru/Assets/VFX/Devour.prefab
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempestHumanoid.asset
+- Assets/Rimuru/Assets/VFX/TertiaryBeam.prefab
+- Assets/Rimuru/Assets/VFX/Analyze.prefab
+- Assets/Rimuru/Assets/VFX/Material/Hollowsquareblue.mat
+- Assets/Rimuru/Assets/Materials/SpatialMovementMat.mat
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Jump.anim
+- Assets/Rimuru/Assets/Animation/Human/BlackLightning.anim
+- Assets/Rimuru/Assets/Animation/Human/RimuruTempestAvatar2.asset
+- Assets/Rimuru/Assets/VFX/Material/StarFlare.tga
+- Assets/Rimuru/Assets/VFX/ImpactRimuruSlash.prefab
+- Assets/Rimuru/Assets/Materials/RimuruSlimeMat.mat
+- Assets/Rimuru/Assets/VFX/WaterBlade.prefab
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Fall.anim
+- Assets/Rimuru/Assets/VFX/Circling.prefab
+- Assets/Rimuru/Assets/Animation/Human/Falling.anim
+- Assets/Rimuru/Assets/Human/RimuruMaskMesh.mesh
+- Assets/Rimuru/Assets/Animation/Human/RunToSprintTransition.anim
+- Assets/Rimuru/Assets/Animation/Slime/RimuruTempestSlimeAvatar.asset
+- Assets/Rimuru/Assets/VFX/Devour3.prefab
+- Assets/Rimuru/Assets/VFX/Texture/Hollow square.tif
+- Assets/Rimuru/Assets/VFX/BlackLightningImpact.prefab
+- Assets/Rimuru/Assets/Animation/Human/SprintToRunTransition.anim
+- Assets/Rimuru/Assets/Animation/Human/Idle.anim
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance.anim
+- Assets/Rimuru/Assets/Human/RimuruHumanDisplay.prefab
+- Assets/Rimuru/Assets/VFX/Texture/blacklightningouter.tif
+- Assets/Rimuru/Assets/Animation/Human/MaskRightArm.mask
+- Assets/Rimuru/Assets/Animation/Slime/animRimuruSlime.controller
+- Assets/Rimuru/Assets/Animation/Human/IdleAlt1.anim
+- Assets/Rimuru/Assets/Animation/Slime/RimuruSlime_Entrance2.anim
+- Assets/Rimuru/Assets/Human/mdlRimuruHuman.prefab
+- Assets/Rimuru/Assets/Animation/Human/Sprint.anim
+- Assets/Rimuru/Assets/Animation/Human/FacialExpression.anim
+- Assets/Rimuru/Assets/Materials/RimuruHumanMat.mat
+- Assets/Rimuru/Assets/VFX/MainLightning.prefab
+- Assets/Rimuru/Assets/Animation/Human/BlackLightningLoop.anim
+- Assets/Rimuru/Assets/Animation/Human/EmoteRimuru.prefab
+- Assets/Rimuru/Assets/Slime/RimuruSlimeMesh.mesh
+- Assets/Rimuru/Assets/VFX/DevourSkillGet.prefab
+- Assets/Rimuru/Assets/VFX/Devour2.prefab
+- Assets/Rimuru/Assets/VFX/MainLightningBlack.prefab
+- Assets/Rimuru/Assets/Animation/Human/Sprint1.anim
+- Assets/Rimuru/Assets/VFX/BlackLightningOld.prefab
+- Assets/Rimuru/Assets/Human/RimuruSwordMesh.mesh
+Dependencies: []
