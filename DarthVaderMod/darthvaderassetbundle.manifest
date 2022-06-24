@@ -1,0 +1,79 @@
+ManifestFileVersion: 0
+CRC: 699935556
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 608984f7f910b1d73f8e04d13bb7efea
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 43c551025e38cf7e291ff1f387cb008c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 183
+  Script: {instanceID: 0}
+- Class: 319
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/DarthVader/Animations/animMenuDarthvader.controller
+- Assets/DarthVader/Animations/DarthVaderArm_Walk.anim
+- Assets/DarthVader/Assets/LightsaberBladeMesh.mesh
+- Assets/DarthVader/Animations/DarthVaderArm_SwordSwing2.anim
+- Assets/DarthVader/Animations/DarthVaderArm_ForcePush.anim
+- Assets/DarthVader/Assets/DarthvaderDisplay.prefab
+- Assets/DarthVader/Assets/LightSaberMat.mat
+- Assets/DarthVader/Assets/LightsaberGripMesh.mesh
+- Assets/DarthVader/Animations/LeftArmMask.mask
+- Assets/DarthVader/Animations/DarthVaderAvatar.asset
+- Assets/DarthVader/Assets/CapeMesh.mesh
+- Assets/DarthVader/Assets/LightsaberRed.mat
+- Assets/DarthVader/Animations/DarthVaderArm_EntranceLoop.anim
+- Assets/DarthVader/Animations/DarthVaderArm_ForcePull.anim
+- Assets/DarthVader/Animations/DarthVaderArm_Idle.anim
+- Assets/DarthVader/Animations/DarthVaderArm_Falling.anim
+- Assets/DarthVader/Animations/DarthVaderArm_T-Pose.anim
+- Assets/DarthVader/Animations/DarthVaderArm_Deflect.anim
+- Assets/DarthVader/Assets/AllMats.mat
+- Assets/DarthVader/Assets/mdlDarthvader.prefab
+- Assets/DarthVader/Assets/DarthVaderMesh.mesh
+- Assets/DarthVader/Animations/RightArmMask.mask
+- Assets/DarthVader/Animations/animDarthvader.controller
+- Assets/DarthVader/Animations/DarthVaderArm_SwordSwing1.anim
+- Assets/DarthVader/Assets/Lightsaber.prefab
+- Assets/DarthVader/Animations/DarthVaderArm_Jump.anim
+- Assets/DarthVader/Animations/DarthVaderArm_Entrance.anim
+Dependencies: []
