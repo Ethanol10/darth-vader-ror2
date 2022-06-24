@@ -1,12 +1,12 @@
 ﻿using BepInEx.Configuration;
 using RoR2;
 using System;
-using RimuruMod.Modules.Characters;
+using DarthVaderMod.Modules.Characters;
 using UnityEngine;
 using System.Collections.Generic;
 using RoR2.Skills;
 
-namespace RimuruMod.Modules.Survivors
+namespace DarthVaderMod.Modules.Survivors
 {
     internal abstract class SurvivorBase : CharacterBase
     {

@@ -2,25 +2,25 @@
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
-using RimuruMod.Modules.Survivors;
+using DarthVaderMod.Modules.Survivors;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class Analyze : BaseSkillState
     {
-        public RimuruController Rimurucon;
-        public RimuruMasterController Rimurumastercon;
+        public DarthVaderController DarthVadercon;
+        public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
 
         public float duration = 0.1f;
         public override void OnEnter()
         {
             base.OnEnter();
-            Rimurucon = base.GetComponent<RimuruController>();
-            Rimurumastercon = characterBody.master.gameObject.GetComponent<RimuruMasterController>();
-            if (Rimurucon && base.isAuthority)
+            DarthVadercon = base.GetComponent<DarthVaderController>();
+            DarthVadermastercon = characterBody.master.gameObject.GetComponent<DarthVaderMasterController>();
+            if (DarthVadercon && base.isAuthority)
             {
-                Target = Rimurucon.GetTrackingTarget();
+                Target = DarthVadercon.GetTrackingTarget();
             }
         }
 

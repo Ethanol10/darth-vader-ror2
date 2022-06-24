@@ -2,7 +2,7 @@
 using UnityEngine.AddressableAssets;
 using UnityEngine;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     public static class Buffs
     {

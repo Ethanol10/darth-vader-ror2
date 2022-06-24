@@ -3,10 +3,10 @@ using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
-using RimuruMod;
+using DarthVaderMod;
 using UnityEngine;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
 
     internal static class Skills
@@ -42,7 +42,7 @@ namespace RimuruMod.Modules
 
             skill._skillFamily = newFamily;
 
-            RimuruMod.Modules.Content.AddSkillFamily(newFamily);
+            DarthVaderMod.Modules.Content.AddSkillFamily(newFamily);
             return skill;
         }
         #endregion
@@ -140,7 +140,7 @@ namespace RimuruMod.Modules
 
             skillDef.keywordTokens = skillDefInfo.keywordTokens;
 
-            RimuruMod.Modules.Content.AddSkillDef(skillDef);
+            DarthVaderMod.Modules.Content.AddSkillDef(skillDef);
 
 
             return skillDef;

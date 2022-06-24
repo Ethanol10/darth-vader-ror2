@@ -1,12 +1,12 @@
 ﻿using EntityStates;
-using RimuruMod.Modules.Survivors;
+using DarthVaderMod.Modules.Survivors;
 using RoR2;
 using RoR2.Audio;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.SkillStates.BaseStates
+namespace DarthVaderMod.SkillStates.BaseStates
 {
     public class BaseMeleeAttack : BaseSkillState
     {
@@ -47,7 +47,7 @@ namespace RimuruMod.SkillStates.BaseStates
         private BaseState.HitStopCachedState hitStopCachedState;
         private Vector3 storedVelocity;
 
-        public RimuruController Rimurucon;
+        public DarthVaderController DarthVadercon;
 
         public override void OnEnter()
         {

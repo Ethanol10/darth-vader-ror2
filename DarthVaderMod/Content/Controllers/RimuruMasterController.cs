@@ -7,19 +7,19 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Networking;
-using RimuruMod.SkillStates;
+using DarthVaderMod.SkillStates;
 
-namespace RimuruMod.Modules.Survivors
+namespace DarthVaderMod.Modules.Survivors
 {
 	[RequireComponent(typeof(CharacterBody))]
 	[RequireComponent(typeof(TeamComponent))]
 	[RequireComponent(typeof(InputBankTest))]
-	public class RimuruMasterController : MonoBehaviour
+	public class DarthVaderMasterController : MonoBehaviour
 	{
-		string prefix = RimuruSlime.RIMURU_PREFIX;
+		string prefix = DarthVaderSlime.DARTHVADER_PREFIX;
 
-		public RimuruMasterController Rimurumastercon;
-		public RimuruController Rimurucon;
+		public DarthVaderMasterController DarthVadermastercon;
+		public DarthVaderController DarthVadercon;
 		private CharacterMaster characterMaster;
 		private CharacterBody characterBody;
 
@@ -128,8 +128,8 @@ namespace RimuruMod.Modules.Survivors
 			characterMaster = gameObject.GetComponent<CharacterMaster>();
 			characterBody = characterMaster.GetBody();
 
-			Rimurumastercon = characterMaster.gameObject.GetComponent<RimuruMasterController>();
-			Rimurucon = characterBody.gameObject.GetComponent<RimuruController>();
+			DarthVadermastercon = characterMaster.gameObject.GetComponent<DarthVaderMasterController>();
+			DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
 
 			alloyvulture = false;
 			alphacontruct = false;
@@ -180,7 +180,7 @@ namespace RimuruMod.Modules.Survivors
 			orig.Invoke(self);
 
 
-			if (self.master.gameObject.GetComponent<RimuruMasterController>())
+			if (self.master.gameObject.GetComponent<DarthVaderMasterController>())
             {
 				if(beetle == true)
                 {
@@ -204,7 +204,7 @@ namespace RimuruMod.Modules.Survivors
 		{
 			orig.Invoke(self, damageReport);
 			//devour check
-			if (damageReport.attackerBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+			if (damageReport.attackerBody.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DarthVaderSLIME_BODY_NAME")
 			{
 				if (damageReport.attackerBody && damageReport.victimBody)
 				{

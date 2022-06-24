@@ -4,7 +4,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class SpatialMovement : BaseSkillState
     {

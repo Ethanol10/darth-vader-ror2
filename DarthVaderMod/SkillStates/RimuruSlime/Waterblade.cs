@@ -3,7 +3,7 @@ using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class Waterblade : BaseSkillState
     {
@@ -38,7 +38,7 @@ namespace RimuruMod.SkillStates
             if (!this.hasFired)
             {
                 this.hasFired = true;
-                Util.PlaySound("RimuruBombThrow", base.gameObject);
+                Util.PlaySound("DarthVaderBombThrow", base.gameObject);
 
                 if (base.isAuthority)
                 {

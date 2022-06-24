@@ -1,5 +1,5 @@
 ﻿using BepInEx;
-using RimuruMod.Modules.Survivors;
+using DarthVaderMod.Modules.Survivors;
 using R2API.Utils;
 using RoR2;
 using System.Collections.Generic;
@@ -10,12 +10,12 @@ using UnityEngine.Networking;
 using R2API.Networking;
 using EmotesAPI;
 using BepInEx.Bootstrap;
-using RimuruMod.SkillStates;
+using DarthVaderMod.SkillStates;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 
-namespace RimuruMod
+namespace DarthVaderMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
@@ -29,22 +29,22 @@ namespace RimuruMod
         "UnlockableAPI"
     })]
 
-    public class RimuruPlugin : BaseUnityPlugin
+    public class DarthVaderPlugin : BaseUnityPlugin
     {
         // if you don't change these you're giving permission to deprecate the mod-
         //  please change the names to your own stuff, thanks
         //   this shouldn't even have to be said
-        public const string MODUID = "com.PopcornFactory.RimuruTempestMod";
-        public const string MODNAME = "RimuruTempestMod";
+        public const string MODUID = "com.PopcornFactory.DarthVaderTempestMod";
+        public const string MODNAME = "DarthVaderTempestMod";
         public const string MODVERSION = "0.0.1";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
 
-        public static RimuruPlugin instance;
+        public static DarthVaderPlugin instance;
 
-        public RimuruController Rimurucon;
-        public RimuruMasterController Rimurumastercon;
+        public DarthVaderController DarthVadercon;
+        public DarthVaderMasterController DarthVadermastercon;
 
         private void Awake()
         {
@@ -60,8 +60,8 @@ namespace RimuruMod
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
 
             // survivor initialization
-            new RimuruHuman().Initialize(false);
-            new RimuruSlime().Initialize(true);
+            new DarthVader().Initialize(false);
+            new DarthVaderSlime().Initialize(true);
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
@@ -90,9 +90,9 @@ namespace RimuruMod
         private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
         {
             orig(self);
-            if (self.gameObject.name.Contains("RimuruHumanDisplay"))
+            if (self.gameObject.name.Contains("DarthVaderDisplay"))
             {
-                RimuruSwordDisplayController displayHandler = self.gameObject.GetComponent<RimuruSwordDisplayController>();
+                DarthVaderSwordDisplayController displayHandler = self.gameObject.GetComponent<DarthVaderSwordDisplayController>();
                 if (!displayHandler)
                 {
                     ChildLocator childLoc = self.gameObject.GetComponent<ChildLocator>();
@@ -102,7 +102,7 @@ namespace RimuruMod
                         Transform swordMesh = childLoc.FindChild("SwordMeshPosition");
                         Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
 
-                        displayHandler = self.gameObject.AddComponent<RimuruSwordDisplayController>();
+                        displayHandler = self.gameObject.AddComponent<DarthVaderSwordDisplayController>();
                         displayHandler.swordTargetTransform = swordsheatheTrans;
                         displayHandler.swordTransform = swordMesh;
                     }
@@ -116,9 +116,9 @@ namespace RimuruMod
             orig();
             foreach (var item in SurvivorCatalog.allSurvivorDefs)
             {
-                if (item.bodyPrefab.name == "RimuruHumanBody")
+                if (item.bodyPrefab.name == "DarthVaderBody")
                 {
-                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteRimuru"));
+                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("EmoteDarthVader"));
                 }
             }
         }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RimuruMod.Modules.Characters
+namespace DarthVaderMod.Modules.Characters
 {
     internal abstract class CharacterBase
     {
@@ -109,7 +109,7 @@ namespace RimuruMod.Modules.Characters
     internal class BodyInfo
     {
         #region Character
-        public string bodyName = "Rimuru Tempest";
+        public string bodyName = "DarthVader Tempest";
         public string bodyNameToken = "";
         public string subtitleNameToken = "";
 

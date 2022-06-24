@@ -1,10 +1,10 @@
-﻿using RimuruMod.Modules.Survivors;
-using RimuruMod.SkillStates.BaseStates;
+﻿using DarthVaderMod.Modules.Survivors;
+using DarthVaderMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class Devour : BaseMeleeAttack
     {
@@ -25,7 +25,7 @@ namespace RimuruMod.SkillStates
             this.attackRecoil = 0.2f;
             this.hitHopVelocity = 4f;
 
-            this.swingSoundString = "RimuruSwordSwing";
+            this.swingSoundString = "DarthVaderSwordSwing";
             this.hitSoundString = "";
             this.muzzleString = "Spine";
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;

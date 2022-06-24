@@ -1,7 +1,7 @@
 ﻿using BepInEx.Configuration;
 using UnityEngine;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     public static class Config
     {
@@ -13,7 +13,7 @@ namespace RimuruMod.Modules
         // this helper automatically makes config entries for disabling survivors
         public static ConfigEntry<bool> CharacterEnableConfig(string characterName, string description = "Set to false to disable this character", bool enabledDefault = true) {
 
-            return RimuruPlugin.instance.Config.Bind<bool>("General",
+            return DarthVaderPlugin.instance.Config.Bind<bool>("General",
                                                           "Enable " + characterName,
                                                           enabledDefault,
                                                           description);

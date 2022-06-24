@@ -12,11 +12,11 @@ using EntityStates.MiniMushroom;
 using UnityEngine.Networking;
 using R2API.Networking;
 
-namespace RimuruMod.Modules.Survivors
+namespace DarthVaderMod.Modules.Survivors
 {
-    public class RimuruController : MonoBehaviour
+    public class DarthVaderController : MonoBehaviour
     {
-        string prefix = RimuruSlime.RIMURU_PREFIX;
+        string prefix = DarthVaderSlime.DARTHVADER_PREFIX;
         public GameObject devoureffectObj;
 
         public float strengthMultiplier;
@@ -49,8 +49,8 @@ namespace RimuruMod.Modules.Survivors
         private readonly BullseyeSearch search = new BullseyeSearch();
         private CharacterMaster characterMaster;
 
-        public RimuruMasterController Rimurumastercon;
-        public RimuruController Rimurucon;
+        public DarthVaderMasterController DarthVadermastercon;
+        public DarthVaderController DarthVadercon;
 
         public void Awake()
         {
@@ -74,9 +74,9 @@ namespace RimuruMod.Modules.Survivors
         {
 
             characterMaster = characterBody.master;
-            if (!characterMaster.gameObject.GetComponent<RimuruMasterController>())
+            if (!characterMaster.gameObject.GetComponent<DarthVaderMasterController>())
             {
-                Rimurumastercon = characterMaster.gameObject.AddComponent<RimuruMasterController>();
+                DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
             }
 
             characterBody.skillLocator.special.RemoveAllStocks();
@@ -118,7 +118,7 @@ namespace RimuruMod.Modules.Survivors
 
 
             //devour effect
-            if (characterBody.baseNameToken == RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUSLIME_BODY_NAME")
+            if (characterBody.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DarthVaderSLIME_BODY_NAME")
             {
                 if (characterBody.inputBank.skill1.down)
                 {

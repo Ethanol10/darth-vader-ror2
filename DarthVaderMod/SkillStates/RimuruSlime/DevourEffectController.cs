@@ -2,13 +2,13 @@
 using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
-using RimuruMod.Modules.Survivors;
+using DarthVaderMod.Modules.Survivors;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using System.Linq;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class DevourEffectController : MonoBehaviour
     {

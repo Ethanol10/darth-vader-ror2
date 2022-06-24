@@ -1,6 +1,6 @@
 ﻿using RoR2;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     public abstract class BaseMasteryUnlockable : GenericModdedUnlockable
     {

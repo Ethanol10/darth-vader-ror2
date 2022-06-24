@@ -2,9 +2,9 @@
 using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
-using RimuruMod.Modules.Characters;
+using DarthVaderMod.Modules.Characters;
 
-namespace RimuruMod.Modules {
+namespace DarthVaderMod.Modules {
     // module for creating body prefabs and whatnot
     // recommended to simply avoid touching this unless you REALLY need to
     // oh boy do I need to
@@ -96,7 +96,7 @@ namespace RimuruMod.Modules {
 
             bodyComponent.baseJumpCount = bodyInfo.jumpCount;
 
-            bodyComponent.sprintingSpeedMultiplier = 1.45f;
+            bodyComponent.sprintingSpeedMultiplier = 1.1f;
 
             bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
             bodyComponent.rootMotionInMainState = false;

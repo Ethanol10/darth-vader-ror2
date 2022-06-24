@@ -1,67 +1,69 @@
 ﻿using BepInEx.Configuration;
 using EntityStates;
-using RimuruMod.Modules.Characters;
+using DarthVaderMod.Modules.Characters;
 using RoR2;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RimuruMod.Modules.Survivors
+namespace DarthVaderMod.Modules.Survivors
 {
-    internal class RimuruHuman : SurvivorBase
+    internal class DarthVader : SurvivorBase
     {
-        public override string bodyName => "RimuruHuman";
+        public override string bodyName => "DarthVader";
 
-        public const string RIMURU_PREFIX = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
+        public const string DARTHVADER_PREFIX = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_";
         //used when registering your survivor's language tokens
-        public override string survivorTokenPrefix => RIMURU_PREFIX;
+        public override string survivorTokenPrefix => DARTHVADER_PREFIX;
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
-            bodyName = "RimuruHumanBody",
-            bodyNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_NAME",
-            subtitleNameToken = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURUHUMAN_BODY_SUBTITLE",
+            bodyName = "DarthVaderBody",
+            bodyNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME",
+            subtitleNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texRimuruIcon"),
+            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texDarthVaderIcon"),
             bodyColor = Color.cyan,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
-            maxHealth = 120f,
+            maxHealth = 377f,
             healthRegen = 1f,
             armor = 10f,
-            damage = 10f,
-            healthGrowth = 20f,
-            jumpCount = 2,
+            damage = 15f,
+            healthGrowth = 78f,
+            jumpCount = 1,
             moveSpeed = 7f,
+            jumpPower = 30f,
+            
         };
 
-        //internal static Material RimuruHumanMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("RimuruHumanMat");
-        internal static Material RimuruHumanMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
-        internal static Material RimuruHumanEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+        //internal static Material DarthVaderMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("DarthVaderMat");
+        internal static Material DarthVaderMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
+        internal static Material DarthVaderEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
-                new CustomRendererInfo
-                {
-                    childName = "Mask",
-                    material = RimuruHumanMat,
-                },
-                new CustomRendererInfo
-                {
-                    childName = "Wing",
-                    material = RimuruHumanMat,
-                },
-                new CustomRendererInfo
-                {
-                    childName = "Sword",
-                    material = RimuruHumanMat,
-                },
+                //new CustomRendererInfo
+                //{
+                //    childName = "Mask",
+                //    material = DarthVaderMat,
+                //},
+                //new CustomRendererInfo
+                //{
+                //    childName = "Wing",
+                //    material = DarthVaderMat,
+                //},
+                //new CustomRendererInfo
+                //{
+                //    childName = "Sword",
+                //    material = DarthVaderMat,
+                //},
                 new CustomRendererInfo
                 {
                     childName = "Model",
-                    material = RimuruHumanMat,
+                    material = DarthVaderMat,
                 }
         };
 
@@ -69,7 +71,7 @@ namespace RimuruMod.Modules.Survivors
 
         public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
 
-        public override ItemDisplaysBase itemDisplays => new RimuruItemDisplays();
+        public override ItemDisplaysBase itemDisplays => new DarthVaderItemDisplays();
 
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
         public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
@@ -79,9 +81,9 @@ namespace RimuruMod.Modules.Survivors
         public override void InitializeCharacter(bool isHidden)
         {
             base.InitializeCharacter(isHidden);
-            bodyPrefab.AddComponent<RimuruController>();
-            EntityStateMachine rimuruEntityStateMachine = bodyPrefab.GetComponent<EntityStateMachine>();
-            rimuruEntityStateMachine.initialStateType = new SerializableEntityStateType(typeof(SkillStates.BaseStates.SpawnState));
+            bodyPrefab.AddComponent<DarthVaderController>();
+            EntityStateMachine DarthVaderEntityStateMachine = bodyPrefab.GetComponent<EntityStateMachine>();
+            DarthVaderEntityStateMachine.initialStateType = new SerializableEntityStateType(typeof(SkillStates.BaseStates.SpawnState));
         }
 
         public override void InitializeUnlockables()
@@ -103,14 +105,14 @@ namespace RimuruMod.Modules.Survivors
         public override void InitializeSkills()
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
-            string prefix = RimuruPlugin.DEVELOPER_PREFIX;
+            string prefix = DarthVaderPlugin.DEVELOPER_PREFIX;
 
             #region Primary
             //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_RIMURU_BODY_PRIMARY_SLASH_NAME",
-                                                                                      prefix + "_RIMURU_BODY_PRIMARY_SLASH_DESCRIPTION",
+            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_NAME",
+                                                                                      prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.RimuruHumanPrimary)),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.DarthVaderPrimary)),
                                                                                       "Weapon",
                                                                                       true));
 
@@ -121,9 +123,9 @@ namespace RimuruMod.Modules.Survivors
             #region Secondary
             SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillName = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.BlackLightning)),
                 activationStateMachineName = "Slide",
@@ -150,9 +152,9 @@ namespace RimuruMod.Modules.Survivors
             #region Utility
             SkillDef spatialSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_UTILITY_ROLL_DESCRIPTION",
+                skillName = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.SpatialMovement)),
                 activationStateMachineName = "Slide",
@@ -178,11 +180,11 @@ namespace RimuruMod.Modules.Survivors
             #region Special
             SkillDef transformSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_RIMURU_BODY_SPECIAL_BOMB_DESCRIPTION",
+                skillName = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.TransformHuman)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Transform)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 4f,
@@ -219,7 +221,7 @@ namespace RimuruMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
-            Material defaultMat = Modules.Materials.CreateHopooMaterial("RimuruHumanMat");
+            Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
             Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
                 emptyMat,
@@ -228,7 +230,7 @@ namespace RimuruMod.Modules.Survivors
                 defaultMat,
 
             });
-            SkinDef defaultSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_DEFAULT_SKIN_NAME",
+            SkinDef defaultSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
                 defaultRendererInfo,
                 mainRenderer,
@@ -240,22 +242,22 @@ namespace RimuruMod.Modules.Survivors
                 //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMaskMesh"),
                     renderer = defaultRendererInfo[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderWingMesh"),
                     renderer = defaultRendererInfo[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderSwordMesh"),
                     renderer = defaultRendererInfo[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
                     renderer = defaultRendererInfo[3].renderer
                 }
             };
@@ -271,7 +273,7 @@ namespace RimuruMod.Modules.Survivors
                 defaultMat,
                 defaultMat,
             });
-            SkinDef maskedSkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASKED_SKIN_NAME",
+            SkinDef maskedSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_MASKED_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
                 maskedrendererInfos,
                 mainRenderer,
@@ -283,22 +285,22 @@ namespace RimuruMod.Modules.Survivors
                 //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruMaskMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMaskMesh"),
                     renderer = maskedrendererInfos[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruWingMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderWingMesh"),
                     renderer = maskedrendererInfos[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruSwordMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderSwordMesh"),
                     renderer = maskedrendererInfos[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("RimuruHumanMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
                     renderer = maskedrendererInfos[3].renderer
                 }
             };
@@ -308,7 +310,7 @@ namespace RimuruMod.Modules.Survivors
             //uncomment this when you have a mastery skin
             #region MasterySkin
 
-            //Material masteryMat = Modules.Materials.CreateHopooMaterial("matRimuruAlt");
+            //Material masteryMat = Modules.Materials.CreateHopooMaterial("matDarthVaderAlt");
             //CharacterModel.RendererInfo[] masteryRendererInfos = SkinRendererInfos(defaultRenderers, new Material[]
             //{
             //    masteryMat,
@@ -317,7 +319,7 @@ namespace RimuruMod.Modules.Survivors
             //    masteryMat
             //});
 
-            //SkinDef masterySkin = Modules.Skins.CreateSkinDef(RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_MASTERY_SKIN_NAME",
+            //SkinDef masterySkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_MASTERY_SKIN_NAME",
             //    Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
             //    masteryRendererInfos,
             //    mainRenderer,
@@ -328,12 +330,12 @@ namespace RimuruMod.Modules.Survivors
             //{
             //    new SkinDef.MeshReplacement
             //    {
-            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruSwordAlt"),
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshDarthVaderSwordAlt"),
             //        renderer = defaultRenderers[0].renderer
             //    },
             //    new SkinDef.MeshReplacement
             //    {
-            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshRimuruAlt"),
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("meshDarthVaderAlt"),
             //        renderer = defaultRenderers[2].renderer
             //    }
             //};

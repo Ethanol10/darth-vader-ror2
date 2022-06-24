@@ -5,7 +5,7 @@ using RoR2.Projectile;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     internal static class Projectiles
     {
@@ -27,7 +27,7 @@ namespace RimuruMod.Modules
         
         //private static void CreateBomb()
         //{
-        //    bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "RimuruBombProjectile");
+        //    bombPrefab = CloneProjectilePrefab("CommandoGrenadeProjectile", "DarthVaderBombProjectile");
 
         //    ProjectileImpactExplosion bombImpactExplosion = bombPrefab.GetComponent<ProjectileImpactExplosion>();
         //    InitializeImpactExplosion(bombImpactExplosion);
@@ -36,12 +36,12 @@ namespace RimuruMod.Modules
         //    bombImpactExplosion.destroyOnEnemy = true;
         //    bombImpactExplosion.lifetime = 12f;
         //    bombImpactExplosion.impactEffect = Modules.Assets.bombExplosionEffect;
-        //    //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("RimuruBombExplosion");
+        //    //bombImpactExplosion.lifetimeExpiredSound = Modules.Assets.CreateNetworkSoundEventDef("DarthVaderBombExplosion");
         //    bombImpactExplosion.timerAfterImpact = true;
         //    bombImpactExplosion.lifetimeAfterImpact = 0.1f;
 
         //    ProjectileController bombController = bombPrefab.GetComponent<ProjectileController>();
-        //    if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("RimuruBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("RimuruBombGhost");
+        //    if (Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DarthVaderBombGhost") != null) bombController.ghostPrefab = CreateGhostPrefab("DarthVaderBombGhost");
         //    bombController.startSound = "";
         //}
 

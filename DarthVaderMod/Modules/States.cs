@@ -1,7 +1,7 @@
-﻿using RimuruMod.SkillStates;
-using RimuruMod.SkillStates.BaseStates;
+﻿using DarthVaderMod.SkillStates;
+using DarthVaderMod.SkillStates.BaseStates;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     public static class States
     {
@@ -14,14 +14,14 @@ namespace RimuruMod.Modules
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
             Modules.Content.AddEntityState(typeof(DashAttack));
             Modules.Content.AddEntityState(typeof(DashAttackExit));
-            Modules.Content.AddEntityState(typeof(RimuruHumanPrimary));
+            Modules.Content.AddEntityState(typeof(DarthVaderPrimary));
             Modules.Content.AddEntityState(typeof(SlashCombo));
 
             Modules.Content.AddEntityState(typeof(BlackLightning));
 
             Modules.Content.AddEntityState(typeof(SpatialMovement));
 
-            Modules.Content.AddEntityState(typeof(TransformHuman));
+            Modules.Content.AddEntityState(typeof(Transform));
             Modules.Content.AddEntityState(typeof(TransformSlime));
 
             Modules.Content.AddEntityState(typeof(Waterblade));

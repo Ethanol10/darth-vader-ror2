@@ -1,14 +1,14 @@
-﻿using RimuruMod.Modules.Survivors;
-using RimuruMod.SkillStates.BaseStates;
+﻿using DarthVaderMod.Modules.Survivors;
+using DarthVaderMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class SlashCombo : BaseMeleeAttack
     {
-        public RimuruController Rimurucon;
-        public RimuruMasterController Rimurumastercon;
+        public DarthVaderController DarthVadercon;
+        public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
         public override void OnEnter()
         {
@@ -31,7 +31,7 @@ namespace RimuruMod.SkillStates
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;
 
-            this.swingSoundString = "RimuruSwordSwing";
+            this.swingSoundString = "DarthVaderSwordSwing";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
@@ -39,11 +39,11 @@ namespace RimuruMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
-            Rimurucon = base.GetComponent<RimuruController>();
-            Rimurumastercon = characterBody.master.gameObject.GetComponent<RimuruMasterController>();
-            if (Rimurucon && base.isAuthority)
+            DarthVadercon = base.GetComponent<DarthVaderController>();
+            DarthVadermastercon = characterBody.master.gameObject.GetComponent<DarthVaderMasterController>();
+            if (DarthVadercon && base.isAuthority)
             {
-                Target = Rimurucon.GetTrackingTarget();
+                Target = DarthVadercon.GetTrackingTarget();
             }
             base.OnEnter();
         }

@@ -3,7 +3,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class TransformSlime : BaseSkillState
     {
@@ -15,7 +15,7 @@ namespace RimuruMod.SkillStates
             base.OnEnter();
             oldBody = base.characterBody;
             oldHealth = oldBody.healthComponent.health;
-            characterBody.master.TransformBody("RimuruHumanBody");
+            characterBody.master.TransformBody("DarthVaderBody");
         }
 
 

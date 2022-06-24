@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RimuruMod.Modules.Characters
+namespace DarthVaderMod.Modules.Characters
 {
-    internal class RimuruItemDisplays : ItemDisplaysBase
+    internal class DarthVaderItemDisplays : ItemDisplaysBase
     {
         protected override void SetItemDisplayRules(List<ItemDisplayRuleSet.KeyAssetRuleGroup> itemDisplayRules)
         {

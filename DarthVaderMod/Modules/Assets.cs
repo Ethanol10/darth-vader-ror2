@@ -10,7 +10,7 @@ using System;
 using UnityEngine.AddressableAssets;
 using RoR2.Projectile;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     internal static class Assets
     {
@@ -40,9 +40,9 @@ namespace RimuruMod.Modules
         private static string[] assetNames = new string[0];
 
         // CHANGE THIS
-        private const string assetbundleName = "RimuruAssetBundle";
+        private const string assetbundleName = "DarthVaderAssetBundle";
         //change this to your project's name if/when you've renamed it
-        private const string csProjName = "RimuruTempestMod";
+        private const string csProjName = "DarthVaderTempestMod";
 
         //Materials
         public static Material SpatialMovementBuffMaterial;
@@ -119,7 +119,7 @@ namespace RimuruMod.Modules
         internal static void LoadSoundbank()
         {                                                                
             //soundbank currently broke, but this is how you should load yours
-            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.RimuruBank.bnk"))
+            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.DarthVaderBank.bnk"))
             {
                 byte[] array = new byte[manifestResourceStream2.Length];
                 manifestResourceStream2.Read(array, 0, array.Length);
@@ -179,7 +179,7 @@ namespace RimuruMod.Modules
             //}
 
             swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
-            swordHitImpactEffect = Assets.LoadEffect("ImpactRimuruSlash");
+            swordHitImpactEffect = Assets.LoadEffect("ImpactDarthVaderSlash");
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

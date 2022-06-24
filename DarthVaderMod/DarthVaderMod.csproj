@@ -14,10 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Modules\Characters\Rimuru.cs~RF6221a098.TMP" />
-    <None Remove="RimuruAssetBundle" />
-    <None Remove="RimuruBank.bnk" />
-  </ItemGroup>
+    <None Remove="DarthVaderAssetBundle" />
+    <None Remove="DarthVaderBank.bnk" />
+    <None Remove="Modules\Characters\DarthVader.cs~RF6221a098.TMP" />
+DarthVaderDarthVader  </ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
@@ -30,8 +30,8 @@
 	</ItemGroup>
 	
   <ItemGroup>
-    <EmbeddedResource Include="RimuruBank.bnk" />
-    <EmbeddedResource Include="RimuruAssetBundle" />
+    <EmbeddedResource Include="DarthVaderBankDarthVader.bnk" />
+    <EmbeddedResource Include="DarthVaderAssetBundleDarthVader" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     internal class ContentPacks : IContentPackProvider
     {
         internal ContentPack contentPack = new ContentPack();
-        public string identifier => RimuruPlugin.MODUID;
+        public string identifier => DarthVaderPlugin.MODUID;
 
         public static List<GameObject> bodyPrefabs = new List<GameObject>();
         public static List<GameObject> masterPrefabs = new List<GameObject>();

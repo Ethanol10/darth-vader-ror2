@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using R2API;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     public abstract class GenericModdedUnlockable : ModdedUnlockable
     {

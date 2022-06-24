@@ -1,16 +1,16 @@
 ﻿using EntityStates;
 using RoR2;
 using UnityEngine;
-using RimuruMod.Modules.Survivors;
+using DarthVaderMod.Modules.Survivors;
 using UnityEngine.Networking;
 using RoR2.Audio;
 using static RoR2.BulletAttack;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
     public class BlackLightning : BaseSkillState
     {
-        public RimuruController Rimurucon;
+        public DarthVaderController DarthVadercon;
         private DamageType damageType;
         private Ray aimRay;
 
@@ -44,7 +44,7 @@ namespace RimuruMod.SkillStates
             fireInterval = basefireInterval / attackSpeedStat;
 
             damageType = DamageType.Shock5s;
-            Rimurucon = gameObject.GetComponent<RimuruController>();
+            DarthVadercon = gameObject.GetComponent<DarthVaderController>();
 
 
             this.animator = base.GetModelAnimator();

@@ -5,7 +5,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RimuruMod.SkillStates.BaseStates
+namespace DarthVaderMod.SkillStates.BaseStates
 {
     public class SpawnState : BaseSkillState
     {

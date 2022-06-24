@@ -1,16 +1,16 @@
 ﻿using R2API;
 using System;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     internal static class Tokens
     {
         internal static void AddTokens()
         {
-            #region Rimuru
-            string prefix = RimuruPlugin.DEVELOPER_PREFIX + "_RIMURU_BODY_";
+            #region DarthVader
+            string prefix = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_";
 
-            string desc = "Rimuru is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
+            string desc = "DarthVader is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
@@ -19,7 +19,7 @@ namespace RimuruMod.Modules
             string outro = "..and so he left, searching for a new identity.";
             string outroFailure = "..and so he vanished, forever a blank slate.";
 
-            LanguageAPI.Add(prefix + "NAME", "Rimuru");
+            LanguageAPI.Add(prefix + "NAME", "DarthVader");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
             LanguageAPI.Add(prefix + "SUBTITLE", "The Chosen One");
             LanguageAPI.Add(prefix + "LORE", "sample lore");
@@ -32,7 +32,7 @@ namespace RimuruMod.Modules
             #endregion
 
             #region Passive
-            LanguageAPI.Add(prefix + "PASSIVE_NAME", "Rimuru passive");
+            LanguageAPI.Add(prefix + "PASSIVE_NAME", "DarthVader passive");
             LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Sample text.");
             #endregion
 
@@ -57,9 +57,9 @@ namespace RimuruMod.Modules
             #endregion
 
             #region Achievements
-            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_NAME", "Rimuru: Mastery");
-            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_DESC", "As Rimuru, beat the game or obliterate on Monsoon.");
-            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_UNLOCKABLE_NAME", "Rimuru: Mastery");
+            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_NAME", "DarthVader: Mastery");
+            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_DESC", "As DarthVader, beat the game or obliterate on Monsoon.");
+            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_UNLOCKABLE_NAME", "DarthVader: Mastery");
             #endregion
             #endregion
         }

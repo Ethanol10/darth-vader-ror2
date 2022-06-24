@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     internal static class Helpers
     {

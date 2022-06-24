@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RimuruMod.Modules
+namespace DarthVaderMod.Modules
 {
     internal static class StaticValues
     {

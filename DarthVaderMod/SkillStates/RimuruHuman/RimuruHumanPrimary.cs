@@ -1,23 +1,23 @@
 ﻿using EntityStates;
-using RimuruMod.Modules.Survivors;
-using RimuruMod.SkillStates.BaseStates;
+using DarthVaderMod.Modules.Survivors;
+using DarthVaderMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
 
-namespace RimuruMod.SkillStates
+namespace DarthVaderMod.SkillStates
 {
-    public class RimuruHumanPrimary : BaseSkillState
+    public class DarthVaderPrimary : BaseSkillState
     {
-        public RimuruController Rimurucon;
-        public RimuruMasterController Rimurumastercon;
+        public DarthVaderController DarthVadercon;
+        public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
         public override void OnEnter()
         {
-            Rimurucon = base.GetComponent<RimuruController>();
-            Rimurumastercon = characterBody.master.gameObject.GetComponent<RimuruMasterController>();
-            if (Rimurucon && base.isAuthority)
+            DarthVadercon = base.GetComponent<DarthVaderController>();
+            DarthVadermastercon = characterBody.master.gameObject.GetComponent<DarthVaderMasterController>();
+            if (DarthVadercon && base.isAuthority)
             {
-                Target = Rimurucon.GetTrackingTarget();
+                Target = DarthVadercon.GetTrackingTarget();
             }
 
             if(Target)

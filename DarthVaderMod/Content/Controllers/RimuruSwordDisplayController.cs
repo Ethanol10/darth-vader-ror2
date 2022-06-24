@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace RimuruMod.Modules.Survivors
+namespace DarthVaderMod.Modules.Survivors
 {
-    internal class RimuruSwordDisplayController : MonoBehaviour
+    internal class DarthVaderSwordDisplayController : MonoBehaviour
     {
         public Transform swordTargetTransform;
         public Transform swordTransform;
