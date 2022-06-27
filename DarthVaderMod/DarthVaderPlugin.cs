@@ -61,7 +61,6 @@ namespace DarthVaderMod
 
             // survivor initialization
             new DarthVader().Initialize(false);
-            new DarthVaderSlime().Initialize(true);
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
@@ -74,7 +73,6 @@ namespace DarthVaderMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
-            On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
@@ -86,29 +84,6 @@ namespace DarthVaderMod
 
 
 
-        //swordPosition
-        private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
-        {
-            orig(self);
-            if (self.gameObject.name.Contains("DarthVaderDisplay"))
-            {
-                DarthVaderSwordDisplayController displayHandler = self.gameObject.GetComponent<DarthVaderSwordDisplayController>();
-                if (!displayHandler)
-                {
-                    ChildLocator childLoc = self.gameObject.GetComponent<ChildLocator>();
-
-                    if (childLoc)
-                    {
-                        Transform swordMesh = childLoc.FindChild("SwordMeshPosition");
-                        Transform swordsheatheTrans = childLoc.FindChild("SwordPosition");
-
-                        displayHandler = self.gameObject.AddComponent<DarthVaderSwordDisplayController>();
-                        displayHandler.swordTargetTransform = swordsheatheTrans;
-                        displayHandler.swordTransform = swordMesh;
-                    }
-                }
-            }
-        }
 
         //EMOTES
         private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
@@ -263,25 +238,7 @@ namespace DarthVaderMod
             {
                 self.damage *= 1.5f;
             }
-            if (self.HasBuff(Modules.Buffs.CritDebuff))
-            {
-                AnalyzeEffectController analyzecontroller = self.gameObject.GetComponent<AnalyzeEffectController>();
-                if (!analyzecontroller)
-                {
-                    analyzecontroller = self.gameObject.AddComponent<AnalyzeEffectController>();
-                    analyzecontroller.charbody = self;
-                }
-            }
-            if (self.HasBuff(Modules.Buffs.WetDebuff))
-            {
-                WetEffectController wetcontroller = self.gameObject.GetComponent<WetEffectController>();
-                if (!wetcontroller)
-                {
-                    wetcontroller = self.gameObject.AddComponent<WetEffectController>();
-                    wetcontroller.charbody = self;
-                }
-            }
-                
+                          
 
             
         }

@@ -14,11 +14,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DarthVader.bnk" />
     <None Remove="DarthVaderAssetBundle" />
     <None Remove="DarthVaderBank.bnk" />
     <None Remove="Modules\Characters\DarthVader.cs~RF6221a098.TMP" />
-DarthVaderDarthVader  </ItemGroup>
-
+  </ItemGroup>
+	
+    <ItemGroup>
+		<EmbeddedResource Include="DarthVaderBank.bnk" />
+		<EmbeddedResource Include="DarthVaderAssetBundle" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
 			<PrivateAssets>all</PrivateAssets>
@@ -28,21 +34,16 @@ DarthVaderDarthVader  </ItemGroup>
 		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.4-r.0" />
 		<PackageReference Include="UnityEngine.Modules" Version="2019.4.26" />
 	</ItemGroup>
-	
-  <ItemGroup>
-    <EmbeddedResource Include="DarthVaderBankDarthVader.bnk" />
-    <EmbeddedResource Include="DarthVaderAssetBundleDarthVader" />
-  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="CustomEmotesAPI">
       <HintPath>..\libs\CustomEmotesAPI.dll</HintPath>
     </Reference>
-    <Reference Include="R2API">
-      <HintPath>..\libs\R2API.dll</HintPath>
-    </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
+    </Reference>
+    <Reference Include="R2API">
+      <HintPath>bin\Debug\netstandard2.0\R2API.dll</HintPath>
     </Reference>
   </ItemGroup>
 

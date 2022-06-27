@@ -23,7 +23,8 @@ namespace DarthVaderMod.SkillStates.BaseStates
         protected float attackStartTime = 0.2f;
         protected float attackEndTime = 0.4f;
         protected float baseEarlyExitTime = 0.4f;
-        protected float hitStopDuration = 0.012f;
+        //protected float hitStopDuration = 0.012f;
+        protected float hitStopDuration = EntityStates.Merc.Weapon.GroundLight2.comboFinisherhitPauseDuration;
         protected float attackRecoil = 0.75f;
         protected float hitHopVelocity = 10f;
         protected bool cancelled = false;
@@ -89,7 +90,7 @@ namespace DarthVaderMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            base.PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+            base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
         }
 
         public override void OnExit()

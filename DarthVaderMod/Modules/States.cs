@@ -9,7 +9,6 @@ namespace DarthVaderMod.Modules
         {
             Modules.Content.AddEntityState(typeof(SpawnState));
 
-            Modules.Content.AddEntityState(typeof(Devour));
 
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
             Modules.Content.AddEntityState(typeof(DashAttack));
@@ -21,10 +20,6 @@ namespace DarthVaderMod.Modules
 
             Modules.Content.AddEntityState(typeof(SpatialMovement));
 
-            Modules.Content.AddEntityState(typeof(Transform));
-            Modules.Content.AddEntityState(typeof(TransformSlime));
-
-            Modules.Content.AddEntityState(typeof(Waterblade));
         }
     }
 }

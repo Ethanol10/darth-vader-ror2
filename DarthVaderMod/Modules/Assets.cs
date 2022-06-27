@@ -42,7 +42,7 @@ namespace DarthVaderMod.Modules
         // CHANGE THIS
         private const string assetbundleName = "DarthVaderAssetBundle";
         //change this to your project's name if/when you've renamed it
-        private const string csProjName = "DarthVaderTempestMod";
+        private const string csProjName = "DarthVaderMod";
 
         //Materials
         public static Material SpatialMovementBuffMaterial;
@@ -138,45 +138,45 @@ namespace DarthVaderMod.Modules
             // feel free to delete everything in here and load in your own assets instead
             // it should work fine even if left as is- even if the assets aren't in the bundle
 
-            //SpatialMovementBuff effect
-            SpatialMovementBuffMaterial = mainAssetBundle.LoadAsset<Material>("SpatialMovementMat");
+            ////SpatialMovementBuff effect
+            //SpatialMovementBuffMaterial = mainAssetBundle.LoadAsset<Material>("SpatialMovementMat");
 
-            //blacklightning beam effect
-            blacklightning = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("BlackLightning");
-            blacklightning.AddComponent<NetworkIdentity>();
-            networkObjDefs.Add(blacklightning);
-            PrefabAPI.RegisterNetworkPrefab(blacklightning);
-            //blacklightningimpact effect
-            blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
-            //devour effect
-            devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
-            devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourSkillGet");
-            //analyze effect
-            analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
-            //waterblade impact effect
-            waterbladeimpactEffect = LoadEffect("WaterBladeImpact");
-            //wet effect
-            wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
+            ////blacklightning beam effect
+            //blacklightning = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("BlackLightning");
+            //blacklightning.AddComponent<NetworkIdentity>();
+            //networkObjDefs.Add(blacklightning);
+            //PrefabAPI.RegisterNetworkPrefab(blacklightning);
+            ////blacklightningimpact effect
+            //blacklightningimpactEffect = LoadEffect("BlackLightningImpact");
+            ////devour effect
+            //devourEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Devour");
+            //devourskillgetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("DevourSkillGet");
+            ////analyze effect
+            //analyzeEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Analyze");
+            ////waterblade impact effect
+            //waterbladeimpactEffect = LoadEffect("WaterBladeImpact");
+            ////wet effect
+            //wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
 
-            swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
+            //swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
-            //bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
+            ////bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
 
-            //if (bombExplosionEffect)
-            //{
-            //    ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
-            //    shakeEmitter.amplitudeTimeDecay = true;
-            //    shakeEmitter.duration = 0.5f;
-            //    shakeEmitter.radius = 200f;
-            //    shakeEmitter.scaleShakeRadiusWithLocalScale = false;
+            ////if (bombExplosionEffect)
+            ////{
+            ////    ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
+            ////    shakeEmitter.amplitudeTimeDecay = true;
+            ////    shakeEmitter.duration = 0.5f;
+            ////    shakeEmitter.radius = 200f;
+            ////    shakeEmitter.scaleShakeRadiusWithLocalScale = false;
 
-            //    shakeEmitter.wave = new Wave
-            //    {
-            //        amplitude = 1f,
-            //        frequency = 40f,
-            //        cycleOffset = 0f
-            //    };
-            //}
+            ////    shakeEmitter.wave = new Wave
+            ////    {
+            ////        amplitude = 1f,
+            ////        frequency = 40f,
+            ////        cycleOffset = 0f
+            ////    };
+            ////}
 
             swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactDarthVaderSlash");

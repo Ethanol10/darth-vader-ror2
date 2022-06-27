@@ -112,7 +112,7 @@ namespace DarthVaderMod.Modules.Survivors
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.DarthVaderPrimary)),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
                                                                                       "Weapon",
                                                                                       true));
 
@@ -184,7 +184,7 @@ namespace DarthVaderMod.Modules.Survivors
                 skillNameToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
                 skillDescriptionToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Transform)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 4f,
