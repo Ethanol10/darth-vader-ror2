@@ -5,7 +5,7 @@ namespace DarthVaderMod.Modules
     internal static class StaticValues
     {
         //melee attacks
-        internal const float swordDamageCoefficient = 2f;
+        internal const float swordDamageCoefficient = 3.5f;
         internal const float devourDamageCoefficient = 1f;
 
         //blacklightning

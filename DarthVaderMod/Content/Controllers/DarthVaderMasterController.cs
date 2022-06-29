@@ -71,7 +71,7 @@ namespace DarthVaderMod.Modules.Survivors
 		public void Awake()
 		{
 
-			On.RoR2.CharacterBody.Start += CharacterBody_Start;
+			//On.RoR2.CharacterBody.Start += CharacterBody_Start;
 			alloyvulture = false;
 			 alphacontruct = false;
 			 beetle = false;
@@ -116,10 +116,10 @@ namespace DarthVaderMod.Modules.Survivors
 
 		}
 
-		public void OnDestroy()
-		{
-			On.RoR2.CharacterBody.Start -= CharacterBody_Start;
-		}
+		//public void OnDestroy()
+		//{
+		//	On.RoR2.CharacterBody.Start -= CharacterBody_Start;
+		//}
 
 		public void Start()
 		{
@@ -172,25 +172,6 @@ namespace DarthVaderMod.Modules.Survivors
 			xiconstruct = false;
 		}
 
-
-		public void CharacterBody_Start(On.RoR2.CharacterBody.orig_Start orig, CharacterBody self)
-		{
-			orig.Invoke(self);
-
-
-			if (self.master.gameObject.GetComponent<DarthVaderMasterController>())
-            {
-				if(beetle == true)
-                {
-					self.AddBuff(Modules.Buffs.BeetleBuff);
-                }
-				if(lemurian == true)
-                {
-					self.AddBuff(Modules.Buffs.LemurianBuff);
-                }
-
-            }
-        }
 
 
 		public void FixedUpdate()

@@ -101,18 +101,18 @@ namespace DarthVaderMod
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
 
-            if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
-            {
-                //crit buff
-                if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
-                {
-                    if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-                    {
-                        damageInfo.crit = true;
+            //if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+            //{
+            //    //crit buff
+            //    if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
+            //    {
+            //        if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
+            //        {
+            //            damageInfo.crit = true;
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
 
             orig.Invoke(self, damageInfo);
         }
@@ -127,14 +127,14 @@ namespace DarthVaderMod
         {
             orig(self);
 
-            if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
-            {
-                self.armor += 300f;
-            }
-            if (self.HasBuff(Modules.Buffs.BeetleBuff))
-            {
-                self.damage *= 1.5f;
-            }
+            //if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
+            //{
+            //    self.armor += 300f;
+            //}
+            //if (self.HasBuff(Modules.Buffs.BeetleBuff))
+            //{
+            //    self.damage *= 1.5f;
+            //}
                           
 
             

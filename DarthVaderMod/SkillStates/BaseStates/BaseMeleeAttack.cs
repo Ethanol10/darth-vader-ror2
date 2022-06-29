@@ -23,10 +23,9 @@ namespace DarthVaderMod.SkillStates.BaseStates
         protected float attackStartTime = 0.2f;
         protected float attackEndTime = 0.4f;
         protected float baseEarlyExitTime = 0.4f;
-        //protected float hitStopDuration = 0.012f;
-        protected float hitStopDuration = EntityStates.Merc.Weapon.GroundLight2.comboFinisherhitPauseDuration;
+        protected float hitStopDuration = 0.012f;
         protected float attackRecoil = 0.75f;
-        protected float hitHopVelocity = 10f;
+        protected float hitHopVelocity = 4f;
         protected bool cancelled = false;
 
         protected string swingSoundString = "";
@@ -48,20 +47,17 @@ namespace DarthVaderMod.SkillStates.BaseStates
         private BaseState.HitStopCachedState hitStopCachedState;
         private Vector3 storedVelocity;
 
-        public DarthVaderController DarthVadercon;
-
         public override void OnEnter()
         {
             base.OnEnter();
-
             this.duration = this.baseDuration / this.attackSpeedStat;
             this.earlyExitTime = this.baseEarlyExitTime / this.attackSpeedStat;
             this.hasFired = false;
             this.animator = base.GetModelAnimator();
-            Ray aimray = base.GetAimRay();
-            base.characterBody.SetAimTimer(0.5f + this.duration);
+            base.StartAimMode(0.5f + this.duration, false);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
+            this.animator.SetFloat("Slash.playbackRate", attackSpeedStat);
 
             HitBoxGroup hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
@@ -115,7 +111,7 @@ namespace DarthVaderMod.SkillStates.BaseStates
             {
                 if (base.characterMotor && !base.characterMotor.isGrounded && this.hitHopVelocity > 0f)
                 {
-                    base.SmallHop(base.characterMotor, this.hitHopVelocity/attackSpeedStat);
+                    base.SmallHop(base.characterMotor, this.hitHopVelocity);
                 }
 
                 this.hasHopped = true;
@@ -227,4 +223,6 @@ namespace DarthVaderMod.SkillStates.BaseStates
             this.swingIndex = reader.ReadInt32();
         }
     }
+
+
 }

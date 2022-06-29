@@ -24,11 +24,11 @@ namespace DarthVaderMod.SkillStates
             this.attackStartTime = 0.2f;
             this.attackEndTime = 0.4f;
             this.baseEarlyExitTime = 0.4f;
-            this.hitStopDuration = EntityStates.Merc.Weapon.GroundLight2.comboFinisherhitPauseDuration;
+            this.hitStopDuration = 0.08f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;
 
-            this.swingSoundString = "DarthVaderSwordSwing";
+            this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
@@ -36,12 +36,6 @@ namespace DarthVaderMod.SkillStates
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
-            DarthVadercon = base.GetComponent<DarthVaderController>();
-            DarthVadermastercon = characterBody.master.gameObject.GetComponent<DarthVaderMasterController>();
-            if (DarthVadercon && base.isAuthority)
-            {
-                Target = DarthVadercon.GetTrackingTarget();
-            }
             base.OnEnter();
         }
 

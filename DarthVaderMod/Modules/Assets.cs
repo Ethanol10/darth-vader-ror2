@@ -158,7 +158,7 @@ namespace DarthVaderMod.Modules
             ////wet effect
             //wetEffect = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WetEffect");
 
-            //swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
+            swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
             ////bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
 
