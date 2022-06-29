@@ -76,10 +76,10 @@ namespace DarthVaderMod
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
-            if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
-            {
-                On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
-            }
+            //if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
+            //{
+            //    On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
+            //}
         }
 
 
@@ -127,18 +127,42 @@ namespace DarthVaderMod
         {
             orig(self);
 
-            //if (self.HasBuff(Modules.Buffs.SpatialMovementBuff))
-            //{
-            //    self.armor += 300f;
-            //}
-            //if (self.HasBuff(Modules.Buffs.BeetleBuff))
-            //{
-            //    self.damage *= 1.5f;
-            //}
-                          
+            if(self.baseNameToken == "DarthVaderBody")
+            {
+                if (self.HasBuff(Modules.Buffs.RageBuff))
+                {
+                    self.moveSpeed *= 2f;
+                    self.attackSpeed *= 2f;
+                    self.armor *= 2f;
+                    self.damage += (self.moveSpeed / 5f) * (self.attackSpeed);
+                    self.skillLocator.secondary.cooldownScale = 0f;
+                    self.skillLocator.secondary.flatCooldownReduction = 1f;
+                    self.skillLocator.utility.cooldownScale = 0f;
+                    self.skillLocator.utility.flatCooldownReduction = 1f;
 
-            
+                }
+                else
+                {
+                    float currentmovespeed = self.moveSpeed;
+                    if (currentmovespeed > 5f)
+                    {
+                        self.moveSpeed = 5f;
+                        float movespeedbonus = currentmovespeed / 5f;
+                        self.damage += movespeedbonus;
+                    }
+                    float currentattackspeed = self.attackSpeed;
+                    if (currentattackspeed > 1f)
+                    {
+                        self.attackSpeed = 1f;
+                        float attackspeedbonus = currentattackspeed / 1f;
+                        self.damage += attackspeedbonus;
+                    }
+                }
+
+            }
+                        
         }
+
         //private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
         //{
         //    orig(self);

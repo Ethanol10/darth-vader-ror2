@@ -7,22 +7,11 @@ namespace DarthVaderMod.Modules
     public static class Buffs
     {
         // spatialmovement armor buff 
-        internal static BuffDef SpatialMovementBuff;
-        internal static BuffDef CritDebuff;
-        internal static BuffDef WetLightningDebuff;
-        internal static BuffDef WetDebuff;
-        internal static BuffDef BeetleBuff;
-        internal static BuffDef LemurianBuff;
+        internal static BuffDef RageBuff;
 
         internal static void RegisterBuffs()
         {
-            SpatialMovementBuff = AddNewBuff("SpatialMovementBuff", Assets.shieldBuffIcon, Color.cyan, false, false);
-            CritDebuff = AddNewBuff("CritDebuff", Assets.critBuffIcon, Color.red, false, true);
-            WetLightningDebuff = AddNewBuff("WetLightningDebuff", Assets.lightningBuffIcon, Color.magenta, false, true);
-            WetDebuff = AddNewBuff("Wet Debuff", Assets.bleedBuffIcon, Color.cyan, false, true);
-
-            BeetleBuff = AddNewBuff("BeetleBuff", Assets.boostBuffIcon, Color.gray, false, false);
-            LemurianBuff = AddNewBuff("LemurianBuff", Assets.fireBuffIcon, Color.red, false, false);
+            RageBuff = AddNewBuff("RageBuff", Assets.lightningBuffIcon, Color.red, false, false);
         }
 
         // simple helper method

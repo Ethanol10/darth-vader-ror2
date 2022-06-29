@@ -13,10 +13,8 @@ namespace DarthVaderMod.Modules
             Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
 
             Modules.Content.AddEntityState(typeof(SlashCombo));
-
-            Modules.Content.AddEntityState(typeof(BlackLightning));
-
-            Modules.Content.AddEntityState(typeof(SpatialMovement));
+            Modules.Content.AddEntityState(typeof(Force));
+            Modules.Content.AddEntityState(typeof(RageMode));
 
         }
     }

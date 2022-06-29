@@ -96,7 +96,7 @@ namespace DarthVaderMod.Modules {
 
             bodyComponent.baseJumpCount = bodyInfo.jumpCount;
 
-            bodyComponent.sprintingSpeedMultiplier = 1.1f;
+            bodyComponent.sprintingSpeedMultiplier = 1.05f;
 
             bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
             bodyComponent.rootMotionInMainState = false;

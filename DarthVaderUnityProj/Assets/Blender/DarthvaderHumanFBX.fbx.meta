@@ -51,6 +51,51 @@ ModelImporter:
   - first:
       74: 4894558884484699278
     second: DarthVaderArm|ForceStart
+  - first:
+      74: -8312538846858333772
+    second: T-Pose
+  - first:
+      74: -3100369314251171874
+    second: Idle
+  - first:
+      74: 2667949614841947897
+    second: Walk
+  - first:
+      74: -5844436334145418954
+    second: DarthVaderArmAction
+  - first:
+      74: -3572175820087439787
+    second: EntranceLoop
+  - first:
+      74: 4180754459679680660
+    second: SwordSwing1
+  - first:
+      74: -6056684316017226051
+    second: SwordSwing2
+  - first:
+      74: 2533084633960196105
+    second: ForcePush
+  - first:
+      74: 1898457893673534307
+    second: ForcePush.001
+  - first:
+      74: -1500354584072067147
+    second: Falling
+  - first:
+      74: -5477205817525420928
+    second: Deflect
+  - first:
+      74: -3446427082998515012
+    second: ForceStart
+  - first:
+      74: -5509788093068647497
+    second: Entrance
+  - first:
+      74: 5539831331247536789
+    second: Jump
+  - first:
+      74: 7570766408031542076
+    second: ForcePull
   externalObjects: {}
   materials:
     materialImportMode: 1

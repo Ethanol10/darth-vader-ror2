@@ -24,7 +24,7 @@ namespace DarthVaderMod.SkillStates
             this.attackStartTime = 0.2f;
             this.attackEndTime = 0.4f;
             this.baseEarlyExitTime = 0.4f;
-            this.hitStopDuration = 0.08f;
+            this.hitStopDuration = EntityStates.Merc.GroundLight.hitPauseDuration;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;
 
