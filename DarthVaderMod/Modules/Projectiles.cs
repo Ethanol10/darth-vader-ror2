@@ -10,13 +10,13 @@ namespace DarthVaderMod.Modules
     internal static class Projectiles
     {
         //internal static GameObject bombPrefab;
-        internal static GameObject waterbladeProjectile;
+        //internal static GameObject waterbladeProjectile;
 
         internal static void RegisterProjectiles()
         {
             //CreateBomb();
-            CreateWaterBlade();
-            AddProjectile(waterbladeProjectile);
+            //CreateWaterBlade();
+            //AddProjectile(waterbladeProjectile);
             //AddProjectile(bombPrefab);
         }
 
@@ -46,30 +46,30 @@ namespace DarthVaderMod.Modules
         //}
 
 
-        private static void CreateWaterBlade() 
-        {
-            waterbladeProjectile = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
-            // Ensure that the child is set in the right position in Unity!!!!
-            Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(0), "waterblade");
-            waterbladeProjectile.AddComponent<NetworkIdentity>();
-            ProjectileController waterbladeProjectileCon = waterbladeProjectile.AddComponent<ProjectileController>();
+        //private static void CreateWaterBlade() 
+        //{
+        //    waterbladeProjectile = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("WaterBlade");
+        //    // Ensure that the child is set in the right position in Unity!!!!
+        //    Modules.Prefabs.SetupHitbox(waterbladeProjectile, waterbladeProjectile.transform.GetChild(0), "waterblade");
+        //    waterbladeProjectile.AddComponent<NetworkIdentity>();
+        //    ProjectileController waterbladeProjectileCon = waterbladeProjectile.AddComponent<ProjectileController>();
            
-            ProjectileDamage waterbladeProjectileDamage = waterbladeProjectile.AddComponent<ProjectileDamage>();
-            InitializeWaterBladeDamage(waterbladeProjectileDamage);
+        //    ProjectileDamage waterbladeProjectileDamage = waterbladeProjectile.AddComponent<ProjectileDamage>();
+        //    InitializeWaterBladeDamage(waterbladeProjectileDamage);
             
-            ProjectileSimple waterbladeProjectileTrajectory = waterbladeProjectile.AddComponent<ProjectileSimple>();
-            InitializeWaterBladeTrajectory(waterbladeProjectileTrajectory);
+        //    ProjectileSimple waterbladeProjectileTrajectory = waterbladeProjectile.AddComponent<ProjectileSimple>();
+        //    InitializeWaterBladeTrajectory(waterbladeProjectileTrajectory);
 
-            ProjectileOverlapAttack waterbladeoverlapAttack = waterbladeProjectile.AddComponent<ProjectileOverlapAttack>();
-            InitializeWaterBladeOverlapAttack(waterbladeoverlapAttack);
-            waterbladeProjectile.AddComponent<WaterbladeOnHit>();
+        //    ProjectileOverlapAttack waterbladeoverlapAttack = waterbladeProjectile.AddComponent<ProjectileOverlapAttack>();
+        //    InitializeWaterBladeOverlapAttack(waterbladeoverlapAttack);
+        //    waterbladeProjectile.AddComponent<WaterbladeOnHit>();
 
-            //Waterblade Damage
-            waterbladeProjectileCon.procCoefficient = 1.0f;
-            waterbladeProjectileCon.canImpactOnTrigger = true;
+        //    //Waterblade Damage
+        //    waterbladeProjectileCon.procCoefficient = 1.0f;
+        //    waterbladeProjectileCon.canImpactOnTrigger = true;
 
-            PrefabAPI.RegisterNetworkPrefab(waterbladeProjectile);
-        }
+        //    PrefabAPI.RegisterNetworkPrefab(waterbladeProjectile);
+        //}
 
         internal static void InitializeWaterBladeOverlapAttack(ProjectileOverlapAttack overlap) 
         {

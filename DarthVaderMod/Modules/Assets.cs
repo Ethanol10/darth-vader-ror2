@@ -178,7 +178,7 @@ namespace DarthVaderMod.Modules
             ////    };
             ////}
 
-            swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
+            swordSwingEffect = Assets.LoadEffect("DarthVaderSwordSwingEffect", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactDarthVaderSlash");
         }
 

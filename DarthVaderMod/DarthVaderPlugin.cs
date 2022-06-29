@@ -34,8 +34,8 @@ namespace DarthVaderMod
         // if you don't change these you're giving permission to deprecate the mod-
         //  please change the names to your own stuff, thanks
         //   this shouldn't even have to be said
-        public const string MODUID = "com.PopcornFactory.DarthVaderTempestMod";
-        public const string MODNAME = "DarthVaderTempestMod";
+        public const string MODUID = "com.PopcornFactory.DarthVaderMod";
+        public const string MODNAME = "DarthVaderMod";
         public const string MODVERSION = "0.0.1";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
@@ -72,7 +72,7 @@ namespace DarthVaderMod
         {
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
-            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            //On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
@@ -119,110 +119,7 @@ namespace DarthVaderMod
 
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
         {
-            var attacker = damageInfo.attacker;
-            if (attacker)
-            {
-                var body = attacker.GetComponent<CharacterBody>();
-                var victimBody = victim.GetComponent<CharacterBody>();
-                if (body && victimBody)
-                {
-                    //shock on wet interaction
-                    if (victimBody.HasBuff(Modules.Buffs.WetDebuff) && !victimBody.HasBuff(Modules.Buffs.WetLightningDebuff))
-                    {
-                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
-                        {
-                            victimBody.ApplyBuff(Modules.Buffs.WetLightningDebuff.buffIndex, 1, 1);
-
-                            EffectManager.SpawnEffect(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/LightningStakeNova"), new EffectData
-                            {
-                                origin = victimBody.transform.position,
-                                scale = Modules.StaticValues.blacklightningRadius * body.attackSpeed/2
-                            }, true);
-                                
-                            new BlastAttack
-                            {
-                                attacker = damageInfo.attacker.gameObject,
-                                teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
-                                falloffModel = BlastAttack.FalloffModel.None,
-                                baseDamage = body.damage * Modules.StaticValues.blacklightningDamageCoefficient,
-                                damageType = DamageType.Shock5s,
-                                damageColorIndex = DamageColorIndex.WeakPoint,
-                                baseForce = 0,
-                                position = victimBody.transform.position,
-                                radius = Modules.StaticValues.blacklightningRadius * body.attackSpeed/2,
-                                procCoefficient = 1f,
-                                attackerFiltering = AttackerFiltering.NeverHitSelf,
-                            }.Fire();
-                            
-
-                        }
-                    }
-                    //fire on wet interaction
-                    if (victimBody.HasBuff(Modules.Buffs.WetDebuff))
-                    {
-                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.IgniteOnHit)
-                        {
-                            victimBody.ApplyBuff(Modules.Buffs.WetDebuff.buffIndex, 0, 0);
-
-                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
-                            {
-                                origin = victimBody.transform.position,
-                                scale = Modules.StaticValues.lemurianfireRadius * body.attackSpeed / 2
-                            }, true);
-
-                            new BlastAttack
-                            {
-                                attacker = damageInfo.attacker.gameObject,
-                                teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
-                                falloffModel = BlastAttack.FalloffModel.None,
-                                baseDamage = body.damage * Modules.StaticValues.lemurianfireDamageCoefficient,
-                                damageType = DamageType.IgniteOnHit,
-                                damageColorIndex = DamageColorIndex.Fragile,
-                                baseForce = 0,
-                                position = victimBody.transform.position,
-                                radius = Modules.StaticValues.lemurianfireRadius * body.attackSpeed / 2,
-                                procCoefficient = 1f,
-                                attackerFiltering = AttackerFiltering.NeverHitSelf,
-                            }.Fire();
-
-
-                        }
-                    }
-                    //lightning on fire interaction
-                    if (victimBody.HasBuff(RoR2Content.Buffs.OnFire))
-                    {
-                        if (damageInfo.damage > 0 && damageInfo.damageType == DamageType.Shock5s)
-                        {
-                            int buffcount = victimBody.GetBuffCount(RoR2Content.Buffs.OnFire);
-
-                            EffectManager.SpawnEffect(Modules.Assets.elderlemurianexplosionEffect, new EffectData
-                            {
-                                origin = victimBody.transform.position,
-                                scale = Modules.StaticValues.lemurianfireRadius/15 * buffcount
-                            }, true);
-
-                            new BlastAttack
-                            {
-                                attacker = damageInfo.attacker.gameObject,
-                                teamIndex = TeamComponent.GetObjectTeam(damageInfo.attacker.gameObject),
-                                falloffModel = BlastAttack.FalloffModel.None,
-                                baseDamage = body.damage * buffcount,
-                                damageType = DamageType.Stun1s,
-                                damageColorIndex = DamageColorIndex.WeakPoint,
-                                baseForce = 0,
-                                position = victimBody.transform.position,
-                                radius = Modules.StaticValues.lemurianfireRadius/15 * buffcount,
-                                procCoefficient = 1f,
-                                attackerFiltering = AttackerFiltering.NeverHitSelf,
-                            }.Fire();
-
-
-                        }
-                    }
-
-                }
-            }
-
+           
             orig.Invoke(self, damageInfo, victim);
         }
 
@@ -242,32 +139,32 @@ namespace DarthVaderMod
 
             
         }
-        private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
-        {
-            orig(self);
+        //private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
+        //{
+        //    orig(self);
 
-            if (self)
-            {
-                if (self.body)
-                {
-                    this.OverlayFunction(Modules.Assets.SpatialMovementBuffMaterial, self.body.HasBuff(Modules.Buffs.SpatialMovementBuff), self);
-                }
-            }
-        }
+        //    if (self)
+        //    {
+        //        if (self.body)
+        //        {
+        //            this.OverlayFunction(Modules.Assets.SpatialMovementBuffMaterial, self.body.HasBuff(Modules.Buffs.SpatialMovementBuff), self);
+        //        }
+        //    }
+        //}
 
-        private void OverlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
-        {
-            if (model.activeOverlayCount >= CharacterModel.maxOverlays)
-            {
-                return;
-            }
-            if (condition)
-            {
-                Material[] array = model.currentOverlays;
-                int num = model.activeOverlayCount;
-                model.activeOverlayCount = num + 1;
-                array[num] = overlayMaterial;
-            }
-        }
+        //private void OverlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
+        //{
+        //    if (model.activeOverlayCount >= CharacterModel.maxOverlays)
+        //    {
+        //        return;
+        //    }
+        //    if (condition)
+        //    {
+        //        Material[] array = model.currentOverlays;
+        //        int num = model.activeOverlayCount;
+        //        model.activeOverlayCount = num + 1;
+        //        array[num] = overlayMaterial;
+        //    }
+        //}
     }
 }

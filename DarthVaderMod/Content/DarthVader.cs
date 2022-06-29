@@ -42,28 +42,30 @@ namespace DarthVaderMod.Modules.Survivors
 
         //internal static Material DarthVaderMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("DarthVaderMat");
         internal static Material DarthVaderMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
-        internal static Material DarthVaderEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+        internal static Material LightSaberGripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat");
+        internal static Material LightSaberRedMat = Modules.Materials.CreateHopooMaterial("LightsaberRed");
+        //internal static Material DarthVaderEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
-                //new CustomRendererInfo
-                //{
-                //    childName = "Mask",
-                //    material = DarthVaderMat,
-                //},
-                //new CustomRendererInfo
-                //{
-                //    childName = "Wing",
-                //    material = DarthVaderMat,
-                //},
-                //new CustomRendererInfo
-                //{
-                //    childName = "Sword",
-                //    material = DarthVaderMat,
-                //},
+                new CustomRendererInfo
+                {
+                    childName = "Cape",
+                    material = DarthVaderMat,
+                },
                 new CustomRendererInfo
                 {
                     childName = "Model",
                     material = DarthVaderMat,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "LightsaberGrip",
+                    material = LightSaberGripMat,
+                },
+                new CustomRendererInfo
+                {
+                    childName = "LightsaberBlade",
+                    material = LightSaberRedMat,
                 }
         };
 
@@ -222,12 +224,13 @@ namespace DarthVaderMod.Modules.Survivors
 
             #region DefaultSkin
             Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
-            Material emptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+            Material lightsabergripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat");
+            Material lightsaberredMat = Modules.Materials.CreateHopooMaterial("LightsaberRed");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
-                emptyMat,
                 defaultMat,
                 defaultMat,
-                defaultMat,
+                lightsabergripMat,
+                lightsaberredMat,
 
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DEFAULT_SKIN_NAME",
@@ -242,22 +245,22 @@ namespace DarthVaderMod.Modules.Survivors
                 //unnecessary if you don't have multiple skins
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMaskMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
                     renderer = defaultRendererInfo[0].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderWingMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
                     renderer = defaultRendererInfo[1].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderSwordMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
                     renderer = defaultRendererInfo[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
                     renderer = defaultRendererInfo[3].renderer
                 }
             };
@@ -267,45 +270,45 @@ namespace DarthVaderMod.Modules.Survivors
 
             //masked skin
             #region maskedSkin
-            CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultMat,
-                defaultMat,
-                defaultMat,
-            });
-            SkinDef maskedSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_MASKED_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-                maskedrendererInfos,
-                mainRenderer,
-                model);
+            //CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
+            //    defaultMat,
+            //    defaultMat,
+            //    defaultMat,
+            //    defaultMat,
+            //});
+            //SkinDef maskedSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_MASKED_SKIN_NAME",
+            //    Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+            //    maskedrendererInfos,
+            //    mainRenderer,
+            //    model);
 
-            maskedSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMaskMesh"),
-                    renderer = maskedrendererInfos[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderWingMesh"),
-                    renderer = maskedrendererInfos[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderSwordMesh"),
-                    renderer = maskedrendererInfos[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
-                    renderer = maskedrendererInfos[3].renderer
-                }
-            };
+            //maskedSkin.meshReplacements = new SkinDef.MeshReplacement[]
+            //{
+            //    //place your mesh replacements here
+            //    //unnecessary if you don't have multiple skins
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMaskMesh"),
+            //        renderer = maskedrendererInfos[0].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderWingMesh"),
+            //        renderer = maskedrendererInfos[1].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderSwordMesh"),
+            //        renderer = maskedrendererInfos[2].renderer
+            //    },
+            //    new SkinDef.MeshReplacement
+            //    {
+            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
+            //        renderer = maskedrendererInfos[3].renderer
+            //    }
+            //};
 
-            skins.Add(maskedSkin);
+            //skins.Add(maskedSkin);
             #endregion
             //uncomment this when you have a mastery skin
             #region MasterySkin

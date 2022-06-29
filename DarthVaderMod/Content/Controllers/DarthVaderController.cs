@@ -116,40 +116,8 @@ namespace DarthVaderMod.Modules.Survivors
             }
 
 
-
-            //devour effect
-            if (characterBody.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DarthVaderSLIME_BODY_NAME")
-            {
-                if (characterBody.inputBank.skill1.down)
-                {
-                    if (!devoureffectObj)
-                    {
-                        devoureffectObj = Instantiate(Modules.Assets.devourEffect, child.FindChild("Spine").transform.position, Quaternion.LookRotation(characterBody.characterDirection.forward));
-                    }
-
-                }
-                else
-                {
-                    if (devoureffectObj)
-                    {
-                        Destroy(devoureffectObj);
-                    }
-
-                }
-
-            }
-
         }
 
-
-        public void Update()
-        {
-            if (devoureffectObj)
-            {
-                devoureffectObj.transform.position = child.FindChild("Spine").transform.position;
-                devoureffectObj.transform.rotation = Quaternion.LookRotation(characterBody.characterDirection.forward);
-            }
-        }
 
         private void SearchForTarget(Ray aimRay)
         {
@@ -165,83 +133,10 @@ namespace DarthVaderMod.Modules.Survivors
             this.trackingTarget = this.search.GetResults().FirstOrDefault<HurtBox>();
         }
 
-        public void OnDestroy()
-        {
-            Destroy(devoureffectObj);
-        }
 
     }
 
 
-
-
-    //mortar orb
-    public class MortarOrb : Orb
-    {
-        public override void Begin()
-        {
-            base.duration = 0.5f;
-            EffectData effectData = new EffectData
-            {
-                origin = this.origin,
-                genericFloat = base.duration
-            };
-            effectData.SetHurtBoxReference(this.target);
-            GameObject effectPrefab = LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/OrbEffects/SquidOrbEffect");
-            EffectManager.SpawnEffect(effectPrefab, effectData, true);
-        }
-        public HurtBox PickNextTarget(Vector3 position, float range)
-        {
-            BullseyeSearch bullseyeSearch = new BullseyeSearch();
-            bullseyeSearch.searchOrigin = position;
-            bullseyeSearch.searchDirection = Vector3.zero;
-            bullseyeSearch.teamMaskFilter = TeamMask.allButNeutral;
-            bullseyeSearch.teamMaskFilter.RemoveTeam(this.teamIndex);
-            bullseyeSearch.filterByLoS = false;
-            bullseyeSearch.sortMode = BullseyeSearch.SortMode.Distance;
-            bullseyeSearch.maxDistanceFilter = range;
-            bullseyeSearch.RefreshCandidates();
-            List<HurtBox> list = bullseyeSearch.GetResults().ToList<HurtBox>();
-            if (list.Count <= 0)
-            {
-                return null;
-            }
-            return list[UnityEngine.Random.Range(0, list.Count)];
-        }
-        public override void OnArrival()
-        {
-            if (this.target)
-            {
-                HealthComponent healthComponent = this.target.healthComponent;
-                if (healthComponent)
-                {
-                    DamageInfo damageInfo = new DamageInfo
-                    {
-                        damage = this.damageValue,
-                        attacker = this.attacker,
-                        inflictor = null,
-                        force = Vector3.zero,
-                        crit = this.isCrit,
-                        procChainMask = this.procChainMask,
-                        procCoefficient = this.procCoefficient,
-                        position = this.target.transform.position,
-                        damageColorIndex = this.damageColorIndex
-                    };
-                    healthComponent.TakeDamage(damageInfo);
-                    GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
-                    GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
-                }
-            }
-        }
-
-        public float damageValue;
-        public GameObject attacker;
-        public TeamIndex teamIndex;
-        public bool isCrit;
-        public ProcChainMask procChainMask;
-        public float procCoefficient = 1f;
-        public DamageColorIndex damageColorIndex;
-    }
 
 
 
