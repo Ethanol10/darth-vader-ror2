@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2872523798
+CRC: 1042037755
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5c2ccdfb8889eb7f72a99d6de339a036
+    Hash: cf04c2d5416a4df086a1604c387b8953
   TypeTreeHash:
     serializedVersion: 2
     Hash: 97fdaf7937bed35a855b28d9de1289b6
@@ -52,6 +52,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/DarthVader/Animations/animMenuDarthvader.controller
+- Assets/DarthVader/VFX/BlasterShot.prefab
 - Assets/DarthVader/Animations/Entrance.anim
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVader.prefab
 - Assets/DarthVader/Assets/Prefabs/mat_cape.001.prefab
@@ -88,4 +89,5 @@ Assets:
 - Assets/DarthVader/Assets/Prefabs/DarthVaderDisplay.prefab
 - Assets/DarthVader/Assets/Prefabs/Lightsaber.prefab
 - Assets/DarthVader/Animations/SwordSwing2.anim
+- Assets/DarthVader/VFX/Point Light.prefab
 Dependencies: []
