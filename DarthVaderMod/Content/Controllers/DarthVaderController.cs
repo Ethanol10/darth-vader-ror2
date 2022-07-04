@@ -81,6 +81,17 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
+            if (characterBody.HasBuff(Modules.Buffs.RageBuff))
+            {
+                if(characterBody.skillLocator.secondary.stock == 0)
+                {
+                    characterBody.skillLocator.secondary.AddOneStock();
+                };
+                if (characterBody.skillLocator.utility.stock == 0)
+                {
+                    characterBody.skillLocator.utility.AddOneStock();
+                };
+            }
             //this.trackerUpdateStopwatch += Time.fixedDeltaTime;
             //if (this.trackerUpdateStopwatch >= 1f / this.trackerUpdateFrequency)
             //{
@@ -90,8 +101,8 @@ namespace DarthVaderMod.Modules.Survivors
             //    HurtBox hurtBox = this.trackingTarget;
             //    this.indicator.targetTransform = (this.trackingTarget ? this.trackingTarget.transform : null);
 
-                
-            //}
+
+                //}
 
 
         }

@@ -188,7 +188,7 @@ namespace DarthVaderMod.Modules {
             for (int i = 0; i < characterModel.baseRendererInfos.Length; i++) {
                 if (characterModel.baseRendererInfos[i].defaultMaterial == null)
                     characterModel.baseRendererInfos[i].defaultMaterial = characterModel.baseRendererInfos[i].renderer.sharedMaterial;
-                characterModel.baseRendererInfos[i].defaultMaterial.SetHopooMaterial();
+                characterModel.baseRendererInfos[i].defaultMaterial.SetHopooMaterial(false);
             }
         }
 
@@ -215,7 +215,7 @@ namespace DarthVaderMod.Modules {
                             if (customInfos[i].dontHotpoo) {
                                 mat = rend.material;
                             } else {
-                                mat = rend.material.SetHopooMaterial();
+                                mat = rend.material.SetHopooMaterial(false);
                             }
                         }
 

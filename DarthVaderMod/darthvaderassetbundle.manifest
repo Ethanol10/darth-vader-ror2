@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1042037755
+CRC: 3582883390
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cf04c2d5416a4df086a1604c387b8953
+    Hash: af0c7ff187bb28ae136402d0cda1379c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 97fdaf7937bed35a855b28d9de1289b6
@@ -60,6 +60,7 @@ Assets:
 - Assets/DarthVader/Animations/Jump.anim
 - Assets/DarthVader/Animations/Deflect.anim
 - Assets/DarthVader/Assets/EmoteDarthVaderold.prefab
+- Assets/DarthVader/Assets/LightsaberGlowRed.png
 - Assets/DarthVader/Animations/ForceStart.anim
 - Assets/DarthVader/VFX/ImpactDarthVaderSlash.prefab
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVaderold.prefab

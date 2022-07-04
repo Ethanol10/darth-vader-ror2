@@ -5,8 +5,11 @@ namespace DarthVaderMod.Modules
 {
     public static class Config
     {
+        public static ConfigEntry<float> basedamage;
         public static void ReadConfig()
         {
+            basedamage = DarthVaderPlugin.instance.Config.Bind<float>("General", "base damage multiplier", 10f, "Adjusts base damage.");
+
 
         }
 

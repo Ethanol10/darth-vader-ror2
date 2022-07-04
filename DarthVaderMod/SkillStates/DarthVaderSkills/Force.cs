@@ -13,10 +13,10 @@ namespace DarthVaderMod.SkillStates
         public DarthVaderController DarthVadercon;
         public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
-        public float maxTrackingDistance = 50f;
+        public float maxTrackingDistance = 100f;
         public float maxTrackingAngle = 30f;
-        public float pullRange = -50f;
-        public float pushRange = 50f;
+        public float pullRange = -80f;
+        public float pushRange = 60f;
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public float chargeTime = 0.3f;
@@ -187,7 +187,7 @@ namespace DarthVaderMod.SkillStates
                             damageType = DamageType.Stun1s,
 
                         };
-                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight / 2), true, true);
+                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight), true, true);
                         singularTarget.healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, singularTarget.healthComponent.gameObject);
 

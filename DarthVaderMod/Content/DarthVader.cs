@@ -24,7 +24,7 @@ namespace DarthVaderMod.Modules.Survivors
             subtitleNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texDarthVaderIcon"),
-            bodyColor = Color.cyan,
+            bodyColor = Color.red,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
@@ -32,7 +32,7 @@ namespace DarthVaderMod.Modules.Survivors
             maxHealth = 377f,
             healthRegen = 1f,
             armor = 10f,
-            damage = 15f,
+            damage = Config.basedamage.Value,
             healthGrowth = 78f,
             jumpCount = 1,
             moveSpeed = 6f,
@@ -41,16 +41,17 @@ namespace DarthVaderMod.Modules.Survivors
         };
 
         //internal static Material DarthVaderMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("DarthVaderMat");
-        internal static Material DarthVaderMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
-        internal static Material LightSaberGripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat");
-        internal static Material LightSaberRedMat = Modules.Materials.CreateHopooMaterial("LightsaberRed");
+        internal static Material DarthVaderMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", false);
+        internal static Material DarthVaderCulledMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", true);
+        internal static Material LightSaberGripMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightSaberMat");
+        internal static Material LightSaberRedMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberRed");
         //internal static Material DarthVaderEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
                     childName = "Cape",
-                    material = DarthVaderMat,
+                    material = DarthVaderCulledMat,
                 },
                 new CustomRendererInfo
                 {
@@ -158,15 +159,15 @@ namespace DarthVaderMod.Modules.Survivors
                 skillNameToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
                 skillDescriptionToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Force)),
-                activationStateMachineName = "Slide",
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Deflect)),
+                activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
                 baseRechargeInterval = 6f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.Skill,
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
                 mustKeyPress = false,
@@ -223,12 +224,13 @@ namespace DarthVaderMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
-            Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
-            Material lightsabergripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat");
-            Material lightsaberredMat = Modules.Materials.CreateHopooMaterial("LightsaberRed");
+            Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", false);
+            Material defaultculledMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", true);
+            Material lightsabergripMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightSaberMat");
+            Material lightsaberredMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberRed");
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
                 defaultMat,
-                defaultMat,
+                defaultculledMat,
                 lightsabergripMat,
                 lightsaberredMat,
 

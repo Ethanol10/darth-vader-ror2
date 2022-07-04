@@ -100,20 +100,53 @@ namespace DarthVaderMod
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
+            if (self.body.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+            {
+                if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+                {
+                    bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                    if (!flag && damageInfo.damage > 0f)
+                    {
+                        if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
+                        {
+                            damageInfo.rejected = true;
 
-            //if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
-            //{
-            //    //crit buff
-            //    if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
-            //    {
-            //        if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-            //        {
-            //            damageInfo.crit = true;
+                            var damageInfo2 = new DamageInfo();
 
-            //        }
-            //    }
-            //}
+                            damageInfo2.damage = damageInfo.damage * 2f * self.body.master.luck;
+                            damageInfo2.position = damageInfo.attacker.transform.position;
+                            damageInfo2.force = Vector3.zero;
+                            damageInfo2.damageColorIndex = DamageColorIndex.Default;
+                            damageInfo2.crit = Util.CheckRoll(self.body.crit, self.body.master);
+                            damageInfo2.attacker = self.gameObject;
+                            damageInfo2.inflictor = null;
+                            damageInfo2.damageType = DamageType.Generic;
+                            damageInfo2.procCoefficient = 1f;
+                            damageInfo2.procChainMask = default(ProcChainMask);
 
+                            if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                            {
+                                damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
+                            }
+
+                            Vector3 enemyPos = damageInfo.attacker.transform.position;
+                            EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                            {
+                                origin = self.body.transform.position,
+                                scale = 1f,
+                                rotation = Quaternion.LookRotation(enemyPos - self.body.transform.position)
+
+                            }, true);
+
+
+                        }
+
+                    }
+
+
+                }
+            }
             orig.Invoke(self, damageInfo);
         }
 
@@ -129,6 +162,11 @@ namespace DarthVaderMod
 
             if(self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
             {
+                if (self.HasBuff(Modules.Buffs.DeflectBuff))
+                {
+                    self.moveSpeed *= 0.5f;
+                }
+
                 if (!self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     float currentmovespeed = self.moveSpeed;
@@ -157,10 +195,6 @@ namespace DarthVaderMod
                     self.attackSpeed *= 2f;
                     self.damage *= self.attackSpeed;
 
-                    self.skillLocator.secondary.cooldownScale = 0f;
-                    self.skillLocator.secondary.flatCooldownReduction = 0f;
-                    self.skillLocator.utility.cooldownScale = 0f;
-                    self.skillLocator.utility.flatCooldownReduction = 0f;
 
                 }
 
