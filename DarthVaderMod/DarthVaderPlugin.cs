@@ -127,36 +127,41 @@ namespace DarthVaderMod
         {
             orig(self);
 
-            if(self.baseNameToken == "DarthVaderBody")
+            if(self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
             {
-                if (self.HasBuff(Modules.Buffs.RageBuff))
-                {
-                    self.moveSpeed *= 2f;
-                    self.attackSpeed *= 2f;
-                    self.armor *= 2f;
-                    self.damage += (self.moveSpeed / 5f) * (self.attackSpeed);
-                    self.skillLocator.secondary.cooldownScale = 0f;
-                    self.skillLocator.secondary.flatCooldownReduction = 1f;
-                    self.skillLocator.utility.cooldownScale = 0f;
-                    self.skillLocator.utility.flatCooldownReduction = 1f;
-
-                }
-                else
+                if (!self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     float currentmovespeed = self.moveSpeed;
-                    if (currentmovespeed > 5f)
+                    if (currentmovespeed > 6f)
                     {
-                        self.moveSpeed = 5f;
-                        float movespeedbonus = currentmovespeed / 5f;
-                        self.damage += movespeedbonus;
+                        self.moveSpeed = 6f;
+                        float movespeedbonus = currentmovespeed - 6f;
+                        self.armor += movespeedbonus;
                     }
                     float currentattackspeed = self.attackSpeed;
                     if (currentattackspeed > 1f)
                     {
                         self.attackSpeed = 1f;
                         float attackspeedbonus = currentattackspeed / 1f;
-                        self.damage += attackspeedbonus;
+                        self.damage *= attackspeedbonus;
                     }
+
+
+
+                }
+                else  if(self.HasBuff(Modules.Buffs.RageBuff))
+                {
+                    self.moveSpeed *= 2f;
+                    self.armor = (self.moveSpeed - 6f) * 2f;
+
+                    self.attackSpeed *= 2f;
+                    self.damage *= self.attackSpeed;
+
+                    self.skillLocator.secondary.cooldownScale = 0f;
+                    self.skillLocator.secondary.flatCooldownReduction = 0f;
+                    self.skillLocator.utility.cooldownScale = 0f;
+                    self.skillLocator.utility.flatCooldownReduction = 0f;
+
                 }
 
             }

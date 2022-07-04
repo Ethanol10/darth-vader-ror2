@@ -19,14 +19,30 @@ namespace DarthVaderMod.SkillStates
             EffectManager.SpawnEffect(effectPrefab, new EffectData
             {
                 origin = base.characterBody.footPosition,
-                scale = 2f,
+                scale = 1f,
             }, true);
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            
+            if(base.fixedAge > 0.1f && base.isAuthority)
+            {
+                this.outer.SetNextStateToMain();
+                return;
+            }
         }
 
 
         public override void OnExit()
         {
             base.OnExit();
+        }
+
+        public override InterruptPriority GetMinimumInterruptPriority()
+        {
+            return InterruptPriority.PrioritySkill;
         }
     }
 }
