@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2335154340
+CRC: 2872523798
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 98ff3fc5fad8a60e156cd0fd3b767211
+    Hash: 5c2ccdfb8889eb7f72a99d6de339a036
   TypeTreeHash:
     serializedVersion: 2
     Hash: 97fdaf7937bed35a855b28d9de1289b6
@@ -83,6 +83,7 @@ Assets:
 - Assets/DarthVader/Animations/RightArmMask.mask
 - Assets/DarthVader/Animations/animDarthvader.controller
 - Assets/DarthVader/Assets/LightsaberBladeMesh.mesh
+- Assets/DarthVader/Assets/Prefabs/LightsaberBlade.prefab
 - Assets/DarthVader/Animations/SwordSwing1.anim
 - Assets/DarthVader/Assets/Prefabs/DarthVaderDisplay.prefab
 - Assets/DarthVader/Assets/Prefabs/Lightsaber.prefab
