@@ -59,7 +59,6 @@ namespace DarthVaderMod.Modules.Survivors
                 DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
             }
 
-            characterBody.skillLocator.special.RemoveAllStocks();
 
 
         }
@@ -82,7 +81,6 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
-            characterBody.skillLocator.secondary.AddOneStock();
             //this.trackerUpdateStopwatch += Time.fixedDeltaTime;
             //if (this.trackerUpdateStopwatch >= 1f / this.trackerUpdateFrequency)
             //{

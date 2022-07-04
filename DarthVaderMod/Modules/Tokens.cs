@@ -37,22 +37,22 @@ namespace DarthVaderMod.Modules
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Sword");
+            LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Lightsaber");
             LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Secondary
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
+            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Force Push/Pull");
             LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Helpers.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * StaticValues.forceDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Utility
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_NAME", "Roll");
+            LanguageAPI.Add(prefix + "UTILITY_ROLL_NAME", "Deflect");
             LanguageAPI.Add(prefix + "UTILITY_ROLL_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
             #endregion
 
             #region Special
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Bomb");
+            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Rage Unleashed");
             LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"Throw a bomb for <style=cIsDamage>{100f * StaticValues.forceDamageCoefficient}% damage</style>.");
             #endregion
 
