@@ -57,7 +57,7 @@ namespace DarthVaderMod.SkillStates.BaseStates
             base.StartAimMode(0.5f + this.duration, false);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
-            this.animator.SetFloat("Slash.playbackRate", attackSpeedStat);
+            //this.animator.SetFloat("Slash.playbackRate", attackSpeedStat);
 
             HitBoxGroup hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
@@ -182,6 +182,7 @@ namespace DarthVaderMod.SkillStates.BaseStates
             {
                 if (base.characterMotor) base.characterMotor.velocity = Vector3.zero;
                 if (this.animator) this.animator.SetFloat("Swing.playbackRate", 0f);
+                //if (this.animator) this.animator.SetFloat("Slash.playbackRate", 0f);
             }
 
             if (this.stopwatch >= (this.duration * this.attackStartTime) && this.stopwatch <= (this.duration * this.attackEndTime))

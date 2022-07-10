@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3582883390
+CRC: 3449456306
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: af0c7ff187bb28ae136402d0cda1379c
+    Hash: 49126bc03e534482d23d7057cb92c1cf
   TypeTreeHash:
     serializedVersion: 2
     Hash: 97fdaf7937bed35a855b28d9de1289b6
@@ -70,6 +70,7 @@ Assets:
 - Assets/DarthVader/Assets/Prefabs/EmoteDarthVader.prefab
 - Assets/DarthVader/Assets/Prefabs/Cape.prefab
 - Assets/DarthVader/Assets/LightSaberMat.mat
+- Assets/DarthVader/Animations/SwordSwing1.anim
 - Assets/DarthVader/Animations/LeftArmMask.mask
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVader Variant 1.prefab
 - Assets/DarthVader/Animations/EntranceLoop.anim
@@ -86,9 +87,8 @@ Assets:
 - Assets/DarthVader/Animations/animDarthvader.controller
 - Assets/DarthVader/Assets/LightsaberBladeMesh.mesh
 - Assets/DarthVader/Assets/Prefabs/LightsaberBlade.prefab
-- Assets/DarthVader/Animations/SwordSwing1.anim
 - Assets/DarthVader/Assets/Prefabs/DarthVaderDisplay.prefab
 - Assets/DarthVader/Assets/Prefabs/Lightsaber.prefab
-- Assets/DarthVader/Animations/SwordSwing2.anim
 - Assets/DarthVader/VFX/Point Light.prefab
+- Assets/DarthVader/Animations/SwordSwing2.anim
 Dependencies: []

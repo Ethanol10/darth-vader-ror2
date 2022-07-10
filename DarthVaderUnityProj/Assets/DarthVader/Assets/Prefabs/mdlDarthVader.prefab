@@ -2804,13 +2804,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6994914749913879707}
-  m_LocalRotation: {x: -0.4335639, y: 0.09065111, z: -0.8775748, w: -0.1834863}
-  m_LocalPosition: {x: 0, y: 0.009061535, z: 0.0077692303}
+  m_LocalRotation: {x: -0.38820797, y: 0.0019878151, z: -0.9202644, w: -0.049030226}
+  m_LocalPosition: {x: 0.000000005006363, y: 0.00906151, z: 0.0077692303}
   m_LocalScale: {x: 0.007692308, y: 0.0076923072, z: 0.0076923072}
   m_Children: []
   m_Father: {fileID: 3872756846201493107}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 18.555, y: 50.139004, z: -194.87999}
+  m_LocalEulerAnglesHint: {x: 2.391, y: 45.638, z: -185.09299}
 --- !u!1 &7039209437518153818
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,13 +3401,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8942263913449974223}
-  m_LocalRotation: {x: 0.042331368, y: -0.23975173, z: 0.1686422, w: 0.9551372}
-  m_LocalPosition: {x: 0, y: 0.009853843, z: 0.008423076}
+  m_LocalRotation: {x: 0.009311725, y: -0.13325578, z: -0.3640366, w: 0.92175573}
+  m_LocalPosition: {x: 0.000000011441996, y: 0.0098538315, z: 0.008423076}
   m_LocalScale: {x: 0.0076923072, y: 0.0076923072, z: 0.0076923072}
   m_Children: []
   m_Father: {fileID: 3872756846201493107}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 9.307, y: -26.720001, z: 17.811}
+  m_LocalEulerAnglesHint: {x: -4.5800004, y: -14.670001, z: -42.512}
 --- !u!1 &8982814746493076838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,6 +3599,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lightsaber
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037174011297993082, guid: 9107bb2e25525eb4e94c3ab12ed5de44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9107bb2e25525eb4e94c3ab12ed5de44, type: 3}
