@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3449456306
+CRC: 428353124
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 49126bc03e534482d23d7057cb92c1cf
+    Hash: 69be02ec26d22b8b715d7c81df850f99
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 97fdaf7937bed35a855b28d9de1289b6
+    Hash: 7910c021c55729b38ae029f1ad1e0131
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -37,6 +37,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 07e21ecb30de09f46a3563af89cab01d, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -58,26 +60,29 @@ Assets:
 - Assets/DarthVader/Assets/Prefabs/mat_cape.001.prefab
 - Assets/DarthVader/Animations/Idle.anim
 - Assets/DarthVader/Animations/Jump.anim
+- Assets/DarthVader/Animations/SwordSwing1.anim
 - Assets/DarthVader/Animations/Deflect.anim
 - Assets/DarthVader/Assets/EmoteDarthVaderold.prefab
 - Assets/DarthVader/Assets/LightsaberGlowRed.png
 - Assets/DarthVader/Animations/ForceStart.anim
 - Assets/DarthVader/VFX/ImpactDarthVaderSlash.prefab
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVaderold.prefab
+- Assets/DarthVader/Animations/SwordSwing2.anim
 - Assets/DarthVader/Animations/ForcePull.anim
 - Assets/DarthVader/Animations/DarthvaderHumanFBXAvatar.asset
 - Assets/DarthVader/Assets/DarthVaderMesh.mesh
-- Assets/DarthVader/Assets/Prefabs/EmoteDarthVader.prefab
 - Assets/DarthVader/Assets/Prefabs/Cape.prefab
 - Assets/DarthVader/Assets/LightSaberMat.mat
-- Assets/DarthVader/Animations/SwordSwing1.anim
 - Assets/DarthVader/Animations/LeftArmMask.mask
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVader Variant 1.prefab
 - Assets/DarthVader/Animations/EntranceLoop.anim
 - Assets/DarthVader/Assets/CapeMesh.mesh
 - Assets/DarthVader/Assets/LightsaberRed.mat
 - Assets/DarthVader/Assets/LightsaberGripMesh.mesh
+- Assets/DarthVader/Animations/HumanoidAvatar.asset
 - Assets/DarthVader/Animations/Walk.anim
+- Assets/DarthVader/Assets/Prefabs/EmoteDarthVader.prefab
+- Assets/DarthVader/Assets/Prefabs/LightsaberParent.prefab
 - Assets/DarthVader/Assets/Prefabs/DarthVaderDisplayold.prefab
 - Assets/DarthVader/Animations/ForcePush.anim
 - Assets/DarthVader/Animations/Falling.anim
@@ -90,5 +95,4 @@ Assets:
 - Assets/DarthVader/Assets/Prefabs/DarthVaderDisplay.prefab
 - Assets/DarthVader/Assets/Prefabs/Lightsaber.prefab
 - Assets/DarthVader/VFX/Point Light.prefab
-- Assets/DarthVader/Animations/SwordSwing2.anim
 Dependencies: []

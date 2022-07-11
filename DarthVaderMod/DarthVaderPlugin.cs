@@ -89,6 +89,7 @@ namespace DarthVaderMod
         private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
         {
             orig();
+
             foreach (var item in SurvivorCatalog.allSurvivorDefs)
             {
                 if (item.bodyPrefab.name == "DarthVaderBody")
@@ -97,6 +98,7 @@ namespace DarthVaderMod
                 }
             }
         }
+
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
