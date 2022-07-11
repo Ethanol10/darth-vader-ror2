@@ -76,10 +76,10 @@ namespace DarthVaderMod
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
-            //if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
-            //{
-            //    On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
-            //}
+            if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
+            {
+                On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
+            }
         }
 
 
