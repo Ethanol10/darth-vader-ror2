@@ -86,7 +86,7 @@ namespace DarthVaderMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.01f);
+            base.PlayCrossfade("RightArm, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration/2f, 0.01f);
         }
 
         public override void OnExit()
