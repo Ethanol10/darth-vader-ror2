@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2593200984
+CRC: 1949826989
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 946b0cfec743f0ce46ceef22171db66c
+    Hash: baa9ccfc70b224afbb01a836d7605e0a
   TypeTreeHash:
     serializedVersion: 2
     Hash: 7910c021c55729b38ae029f1ad1e0131
@@ -58,6 +58,7 @@ Assets:
 - Assets/DarthVader/Animations/Entrance.anim
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVader.prefab
 - Assets/DarthVader/Assets/Prefabs/mat_cape.001.prefab
+- Assets/DarthVader/VFX/rageAura.prefab
 - Assets/DarthVader/Animations/Idle.anim
 - Assets/DarthVader/Animations/Jump.anim
 - Assets/DarthVader/Animations/Deflect.anim

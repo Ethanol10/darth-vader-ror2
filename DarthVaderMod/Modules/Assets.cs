@@ -21,6 +21,7 @@ namespace DarthVaderMod.Modules
         internal static GameObject swordSwingEffect;
         internal static GameObject swordHitImpactEffect;
         internal static GameObject blasterShotEffect;
+        internal static GameObject rageAuraEffect;
         internal static List<GameObject> networkObjDefs = new List<GameObject>();
 
         //internal static GameObject bombExplosionEffect;
@@ -141,6 +142,10 @@ namespace DarthVaderMod.Modules
 
             //deflect
             blasterShotEffect = Assets.LoadEffect("BlasterShot");
+
+            //rage
+            rageAuraEffect = Assets.LoadEffect("rageAura");
+
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

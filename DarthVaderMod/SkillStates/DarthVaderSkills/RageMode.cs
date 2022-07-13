@@ -8,7 +8,9 @@ namespace DarthVaderMod.SkillStates
 {
     public class RageMode : BaseSkillState
     {
-        private GameObject effectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
+        public float timer;
+
+        public GameObject effectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public override void OnEnter()
         {            
             base.OnEnter();
@@ -16,9 +18,9 @@ namespace DarthVaderMod.SkillStates
             characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
             characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
-            EffectManager.SpawnEffect(effectPrefab, new EffectData
+            EffectManager.SpawnEffect(Modules.Assets.rageAuraEffect, new EffectData
             {
-                origin = base.characterBody.footPosition,
+                origin = base.characterBody.corePosition,
                 scale = 1f,
             }, true);
         }
@@ -26,8 +28,27 @@ namespace DarthVaderMod.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            timer += Time.fixedDeltaTime;
+            if (timer > 0.1f)
+            {
+                float num = 60f;
+                Quaternion rotation = Util.QuaternionSafeLookRotation(base.characterDirection.forward.normalized);
+                float num2 = 0.01f;
+                rotation.x += UnityEngine.Random.Range(-num2, num2) * num;
+                rotation.y += UnityEngine.Random.Range(-num2, num2) * num;
+
+                timer = 0f;
+                EffectManager.SpawnEffect(effectPrefab, new EffectData
+                {
+                    origin = base.characterBody.corePosition,
+                    scale = 1f,
+                    rotation = rotation
+                }, true);
+
+            }
             
-            if(base.fixedAge > 0.1f && base.isAuthority)
+            if(base.fixedAge > 0.5f && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
                 return;
