@@ -10,6 +10,7 @@ namespace DarthVaderMod.SkillStates
     {
         public float timer;
 
+        private GameObject blasteffectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
         public GameObject effectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public override void OnEnter()
         {            
@@ -20,7 +21,13 @@ namespace DarthVaderMod.SkillStates
 
             EffectManager.SpawnEffect(Modules.Assets.rageAuraEffect, new EffectData
             {
-                origin = base.characterBody.corePosition,
+                origin = base.characterBody.footPosition,
+                scale = 1f,
+                rotation = Quaternion.LookRotation(Vector3.up)
+            }, true);
+            EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
+            {
+                origin = base.characterBody.footPosition,
                 scale = 1f,
             }, true);
         }
@@ -29,10 +36,9 @@ namespace DarthVaderMod.SkillStates
         {
             base.FixedUpdate();
 
-            timer += Time.fixedDeltaTime;
             if (timer > 0.1f)
             {
-                float num = 60f;
+                float num = 10f;
                 Quaternion rotation = Util.QuaternionSafeLookRotation(base.characterDirection.forward.normalized);
                 float num2 = 0.01f;
                 rotation.x += UnityEngine.Random.Range(-num2, num2) * num;
@@ -45,7 +51,10 @@ namespace DarthVaderMod.SkillStates
                     scale = 1f,
                     rotation = rotation
                 }, true);
-
+            }
+            else
+            {
+                timer += Time.fixedDeltaTime;
             }
             
             if(base.fixedAge > 0.5f && base.isAuthority)
