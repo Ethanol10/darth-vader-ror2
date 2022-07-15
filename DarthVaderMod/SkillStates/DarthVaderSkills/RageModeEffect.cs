@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace DarthVaderMod.SkillStates
 {
-    public class AnalyzeEffectController : MonoBehaviour
+    public class RageEffectController : MonoBehaviour
     {
         public CharacterBody charbody;
         private GameObject effectObj;
@@ -19,13 +19,19 @@ namespace DarthVaderMod.SkillStates
         public void Start()
         {
             charbody = this.gameObject.GetComponent<CharacterBody>();
-            effectObj = Object.Instantiate<GameObject>(Modules.Assets.rageAuraEffect, charbody.corePosition, Quaternion.LookRotation(charbody.characterDirection.forward));
+            effectObj = Object.Instantiate<GameObject>(Modules.Assets.rageAuraEffect, charbody.footPosition, Quaternion.LookRotation(Vector3.up));
             effectObj.transform.parent = charbody.gameObject.transform;
         }
         public void FixedUpdate()
         {
+            timer += Time.fixedDeltaTime;
+            if (timer > 2f)
+            {
+                Destroy(effectObj);
+                Destroy(this);
+            }
 
-            if (timer > 1f)
+            if (!charbody)
             {
                 Destroy(effectObj);
             }

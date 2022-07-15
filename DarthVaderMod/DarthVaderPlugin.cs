@@ -133,13 +133,30 @@ namespace DarthVaderMod
                             }
 
                             Vector3 enemyPos = damageInfo.attacker.transform.position;
-                            EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                            Vector3 distance = (enemyPos - self.body.transform.position);
+                            if(distance.magnitude >= 3)
                             {
-                                origin = self.body.transform.position,
-                                scale = 1f,
-                                rotation = Quaternion.LookRotation(enemyPos - self.body.transform.position)
+                                EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                {
+                                    origin = self.body.transform.position,
+                                    scale = 1f,
+                                    rotation = Quaternion.LookRotation(distance)
 
-                            }, true);
+                                }, true);
+
+                            }
+                            else if(distance.magnitude < 3)
+                            {
+                                EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                {
+                                    origin = enemyPos,
+                                    scale = 1f,
+                                    rotation = Quaternion.LookRotation(distance)
+
+                                }, true);
+
+                            }
+
 
 
                         }

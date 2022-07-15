@@ -16,7 +16,7 @@ namespace DarthVaderMod.SkillStates
         public float maxTrackingDistance = 100f;
         public float maxTrackingAngle = 30f;
         public float pullRange = -80f;
-        public float pushRange = 60f;
+        public float pushRange = 100f;
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public float chargeTime = 0.3f;

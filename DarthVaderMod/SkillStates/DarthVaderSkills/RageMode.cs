@@ -19,12 +19,13 @@ namespace DarthVaderMod.SkillStates
             characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
             characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
-            EffectManager.SpawnEffect(Modules.Assets.rageAuraEffect, new EffectData
+            RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
+            if (!ragecontroller)
             {
-                origin = base.characterBody.footPosition,
-                scale = 1f,
-                rotation = Quaternion.LookRotation(Vector3.up)
-            }, true);
+                ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
+                ragecontroller.charbody = characterBody;
+            }
+
             EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
             {
                 origin = base.characterBody.footPosition,
@@ -39,7 +40,7 @@ namespace DarthVaderMod.SkillStates
             if (timer > 0.1f)
             {
                 float num = 10f;
-                Quaternion rotation = Util.QuaternionSafeLookRotation(base.characterDirection.forward.normalized);
+                Quaternion rotation = Util.QuaternionSafeLookRotation(Vector3.up);
                 float num2 = 0.01f;
                 rotation.x += UnityEngine.Random.Range(-num2, num2) * num;
                 rotation.y += UnityEngine.Random.Range(-num2, num2) * num;
