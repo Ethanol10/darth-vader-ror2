@@ -23,7 +23,7 @@ namespace DarthVaderMod.Modules.Survivors
             bodyNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME",
             subtitleNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texDarthVaderIcon"),
+            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("darthvaderIcon"),
             bodyColor = Color.red,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
@@ -114,7 +114,7 @@ namespace DarthVaderMod.Modules.Survivors
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("lightsaber"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
                                                                                       "Weapon",
                                                                                       true));
@@ -129,7 +129,7 @@ namespace DarthVaderMod.Modules.Survivors
                 skillName = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_NAME",
                 skillNameToken = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_NAME",
                 skillDescriptionToken = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("forcepullpush"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Force)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
@@ -158,7 +158,7 @@ namespace DarthVaderMod.Modules.Survivors
                 skillName = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
                 skillNameToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
                 skillDescriptionToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("deflect"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Deflect)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
@@ -186,7 +186,7 @@ namespace DarthVaderMod.Modules.Survivors
                 skillName = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
                 skillNameToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
                 skillDescriptionToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("ragemode"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.RageMode)),
                 activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
