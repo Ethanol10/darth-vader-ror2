@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3572984410
+CRC: 1152164238
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 70356f5e3bcadd04a3afa4096c847c11
+    Hash: 4e69a3f9b5d4c43345371485a55567c1
   TypeTreeHash:
     serializedVersion: 2
     Hash: fdc4a3f193cf1a9930c47c953a193ed1
@@ -68,6 +68,8 @@ Assets:
 - Assets/DarthVader/Animations/ForceStart.anim
 - Assets/DarthVader/VFX/ImpactDarthVaderSlash.prefab
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVaderold.prefab
+- Assets/DarthVader/GUI/blueskin.png
+- Assets/DarthVader/GUI/yellowskin.png
 - Assets/DarthVader/Animations/ForcePull.anim
 - Assets/DarthVader/Assets/Prefabs/DarkSaber.prefab
 - Assets/DarthVader/Animations/DarthvaderHumanFBXAvatar.asset
@@ -78,12 +80,14 @@ Assets:
 - Assets/DarthVader/Animations/LeftArmMask.mask
 - Assets/DarthVader/GUI/ragemode.png
 - Assets/DarthVader/Assets/Prefabs/mdlDarthVader Variant 1.prefab
+- Assets/DarthVader/GUI/redskin.png
 - Assets/DarthVader/Assets/EmptyMat.mat
 - Assets/DarthVader/Assets/DarkSaberGripMesh.mesh
 - Assets/DarthVader/Animations/EntranceLoop.anim
 - Assets/DarthVader/Assets/CapeMesh.mesh
 - Assets/DarthVader/Assets/LightsaberRed.mat
 - Assets/DarthVader/GUI/forcepullpush.png
+- Assets/DarthVader/GUI/darkskin.png
 - Assets/DarthVader/Assets/LightsaberGripMesh.mesh
 - Assets/DarthVader/Assets/Prefabs/DarkSaberBlade.prefab
 - Assets/DarthVader/Assets/Emissive.png

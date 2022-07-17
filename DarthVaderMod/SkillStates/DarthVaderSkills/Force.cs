@@ -30,6 +30,7 @@ namespace DarthVaderMod.SkillStates
             PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             hasFired = false;
             duration = chargeTime + castTime;
+            base.StartAimMode(0.5f + this.duration, false);
         }
 
 
@@ -114,7 +115,7 @@ namespace DarthVaderMod.SkillStates
                         DamageInfo damageInfo = new DamageInfo
                         {
                             attacker = base.gameObject,
-                            damage = characterBody.damage * Modules.StaticValues.forceDamageCoefficient,
+                            damage = characterBody.damage * Modules.StaticValues.forcepullDamageCoefficient,
                             position = singularTarget.transform.position,
                             procCoefficient = 1f,
                             damageType = DamageType.Stun1s,
@@ -181,7 +182,7 @@ namespace DarthVaderMod.SkillStates
                         DamageInfo damageInfo = new DamageInfo
                         {
                             attacker = base.gameObject,
-                            damage = characterBody.damage * Modules.StaticValues.forceDamageCoefficient,
+                            damage = characterBody.damage * Modules.StaticValues.forcepushDamageCoefficient,
                             position = singularTarget.transform.position,
                             procCoefficient = 1f,
                             damageType = DamageType.Stun1s,
