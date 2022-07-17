@@ -86,6 +86,7 @@ namespace DarthVaderMod
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
 
+            //Changing death message
             GlobalEventManager.onCharacterDeathGlobal += (damageReport) =>
             {
                 // This should never happen, but protect against it just in case
