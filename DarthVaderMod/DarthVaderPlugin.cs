@@ -143,7 +143,7 @@ namespace DarthVaderMod
 
                             var damageInfo2 = new DamageInfo();
 
-                            damageInfo2.damage = damageInfo.damage * 2f * self.body.master.luck;
+                            damageInfo2.damage = damageInfo.damage * 2f * (1f+self.body.master.luck);
                             damageInfo2.position = damageInfo.attacker.transform.position;
                             damageInfo2.force = Vector3.zero;
                             damageInfo2.damageColorIndex = DamageColorIndex.Default;
@@ -199,8 +199,19 @@ namespace DarthVaderMod
 
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
         {
-           
-            orig.Invoke(self, damageInfo, victim);
+            orig(self, damageInfo, victim);
+            if (damageInfo.attacker != null && damageInfo != null)
+            {
+                if (damageInfo.attacker.name.Contains("DarthVaderBody"))
+                {
+                    DarthVaderController darthCon = damageInfo.attacker.GetComponent<DarthVaderController>();
+
+                    if (darthCon)
+                    {
+                        darthCon.SetMaxDamage(damageInfo.damage);
+                    }
+                }
+            }
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
