@@ -48,19 +48,19 @@ namespace DarthVaderMod.Modules.Survivors
         internal static Material LightSaberBlueMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberBlue");
         internal static Material LightSaberYellowMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberYellow");
         internal static Material EmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
-        internal static Material DarkSaberMat = Modules.Materials.CreateHopooMaterial("DarkSaberMat", true);
+        internal static Material DarkSaberMat = Modules.Materials.CreateHopooMaterial("DarkSaberMat", false);
         //internal static Material DarthVaderEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
-                    childName = "Cape",
-                    material = DarthVaderCulledMat,
+                    childName = "Model",
+                    material = DarthVaderMat,
                 },
                 new CustomRendererInfo
                 {
-                    childName = "Model",
-                    material = DarthVaderMat,
+                    childName = "Cape",
+                    material = DarthVaderCulledMat,
                 },
                 new CustomRendererInfo
                 {
@@ -71,16 +71,6 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     childName = "LightsaberBlade",
                     material = LightSaberRedMat,
-                },
-                new CustomRendererInfo
-                {
-                    childName = "DarksaberGrip",
-                    material = EmptyMat,
-                },
-                new CustomRendererInfo
-                {
-                    childName = "DarksaberBlade",
-                    material = EmptyMat,
                 }
         };
 
@@ -247,22 +237,20 @@ namespace DarthVaderMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
-            Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", false);
-            Material defaultculledMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", true);
-            Material lightsabergripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat", false);
-            Material lightsaberredMat = Modules.Materials.CreateHopooMaterial("LightsaberRed", false);
-            Material lightsaberblueMat = Modules.Materials.CreateHopooMaterial("LightsaberBlue", false);
-            Material lightsaberyellowMat = Modules.Materials.CreateHopooMaterial("LightsaberYellow", false);
-            Material darksaberMat = Modules.Materials.CreateHopooMaterial("DarkSaberMat", true);
-            Material emptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat", false);
+            //Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", false);
+            //Material defaultculledMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", true);
+            //Material lightsabergripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat", false);
+            //Material lightsaberredMat = Modules.Materials.CreateHopooMaterial("LightsaberRed", false);
+            //Material lightsaberblueMat = Modules.Materials.CreateHopooMaterial("LightsaberBlue", false);
+            //Material lightsaberyellowMat = Modules.Materials.CreateHopooMaterial("LightsaberYellow", false);
+            //Material darksaberMat = Modules.Materials.CreateHopooMaterial("DarkSaberMat", true);
+            //Material emptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat", false);
 
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultculledMat,
-                lightsabergripMat,
-                lightsaberredMat,
-                emptyMat,
-                emptyMat,
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                LightSaberGripMat,
+                LightSaberRedMat,
 
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DEFAULT_SKIN_NAME",
@@ -295,16 +283,6 @@ namespace DarthVaderMod.Modules.Survivors
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
                     renderer = defaultRendererInfo[3].renderer
                 },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberGripMesh"),
-                    renderer = defaultRendererInfo[4].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberBladeMesh"),
-                    renderer = defaultRendererInfo[5].renderer
-                }
             };
 
             skins.Add(defaultSkin);
@@ -313,12 +291,10 @@ namespace DarthVaderMod.Modules.Survivors
             //bluesaber skin
             #region bluesaberskin
             CharacterModel.RendererInfo[] bluesaberRendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultculledMat,
-                lightsabergripMat,
-                lightsaberblueMat,
-                emptyMat,
-                emptyMat,
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                LightSaberGripMat,
+                LightSaberBlueMat,
             });
             SkinDef bluesaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_BLUESABER_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("blueskin"),
@@ -350,16 +326,6 @@ namespace DarthVaderMod.Modules.Survivors
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
                     renderer = bluesaberRendererInfos[3].renderer
                 },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberGripMesh"),
-                    renderer = bluesaberRendererInfos[4].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberBladeMesh"),
-                    renderer = bluesaberRendererInfos[5].renderer
-                }
             };
 
             skins.Add(bluesaberSkin);
@@ -368,12 +334,10 @@ namespace DarthVaderMod.Modules.Survivors
             //yellowsaber skin
             #region yellowsaberskin
             CharacterModel.RendererInfo[] yellowsaberRendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultculledMat,
-                lightsabergripMat,
-                lightsaberyellowMat,
-                emptyMat,
-                emptyMat,
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                LightSaberGripMat,
+                LightSaberYellowMat,
             });
             SkinDef yellowsaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_YELLOWSABER_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("yellowskin"),
@@ -405,16 +369,6 @@ namespace DarthVaderMod.Modules.Survivors
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
                     renderer = yellowsaberRendererInfos[3].renderer
                 },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberGripMesh"),
-                    renderer = yellowsaberRendererInfos[4].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberBladeMesh"),
-                    renderer = yellowsaberRendererInfos[5].renderer
-                }
             };
 
             skins.Add(yellowsaberSkin);
@@ -423,12 +377,10 @@ namespace DarthVaderMod.Modules.Survivors
             //darksaber skin
             #region darksaberskin
             CharacterModel.RendererInfo[] darksaberRendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultculledMat,
-                emptyMat,
-                emptyMat,
-                darksaberMat,
-                darksaberMat,
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                DarkSaberMat,
+                DarkSaberMat,
             });
             SkinDef darksaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DARKSABER_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("darkskin"),
@@ -452,24 +404,14 @@ namespace DarthVaderMod.Modules.Survivors
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarkSaberGripMesh"),
                     renderer = darksaberRendererInfos[2].renderer
                 },
                 new SkinDef.MeshReplacement
                 {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarkSaberBladeMesh"),
                     renderer = darksaberRendererInfos[3].renderer
                 },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberGripMesh"),
-                    renderer = darksaberRendererInfos[4].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarksaberBladeMesh"),
-                    renderer = darksaberRendererInfos[5].renderer
-                }
             };
 
             skins.Add(darksaberSkin);
@@ -523,6 +465,9 @@ namespace DarthVaderMod.Modules.Survivors
             defaultRenderers.CopyTo(newRendererInfos, 0);
 
             newRendererInfos[0].defaultMaterial = materials[0];
+            newRendererInfos[1].defaultMaterial = materials[1];
+            newRendererInfos[2].defaultMaterial = materials[2];
+            newRendererInfos[3].defaultMaterial = materials[3];
 
             return newRendererInfos;
         }
