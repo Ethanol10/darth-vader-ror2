@@ -46,6 +46,10 @@ namespace DarthVaderMod
         public DarthVaderController DarthVadercon;
         public DarthVaderMasterController DarthVadermastercon;
 
+        private static DamageReport _damageReport;
+        private static string _damageTaken;
+        private static string _attacker;
+
         private void Awake()
         {
             instance = this;
@@ -66,6 +70,7 @@ namespace DarthVaderMod
             new Modules.ContentPacks().Initialize();
 
             Hook();
+
         }
 
         private void Hook()
@@ -80,6 +85,29 @@ namespace DarthVaderMod
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+
+            //Changing death message
+            GlobalEventManager.onCharacterDeathGlobal += (damageReport) =>
+            {
+                // This should never happen, but protect against it just in case
+                if (damageReport == null) return;
+
+                // Don't activate for non-player entities
+                if (!damageReport.victimBody.isPlayerControlled || !damageReport.victimBody) return;
+
+                // Util.GetBestMasterName gets the userName while checking for null
+                var userName = Util.GetBestMasterName(damageReport.victimMaster);
+
+                // For Darth Vader only
+                if (damageReport.victimBody.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+                {
+                    Chat.SendBroadcastChat(new Chat.SimpleChatMessage
+                    {
+                        baseToken = "There was too much Sand",
+                    });
+                }
+
+            };
         }
 
 
