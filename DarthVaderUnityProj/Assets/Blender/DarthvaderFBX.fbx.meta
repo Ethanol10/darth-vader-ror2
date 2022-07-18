@@ -93,6 +93,12 @@ ModelImporter:
   - first:
       74: 2533084633960196105
     second: ForcePush
+  - first:
+      74: -646046015300419544
+    second: SwordSwing3
+  - first:
+      74: -8874998519975273311
+    second: SwordSwing4
   externalObjects: {}
   materials:
     materialImportMode: 1
