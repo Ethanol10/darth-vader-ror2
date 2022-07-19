@@ -8,7 +8,6 @@ namespace DarthVaderMod.Modules.Achievements
 {
     [RegisterAchievement(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_ACHIEVEMENT",
            DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_REWARD_ID", null, null)]
-
     internal class DamageAchievement : BaseAchievement
     {
         private DarthVaderController darthCon;

@@ -12,13 +12,12 @@ namespace DarthVaderMod.Modules
 {
     internal static class Unlockables
     {
-        public static UnlockableDef darthDamageUnlockable;
-
         public static void AddUnlockables()
         {
-            darthDamageUnlockable = ScriptableObject.CreateInstance<UnlockableDef>();
-            darthDamageUnlockable.nameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DAMAGE_UNLOCKABLE_ID";
-            darthDamageUnlockable.cachedName = DarthVaderPlugin.DEVELOPER_PREFIX + "_DAMAGE_UNLOCKABLE_ID";
+            // Damage Unlockable
+            UnlockableDef darthDamageUnlockable = ScriptableObject.CreateInstance<UnlockableDef>();
+            darthDamageUnlockable.nameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_UNLOCKABLE_ID";
+            darthDamageUnlockable.cachedName = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_UNLOCKABLE_ID";
             darthDamageUnlockable.getHowToUnlockString = (() => Language.GetStringFormatted("UNLOCK_VIA_ACHIEVEMENT_FORMAT", new object[]
                             {
                                 Language.GetString("ACHIEVEMENT_" + DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_ACHIEVEMENT_ID_NAME"),
@@ -32,8 +31,10 @@ namespace DarthVaderMod.Modules
             darthDamageUnlockable.sortScore = 200;
             darthDamageUnlockable.achievementIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("yellowskin");
 
+            Modules.Content.AddUnlockableDef(darthDamageUnlockable);
 
-            ContentPacks.unlockableDefs.Add(darthDamageUnlockable);
+            //Next achievement
+
 
         }
     }
