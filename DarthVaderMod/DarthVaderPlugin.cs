@@ -103,7 +103,7 @@ namespace DarthVaderMod
                 {
                     Chat.SendBroadcastChat(new Chat.SimpleChatMessage
                     {
-                        baseToken = "There was too much Sand",
+                        baseToken = "There was too much Sand.",
                     });
                 }
 
@@ -228,10 +228,10 @@ namespace DarthVaderMod
                 if (!self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     float currentmovespeed = self.moveSpeed;
-                    if (currentmovespeed > 6f)
+                    if (currentmovespeed > 7f)
                     {
-                        self.moveSpeed = 6f;
-                        float movespeedbonus = currentmovespeed - 6f;
+                        self.moveSpeed = 7f;
+                        float movespeedbonus = currentmovespeed - 7f;
                         self.armor += movespeedbonus;
                     }
                     float currentattackspeed = self.attackSpeed;
@@ -248,7 +248,7 @@ namespace DarthVaderMod
                 else  if(self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     self.moveSpeed *= 2f;
-                    self.armor = (self.moveSpeed - 6f) * 2f;
+                    self.armor = (self.moveSpeed - 7f) * 2f;
 
                     self.attackSpeed *= 2f;
                     self.damage *= self.attackSpeed;

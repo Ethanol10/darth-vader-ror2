@@ -64,12 +64,17 @@ namespace DarthVaderMod.Modules
             #endregion
 
             #region Achievements
-            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_NAME", "DarthVader: Mastery");
-            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_DESC", "As DarthVader, beat the game or obliterate on Monsoon.");
-            LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_UNLOCKABLE_NAME", "DarthVader: Mastery");
-
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "DAMAGE_ACHIEVEMENT_ID_NAME", "Now I am the master!");
-            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "DAMAGE_ACHIEVEMENT_ID_DESCRIPTION", "Deal 100,000 damage in one hit.");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "DAMAGE_ACHIEVEMENT_ID_DESCRIPTION", "As Darth Vader, deal 100,000 damage in one hit.");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "DAMAGE_UNLOCKABLE_ID", "Now I am the master!");
+
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ANYDIFFICULTY_ACHIEVEMENT_ID_NAME", "All too easy");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ANYDIFFICULTY_ACHIEVEMENT_ID_DESCRIPTION", "As Darth Vader, beat the game or obliterate on any difficulty.");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "ANYDIFFICULTY_UNLOCKABLE_ID", "All too easy");
+
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_ACHIEVEMENT_ID_NAME", "This will be a day long remembered");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_ACHIEVEMENT_ID_DESCRIPTION", "As Darth Vader, complete 20 stages in a single run.");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_UNLOCKABLE_ID", "This will be a day long remembered");
             #endregion
             #endregion
         }

@@ -1,20 +1,52 @@
-﻿using RoR2;
-using System;
-using UnityEngine;
+﻿using DarthVaderMod.Modules.Survivors;
+using RoR2;
+using RoR2.Achievements;
 
 namespace DarthVaderMod.Modules.Achievements
 {
-    internal class AnyDifficultyAchievement : BaseMasteryUnlockable
+    [RegisterAchievement(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY_ACHIEVEMENT_ID",
+           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY_UNLOCKABLE_ID", null, null)]
+    internal class AnyDifficultyAchievement : BaseAchievement
     {
-        public override string AchievementTokenPrefix => DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY";
-        //the name of the sprite in your bundle
-        public override string AchievementSpriteName => "blueskin";
-        //the token of your character's unlock achievement if you have one
-        public override string PrerequisiteUnlockableIdentifier => DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY_REWARD_ID";
+        private DarthVaderController darthCon;
 
-        public override string RequiredCharacterBody => "DarthVaderBody";
-        //difficulty coeff 3 is monsoon. 3.5 is typhoon for grandmastery skins
-        public override float RequiredDifficultyCoefficient => 0;
+        public override BodyIndex LookUpRequiredBodyIndex()
+        {
+            return BodyCatalog.FindBodyIndex(Modules.Survivors.DarthVader.instance.fullBodyName);
+        }
+
+        public override void OnInstall()
+        {
+            base.OnInstall();
+            Run.onClientGameOverGlobal += this.ClearCheck;
+        }
+
+        public override void OnUninstall()
+        {
+            base.OnUninstall();
+            Run.onClientGameOverGlobal -= this.ClearCheck;
+        }
+        public void ClearCheck(Run run, RunReport runReport)
+        {
+            if (run is null) return;
+            if (runReport is null) return;
+
+            if (!runReport.gameEnding) return;
+
+            if (runReport.gameEnding.isWin)
+            {
+                DifficultyDef difficultyDef = DifficultyCatalog.GetDifficultyDef(runReport.ruleBook.FindDifficulty());
+
+                if (difficultyDef != null)
+                {
+                    if (base.meetsBodyRequirement)
+                    {
+                        base.Grant();
+                    }
+                }
+
+            }
+        }
 
     }
 }
