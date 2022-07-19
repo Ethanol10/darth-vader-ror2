@@ -84,6 +84,7 @@ namespace DarthVaderMod.Modules.Survivors
         public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
 
         private static UnlockableDef masterySkinUnlockableDef;
+        private static UnlockableDef yellowsaberSkinUnlockableDef;
 
         public override void InitializeCharacter(bool isHidden)
         {
@@ -97,6 +98,7 @@ namespace DarthVaderMod.Modules.Survivors
         {
             //uncomment this when you have a mastery skin. when you do, make sure you have an icon too
             //masterySkinUnlockableDef = Modules.Unlockables.AddUnlockable<Modules.Achievements.MasteryAchievement>();
+            yellowsaberSkinUnlockableDef = Modules.Unlockables.darthDamageUnlockable;
         }
 
         public override void InitializeHitboxes()
@@ -343,7 +345,8 @@ namespace DarthVaderMod.Modules.Survivors
                 Assets.mainAssetBundle.LoadAsset<Sprite>("yellowskin"),
                 yellowsaberRendererInfos,
                 mainRenderer,
-                model);
+                model,
+                yellowsaberSkinUnlockableDef);
 
             yellowsaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
             {

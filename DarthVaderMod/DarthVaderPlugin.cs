@@ -62,7 +62,7 @@ namespace DarthVaderMod
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-
+            Modules.Unlockables.AddUnlockables(); //add unlockables
             // survivor initialization
             new DarthVader().Initialize(false);
 

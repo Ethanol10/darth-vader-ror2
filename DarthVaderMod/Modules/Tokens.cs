@@ -28,7 +28,9 @@ namespace DarthVaderMod.Modules
 
             #region Skins
             LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Red Lightsaber");
-            LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Alternate");
+            LanguageAPI.Add(prefix + "BLUESABER_SKIN_NAME", "Blue Lightsaber");
+            LanguageAPI.Add(prefix + "YELLOWSABER_SKIN_NAME", "Yellow Lightsaber");
+            LanguageAPI.Add(prefix + "DARKSABER_SKIN_NAME", "Darksaber");
             #endregion
 
             #region Passive
@@ -65,6 +67,9 @@ namespace DarthVaderMod.Modules
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_NAME", "DarthVader: Mastery");
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_DESC", "As DarthVader, beat the game or obliterate on Monsoon.");
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_UNLOCKABLE_NAME", "DarthVader: Mastery");
+
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "DAMAGE_ACHIEVEMENT_ID_NAME", "Now I am the master!");
+            LanguageAPI.Add("ACHIEVEMENT_" + prefix + "DAMAGE_ACHIEVEMENT_ID_DESCRIPTION", "Deal 100,000 damage in one hit.");
             #endregion
             #endregion
         }
