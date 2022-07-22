@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2988748727862242015
+--- !u!1 &1154585484889541086
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5856606135387180031}
-  - component: {fileID: 5238967395678753690}
-  - component: {fileID: 7853552260345034190}
+  - component: {fileID: 1705117791987099704}
+  - component: {fileID: 4025735265691573950}
+  - component: {fileID: 4462211732657796817}
   m_Layer: 0
-  m_Name: LightsaberBlade
+  m_Name: Parts_3_Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5856606135387180031
+--- !u!4 &1705117791987099704
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988748727862242015}
-  m_LocalRotation: {x: 1.7510599e-10, y: -1.64459e-11, z: 7.46534e-11, w: 1}
-  m_LocalPosition: {x: 0.030602382, y: -0.000030578372, z: 0.000047051013}
-  m_LocalScale: {x: 1.5594108, y: 1.0000014, z: 1.0000027}
-  m_Children: []
-  m_Father: {fileID: 2408833195732061120}
+  m_GameObject: {fileID: 1154585484889541086}
+  m_LocalRotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3333083471286875395}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5238967395678753690
+--- !u!33 &4025735265691573950
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988748727862242015}
-  m_Mesh: {fileID: 4300000, guid: 2ae5d66bb9157554fad27120b0864cf6, type: 2}
---- !u!23 &7853552260345034190
+  m_GameObject: {fileID: 1154585484889541086}
+  m_Mesh: {fileID: 4300000, guid: 2ed86a0268568d94799e31131fdf06da, type: 2}
+--- !u!23 &4462211732657796817
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2988748727862242015}
+  m_GameObject: {fileID: 1154585484889541086}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6679937954283457751, guid: 17969e5929580f540a9fddc3eabd2815, type: 3}
+  - {fileID: 2100000, guid: 360a5b1560a82db418ecf2672c943ba1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &3037174011297993082
+--- !u!1 &4414883587660581268
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,46 +88,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2408833195732061120}
-  - component: {fileID: 1639942011853751397}
-  - component: {fileID: 3541740102744584367}
+  - component: {fileID: 3333083471286875395}
+  - component: {fileID: 6013093696807101103}
+  - component: {fileID: 9030687236593594848}
   m_Layer: 0
-  m_Name: Lightsaber
+  m_Name: Blade_1_Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2408833195732061120
+--- !u!4 &3333083471286875395
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3037174011297993082}
-  m_LocalRotation: {x: 0.5014341, y: 0.50016624, z: -0.49906254, w: -0.49933377}
-  m_LocalPosition: {x: -0.0001507753, y: 0.00094966334, z: 0.0036259885}
-  m_LocalScale: {x: 0.1887256, y: 0.18872559, z: 0.18872558}
-  m_Children:
-  - {fileID: 5856606135387180031}
-  m_Father: {fileID: 0}
+  m_GameObject: {fileID: 4414883587660581268}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1705117791987099704}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1639942011853751397
+--- !u!33 &6013093696807101103
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3037174011297993082}
-  m_Mesh: {fileID: 4300000, guid: b2dcbc187e3b03b4eaf1496fe839fbc5, type: 2}
---- !u!23 &3541740102744584367
+  m_GameObject: {fileID: 4414883587660581268}
+  m_Mesh: {fileID: 4300000, guid: 27eecf036c5035741a100421d291b078, type: 2}
+--- !u!23 &9030687236593594848
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3037174011297993082}
+  m_GameObject: {fileID: 4414883587660581268}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -138,7 +138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1832885271269179152, guid: 17969e5929580f540a9fddc3eabd2815, type: 3}
+  - {fileID: 2100000, guid: b83145572e5fe2b43b58241166dbfa1b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

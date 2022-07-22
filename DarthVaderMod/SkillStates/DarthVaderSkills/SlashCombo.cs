@@ -24,19 +24,41 @@ namespace DarthVaderMod.SkillStates
             this.attackStartTime = 0.2f;
             this.attackEndTime = 0.4f;
             this.baseEarlyExitTime = 0.4f;
-            this.hitStopDuration = EntityStates.Merc.GroundLight.hitPauseDuration;
+            this.hitStopDuration = 0.2f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
+            this.muzzleString = ChooseAnimationString();
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
             this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             base.OnEnter();
+        }
+
+        private string ChooseAnimationString() 
+        {
+            string returnVal = "SwingLeft";
+            switch (this.swingIndex) 
+            {
+                case 0:
+                    returnVal = "SwingLeft";
+                    break;
+                case 1:
+                    returnVal = "SwingRight";
+                    break;
+                case 2:
+                    returnVal = "SwingCenter";
+                    break;
+                case 3:
+                    returnVal = "SwingRight";
+                    break;
+            }
+
+            return returnVal;
         }
 
         protected override void PlayAttackAnimation()
@@ -57,8 +79,11 @@ namespace DarthVaderMod.SkillStates
         protected override void SetNextState()
         {
             int index = this.swingIndex;
-            if (index == 0) index = 1;
-            else index = 0;
+            index += 1;
+            if (index > 3) 
+            {
+                index = 0;
+            }
 
             this.outer.SetNextState(new SlashCombo
             {

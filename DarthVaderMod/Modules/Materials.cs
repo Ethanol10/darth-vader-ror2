@@ -7,7 +7,7 @@ namespace DarthVaderMod.Modules
     {
         private static List<Material> cachedMaterials = new List<Material>();
 
-        public static Material CreateHopooMaterial(string materialName)
+        public static Material CreateHopooMaterial(string materialName, bool isCulled)
         {
             Material tempMat = cachedMaterials.Find(mat =>
             {
@@ -25,10 +25,10 @@ namespace DarthVaderMod.Modules
                 return new Material(Assets.hotpoo);
             }
 
-            return tempMat.SetHopooMaterial();
+            return tempMat.SetHopooMaterial(isCulled);
         }
 
-        public static Material SetHopooMaterial(this Material tempMat)
+        public static Material SetHopooMaterial(this Material tempMat, bool isCulled)
         {
             if (cachedMaterials.Contains(tempMat))
                 return tempMat;
@@ -62,12 +62,12 @@ namespace DarthVaderMod.Modules
             if (emissionColor != null)
             {
                 tempMat.SetColor("_EmColor", (Color)emissionColor);
-                tempMat.SetFloat("_EmPower", 1);
+                tempMat.SetFloat("_EmPower", 5f);
             }
 
             //set this keyword in unity if you want your model to show backfaces
             //in unity, right click the inspector tab and choose Debug
-            if (tempMat.IsKeywordEnabled("NOCULL"))
+            if (!isCulled)
             {
                 tempMat.SetInt("_Cull", 0);
             }

@@ -19,30 +19,20 @@ namespace DarthVaderMod.Modules.Survivors
         string prefix = DarthVader.DARTHVADER_PREFIX;
         
 
-        public float maxTrackingDistance = 60f;
-        public float maxTrackingAngle = 30f;
-        public float trackerUpdateFrequency = 10f;
-        private Indicator indicator;
-        private HurtBox trackingTarget;
-        public HurtBox Target;
-
         private CharacterBody characterBody;
         private InputBankTest inputBank;
-        private float trackerUpdateStopwatch;
         private ChildLocator child;
-        private readonly BullseyeSearch search = new BullseyeSearch();
         private CharacterMaster characterMaster;
 
         public DarthVaderMasterController DarthVadermastercon;
         public DarthVaderController DarthVadercon;
 
+        public float maxDamage;
+
         public void Awake()
         {
             child = GetComponentInChildren<ChildLocator>();
 
-
-            //indicator = new Indicator(gameObject, LegacyResourcesAPI.Load<GameObject>("Prefabs/HuntressTrackingIndicator"));
-            //On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
 
@@ -59,59 +49,33 @@ namespace DarthVaderMod.Modules.Survivors
                 DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
             }
 
-            characterBody.skillLocator.special.RemoveAllStocks();
-
-
         }
 
-        //public HurtBox GetTrackingTarget()
-        //{
-        //    return this.trackingTarget;
-        //}
 
-        //private void OnEnable()
-        //{
-        //    this.indicator.active = true;
-        //}
-
-        //private void OnDisable()
-        //{
-        //    this.indicator.active = false;
-        //}
-
+        public void SetMaxDamage(float newVal)
+        {
+            if (newVal > maxDamage)
+            {
+                maxDamage = newVal;
+            }
+        }
 
         public void FixedUpdate()
         {
-            characterBody.skillLocator.secondary.AddOneStock();
-            //this.trackerUpdateStopwatch += Time.fixedDeltaTime;
-            //if (this.trackerUpdateStopwatch >= 1f / this.trackerUpdateFrequency)
-            //{
-            //    this.trackerUpdateStopwatch -= 1f / this.trackerUpdateFrequency;
-            //    Ray aimRay = new Ray(this.inputBank.aimOrigin, this.inputBank.aimDirection);
-            //    this.SearchForTarget(aimRay);
-            //    HurtBox hurtBox = this.trackingTarget;
-            //    this.indicator.targetTransform = (this.trackingTarget ? this.trackingTarget.transform : null);
-
-                
-            //}
-
+            if (characterBody.HasBuff(Modules.Buffs.RageBuff))
+            {
+                if(characterBody.skillLocator.secondary.stock == 0)
+                {
+                    characterBody.skillLocator.secondary.AddOneStock();
+                };
+                if (characterBody.skillLocator.utility.stock == 0)
+                {
+                    characterBody.skillLocator.utility.AddOneStock();
+                };
+            }
 
         }
 
-
-        //private void SearchForTarget(Ray aimRay)
-        //{
-        //    this.search.teamMaskFilter = TeamMask.all;
-        //    this.search.filterByLoS = true;
-        //    this.search.searchOrigin = aimRay.origin;
-        //    this.search.searchDirection = aimRay.direction;
-        //    this.search.sortMode = BullseyeSearch.SortMode.Distance;
-        //    this.search.maxDistanceFilter = this.maxTrackingDistance;
-        //    this.search.maxAngleFilter = this.maxTrackingAngle;
-        //    this.search.RefreshCandidates();
-        //    this.search.FilterOutGameObject(base.gameObject);
-        //    this.trackingTarget = this.search.GetResults().FirstOrDefault<HurtBox>();
-        //}
 
 
     }

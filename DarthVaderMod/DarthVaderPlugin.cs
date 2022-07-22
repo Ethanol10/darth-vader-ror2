@@ -46,6 +46,10 @@ namespace DarthVaderMod
         public DarthVaderController DarthVadercon;
         public DarthVaderMasterController DarthVadermastercon;
 
+        private static DamageReport _damageReport;
+        private static string _damageTaken;
+        private static string _attacker;
+
         private void Awake()
         {
             instance = this;
@@ -58,7 +62,7 @@ namespace DarthVaderMod
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-
+            Modules.Unlockables.AddUnlockables(); //add unlockables
             // survivor initialization
             new DarthVader().Initialize(false);
 
@@ -66,6 +70,7 @@ namespace DarthVaderMod
             new Modules.ContentPacks().Initialize();
 
             Hook();
+
         }
 
         private void Hook()
@@ -76,10 +81,33 @@ namespace DarthVaderMod
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
-            //if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
-            //{
-            //    On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
-            //}
+            if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
+            {
+                On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
+            }
+
+            //Changing death message
+            GlobalEventManager.onCharacterDeathGlobal += (damageReport) =>
+            {
+                // This should never happen, but protect against it just in case
+                if (damageReport == null) return;
+
+                // Don't activate for non-player entities
+                if (!damageReport.victimBody.isPlayerControlled || !damageReport.victimBody) return;
+
+                // Util.GetBestMasterName gets the userName while checking for null
+                var userName = Util.GetBestMasterName(damageReport.victimMaster);
+
+                // For Darth Vader only
+                if (damageReport.victimBody.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+                {
+                    Chat.SendBroadcastChat(new Chat.SimpleChatMessage
+                    {
+                        baseToken = "There was too much Sand.",
+                    });
+                }
+
+            };
         }
 
 
@@ -89,6 +117,7 @@ namespace DarthVaderMod
         private void SurvivorCatalog_Init(On.RoR2.SurvivorCatalog.orig_Init orig)
         {
             orig();
+
             foreach (var item in SurvivorCatalog.allSurvivorDefs)
             {
                 if (item.bodyPrefab.name == "DarthVaderBody")
@@ -98,65 +127,133 @@ namespace DarthVaderMod
             }
         }
 
+
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
+            if (self.body.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+            {
+                if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+                {
+                    bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                    if (!flag && damageInfo.damage > 0f)
+                    {
+                        if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
+                        {
+                            damageInfo.rejected = true;
 
-            //if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
-            //{
-            //    //crit buff
-            //    if (self.GetComponent<CharacterBody>().HasBuff(Modules.Buffs.CritDebuff))
-            //    {
-            //        if ((damageInfo.damageType & DamageType.DoT) != DamageType.DoT)
-            //        {
-            //            damageInfo.crit = true;
+                            var damageInfo2 = new DamageInfo();
 
-            //        }
-            //    }
-            //}
+                            damageInfo2.damage = damageInfo.damage * 2f * (1f+self.body.master.luck);
+                            damageInfo2.position = damageInfo.attacker.transform.position;
+                            damageInfo2.force = Vector3.zero;
+                            damageInfo2.damageColorIndex = DamageColorIndex.Default;
+                            damageInfo2.crit = Util.CheckRoll(self.body.crit, self.body.master);
+                            damageInfo2.attacker = self.gameObject;
+                            damageInfo2.inflictor = null;
+                            damageInfo2.damageType = DamageType.Generic;
+                            damageInfo2.procCoefficient = 1f;
+                            damageInfo2.procChainMask = default(ProcChainMask);
 
+                            if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                            {
+                                damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
+                            }
+
+                            Vector3 enemyPos = damageInfo.attacker.transform.position;
+                            Vector3 distance = (enemyPos - self.body.transform.position);
+                            if(distance.magnitude >= 3)
+                            {
+                                EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                {
+                                    origin = self.body.transform.position,
+                                    scale = 1f,
+                                    rotation = Quaternion.LookRotation(distance)
+
+                                }, true);
+
+                            }
+                            else if(distance.magnitude < 3)
+                            {
+                                EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                {
+                                    origin = enemyPos,
+                                    scale = 1f,
+                                    rotation = Quaternion.LookRotation(distance)
+
+                                }, true);
+
+                            }
+
+
+
+                        }
+
+                    }
+
+
+                }
+            }
             orig.Invoke(self, damageInfo);
         }
 
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
         {
-           
-            orig.Invoke(self, damageInfo, victim);
+            orig(self, damageInfo, victim);
+            if (damageInfo.attacker != null && damageInfo != null)
+            {
+                if (damageInfo.attacker.name.Contains("DarthVaderBody"))
+                {
+                    DarthVaderController darthCon = damageInfo.attacker.GetComponent<DarthVaderController>();
+
+                    if (darthCon)
+                    {
+                        darthCon.SetMaxDamage(damageInfo.damage);
+                    }
+                }
+            }
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
 
-            if(self.baseNameToken == "DarthVaderBody")
+            if(self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
             {
-                if (self.HasBuff(Modules.Buffs.RageBuff))
+                if (self.HasBuff(Modules.Buffs.DeflectBuff))
                 {
-                    self.moveSpeed *= 2f;
-                    self.attackSpeed *= 2f;
-                    self.armor *= 2f;
-                    self.damage += (self.moveSpeed / 5f) * (self.attackSpeed);
-                    self.skillLocator.secondary.cooldownScale = 0f;
-                    self.skillLocator.secondary.flatCooldownReduction = 1f;
-                    self.skillLocator.utility.cooldownScale = 0f;
-                    self.skillLocator.utility.flatCooldownReduction = 1f;
-
+                    self.moveSpeed *= 0.5f;
                 }
-                else
+
+                if (!self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     float currentmovespeed = self.moveSpeed;
-                    if (currentmovespeed > 5f)
+                    if (currentmovespeed > 7f)
                     {
-                        self.moveSpeed = 5f;
-                        float movespeedbonus = currentmovespeed / 5f;
-                        self.damage += movespeedbonus;
+                        self.moveSpeed = 7f;
+                        float movespeedbonus = currentmovespeed - 7f;
+                        self.armor += movespeedbonus;
                     }
                     float currentattackspeed = self.attackSpeed;
                     if (currentattackspeed > 1f)
                     {
                         self.attackSpeed = 1f;
                         float attackspeedbonus = currentattackspeed / 1f;
-                        self.damage += attackspeedbonus;
+                        self.damage *= attackspeedbonus;
                     }
+
+
+
+                }
+                else  if(self.HasBuff(Modules.Buffs.RageBuff))
+                {
+                    self.moveSpeed *= 2f;
+                    self.armor = (self.moveSpeed - 7f) * 2f;
+
+                    self.attackSpeed *= 2f;
+                    self.damage *= self.attackSpeed;
+
+
                 }
 
             }

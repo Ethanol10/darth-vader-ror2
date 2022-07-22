@@ -23,8 +23,8 @@ namespace DarthVaderMod.Modules.Survivors
             bodyNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME",
             subtitleNameToken = DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texDarthVaderIcon"),
-            bodyColor = Color.cyan,
+            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("darthvaderIcon"),
+            bodyColor = Color.red,
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
@@ -32,30 +32,35 @@ namespace DarthVaderMod.Modules.Survivors
             maxHealth = 377f,
             healthRegen = 1f,
             armor = 10f,
-            damage = 15f,
+            damage = 10f,
             healthGrowth = 78f,
             jumpCount = 1,
-            moveSpeed = 5f,
-            jumpPower = 15f,
+            moveSpeed = 7f,
+            jumpPower = 20f,
             
         };
 
         //internal static Material DarthVaderMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("DarthVaderMat");
-        internal static Material DarthVaderMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
-        internal static Material LightSaberGripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat");
-        internal static Material LightSaberRedMat = Modules.Materials.CreateHopooMaterial("LightsaberRed");
+        internal static Material DarthVaderMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", false);
+        internal static Material DarthVaderCulledMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", true);
+        internal static Material LightSaberGripMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightSaberMat");
+        internal static Material LightSaberRedMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberRed");
+        internal static Material LightSaberBlueMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberBlue");
+        internal static Material LightSaberYellowMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("LightsaberYellow");
+        internal static Material EmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
+        internal static Material DarkSaberMat = Modules.Materials.CreateHopooMaterial("DarkSaberMat", false);
         //internal static Material DarthVaderEmptyMat = Modules.Assets.mainAssetBundle.LoadAsset<Material>("EmptyMat");
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[]
         {
                 new CustomRendererInfo
                 {
-                    childName = "Cape",
+                    childName = "Model",
                     material = DarthVaderMat,
                 },
                 new CustomRendererInfo
                 {
-                    childName = "Model",
-                    material = DarthVaderMat,
+                    childName = "Cape",
+                    material = DarthVaderCulledMat,
                 },
                 new CustomRendererInfo
                 {
@@ -78,7 +83,6 @@ namespace DarthVaderMod.Modules.Survivors
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
         public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
 
-        private static UnlockableDef masterySkinUnlockableDef;
 
         public override void InitializeCharacter(bool isHidden)
         {
@@ -109,11 +113,20 @@ namespace DarthVaderMod.Modules.Survivors
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = DarthVaderPlugin.DEVELOPER_PREFIX;
 
+            #region Passive
+            SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            skillloc.passiveSkill.enabled = true;
+            skillloc.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
+            skillloc.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+            #endregion
+
+
             #region Primary
             //Creates a skilldef for a typical primary 
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
+                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("lightsaber"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
                                                                                       "Weapon",
                                                                                       true));
@@ -125,19 +138,19 @@ namespace DarthVaderMod.Modules.Survivors
             #region Secondary
             SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_DARTHVADER_BODY_SECONDARY_GUN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                skillName = prefix + "_DARTHVADER_BODY_SECONDARY_FORCE_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_SECONDARY_FORCE_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_SECONDARY_FORCE_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("forcepullpush"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Force)),
                 activationStateMachineName = "Slide",
                 baseMaxStock = 1,
-                baseRechargeInterval = 6f,
+                baseRechargeInterval = 3f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
                 mustKeyPress = true,
@@ -154,22 +167,22 @@ namespace DarthVaderMod.Modules.Survivors
             #region Utility
             SkillDef spatialSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
-                skillNameToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_NAME",
-                skillDescriptionToken = prefix + "_DARTHVADER_BODY_UTILITY_ROLL_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Force)),
-                activationStateMachineName = "Slide",
+                skillName = prefix + "_DARTHVADER_BODY_UTILITY_DEFLECT_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_UTILITY_DEFLECT_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_UTILITY_DEFLECT_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("deflect"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Deflect)),
+                activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
                 baseRechargeInterval = 6f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
-                fullRestockOnAssign = false,
+                fullRestockOnAssign = true,
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
-                mustKeyPress = true,
+                mustKeyPress = false,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
@@ -182,22 +195,22 @@ namespace DarthVaderMod.Modules.Survivors
             #region Special
             SkillDef transformSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
-                skillNameToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_NAME",
-                skillDescriptionToken = prefix + "_DARTHVADER_BODY_SPECIAL_BOMB_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSpecialIcon"),
+                skillName = prefix + "_DARTHVADER_BODY_SPECIAL_RAGE_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_SPECIAL_RAGE_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_SPECIAL_RAGE_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("ragemode"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.RageMode)),
-                activationStateMachineName = "Slide",
+                activationStateMachineName = "Weapon",
                 baseMaxStock = 1,
-                baseRechargeInterval = 4f,
+                baseRechargeInterval = 90f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
-                fullRestockOnAssign = false,
+                fullRestockOnAssign = true,
                 interruptPriority = InterruptPriority.Skill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
-                mustKeyPress = true,
+                mustKeyPress = false,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
@@ -223,18 +236,24 @@ namespace DarthVaderMod.Modules.Survivors
             List<SkinDef> skins = new List<SkinDef>();
 
             #region DefaultSkin
-            Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat");
-            Material lightsabergripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat");
-            Material lightsaberredMat = Modules.Materials.CreateHopooMaterial("LightsaberRed");
+            //Material defaultMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", false);
+            //Material defaultculledMat = Modules.Materials.CreateHopooMaterial("DarthVaderMat", true);
+            //Material lightsabergripMat = Modules.Materials.CreateHopooMaterial("LightSaberMat", false);
+            //Material lightsaberredMat = Modules.Materials.CreateHopooMaterial("LightsaberRed", false);
+            //Material lightsaberblueMat = Modules.Materials.CreateHopooMaterial("LightsaberBlue", false);
+            //Material lightsaberyellowMat = Modules.Materials.CreateHopooMaterial("LightsaberYellow", false);
+            //Material darksaberMat = Modules.Materials.CreateHopooMaterial("DarkSaberMat", true);
+            //Material emptyMat = Modules.Materials.CreateHopooMaterial("EmptyMat", false);
+
             CharacterModel.RendererInfo[] defaultRendererInfo = SkinRendererInfos(defaultRenderers, new Material[] {
-                defaultMat,
-                defaultMat,
-                lightsabergripMat,
-                lightsaberredMat,
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                LightSaberGripMat,
+                LightSaberRedMat,
 
             });
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+                Assets.mainAssetBundle.LoadAsset<Sprite>("redskin"),
                 defaultRendererInfo,
                 mainRenderer,
                 model);
@@ -262,54 +281,144 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
                     renderer = defaultRendererInfo[3].renderer
-                }
+                },
             };
 
             skins.Add(defaultSkin);
             #endregion
 
-            //masked skin
-            #region maskedSkin
-            //CharacterModel.RendererInfo[] maskedrendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
-            //    defaultMat,
-            //    defaultMat,
-            //    defaultMat,
-            //    defaultMat,
-            //});
-            //SkinDef maskedSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_MASKED_SKIN_NAME",
-            //    Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
-            //    maskedrendererInfos,
-            //    mainRenderer,
-            //    model);
+            //bluesaber skin
+            #region bluesaberskin
+            CharacterModel.RendererInfo[] bluesaberRendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                LightSaberGripMat,
+                LightSaberBlueMat,
+            });
+            SkinDef bluesaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_BLUESABER_SKIN_NAME",
+                Assets.mainAssetBundle.LoadAsset<Sprite>("blueskin"),
+                bluesaberRendererInfos,
+                mainRenderer,
+                model,
+                Modules.Unlockables.darthAnyDifficultyUnlockable);
 
-            //maskedSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            //{
-            //    //place your mesh replacements here
-            //    //unnecessary if you don't have multiple skins
-            //    new SkinDef.MeshReplacement
-            //    {
-            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMaskMesh"),
-            //        renderer = maskedrendererInfos[0].renderer
-            //    },
-            //    new SkinDef.MeshReplacement
-            //    {
-            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderWingMesh"),
-            //        renderer = maskedrendererInfos[1].renderer
-            //    },
-            //    new SkinDef.MeshReplacement
-            //    {
-            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderSwordMesh"),
-            //        renderer = maskedrendererInfos[2].renderer
-            //    },
-            //    new SkinDef.MeshReplacement
-            //    {
-            //        mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
-            //        renderer = maskedrendererInfos[3].renderer
-            //    }
-            //};
+            bluesaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
+            {
+                //place your mesh replacements here
+                //unnecessary if you don't have multiple skins
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
+                    renderer = bluesaberRendererInfos[0].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
+                    renderer = bluesaberRendererInfos[1].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
+                    renderer = bluesaberRendererInfos[2].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
+                    renderer = bluesaberRendererInfos[3].renderer
+                },
+            };
 
-            //skins.Add(maskedSkin);
+            skins.Add(bluesaberSkin);
             #endregion
+
+            //yellowsaber skin
+            #region yellowsaberskin
+            CharacterModel.RendererInfo[] yellowsaberRendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                LightSaberGripMat,
+                LightSaberYellowMat,
+            });
+            SkinDef yellowsaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_YELLOWSABER_SKIN_NAME",
+                Assets.mainAssetBundle.LoadAsset<Sprite>("yellowskin"),
+                yellowsaberRendererInfos,
+                mainRenderer,
+                model,
+                Modules.Unlockables.darthDamageUnlockable);
+
+            yellowsaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
+            {
+                //place your mesh replacements here
+                //unnecessary if you don't have multiple skins
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
+                    renderer = yellowsaberRendererInfos[0].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
+                    renderer = yellowsaberRendererInfos[1].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
+                    renderer = yellowsaberRendererInfos[2].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
+                    renderer = yellowsaberRendererInfos[3].renderer
+                },
+            };
+
+            skins.Add(yellowsaberSkin);
+            #endregion
+
+            //darksaber skin
+            #region darksaberskin
+            CharacterModel.RendererInfo[] darksaberRendererInfos = SkinRendererInfos(defaultRenderers, new Material[] {
+                DarthVaderMat,
+                DarthVaderCulledMat,
+                DarkSaberMat,
+                DarkSaberMat,
+            });
+            SkinDef darksaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DARKSABER_SKIN_NAME",
+                Assets.mainAssetBundle.LoadAsset<Sprite>("darkskin"),
+                darksaberRendererInfos,
+                mainRenderer,
+                model,
+                Modules.Unlockables.darthStageUnlockable);
+
+            darksaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
+            {
+                //place your mesh replacements here
+                //unnecessary if you don't have multiple skins
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
+                    renderer = darksaberRendererInfos[0].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
+                    renderer = darksaberRendererInfos[1].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarkSaberGripMesh"),
+                    renderer = darksaberRendererInfos[2].renderer
+                },
+                new SkinDef.MeshReplacement
+                {
+                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarkSaberBladeMesh"),
+                    renderer = darksaberRendererInfos[3].renderer
+                },
+            };
+
+            skins.Add(darksaberSkin);
+            #endregion
+
             //uncomment this when you have a mastery skin
             #region MasterySkin
 

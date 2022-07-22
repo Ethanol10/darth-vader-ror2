@@ -8,10 +8,12 @@ namespace DarthVaderMod.Modules
     {
         // spatialmovement armor buff 
         internal static BuffDef RageBuff;
+        internal static BuffDef DeflectBuff;
 
         internal static void RegisterBuffs()
         {
             RageBuff = AddNewBuff("RageBuff", Assets.lightningBuffIcon, Color.red, false, false);
+            DeflectBuff = AddNewBuff("DeflectBuff", Assets.shieldBuffIcon, Color.red, false, false);
         }
 
         // simple helper method

@@ -44,11 +44,11 @@ AvatarMask:
   - m_Path: DarthVaderArm/AITrajectory/Hips/RightUpLeg/RightUpLegRoll
     m_Weight: 0
   - m_Path: DarthVaderArm/AITrajectory/Hips/Spine
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: DarthVaderArm/AITrajectory/Hips/Spine/Spine1
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: DarthVaderArm/AITrajectory/Hips/Spine/Spine1/Spine2
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: DarthVaderArm/AITrajectory/Hips/Spine/Spine1/Spine2/LeftShoulder
     m_Weight: 1
   - m_Path: DarthVaderArm/AITrajectory/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
