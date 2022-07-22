@@ -4,7 +4,15 @@
 		<WorkUnit Name="Default Work Unit" ID="{AAFBFE91-B18E-45B3-87A5-4D8D5C007BBF}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundBank Name="DarthVaderBank" ID="{45D856F1-79C7-404E-BEE5-B50CB53A3C61}">
-					<ObjectInclusionList/>
+					<ObjectInclusionList>
+						<ObjectRef Name="DarthDeath" ID="{95CBD5AF-5EE8-42DB-BDA6-A54A79FEDB51}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthIntroTheme" ID="{0770318C-84AD-45D8-B192-B94124F7A151}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthVoice" ID="{4BA80FCB-EFC0-4692-A092-C39B72B4CC04}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthBreathing" ID="{F7D13EE4-FB29-47EB-91A6-FCFAB6622B9D}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthForcePush" ID="{87621730-1F28-4B9A-8A85-D295C3A9E117}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthLightsaberHit" ID="{0F4BCEBF-7CDF-4C72-81D3-43F4DC1B47D6}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthRage" ID="{463B624F-FE4B-4FD2-981C-5DAAB8374A72}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>

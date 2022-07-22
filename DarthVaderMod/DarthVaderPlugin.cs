@@ -80,6 +80,8 @@ namespace DarthVaderMod
             //On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
+            On.RoR2.CharacterModel.Awake += CharacterModel_Awake;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -126,7 +128,26 @@ namespace DarthVaderMod
                 }
             }
         }
+        private void CharacterModel_Awake(On.RoR2.CharacterModel.orig_Awake orig, CharacterModel self)
+        {
+            orig(self);
+            if (self.gameObject.name.Contains("DarthVaderDisplay"))
+            {
+                AkSoundEngine.PostEvent("DarthVoice", this.gameObject);
+                AkSoundEngine.PostEvent("DarthIntroTheme", this.gameObject);
 
+            }
+
+        }
+        private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
+        {
+            orig.Invoke(self);
+
+            if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+            {
+                AkSoundEngine.PostEvent("DarthDeath", this.gameObject);
+            }
+        }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {

@@ -135,7 +135,7 @@ namespace DarthVaderMod.Modules
 
             
             //sword
-            swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
+            swordHitSoundEvent = CreateNetworkSoundEventDef("DarthLightsaberHit");
 
             swordSwingEffect = Assets.LoadEffect("DarthVaderSwordSwingEffect", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactDarthVaderSlash");

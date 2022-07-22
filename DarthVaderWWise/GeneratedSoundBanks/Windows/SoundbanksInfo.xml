@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\</ProjectRoot>
+		<SourceFilesRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1057124356" Language="SFX" Hash="1236712384">
+		<SoundBank Id="1057124356" Language="SFX" Hash="4192385997">
 			<ObjectPath>\SoundBanks\Default Work Unit\DarthVaderBank</ObjectPath>
 			<ShortName>DarthVaderBank</ShortName>
 			<Path>DarthVaderBank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="238653005" Name="Breathing" ObjectPath="\Events\Default Work Unit\Breathing">
+				<Event Id="130133524" Name="DarthBreathing" ObjectPath="\Events\Default Work Unit\DarthBreathing">
 					<IncludedMemoryFiles>
 						<File Id="1002384198" Language="SFX">
 							<ShortName>Breathing.wav</ShortName>
-							<Path>SFX\Breathing_3F75BDB9.wem</Path>
+							<Path>SFX\Breathing_CF8EE377.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="779278001" Name="Death" ObjectPath="\Events\Default Work Unit\Death">
+				<Event Id="1097166440" Name="DarthDeath" ObjectPath="\Events\Default Work Unit\DarthDeath">
 					<IncludedMemoryFiles>
 						<File Id="776009937" Language="SFX">
 							<ShortName>NOOOOO_Sound_Effect.wav</ShortName>
-							<Path>SFX\NOOOOO_Sound_Effect_3F75BDB9.wem</Path>
+							<Path>SFX\NOOOOO_Sound_Effect_08AEAD5A.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3137565726" Name="ForcePush" ObjectPath="\Events\Default Work Unit\ForcePush">
+				<Event Id="3503886523" Name="DarthForcePush" ObjectPath="\Events\Default Work Unit\DarthForcePush">
 					<IncludedMemoryFiles>
 						<File Id="540590061" Language="SFX">
 							<ShortName>Force_Push_2.wav</ShortName>
@@ -44,39 +44,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3572068631" Name="ThemeFull" ObjectPath="\Events\Default Work Unit\ThemeFull">
-					<IncludedMemoryFiles>
-						<File Id="726683182" Language="SFX">
-							<ShortName>Imperial_March_Full.wav</ShortName>
-							<Path>SFX\Imperial_March_Full_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="41991958" Name="ThemeShort" ObjectPath="\Events\Default Work Unit\ThemeShort">
+				<Event Id="3450048475" Name="DarthIntroTheme" ObjectPath="\Events\Default Work Unit\DarthIntroTheme">
 					<IncludedMemoryFiles>
 						<File Id="290950456" Language="SFX">
 							<ShortName>Imperial_March_Shortened.wav</ShortName>
-							<Path>SFX\Imperial_March_Shortened_3F75BDB9.wem</Path>
+							<Path>SFX\Imperial_March_Shortened_CC984D85.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3170124113" Name="Voice" ObjectPath="\Events\Default Work Unit\Voice">
-					<IncludedMemoryFiles>
-						<File Id="74220798" Language="SFX">
-							<ShortName>Lack_Of_Faith.wav</ShortName>
-							<Path>SFX\Lack_Of_Faith_3F75BDB9.wem</Path>
-						</File>
-						<File Id="131557054" Language="SFX">
-							<ShortName>Aspirations.wav</ShortName>
-							<Path>SFX\Aspirations_3F75BDB9.wem</Path>
-						</File>
-						<File Id="306023084" Language="SFX">
-							<ShortName>Altering_Deal.wav</ShortName>
-							<Path>SFX\Altering_Deal_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3506202944" Name="WeaponHit" ObjectPath="\Events\Default Work Unit\WeaponHit">
+				<Event Id="2582637128" Name="DarthLightsaberHit" ObjectPath="\Events\Default Work Unit\DarthLightsaberHit">
 					<IncludedMemoryFiles>
 						<File Id="28149369" Language="SFX">
 							<ShortName>Weapon_Hit_2.wav</ShortName>
@@ -96,9 +72,37 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2942166337" Name="DarthRage" ObjectPath="\Events\Default Work Unit\DarthRage">
+					<IncludedMemoryFiles>
+						<File Id="726683182" Language="SFX">
+							<ShortName>Imperial_March_Full.wav</ShortName>
+							<Path>SFX\Imperial_March_Full_A0C05707.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1756512100" Name="DarthVoice" ObjectPath="\Events\Default Work Unit\DarthVoice">
+					<IncludedMemoryFiles>
+						<File Id="74220798" Language="SFX">
+							<ShortName>Lack_Of_Faith.wav</ShortName>
+							<Path>SFX\Lack_Of_Faith_F63EC919.wem</Path>
+						</File>
+						<File Id="131557054" Language="SFX">
+							<ShortName>Aspirations.wav</ShortName>
+							<Path>SFX\Aspirations_2FFF26C8.wem</Path>
+						</File>
+						<File Id="306023084" Language="SFX">
+							<ShortName>Altering_Deal.wav</ShortName>
+							<Path>SFX\Altering_Deal_63F95B1A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3791779620">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3701367528">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
