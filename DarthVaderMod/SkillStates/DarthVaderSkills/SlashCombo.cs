@@ -28,7 +28,7 @@ namespace DarthVaderMod.SkillStates
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 10f;
 
-            this.swingSoundString = "WeaponHit";
+            this.swingSoundString = "DarthLightSaberSwing";
             this.hitSoundString = "";
             this.muzzleString = ChooseAnimationString();
             this.swingEffectPrefab = Modules.Assets.swordSwingEffect;

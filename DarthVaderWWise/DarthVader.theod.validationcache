@@ -6,7 +6,7 @@
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Switches\Default Work Unit.wwu" DateLow="1658497407" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\States\Default Work Unit.wwu" DateLow="1658497407" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1658497407" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\SoundBanks\Default Work Unit.wwu" DateLow="1658497407" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\SoundBanks\Default Work Unit.wwu" DateLow="1658500392" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Queries\Factory Queries.wwu" DateLow="1658497407" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Queries\Default Work Unit.wwu" DateLow="1658497407" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Presets\Factory Spatial Audio.wwu" DateLow="1658497407" DateHigh="0"/>
@@ -18,8 +18,8 @@
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Game Parameters\Factory Motion.wwu" DateLow="1658497406" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Game Parameters\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Events\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Game Parameters\Default Work Unit.wwu" DateLow="1658500392" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Events\Default Work Unit.wwu" DateLow="1658500392" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Effects\Factory Reflect.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Effects\Factory McDSP Effects.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="1658497406" DateHigh="0"/>
@@ -34,10 +34,11 @@
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Effects\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\DarthVader.wproj" DateLow="1658497406" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\DarthVader.theod.wsettings" DateLow="1658500392" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Conversion Settings\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
 	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Audio Devices\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Attenuations\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
-	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1658497406" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Attenuations\Default Work Unit.wwu" DateLow="1658500392" DateHigh="0"/>
+	<ValidationCacheItem File="F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1658500392" DateHigh="0"/>
 </ValidationCache>
