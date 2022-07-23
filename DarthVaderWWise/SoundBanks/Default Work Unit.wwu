@@ -11,6 +11,7 @@
 						<ObjectRef Name="DarthBreathing" ID="{F7D13EE4-FB29-47EB-91A6-FCFAB6622B9D}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DarthForcePush" ID="{87621730-1F28-4B9A-8A85-D295C3A9E117}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DarthLightsaberHit" ID="{0F4BCEBF-7CDF-4C72-81D3-43F4DC1B47D6}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DarthLightSaberSwing" ID="{9E340A4D-2C15-4D99-88E4-9ACD0BF85C6C}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DarthRage" ID="{463B624F-FE4B-4FD2-981C-5DAAB8374A72}" WorkUnitID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

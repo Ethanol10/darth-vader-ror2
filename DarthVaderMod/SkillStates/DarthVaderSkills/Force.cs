@@ -27,6 +27,7 @@ namespace DarthVaderMod.SkillStates
         public override void OnEnter()
         {            
             base.OnEnter();
+            AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
             PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             hasFired = false;
             duration = chargeTime + castTime;
@@ -47,7 +48,6 @@ namespace DarthVaderMod.SkillStates
             {
                 if(base.IsKeyDownAuthority() && !hasFired)
                 {
-                    AkSoundEngine.PostEvent("DarthForcePull", this.gameObject);
                     hasFired = true;
                     ForcePull();
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
@@ -55,7 +55,6 @@ namespace DarthVaderMod.SkillStates
                 }
                 else if (!base.IsKeyDownAuthority() && !hasFired)
                 {
-                    AkSoundEngine.PostEvent("DarthForcePull", this.gameObject);
                     hasFired = true;
                     ForcePush();
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);

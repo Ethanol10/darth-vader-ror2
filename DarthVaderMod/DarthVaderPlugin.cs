@@ -160,6 +160,8 @@ namespace DarthVaderMod
                     {
                         if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                         {
+                            AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
+
                             damageInfo.rejected = true;
 
                             var damageInfo2 = new DamageInfo();
