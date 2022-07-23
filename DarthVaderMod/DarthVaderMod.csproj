@@ -43,7 +43,7 @@
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
     </Reference>
     <Reference Include="R2API">
-      <HintPath>..\..\..\..\AppData\Roaming\r2modmanPlus-local\RiskOfRain2\profiles\testing\BepInEx\plugins\tristanmcpherson-R2API\R2API\R2API.dll</HintPath>
+      <HintPath>bin\Debug\netstandard2.0\R2API.dll</HintPath>
     </Reference>
   </ItemGroup>
 

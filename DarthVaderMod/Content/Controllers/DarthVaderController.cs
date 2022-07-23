@@ -17,7 +17,8 @@ namespace DarthVaderMod.Modules.Survivors
     public class DarthVaderController : MonoBehaviour
     {
         string prefix = DarthVader.DARTHVADER_PREFIX;
-        
+
+        public float breathtimer;
 
         private CharacterBody characterBody;
         private InputBankTest inputBank;
@@ -62,6 +63,17 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
+
+            if (breathtimer > 5f)
+            {
+                AkSoundEngine.PostEvent("DarthBreathing", this.gameObject);
+                breathtimer = 0f;
+            }
+            else
+            {
+                breathtimer += Time.fixedDeltaTime;
+            }
+
             if (characterBody.HasBuff(Modules.Buffs.RageBuff))
             {
                 if(characterBody.skillLocator.secondary.stock == 0)

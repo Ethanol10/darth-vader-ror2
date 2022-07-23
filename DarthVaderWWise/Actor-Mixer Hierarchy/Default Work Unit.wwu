@@ -86,6 +86,11 @@
 								<RandomSequenceContainer Name="LightsaberWeaponHit" ID="{8A8314CD-482B-4331-8E9B-40ED69EB878C}" ShortID="251839073">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -193,6 +198,11 @@
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -238,6 +248,11 @@
 								<RandomSequenceContainer Name="ForcePush" ID="{8DBF7C72-2A12-4B78-829D-89EB6E042F07}" ShortID="219397117">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -262,6 +277,11 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Force_Push_1" ID="{C3581671-E767-4645-B9E7-E7D585B0D605}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.174407427226027"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.29945815496575"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Force_Push_1.wav</AudioFile>
 													<MediaIDList>
@@ -284,6 +304,11 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="Force_Push_2" ID="{A26FA173-464A-4471-9CC7-755501827127}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0884319349315069"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.16435380993151"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Force_Push_2.wav</AudioFile>
 													<MediaIDList>
@@ -300,6 +325,11 @@
 								<RandomSequenceContainer Name="EntranceTheme" ID="{B6D58D89-63E7-4CB8-B05C-83BEA2B5C2F3}" ShortID="758011297">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -314,13 +344,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Imperial_March_Shortened" ID="{1D9BA796-46C8-449A-BFD1-57DBB84D93B8}" ShortID="463599447">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>2</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
@@ -332,12 +355,11 @@
 											<ChildrenList>
 												<AudioFileSource Name="Imperial_March_Shortened" ID="{6B148C67-D09B-4B32-BBE0-EE8B1D709EDA}">
 													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="1.699"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="1.046"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="1"/>
 														<Property Name="LoopBegin" Type="Real64" Value="9.43076756593048"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 														<Property Name="TrimBegin" Type="Real64" Value="9.3"/>
-														<Property Name="TrimEnd" Type="Real64" Value="18.384821622713"/>
+														<Property Name="TrimEnd" Type="Real64" Value="14"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Imperial_March_Shortened.wav</AudioFile>
@@ -355,6 +377,11 @@
 								<RandomSequenceContainer Name="DarthDeath" ID="{25C7B6DF-9ABA-4400-9568-4F3420C2A911}" ShortID="1009229116">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -400,6 +427,11 @@
 								<RandomSequenceContainer Name="RageTheme" ID="{A64A0617-3D78-40D0-A16E-54E754066B9A}" ShortID="433647643">
 									<PropertyList>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Attenuation">
@@ -414,13 +446,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Imperial_March_Full" ID="{1AA83224-D88D-49A1-98E1-EADDCE9E4AD3}" ShortID="48220019">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>4</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
@@ -432,8 +457,6 @@
 											<ChildrenList>
 												<AudioFileSource Name="Imperial_March_Full" ID="{7C99F0BD-0E23-4038-B8BD-A0451724E3EF}">
 													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="1.53794594321748"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="2.46071350914795"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 														<Property Name="TrimBegin" Type="Real64" Value="135.3"/>
 														<Property Name="TrimEnd" Type="Real64" Value="153.5"/>
@@ -473,6 +496,13 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Altering_Deal" ID="{5DDCA0FE-772A-4D37-A1C0-7C016642C035}" ShortID="628541771">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
@@ -484,7 +514,6 @@
 											<ChildrenList>
 												<AudioFileSource Name="Altering_Deal" ID="{AA80D367-8D47-411E-A882-90900E54C01F}">
 													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="2.90067323059362"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -502,7 +531,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>2</Value>
+														<Value>4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -517,7 +546,6 @@
 											<ChildrenList>
 												<AudioFileSource Name="Aspirations" ID="{469E71C6-EDB5-48D9-A504-9300152165EB}">
 													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="1.44104951484017"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 													</PropertyList>
 													<Language>SFX</Language>
@@ -535,7 +563,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-8</Value>
+														<Value>-3</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -550,9 +578,9 @@
 											<ChildrenList>
 												<AudioFileSource Name="Lack_Of_Faith" ID="{28B5AEE2-3684-48EC-BC28-3ACF0D159823}">
 													<PropertyList>
-														<Property Name="FadeOutDuration" Type="Real64" Value="2.15532976598174"/>
-														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0209934717465754"/>
 														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.79912956621005"/>
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>Lack_Of_Faith.wav</AudioFile>

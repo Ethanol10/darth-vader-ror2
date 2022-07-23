@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1057124356" Language="SFX" Hash="199195784">
+		<SoundBank Id="1057124356" Language="SFX" Hash="2692222278">
 			<ObjectPath>\SoundBanks\Default Work Unit\DarthVaderBank</ObjectPath>
 			<ShortName>DarthVaderBank</ShortName>
 			<Path>DarthVaderBank.bnk</Path>
@@ -36,11 +36,11 @@
 					<IncludedMemoryFiles>
 						<File Id="540590061" Language="SFX">
 							<ShortName>Force_Push_2.wav</ShortName>
-							<Path>SFX\Force_Push_2_3F75BDB9.wem</Path>
+							<Path>SFX\Force_Push_2_E7DE4DB7.wem</Path>
 						</File>
 						<File Id="753213582" Language="SFX">
 							<ShortName>Force_Push_1.wav</ShortName>
-							<Path>SFX\Force_Push_1_3F75BDB9.wem</Path>
+							<Path>SFX\Force_Push_1_2F28A9D6.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -48,7 +48,7 @@
 					<IncludedMemoryFiles>
 						<File Id="290950456" Language="SFX">
 							<ShortName>Imperial_March_Shortened.wav</ShortName>
-							<Path>SFX\Imperial_March_Shortened_09A83CCA.wem</Path>
+							<Path>SFX\Imperial_March_Shortened_62C5947B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -72,31 +72,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="804739637" Name="DarthLightsaberSwing" ObjectPath="\Events\Default Work Unit\DarthLightsaberSwing">
-					<IncludedMemoryFiles>
-						<File Id="263928507" Language="SFX">
-							<ShortName>LightsaberSwing4.wav</ShortName>
-							<Path>SFX\LightsaberSwing4_3F75BDB9.wem</Path>
-						</File>
-						<File Id="351825947" Language="SFX">
-							<ShortName>LightsaberSwing1.wav</ShortName>
-							<Path>SFX\LightsaberSwing1_3F75BDB9.wem</Path>
-						</File>
-						<File Id="408777497" Language="SFX">
-							<ShortName>LightsaberSwing2.wav</ShortName>
-							<Path>SFX\LightsaberSwing2_3F75BDB9.wem</Path>
-						</File>
-						<File Id="470310227" Language="SFX">
-							<ShortName>LightsaberSwing3.wav</ShortName>
-							<Path>SFX\LightsaberSwing3_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
 				<Event Id="2942166337" Name="DarthRage" ObjectPath="\Events\Default Work Unit\DarthRage">
 					<IncludedMemoryFiles>
 						<File Id="726683182" Language="SFX">
 							<ShortName>Imperial_March_Full.wav</ShortName>
-							<Path>SFX\Imperial_March_Full_AB50F14D.wem</Path>
+							<Path>SFX\Imperial_March_Full_D5C6B0FB.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -104,15 +84,15 @@
 					<IncludedMemoryFiles>
 						<File Id="74220798" Language="SFX">
 							<ShortName>Lack_Of_Faith.wav</ShortName>
-							<Path>SFX\Lack_Of_Faith_277C7A0A.wem</Path>
+							<Path>SFX\Lack_Of_Faith_93D0D65A.wem</Path>
 						</File>
 						<File Id="131557054" Language="SFX">
 							<ShortName>Aspirations.wav</ShortName>
-							<Path>SFX\Aspirations_CAD45744.wem</Path>
+							<Path>SFX\Aspirations_3F75BDB9.wem</Path>
 						</File>
 						<File Id="306023084" Language="SFX">
 							<ShortName>Altering_Deal.wav</ShortName>
-							<Path>SFX\Altering_Deal_63F95B1A.wem</Path>
+							<Path>SFX\Altering_Deal_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
