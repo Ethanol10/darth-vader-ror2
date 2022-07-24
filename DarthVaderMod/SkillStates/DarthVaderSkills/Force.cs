@@ -79,7 +79,7 @@ namespace DarthVaderMod.SkillStates
             {
                 teamMaskFilter = TeamMask.GetEnemyTeams(base.GetTeam()),
                 filterByLoS = true,
-                searchOrigin = aimRay.origin,
+                searchOrigin = aimRay.origin - aimRay.direction * 2f,
                 searchDirection = aimRay.direction,
                 sortMode = BullseyeSearch.SortMode.Distance,
                 maxDistanceFilter = this.maxTrackingDistance,
@@ -101,13 +101,20 @@ namespace DarthVaderMod.SkillStates
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.characterMotor)
+                        if (singularTarget.healthComponent.body.isChampion)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            Weight = singularTarget.healthComponent.body.characterMotor.mass / 2;
                         }
-                        else if (singularTarget.healthComponent.body.rigidbody)
+                        else
                         {
-                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            if (singularTarget.healthComponent.body.characterMotor)
+                            {
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            }
+                            else if (singularTarget.healthComponent.body.rigidbody)
+                            {
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            }
                         }
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pullRange - magnitude)) * Mathf.Sign(pullRange - magnitude);
@@ -146,7 +153,7 @@ namespace DarthVaderMod.SkillStates
             {
                 teamMaskFilter = TeamMask.GetEnemyTeams(base.GetTeam()),
                 filterByLoS = true,
-                searchOrigin = aimRay.origin,
+                searchOrigin = aimRay.origin - aimRay.direction * 2f,
                 searchDirection = aimRay.direction,
                 sortMode = BullseyeSearch.SortMode.Distance,
                 maxDistanceFilter = this.maxTrackingDistance,
@@ -168,13 +175,20 @@ namespace DarthVaderMod.SkillStates
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.characterMotor)
+                        if (singularTarget.healthComponent.body.isChampion)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            Weight = singularTarget.healthComponent.body.characterMotor.mass/2;
                         }
-                        else if (singularTarget.healthComponent.body.rigidbody)
+                        else
                         {
-                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            if (singularTarget.healthComponent.body.characterMotor)
+                            {
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            }
+                            else if (singularTarget.healthComponent.body.rigidbody)
+                            {
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            }
                         }
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pushRange - magnitude)) * Mathf.Sign(pushRange - magnitude);
@@ -189,7 +203,7 @@ namespace DarthVaderMod.SkillStates
                             damageType = DamageType.Stun1s,
 
                         };
-                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight), true, true);
+                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight / 2), true, true);
                         singularTarget.healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, singularTarget.healthComponent.gameObject);
 
