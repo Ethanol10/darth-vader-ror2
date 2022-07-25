@@ -15,8 +15,8 @@ namespace DarthVaderMod.SkillStates
         public HurtBox Target;
         public float maxTrackingDistance = 100f;
         public float maxTrackingAngle = 30f;
-        public float pullRange = -80f;
-        public float pushRange = 100f;
+        public float pullRange;
+        public float pushRange;
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public float chargeTime = 0.3f;
@@ -27,6 +27,19 @@ namespace DarthVaderMod.SkillStates
         public override void OnEnter()
         {            
             base.OnEnter();
+
+            //nerf rage buff since its infinite spam
+            if (base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                pushRange = 50f;
+                pullRange = -40f;
+            }
+            else if (!base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                pushRange = 100f;
+                pullRange = -80f;
+            }
+
             AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
             PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             hasFired = false;
