@@ -122,7 +122,7 @@ As Darth Vader, deal 100,000 damage in one hit.
 <img src="https://user-images.githubusercontent.com/93917577/180757107-2805aa23-629d-4c75-8f07-1f3759f47cf8.PNG" width="100" height="100">
 
 ### Darksaber
-As Darth Vader, reach stage 20.
+As Darth Vader, complete 20 stages in a single run.
 
 <img src="https://user-images.githubusercontent.com/93917577/180757101-fae538f8-b57d-4a85-bb5c-2bc488e6f5c1.PNG" width="100" height="100">
 
@@ -138,6 +138,7 @@ These stats are prone to change.
 ## Changelog
 
 ## Credits
+##### ONI Watchman#3108 - Mod Commission and Overall kit.
 ##### HenryMod for the template.
 
 ## OG pics
