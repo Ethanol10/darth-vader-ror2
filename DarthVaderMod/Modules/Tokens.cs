@@ -12,9 +12,9 @@ namespace DarthVaderMod.Modules
 
             string desc = "DarthVader is a juggernaut with high survivability at the cost of mobility.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Attackspeed and Movespeed don't increase." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Attackspeed bonuses are converted to Damage and Movespeed bonuses are converted to Armor" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Instead, Attackspeed bonuses are converted to Damage and Movespeed bonuses are converted to Armor" + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Rage Unleashed uncaps Attackspeed and Movespeed as well as granting the bonuses as well." + Environment.NewLine + Environment.NewLine;
+            desc = desc + "< ! > Force affects everything in front of you in a cone shape." + Environment.NewLine + Environment.NewLine;
 
             string outro = "..For one more second, he felt the light.";
             string outroFailure = "..He left full of rage and hate, ready for more training.";
