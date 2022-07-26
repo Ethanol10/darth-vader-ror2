@@ -20,7 +20,7 @@ namespace DarthVaderMod.SkillStates
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public float chargeTime = 0.3f;
-        public float castTime = 0.2f;
+        public float castTime = 0.3f;
         public float duration;
         public bool hasFired;
 

@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b7770d8d549464445ab256ffe2e31f50, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2b6988e43a01d9340a78e7632cfd2ab4, type: 2}
   m_Tag: 
   m_SpeedParameter: Slash.playbackRate
   m_MirrorParameter: 
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d9933efe7948ccd44ab48b2352a05730, type: 2}
+  m_Motion: {fileID: 7400000, guid: fdc01db2d8183f34f8fb2780a48b1e91, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -148,7 +148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c399a5d4559c62a47a5103d7c3151d17, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7a55d9cf9421e2c4daf5415a7356d25d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -197,7 +197,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1ea5561792067274fa8a62e3bbd1b666, type: 2}
+  m_Motion: {fileID: 7400000, guid: 224fbae7881e2f94e8479ebcd1519f19, type: 2}
   m_Tag: 
   m_SpeedParameter: Slash.playbackRate
   m_MirrorParameter: 
@@ -296,7 +296,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3f9ab9b071985db42a27a059d869b66c, type: 2}
+  m_Motion: {fileID: 7400000, guid: d66259864ddafc94e812a22ed288f206, type: 2}
   m_Tag: 
   m_SpeedParameter: Slash.playbackRate
   m_MirrorParameter: 
@@ -323,7 +323,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5924d16de6d23404a93ada3faa1c9d9e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9516075bb62cde04a9978414fb0241be, type: 2}
   m_Tag: 
   m_SpeedParameter: Slash.playbackRate
   m_MirrorParameter: 
@@ -370,7 +370,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.5833334
+  m_ExitTime: 0.99875134
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -4422,9 +4422,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.24999994
   m_TransitionOffset: 0
-  m_ExitTime: 0.5833334
+  m_ExitTime: 0.9951314
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
