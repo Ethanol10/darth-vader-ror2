@@ -96,7 +96,7 @@ namespace DarthVaderMod.Modules {
 
             bodyComponent.baseJumpCount = bodyInfo.jumpCount;
 
-            bodyComponent.sprintingSpeedMultiplier = 1.05f;
+            bodyComponent.sprintingSpeedMultiplier = 1.4f;
 
             bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes;
             bodyComponent.rootMotionInMainState = false;
@@ -110,6 +110,7 @@ namespace DarthVaderMod.Modules {
             SetupModelLocator(newBodyPrefab, modelBaseTransform, model.transform);
             SetupCapsuleCollider(newBodyPrefab);
             SetupMainHurtbox(newBodyPrefab, model);
+            SetupCharacterMotor(newBodyPrefab);
 
             SetupAimAnimator(newBodyPrefab, model);
 
@@ -269,6 +270,11 @@ namespace DarthVaderMod.Modules {
         //    rigidbody.mass = 100f;
         //}
 
+        private static void SetupCharacterMotor(GameObject prefab)
+        {
+            CharacterMotor motor = prefab.GetComponent<CharacterMotor>();
+            motor.mass = 1000f;
+        }
         private static void SetupCapsuleCollider(GameObject prefab) {
             CapsuleCollider capsuleCollider = prefab.GetComponent<CapsuleCollider>();
             capsuleCollider.center = new Vector3(0f, 0f, 0f);

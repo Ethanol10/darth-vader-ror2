@@ -35,8 +35,8 @@ namespace DarthVaderMod.Modules.Survivors
             damage = 10f,
             healthGrowth = 78f,
             jumpCount = 1,
-            moveSpeed = 6f,
-            jumpPower = 15f,
+            moveSpeed = 7f,
+            jumpPower = 20f,
             
         };
 
@@ -83,7 +83,6 @@ namespace DarthVaderMod.Modules.Survivors
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
         public override ConfigEntry<bool> characterEnabledConfig => null; //Modules.Config.CharacterEnableConfig(bodyName);
 
-        private static UnlockableDef masterySkinUnlockableDef;
 
         public override void InitializeCharacter(bool isHidden)
         {
@@ -300,7 +299,8 @@ namespace DarthVaderMod.Modules.Survivors
                 Assets.mainAssetBundle.LoadAsset<Sprite>("blueskin"),
                 bluesaberRendererInfos,
                 mainRenderer,
-                model);
+                model,
+                Modules.Unlockables.darthAnyDifficultyUnlockable);
 
             bluesaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
             {
@@ -343,7 +343,8 @@ namespace DarthVaderMod.Modules.Survivors
                 Assets.mainAssetBundle.LoadAsset<Sprite>("yellowskin"),
                 yellowsaberRendererInfos,
                 mainRenderer,
-                model);
+                model,
+                Modules.Unlockables.darthDamageUnlockable);
 
             yellowsaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
             {
@@ -386,7 +387,8 @@ namespace DarthVaderMod.Modules.Survivors
                 Assets.mainAssetBundle.LoadAsset<Sprite>("darkskin"),
                 darksaberRendererInfos,
                 mainRenderer,
-                model);
+                model,
+                Modules.Unlockables.darthStageUnlockable);
 
             darksaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
             {

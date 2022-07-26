@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{0AD47C2C-2ADE-4E10-8B96-2EA19773EAB4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="DarthBreathing" ID="{F7D13EE4-FB29-47EB-91A6-FCFAB6622B9D}">
+					<ChildrenList>
+						<Action Name="" ID="{239F6B71-35C5-42BD-A5F2-31F980D9B184}" ShortID="974560751">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DarthBreathing" ID="{96FF270D-A0B1-43F2-84EC-BF9335F6C08F}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthDeath" ID="{95CBD5AF-5EE8-42DB-BDA6-A54A79FEDB51}">
+					<ChildrenList>
+						<Action Name="" ID="{A13CC351-C278-496F-AA47-F861DBE964D4}" ShortID="800809145">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DarthDeath" ID="{25C7B6DF-9ABA-4400-9568-4F3420C2A911}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthForcePush" ID="{87621730-1F28-4B9A-8A85-D295C3A9E117}">
+					<ChildrenList>
+						<Action Name="" ID="{66E9A6FB-247C-4D99-A61C-27BBC26AF4E5}" ShortID="287291990">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ForcePush" ID="{8DBF7C72-2A12-4B78-829D-89EB6E042F07}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthRage" ID="{463B624F-FE4B-4FD2-981C-5DAAB8374A72}">
+					<ChildrenList>
+						<Action Name="" ID="{8AEDADE0-DB7A-4FFC-8C62-B50342EC6CB7}" ShortID="746539965">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RageTheme" ID="{A64A0617-3D78-40D0-A16E-54E754066B9A}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthIntroTheme" ID="{0770318C-84AD-45D8-B192-B94124F7A151}">
+					<ChildrenList>
+						<Action Name="" ID="{6E34743B-ED73-4E3B-9E1E-3ECD694B76B6}" ShortID="1049052248">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EntranceTheme" ID="{B6D58D89-63E7-4CB8-B05C-83BEA2B5C2F3}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthVoice" ID="{4BA80FCB-EFC0-4692-A092-C39B72B4CC04}">
+					<ChildrenList>
+						<Action Name="" ID="{DDE25109-DE11-4DC5-B5D1-0E4EC1907B68}" ShortID="26908995">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DarthVoice" ID="{B19277EE-DD4A-4137-BE87-7263A1FC75B7}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthLightsaberHit" ID="{0F4BCEBF-7CDF-4C72-81D3-43F4DC1B47D6}">
+					<ChildrenList>
+						<Action Name="" ID="{B1648151-33AC-45CF-AAE0-1A045C7B115C}" ShortID="439819433">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="LightsaberWeaponHit" ID="{8A8314CD-482B-4331-8E9B-40ED69EB878C}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthLightSaberSwing" ID="{9E340A4D-2C15-4D99-88E4-9ACD0BF85C6C}">
+					<ChildrenList>
+						<Action Name="" ID="{E5EE4206-72E7-4F49-9AA7-7E70DA6E1A8B}" ShortID="424185411">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="LightsaberWeaponSwing" ID="{FEF73EF0-7F67-4928-9179-F6B1829B9CE8}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DarthDeflect" ID="{043FB1E8-DB96-420D-BC89-91D57C3B8B9C}">
+					<ChildrenList>
+						<Action Name="" ID="{2BB03A74-AF77-4765-8E75-94C9BFE14F50}" ShortID="24575271">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Deflect" ID="{86DF5BED-59AF-4868-AB36-8D9FF9A1C6CC}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

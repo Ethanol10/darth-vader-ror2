@@ -22,7 +22,7 @@ namespace DarthVaderMod.Modules
             if ((bool)runReport.gameEnding && runReport.gameEnding.isWin)
             {
                 DifficultyDef runDifficulty = DifficultyCatalog.GetDifficultyDef(runReport.ruleBook.FindDifficulty());
-                if (runDifficulty.countsAsHardMode && runDifficulty.scalingValue >= RequiredDifficultyCoefficient)
+                if (runDifficulty.scalingValue >= RequiredDifficultyCoefficient)
                 {
                     Grant();
                 }

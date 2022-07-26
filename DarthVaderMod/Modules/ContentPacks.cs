@@ -58,6 +58,7 @@ namespace DarthVaderMod.Modules
 
             contentPack.networkSoundEventDefs.Add(networkSoundEventDefs.ToArray());
 
+
             args.ReportProgress(1f);
             yield break;
         }

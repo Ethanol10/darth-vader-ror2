@@ -15,18 +15,32 @@ namespace DarthVaderMod.SkillStates
         public HurtBox Target;
         public float maxTrackingDistance = 100f;
         public float maxTrackingAngle = 30f;
-        public float pullRange = -80f;
-        public float pushRange = 100f;
+        public float pullRange;
+        public float pushRange;
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
         public float chargeTime = 0.3f;
-        public float castTime = 0.2f;
+        public float castTime = 0.3f;
         public float duration;
         public bool hasFired;
 
         public override void OnEnter()
         {            
             base.OnEnter();
+
+            //nerf rage buff since its infinite spam
+            if (base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                pushRange = 50f;
+                pullRange = -40f;
+            }
+            else if (!base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                pushRange = 100f;
+                pullRange = -80f;
+            }
+
+            AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
             PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             hasFired = false;
             duration = chargeTime + castTime;
@@ -78,7 +92,7 @@ namespace DarthVaderMod.SkillStates
             {
                 teamMaskFilter = TeamMask.GetEnemyTeams(base.GetTeam()),
                 filterByLoS = true,
-                searchOrigin = aimRay.origin,
+                searchOrigin = aimRay.origin - aimRay.direction * 2f,
                 searchDirection = aimRay.direction,
                 sortMode = BullseyeSearch.SortMode.Distance,
                 maxDistanceFilter = this.maxTrackingDistance,
@@ -100,13 +114,20 @@ namespace DarthVaderMod.SkillStates
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.characterMotor)
+                        if (singularTarget.healthComponent.body.isChampion)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            Weight = singularTarget.healthComponent.body.characterMotor.mass / 2;
                         }
-                        else if (singularTarget.healthComponent.body.rigidbody)
+                        else
                         {
-                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            if (singularTarget.healthComponent.body.characterMotor)
+                            {
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            }
+                            else if (singularTarget.healthComponent.body.rigidbody)
+                            {
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            }
                         }
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pullRange - magnitude)) * Mathf.Sign(pullRange - magnitude);
@@ -145,7 +166,7 @@ namespace DarthVaderMod.SkillStates
             {
                 teamMaskFilter = TeamMask.GetEnemyTeams(base.GetTeam()),
                 filterByLoS = true,
-                searchOrigin = aimRay.origin,
+                searchOrigin = aimRay.origin - aimRay.direction * 2f,
                 searchDirection = aimRay.direction,
                 sortMode = BullseyeSearch.SortMode.Distance,
                 maxDistanceFilter = this.maxTrackingDistance,
@@ -167,13 +188,20 @@ namespace DarthVaderMod.SkillStates
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.characterMotor)
+                        if (singularTarget.healthComponent.body.isChampion)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            Weight = singularTarget.healthComponent.body.characterMotor.mass/2;
                         }
-                        else if (singularTarget.healthComponent.body.rigidbody)
+                        else
                         {
-                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            if (singularTarget.healthComponent.body.characterMotor)
+                            {
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            }
+                            else if (singularTarget.healthComponent.body.rigidbody)
+                            {
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            }
                         }
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pushRange - magnitude)) * Mathf.Sign(pushRange - magnitude);
@@ -188,7 +216,7 @@ namespace DarthVaderMod.SkillStates
                             damageType = DamageType.Stun1s,
 
                         };
-                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight), true, true);
+                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight / 2), true, true);
                         singularTarget.healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, singularTarget.healthComponent.gameObject);
 

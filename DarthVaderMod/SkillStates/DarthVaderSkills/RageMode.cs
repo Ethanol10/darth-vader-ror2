@@ -26,6 +26,8 @@ namespace DarthVaderMod.SkillStates
                 ragecontroller.charbody = characterBody;
             }
 
+            AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+
             EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
             {
                 origin = base.characterBody.footPosition,

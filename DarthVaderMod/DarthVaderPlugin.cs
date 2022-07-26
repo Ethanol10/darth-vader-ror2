@@ -36,7 +36,7 @@ namespace DarthVaderMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.DarthVaderMod";
         public const string MODNAME = "DarthVaderMod";
-        public const string MODVERSION = "0.0.1";
+        public const string MODVERSION = "1.0.0";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -62,7 +62,7 @@ namespace DarthVaderMod
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-
+            Modules.Unlockables.AddUnlockables(); //add unlockables
             // survivor initialization
             new DarthVader().Initialize(false);
 
@@ -80,6 +80,8 @@ namespace DarthVaderMod
             //On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.GlobalEventManager.OnHitEnemy += GlobalEventManager_OnHitEnemy;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
+            On.RoR2.CharacterModel.Awake += CharacterModel_Awake;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
@@ -103,7 +105,7 @@ namespace DarthVaderMod
                 {
                     Chat.SendBroadcastChat(new Chat.SimpleChatMessage
                     {
-                        baseToken = "There was too much Sand",
+                        baseToken = "There was too much Sand.",
                     });
                 }
 
@@ -126,7 +128,26 @@ namespace DarthVaderMod
                 }
             }
         }
+        private void CharacterModel_Awake(On.RoR2.CharacterModel.orig_Awake orig, CharacterModel self)
+        {
+            orig(self);
+            if (self.gameObject.name.Contains("DarthVaderDisplay"))
+            {
+                AkSoundEngine.PostEvent("DarthVoice", this.gameObject);
+                AkSoundEngine.PostEvent("DarthIntroTheme", this.gameObject);
 
+            }
+
+        }
+        private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
+        {
+            orig.Invoke(self);
+
+            if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+            {
+                AkSoundEngine.PostEvent("DarthDeath", this.gameObject);
+            }
+        }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
@@ -139,11 +160,13 @@ namespace DarthVaderMod
                     {
                         if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                         {
+                            AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
+
                             damageInfo.rejected = true;
 
                             var damageInfo2 = new DamageInfo();
 
-                            damageInfo2.damage = damageInfo.damage * 2f * self.body.master.luck;
+                            damageInfo2.damage = damageInfo.damage * 2f * (1f+self.body.master.luck);
                             damageInfo2.position = damageInfo.attacker.transform.position;
                             damageInfo2.force = Vector3.zero;
                             damageInfo2.damageColorIndex = DamageColorIndex.Default;
@@ -199,8 +222,19 @@ namespace DarthVaderMod
 
         private void GlobalEventManager_OnHitEnemy(On.RoR2.GlobalEventManager.orig_OnHitEnemy orig, GlobalEventManager self, DamageInfo damageInfo, GameObject victim)
         {
-           
-            orig.Invoke(self, damageInfo, victim);
+            orig(self, damageInfo, victim);
+            if (damageInfo.attacker != null && damageInfo != null)
+            {
+                if (damageInfo.attacker.name.Contains("DarthVaderBody"))
+                {
+                    DarthVaderController darthCon = damageInfo.attacker.GetComponent<DarthVaderController>();
+
+                    if (darthCon)
+                    {
+                        darthCon.SetMaxDamage(damageInfo.damage);
+                    }
+                }
+            }
         }
 
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
@@ -217,10 +251,10 @@ namespace DarthVaderMod
                 if (!self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     float currentmovespeed = self.moveSpeed;
-                    if (currentmovespeed > 6f)
+                    if (currentmovespeed > 7f)
                     {
-                        self.moveSpeed = 6f;
-                        float movespeedbonus = currentmovespeed - 6f;
+                        self.moveSpeed = 7f;
+                        float movespeedbonus = currentmovespeed - 7f;
                         self.armor += movespeedbonus;
                     }
                     float currentattackspeed = self.attackSpeed;
@@ -237,7 +271,7 @@ namespace DarthVaderMod
                 else  if(self.HasBuff(Modules.Buffs.RageBuff))
                 {
                     self.moveSpeed *= 2f;
-                    self.armor = (self.moveSpeed - 6f) * 2f;
+                    self.armor = (self.moveSpeed - 7f) * 2f;
 
                     self.attackSpeed *= 2f;
                     self.damage *= self.attackSpeed;

@@ -1,0 +1,38 @@
+Event	ID	Name			Wwise Object Path	Notes
+	130133524	DarthBreathing			\Default Work Unit\DarthBreathing	
+	804739637	DarthLightSaberSwing			\Default Work Unit\DarthLightSaberSwing	
+	1097166440	DarthDeath			\Default Work Unit\DarthDeath	
+	1756512100	DarthVoice			\Default Work Unit\DarthVoice	
+	1907738779	DarthDeflect			\Default Work Unit\DarthDeflect	
+	2582637128	DarthLightsaberHit			\Default Work Unit\DarthLightsaberHit	
+	2942166337	DarthRage			\Default Work Unit\DarthRage	
+	3450048475	DarthIntroTheme			\Default Work Unit\DarthIntroTheme	
+	3503886523	DarthForcePush			\Default Work Unit\DarthForcePush	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	
+	3695994288	Volume_Master			\Default Work Unit\Volume_Master	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	3401795	Deflect3	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Deflect3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Deflect\Deflect3		13920
+	7934420	LightsaberSwing1	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\LightsaberSwing1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponSwing\LightsaberSwing1		5644
+	19781021	Deflect4	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Deflect4_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Deflect\Deflect4		11443
+	23881410	LightsaberSwing2	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\LightsaberSwing2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponSwing\LightsaberSwing2		10169
+	28149369	Weapon_Hit_2	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Weapon_Hit_2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponHit\Weapon_Hit_2		9974
+	61829549	Deflect2	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Deflect2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Deflect\Deflect2		9786
+	71403054	Weapon_Hit_3	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Weapon_Hit_3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponHit\Weapon_Hit_3		14510
+	74220798	Lack_Of_Faith	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Lack_Of_Faith_D59762AD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\DarthVoice\Lack_Of_Faith		34497
+	131557054	Aspirations	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Aspirations_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\DarthVoice\Aspirations		44601
+	290950456	Imperial_March_Shortened	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Imperial_March_Shortened_62C5947B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\EntranceTheme\Imperial_March_Shortened		76983
+	306023084	Altering_Deal	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Altering_Deal_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\DarthVoice\Altering_Deal		61170
+	352724000	LightsaberSwing4	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\LightsaberSwing4_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponSwing\LightsaberSwing4		11147
+	540590061	Force_Push_2	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Force_Push_2_1C1D0F1D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\ForcePush\Force_Push_2		11394
+	582526380	Weapon_Hit_1	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Weapon_Hit_1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponHit\Weapon_Hit_1		7972
+	606105522	LightsaberSwing3	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\LightsaberSwing3_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponSwing\LightsaberSwing3		8886
+	680209595	Weapon_Hit_4	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Weapon_Hit_4_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\LightsaberWeaponHit\Weapon_Hit_4		11690
+	726683182	Imperial_March_Full	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Imperial_March_Full_D5C6B0FB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\RageTheme\Imperial_March_Full		324390
+	753213582	Force_Push_1	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Force_Push_1_59B1B692.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\ForcePush\Force_Push_1		11674
+	776009937	NOOOOO_Sound_Effect	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\NOOOOO_Sound_Effect_4BBEC8A1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\DarthDeath\NOOOOO_Sound_Effect		62869
+	1002384198	Breathing	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Breathing_4BA33ED1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\DarthBreathing\Breathing		23905
+	1009254951	Deflect1	F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\SFX\Deflect1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Master Mixer\SFX Mixer\Deflect\Deflect1		10560
+
