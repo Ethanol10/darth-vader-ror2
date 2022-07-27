@@ -1,6 +1,7 @@
 ## DarthVader
 Adds Darth Vader, the chosen one.
 #### Multiplayer works (hopefully). 
+#### CustomEmotesAPI support!
 #### Message me/the team on the Risk of Rain 2 Modding Discord if there are any issues- TeaL#5571. Ethanol 10#6656. BokChoyWithSoy#3842.  
 #### <a href="https://ko-fi.com/popcornfactory"><img src="https://user-images.githubusercontent.com/93917577/160220529-efed5020-90ac-467e-98f2-27b5c162d744.png"> </a>
 If you enjoy our work, support us on Ko-fi!
