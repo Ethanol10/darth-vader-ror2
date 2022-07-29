@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1705117791987099704}
-  - component: {fileID: 4025735265691573950}
-  - component: {fileID: 4462211732657796817}
+  - component: {fileID: 1200235567990883166}
   m_Layer: 0
-  m_Name: Parts_3_Low
+  m_Name: Lightsaber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,16 +32,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4025735265691573950
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154585484889541086}
-  m_Mesh: {fileID: 4300000, guid: 2ed86a0268568d94799e31131fdf06da, type: 2}
---- !u!23 &4462211732657796817
-MeshRenderer:
+--- !u!137 &1200235567990883166
+SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -55,7 +46,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +71,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 2ed86a0268568d94799e31131fdf06da, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.00001559742, y: -0.000001050299, z: 0.00027846382}
+    m_Extent: {x: 0.00017734649, y: 0.00016008942, z: 0.0014464476}
+  m_DirtyAABB: 0
 --- !u!1 &4414883587660581268
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,8 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3333083471286875395}
-  - component: {fileID: 6013093696807101103}
-  - component: {fileID: 9030687236593594848}
+  - component: {fileID: 600155062833910204}
   m_Layer: 0
   m_Name: Blade_1_Low
   m_TagString: Untagged
@@ -112,16 +114,8 @@ Transform:
   m_Father: {fileID: 1705117791987099704}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6013093696807101103
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4414883587660581268}
-  m_Mesh: {fileID: 4300000, guid: 27eecf036c5035741a100421d291b078, type: 2}
---- !u!23 &9030687236593594848
-MeshRenderer:
+--- !u!137 &600155062833910204
+SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,7 +128,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -159,3 +153,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: 27eecf036c5035741a100421d291b078, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.00001313848, y: 0.00000847859, z: 0.0060198614}
+    m_Extent: {x: 0.00011135726, y: 0.00010904137, z: 0.0043220036}
+  m_DirtyAABB: 0

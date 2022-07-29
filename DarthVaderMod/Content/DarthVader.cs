@@ -66,11 +66,13 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     childName = "LightsaberGrip",
                     material = LightSaberGripMat,
+                    ignoreOverlays = true
                 },
                 new CustomRendererInfo
                 {
                     childName = "LightsaberBlade",
                     material = LightSaberRedMat,
+                    ignoreOverlays = true
                 }
         };
 

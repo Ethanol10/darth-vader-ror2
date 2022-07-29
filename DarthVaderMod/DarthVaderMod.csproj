@@ -43,7 +43,7 @@
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
     </Reference>
     <Reference Include="R2API">
-      <HintPath>bin\Debug\netstandard2.0\R2API.dll</HintPath>
+      <HintPath>..\libs\R2API.dll</HintPath>
     </Reference>
   </ItemGroup>
 
