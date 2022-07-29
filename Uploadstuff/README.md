@@ -46,8 +46,10 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 1.0.1
+  - Fixed the Shield Overlay from being extremely intrusive.
 - 1.0.0 
-    - Initial release.
+  - Initial release.
 
 - Next update(s)
     - Bug fixes. 
@@ -137,6 +139,13 @@ As Darth Vader, complete 20 stages in a single run.
 These stats are prone to change.
 
 ## Changelog
+<details>
+<summary>Click to expand previous patch notes:</summary>
+
+- 1.0.0 
+    - Initial release.
+
+</details>
 
 ## Credits
 ##### ONI Watchman#3108 - Mod Commission and Overall kit.
