@@ -149,6 +149,9 @@ These stats are prone to change.
 
 ## Credits
 ##### Alpharius#3125 - Mod Commission and Overall kit.
+##### barism09 for the lightsaber grip and blade for the 3 colours- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
+##### Konstantin Koretskyi for the darksaber- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
+##### Battlefront 2 Darth Vader model.
 ##### HenryMod for the template.
 
 ## OG pics
