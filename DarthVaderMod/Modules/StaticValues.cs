@@ -8,8 +8,8 @@ namespace DarthVaderMod.Modules
         internal const float swordDamageCoefficient = 2f;
 
         //Force
-        internal const float forcepushDamageCoefficient = 2f;
-        internal const float forcepullDamageCoefficient = 2.5f;
+        internal const float forcepushDamageCoefficient = 4f;
+        internal const float forcepullDamageCoefficient = 5f;
 
         //ragemode
         internal const int ragebuffDuration = 15;

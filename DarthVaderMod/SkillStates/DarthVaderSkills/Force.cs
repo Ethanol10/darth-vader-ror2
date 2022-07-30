@@ -36,8 +36,8 @@ namespace DarthVaderMod.SkillStates
             }
             else if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
-                pushRange = 100f;
-                pullRange = -80f;
+                pushRange = 150f;
+                pullRange = -150f;
             }
 
             AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
@@ -114,21 +114,15 @@ namespace DarthVaderMod.SkillStates
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.isChampion)
+                        if (singularTarget.healthComponent.body.characterMotor)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass / 2;
+                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
                         }
-                        else
+                        else if (singularTarget.healthComponent.body.rigidbody)
                         {
-                            if (singularTarget.healthComponent.body.characterMotor)
-                            {
-                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
-                            }
-                            else if (singularTarget.healthComponent.body.rigidbody)
-                            {
-                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
-                            }
+                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
                         }
+                        
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pullRange - magnitude)) * Mathf.Sign(pullRange - magnitude);
                         a2 *= d;
@@ -188,21 +182,15 @@ namespace DarthVaderMod.SkillStates
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.isChampion)
+                        if (singularTarget.healthComponent.body.characterMotor)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass/2;
+                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
                         }
-                        else
+                        else if (singularTarget.healthComponent.body.rigidbody)
                         {
-                            if (singularTarget.healthComponent.body.characterMotor)
-                            {
-                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
-                            }
-                            else if (singularTarget.healthComponent.body.rigidbody)
-                            {
-                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
-                            }
+                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
                         }
+                        
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pushRange - magnitude)) * Mathf.Sign(pushRange - magnitude);
                         a2 *= d;

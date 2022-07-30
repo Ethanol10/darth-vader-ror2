@@ -106,6 +106,11 @@ namespace DarthVaderMod.SkillStates.BaseStates
         protected virtual void OnHitEnemyAuthority()
         {
             Util.PlaySound(this.hitSoundString, base.gameObject);
+            if (!base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                float getCooldown = base.skillLocator.special.cooldownRemaining;
+                base.skillLocator.special.flatCooldownReduction = getCooldown - 1f;
+            }
 
             if (!this.hasHopped)
             {
