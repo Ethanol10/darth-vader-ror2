@@ -148,7 +148,7 @@ These stats are prone to change.
 </details>
 
 ## Credits
-##### ONI Watchman#3108 - Mod Commission and Overall kit.
+##### Alpharius#3125 - Mod Commission and Overall kit.
 ##### HenryMod for the template.
 
 ## OG pics
