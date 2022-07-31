@@ -108,8 +108,8 @@ namespace DarthVaderMod.SkillStates.BaseStates
             Util.PlaySound(this.hitSoundString, base.gameObject);
             if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
-                float getCooldown = base.skillLocator.special.cooldownRemaining;
-                base.skillLocator.special.rechargeStopwatch += 1f;
+                base.skillLocator.DeductCooldownFromAllSkillsServer(1f);
+                //base.skillLocator.special.rechargeStopwatch += 1f;
             }
 
             if (!this.hasHopped)
