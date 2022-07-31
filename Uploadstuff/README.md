@@ -46,6 +46,15 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 1.1.0
+  - Changed grip to Darth Vader's grip.
+  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previous updates.
+    - Force push/pull: 3s -> 5s. 
+    - Deflect: 6s -> 10s.
+    - Rage Unleashed: 90s -> 125s.
+  - Force push/pull damage coeffecient buffed from 200%/250% to 350%/400%, increased force strength.
+  - Updated impact effect when hitting enemies with the lightsaber.
+  - Fixed Darksaber being invisible from 1.0.1.
 - 1.0.1
   - Fixed the Shield Overlay from being extremely intrusive.
 - 1.0.0 
@@ -54,7 +63,7 @@ If you enjoy our work, support us on Ko-fi!
 - Next update(s)
     - Bug fixes. 
 
-<img src="https://user-images.githubusercontent.com/93917577/180756415-ccadf910-3f7c-4ac6-adda-098cc0decf76.PNG">
+<img src="https://user-images.githubusercontent.com/93917577/182024358-cb346d5c-5066-456b-9e5d-3c0babb9b1ea.PNG">
 
 ## Known Issues
 
@@ -117,12 +126,12 @@ If you enjoy our work, support us on Ko-fi!
 ### Blue Lightsaber
 As Darth Vader, beat the game or obliterate at any difficulty.
 
-<img src="https://user-images.githubusercontent.com/93917577/180757084-29915b07-00de-4b89-81d9-df3d61e037ed.PNG" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/93917577/182024352-14674c3f-8556-49d0-8d73-f3da974e001f.PNG" width="100" height="100">
 
 ### Yellow Lightsaber
 As Darth Vader, deal 100,000 damage in one hit.
 
-<img src="https://user-images.githubusercontent.com/93917577/180757107-2805aa23-629d-4c75-8f07-1f3759f47cf8.PNG" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/93917577/182024400-cf0bc84f-9d3a-45d8-9d32-02a51e5df685.PNG" width="100" height="100">
 
 ### Darksaber
 As Darth Vader, complete 20 stages in a single run.
@@ -148,5 +157,8 @@ These stats are prone to change.
 </details>
 
 ## Credits
-##### ONI Watchman#3108 - Mod Commission and Overall kit.
+##### Alpharius#3125 - Mod Commission and Overall kit.
+##### barism09 for the lightsaber grip and blade for the 3 colours- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
+##### Konstantin Koretskyi for the darksaber- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
+##### Battlefront 2 Darth Vader model.
 ##### HenryMod for the template.
