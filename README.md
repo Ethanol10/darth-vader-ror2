@@ -48,7 +48,7 @@ If you enjoy our work, support us on Ko-fi!
 
 - 1.1.0
   - Changed grip to Darth Vader's grip.
-  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previously.
+  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previous updates.
     - Force push/pull: 3s -> 5s. 
     - Deflect: 6s -> 10s.
     - Rage Unleashed: 90s -> 125s.
@@ -63,7 +63,7 @@ If you enjoy our work, support us on Ko-fi!
 - Next update(s)
     - Bug fixes. 
 
-<img src="https://user-images.githubusercontent.com/93917577/180756415-ccadf910-3f7c-4ac6-adda-098cc0decf76.PNG">
+<img src="https://user-images.githubusercontent.com/93917577/182024358-cb346d5c-5066-456b-9e5d-3c0babb9b1ea.PNG">
 
 ## Known Issues
 
@@ -126,12 +126,12 @@ If you enjoy our work, support us on Ko-fi!
 ### Blue Lightsaber
 As Darth Vader, beat the game or obliterate at any difficulty.
 
-<img src="https://user-images.githubusercontent.com/93917577/180757084-29915b07-00de-4b89-81d9-df3d61e037ed.PNG" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/93917577/182024352-14674c3f-8556-49d0-8d73-f3da974e001f.PNG" width="100" height="100">
 
 ### Yellow Lightsaber
 As Darth Vader, deal 100,000 damage in one hit.
 
-<img src="https://user-images.githubusercontent.com/93917577/180757107-2805aa23-629d-4c75-8f07-1f3759f47cf8.PNG" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/93917577/182024400-cf0bc84f-9d3a-45d8-9d32-02a51e5df685.PNG" width="100" height="100">
 
 ### Darksaber
 As Darth Vader, complete 20 stages in a single run.
@@ -165,10 +165,10 @@ These stats are prone to change.
 
 ## OG pics
 ![darthvaderIcon](https://user-images.githubusercontent.com/93917577/180753359-4906ca0b-6ce5-4ff7-9962-bdec3329682c.png)
-![Menupicture](https://user-images.githubusercontent.com/93917577/180756415-ccadf910-3f7c-4ac6-adda-098cc0decf76.PNG)
-![bluesaber](https://user-images.githubusercontent.com/93917577/180757084-29915b07-00de-4b89-81d9-df3d61e037ed.PNG)
-![darksaber](https://user-images.githubusercontent.com/93917577/180757101-fae538f8-b57d-4a85-bb5c-2bc488e6f5c1.PNG)
-![yellowsaber](https://user-images.githubusercontent.com/93917577/180757107-2805aa23-629d-4c75-8f07-1f3759f47cf8.PNG)
+![Menupicture](https://user-images.githubusercontent.com/93917577/182024358-cb346d5c-5066-456b-9e5d-3c0babb9b1ea.PNG)
+![bluesaber](https://user-images.githubusercontent.com/93917577/182024352-14674c3f-8556-49d0-8d73-f3da974e001f.PNG)
+![yellowsaber](https://user-images.githubusercontent.com/93917577/182024400-cf0bc84f-9d3a-45d8-9d32-02a51e5df685.PNG)
+![darksaber](https://user-images.githubusercontent.com/93917577/182024354-fa61b73d-5ab0-4d66-870d-6900c4b4b2fa.PNG)
 
 ![passive](https://user-images.githubusercontent.com/93917577/180753383-4953862b-208e-40a9-adbc-820edea6ce79.png)
 ![lightsaber](https://user-images.githubusercontent.com/93917577/180753381-a09e0e66-9020-4473-8d16-d649398fcf79.png)
