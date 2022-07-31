@@ -109,7 +109,7 @@ namespace DarthVaderMod.SkillStates.BaseStates
             if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
                 float getCooldown = base.skillLocator.special.cooldownRemaining;
-                base.skillLocator.special.flatCooldownReduction = getCooldown - 1f;
+                base.skillLocator.special.rechargeStopwatch += 1f;
             }
 
             if (!this.hasHopped)

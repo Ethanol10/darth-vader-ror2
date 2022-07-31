@@ -28,16 +28,17 @@ namespace DarthVaderMod.SkillStates
         {            
             base.OnEnter();
 
-            //nerf rage buff since its infinite spam
+            
+            if (!base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                pushRange = 200f;
+                pullRange = -100f;
+            }
+            else //nerf rage buff since its infinite spam
             if (base.HasBuff(Modules.Buffs.RageBuff))
             {
-                pushRange = 50f;
-                pullRange = -40f;
-            }
-            else if (!base.HasBuff(Modules.Buffs.RageBuff))
-            {
-                pushRange = 150f;
-                pullRange = -150f;
+                pushRange = 100f;
+                pullRange = -100f;
             }
 
             AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
@@ -136,7 +137,7 @@ namespace DarthVaderMod.SkillStates
                             damageType = DamageType.Stun1s,
 
                         };
-                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight / 2), true, true);
+                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight), true, true);
                         singularTarget.healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, singularTarget.healthComponent.gameObject);
 
@@ -204,7 +205,7 @@ namespace DarthVaderMod.SkillStates
                             damageType = DamageType.Stun1s,
 
                         };
-                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight / 2), true, true);
+                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight), true, true);
                         singularTarget.healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, singularTarget.healthComponent.gameObject);
 
