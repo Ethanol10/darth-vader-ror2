@@ -46,6 +46,9 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 1.1.1
+  - Updated description for primary to properly say reduces all cooldowns by 1 second.
+  - Updated readme.
 - 1.1.0
   - Changed grip to Darth Vader's grip.
   - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previous updates.
@@ -98,26 +101,26 @@ If you enjoy our work, support us on Ko-fi!
   <tr>
     <td>Primary<br><br>Lightsaber</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753381-a09e0e66-9020-4473-8d16-d649398fcf79.png" alt="Image" width="100" height="100"></td>
-    <td>Swing forward for 200% damage.</td>
+    <td>Swing forward for 200% damage. <br>Hitting enemies reduces all cooldowns by 1 second.</td>
     <td>Proc: 1</td>
   </tr>
   <tr>
     <td>Secondary<br><br>Force <br>Push/Pull<br></td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753373-e4a16ae3-a89b-42b8-bb3d-0a88a51c4efe.png" alt="Image" width="100" height="100"></td>
-    <td>Tap to push enemies for 200% damage.<br>Hold to pull enemies for 250% damage.</td>
-    <td>Proc: 1<br>CD: 3s</td>
+    <td>Tap to push enemies for 350% damage.<br>Hold to pull enemies for 400% damage.</td>
+    <td>Proc: 1<br>CD: 5s</td>
   </tr>
   <tr>
     <td>Utility<br><br>Deflect</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753370-704b0353-592d-473c-999c-ef218b38a0dd.png" alt="Image" width="100" height="100"></td>
     <td>Deflect all attacks for 6 seconds,<br>for 2x the damage, multiplied by luck.<br>Movespeed is halved, and you're unable<br>to attack with your lightsaber.</td>
-    <td>Proc: 1<br>CD: 6s</td>
+    <td>Proc: 1<br>CD: 10s</td>
   </tr>
   <tr>
     <td>Special<br><br>Rage<br>Unleashed</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753387-4c98d23d-6b29-4cc1-9fc6-fdc38caf1d16.png" alt="Image" width="100" height="100"></td>
     <td>Unleashes your rage, fully healing yourself<br>and removing your Attackspeed and<br>Movespeed limiters.<br>Double your Attackspeed, Movespeed and<br>Armor as well as remove all cooldowns for<br>15 seconds. </td>
-    <td>CD: 90s</td>
+    <td>CD: 125s</td>
   </tr>
 </tbody>
 </table>
