@@ -46,6 +46,14 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 1.1.0
+  - Changed grip to Darth Vader's grip.
+  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previously.
+    - Force push/pull: 3s -> 5s. 
+    - Deflect: 6s -> 10s.
+    - Rage Unleashed: 90s -> 125s.
+  - Force push/pull damage coeffecient buffed from 200%/250% to 350%/400%, increased force strength.
+  - Updated impact effect when hitting enemies with the lightsaber.
 - 1.0.1
   - Fixed the Shield Overlay from being extremely intrusive.
 - 1.0.0 
