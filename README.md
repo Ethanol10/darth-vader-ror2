@@ -54,6 +54,7 @@ If you enjoy our work, support us on Ko-fi!
     - Rage Unleashed: 90s -> 125s.
   - Force push/pull damage coeffecient buffed from 200%/250% to 350%/400%, increased force strength.
   - Updated impact effect when hitting enemies with the lightsaber.
+  - Fixed Darksaber being invisible from 1.0.1.
 - 1.0.1
   - Fixed the Shield Overlay from being extremely intrusive.
 - 1.0.0 
