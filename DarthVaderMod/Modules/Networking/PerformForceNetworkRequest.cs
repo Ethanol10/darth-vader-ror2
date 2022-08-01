@@ -40,6 +40,7 @@ namespace DarthVaderMod.Modules.Networking
             netID = reader.ReadNetworkId();
             origin = reader.ReadVector3();
             direction = reader.ReadVector3();
+            pullRange = reader.ReadSingle();
         }
 
         public void Serialize(NetworkWriter writer)
@@ -47,6 +48,7 @@ namespace DarthVaderMod.Modules.Networking
             writer.Write(netID);
             writer.Write(origin);
             writer.Write(direction);
+            writer.Write(pullRange);
         }
 
         public void OnReceived()
