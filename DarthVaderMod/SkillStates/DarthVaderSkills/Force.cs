@@ -15,7 +15,7 @@ namespace DarthVaderMod.SkillStates
     public class Force : BaseSkillState
     {
         public DarthVaderController DarthVadercon;
-        public DarthVaderMasterController DarthVadermastercon;
+        //public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
         public float maxTrackingDistance = 100f;
         public float maxTrackingAngle = 30f;
@@ -71,13 +71,13 @@ namespace DarthVaderMod.SkillStates
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
-                    push = false;   
+                    push = true;   
                 }
                 else if (!base.IsKeyDownAuthority() && !hasFired)
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
-                    pull = false;
+                    pull = true;
                 }
 
                 if (base.fixedAge > duration && base.isAuthority)

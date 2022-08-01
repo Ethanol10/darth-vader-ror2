@@ -25,7 +25,7 @@ namespace DarthVaderMod.Modules.Survivors
         private ChildLocator child;
         private CharacterMaster characterMaster;
 
-        public DarthVaderMasterController DarthVadermastercon;
+        //public DarthVaderMasterController DarthVadermastercon;
         public DarthVaderController DarthVadercon;
 
         public float maxDamage;
@@ -43,12 +43,12 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void Start()
         {
-
-            characterMaster = characterBody.master;
-            if (!characterMaster.gameObject.GetComponent<DarthVaderMasterController>())
-            {
-                DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
-            }
+            //characterBody = gameObject.GetComponent<CharacterBody>();
+            //characterMaster = characterBody.master;
+            //if (!characterMaster.gameObject.GetComponent<DarthVaderMasterController>())
+            //{
+            //    DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
+            //}
 
         }
 

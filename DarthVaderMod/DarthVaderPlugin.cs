@@ -48,7 +48,7 @@ namespace DarthVaderMod
         public static DarthVaderPlugin instance;
 
         public DarthVaderController DarthVadercon;
-        public DarthVaderMasterController DarthVadermastercon;
+        //public DarthVaderMasterController DarthVadermastercon;
 
         private uint entranceID;
         private uint entranceVoiceID;

@@ -8,7 +8,7 @@ namespace DarthVaderMod.SkillStates
     public class SlashCombo : BaseMeleeAttack
     {
         public DarthVaderController DarthVadercon;
-        public DarthVaderMasterController DarthVadermastercon;
+        //public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
         public override void OnEnter()
         {
