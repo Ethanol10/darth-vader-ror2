@@ -46,6 +46,10 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 1.1.2
+  - Entrance theme no longer goes between left and right ears, also ends when character is changed.
+  - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
+  - Networked Force push/pull so non-hosts can use it in multiplayer.
 - 1.1.1
   - Updated description for primary to properly say reduces all cooldowns by 1 second.
   - Updated readme.
@@ -161,7 +165,8 @@ These stats are prone to change.
 
 ## Credits
 ##### Alpharius#3125 - Mod Commission and Overall kit.
-##### barism09 for the lightsaber grip and blade for the 3 colours- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
+##### barism09 for the old lightsaber grip and blade for the 3 colours- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
+##### Paul for the new lightsaber grip- https://sketchfab.com/3d-models/lightsaber-14f7800a6d6a4545be231b933e71ac14
 ##### Konstantin Koretskyi for the darksaber- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
 ##### Battlefront 2 Darth Vader model.
 ##### HenryMod for the template.
