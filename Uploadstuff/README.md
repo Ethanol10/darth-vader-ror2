@@ -48,6 +48,7 @@ If you enjoy our work, support us on Ko-fi!
 
 - 1.1.2
   - Entrance theme no longer goes between left and right ears, also ends when character is changed.
+  - Death sound should now play.
   - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
   - Networked Force push/pull so non-hosts can use it in multiplayer.
   - Added clarity on how Force push/pull works- the strength depends on the distance between yourself and the enemy. It is also weaker when in Rage Unleashed. 
