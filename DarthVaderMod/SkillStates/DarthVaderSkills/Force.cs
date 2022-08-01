@@ -71,13 +71,13 @@ namespace DarthVaderMod.SkillStates
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
-                    push = true;   
+                    pull = true;   
                 }
                 else if (!base.IsKeyDownAuthority() && !hasFired)
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
-                    pull = true;
+                    push = true;
                 }
 
                 if (base.fixedAge > duration && base.isAuthority)
