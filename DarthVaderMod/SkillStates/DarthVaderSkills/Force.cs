@@ -23,18 +23,14 @@ namespace DarthVaderMod.SkillStates
         public float pushRange;
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
-        public float chargeTime = 0.25f;
-        public float castTime = 0.25f;
+        public float chargeTime = 0.1f;
+        public float castTime = 0.3f;
         public float duration;
         public bool hasFired;
-        public bool pull;
-        public bool push;
 
         public override void OnEnter()
         {            
             base.OnEnter();
-            pull = false;
-            push = false;
             
             if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
@@ -71,22 +67,22 @@ namespace DarthVaderMod.SkillStates
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
-                    pull = true;   
+                    
                 }
                 else if (!base.IsKeyDownAuthority() && !hasFired)
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
-                    push = true;
+                    
                 }
 
                 if (base.fixedAge > duration && base.isAuthority)
                 {
-                    if (pull)
+                    if (base.IsKeyDownAuthority())
                     {
                         new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
                     }
-                    if (push)
+                    else if (!base.IsKeyDownAuthority())
                     {
                         new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
                     }
