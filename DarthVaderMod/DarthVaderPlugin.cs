@@ -29,7 +29,8 @@ namespace DarthVaderMod
         "PrefabAPI",
         "LanguageAPI",
         "SoundAPI",
-        "UnlockableAPI"
+        "UnlockableAPI",
+        "NetworkingAPI"
     })]
 
     public class DarthVaderPlugin : BaseUnityPlugin
