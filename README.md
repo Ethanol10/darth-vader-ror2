@@ -46,6 +46,10 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 1.1.2
+  - Entrance theme no longer goes between left and right ears, also ends when character is changed.
+  - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
+  - Networked Force push/pull so non-hosts can use it in multiplayer.
 - 1.1.1
   - Updated description for primary to properly say reduces all cooldowns by 1 second.
   - Updated readme.
