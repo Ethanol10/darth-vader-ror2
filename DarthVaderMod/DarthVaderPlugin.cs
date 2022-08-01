@@ -141,8 +141,8 @@ namespace DarthVaderMod
             orig(self);
             if (self.gameObject.name.Contains("DarthVaderDisplay"))
             {
-                entranceVoiceID = AkSoundEngine.PostEvent("DarthVoice", this.gameObject);
-                entranceID = AkSoundEngine.PostEvent("DarthIntroTheme", this.gameObject);
+                entranceVoiceID = AkSoundEngine.PostEvent("DarthVoice", self.gameObject);
+                entranceID = AkSoundEngine.PostEvent("DarthIntroTheme", self.gameObject);
             }
             else
             {
@@ -157,7 +157,7 @@ namespace DarthVaderMod
 
             if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
             {
-                 AkSoundEngine.PostEvent("DarthDeath", this.gameObject);
+                 AkSoundEngine.PostEvent("DarthDeath", self.gameObject);
             }
         }
 
