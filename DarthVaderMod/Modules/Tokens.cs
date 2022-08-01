@@ -47,7 +47,8 @@ namespace DarthVaderMod.Modules
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_FORCE_NAME", "Force Push/Pull");
             LanguageAPI.Add(prefix + "SECONDARY_FORCE_DESCRIPTION", Helpers.agilePrefix + $"Tap to push enemies for <style=cIsDamage>{100f * StaticValues.forcepushDamageCoefficient}% damage</style>. " +
-                $"Hold to pull enemies for <style=cIsDamage>{100f * StaticValues.forcepullDamageCoefficient}% damage</style>.");
+                $"Hold to pull enemies for <style=cIsDamage>{100f * StaticValues.forcepullDamageCoefficient}% damage</style>. " +
+                $"Strength depends on the distance between the enemy and yourself. Weaker when in Rage Unleashed.");
             #endregion
 
             #region Utility

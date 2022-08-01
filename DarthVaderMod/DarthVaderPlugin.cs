@@ -12,6 +12,8 @@ using EmotesAPI;
 using BepInEx.Bootstrap;
 using DarthVaderMod.SkillStates;
 using DarthVaderMod.Modules.Networking;
+using DarthVaderMod.Modules;
+using R2API;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -160,72 +162,77 @@ namespace DarthVaderMod
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
-            if (self.body.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+            if (self)
             {
-                if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+                if (self.body.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
                 {
-                    bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
-                    if (!flag && damageInfo.damage > 0f)
+                    if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
                     {
-                        if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
+                        bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                        if (!flag && damageInfo.damage > 0f)
                         {
-                            AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
-
-                            damageInfo.rejected = true;
-
-                            var damageInfo2 = new DamageInfo();
-
-                            damageInfo2.damage = damageInfo.damage * 2f * (1f+self.body.master.luck);
-                            damageInfo2.position = damageInfo.attacker.transform.position;
-                            damageInfo2.force = Vector3.zero;
-                            damageInfo2.damageColorIndex = DamageColorIndex.Default;
-                            damageInfo2.crit = Util.CheckRoll(self.body.crit, self.body.master);
-                            damageInfo2.attacker = self.gameObject;
-                            damageInfo2.inflictor = null;
-                            damageInfo2.damageType = DamageType.Generic;
-                            damageInfo2.procCoefficient = 1f;
-                            damageInfo2.procChainMask = default(ProcChainMask);
-
-                            if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
-                                != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                            if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                             {
-                                damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
-                            }
+                                AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
 
-                            Vector3 enemyPos = damageInfo.attacker.transform.position;
-                            Vector3 distance = (enemyPos - self.body.transform.position);
-                            if(distance.magnitude >= 3)
-                            {
-                                EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                damageInfo.rejected = true;
+
+                                var damageInfo2 = new DamageInfo();
+
+                                damageInfo2.damage = damageInfo.damage * 2f * (1f + self.body.master.luck);
+                                damageInfo2.position = damageInfo.attacker.transform.position;
+                                damageInfo2.force = Vector3.zero;
+                                damageInfo2.damageColorIndex = DamageColorIndex.Default;
+                                damageInfo2.crit = Util.CheckRoll(self.body.crit, self.body.master);
+                                damageInfo2.attacker = self.gameObject;
+                                damageInfo2.inflictor = null;
+                                damageInfo2.damageType = DamageType.Generic;
+                                damageInfo2.procCoefficient = 1f;
+                                damageInfo2.procChainMask = default(ProcChainMask);
+
+                                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
                                 {
-                                    origin = self.body.transform.position,
-                                    scale = 1f,
-                                    rotation = Quaternion.LookRotation(distance)
+                                    damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
+                                }
 
-                                }, true);
-
-                            }
-                            else if(distance.magnitude < 3)
-                            {
-                                EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                Vector3 enemyPos = damageInfo.attacker.transform.position;
+                                Vector3 distance = (enemyPos - self.body.transform.position);
+                                if (distance.magnitude >= 3)
                                 {
-                                    origin = enemyPos,
-                                    scale = 1f,
-                                    rotation = Quaternion.LookRotation(distance)
+                                    EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                    {
+                                        origin = self.body.transform.position,
+                                        scale = 1f,
+                                        rotation = Quaternion.LookRotation(distance)
 
-                                }, true);
+                                    }, true);
+
+                                }
+                                else if (distance.magnitude < 3)
+                                {
+                                    EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                    {
+                                        origin = enemyPos,
+                                        scale = 1f,
+                                        rotation = Quaternion.LookRotation(distance)
+
+                                    }, true);
+
+                                }
+
+
 
                             }
-
-
 
                         }
 
+
                     }
-
-
                 }
+
             }
+            
             orig.Invoke(self, damageInfo);
         }
 
@@ -245,50 +252,54 @@ namespace DarthVaderMod
                 }
             }
         }
-
+       
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             orig(self);
-
-            if(self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+            if (self)
             {
-                if (self.HasBuff(Modules.Buffs.DeflectBuff))
+                if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
                 {
-                    self.moveSpeed *= 0.5f;
-                }
-
-                if (!self.HasBuff(Modules.Buffs.RageBuff))
-                {
-                    float currentmovespeed = self.moveSpeed;
-                    if (currentmovespeed > 7f)
+                    if (self.HasBuff(Modules.Buffs.DeflectBuff))
                     {
-                        self.moveSpeed = 7f;
-                        float movespeedbonus = currentmovespeed - 7f;
-                        self.armor += movespeedbonus;
-                    }
-                    float currentattackspeed = self.attackSpeed;
-                    if (currentattackspeed > 1f)
-                    {
-                        self.attackSpeed = 1f;
-                        float attackspeedbonus = currentattackspeed / 1f;
-                        self.damage *= attackspeedbonus;
+                        self.moveSpeed *= 0.5f;
                     }
 
+                    if (!self.HasBuff(Modules.Buffs.RageBuff))
+                    {
+                        float currentmovespeed = self.moveSpeed;
+                        if (currentmovespeed > 7f)
+                        {
+                            self.moveSpeed = 7f;
+                            float movespeedbonus = currentmovespeed - 7f;
+                            self.armor += movespeedbonus;
+                        }
+                        float currentattackspeed = self.attackSpeed;
+                        if (currentattackspeed > 1f)
+                        {
+                            self.attackSpeed = 1f;
+                            float attackspeedbonus = currentattackspeed / 1f;
+                            self.damage *= attackspeedbonus;
+                        }
 
 
-                }
-                else  if(self.HasBuff(Modules.Buffs.RageBuff))
-                {
-                    self.moveSpeed *= 2f;
-                    self.armor = (self.moveSpeed - 7f) * 2f;
 
-                    self.attackSpeed *= 2f;
-                    self.damage *= self.attackSpeed;
+                    }
+                    else if (self.HasBuff(Modules.Buffs.RageBuff))
+                    {
+                        self.moveSpeed *= 2f;
+                        self.armor = (self.moveSpeed - 7f) * 2f;
 
+                        self.attackSpeed *= 2f;
+                        self.damage *= self.attackSpeed;
+
+
+                    }
 
                 }
 
             }
+
                         
         }
 
