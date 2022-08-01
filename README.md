@@ -77,7 +77,7 @@ If you enjoy our work, support us on Ko-fi!
 <img src="https://user-images.githubusercontent.com/93917577/182024358-cb346d5c-5066-456b-9e5d-3c0babb9b1ea.PNG">
 
 ## Known Issues
-
+- Stuttering when using Aetherium.
 
 ## Overview
     Darth Vader is a Juggernaut, with limited mobility but high damage and survivability in close range.
