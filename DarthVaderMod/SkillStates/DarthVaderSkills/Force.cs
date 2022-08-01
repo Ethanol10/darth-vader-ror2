@@ -26,13 +26,15 @@ namespace DarthVaderMod.SkillStates
         public float chargeTime = 0.25f;
         public float castTime = 0.25f;
         public float duration;
-        public float castTimer;
         public bool hasFired;
+        public bool pull;
+        public bool push;
 
         public override void OnEnter()
         {            
             base.OnEnter();
-
+            pull = false;
+            push = false;
             
             if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
@@ -69,34 +71,26 @@ namespace DarthVaderMod.SkillStates
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
-                    if (castTimer > castTime)
-                    {
-                        new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
-
-                    }
-                    else
-                    {
-                        castTimer += Time.fixedDeltaTime;
-                    }
+                    push = false;   
                 }
                 else if (!base.IsKeyDownAuthority() && !hasFired)
                 {
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
-                    if (castTimer > castTime)
-                    {
-                        new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
-
-                    }
-                    else
-                    {
-                        castTimer += Time.fixedDeltaTime;
-                    }
-
+                    pull = false;
                 }
 
                 if (base.fixedAge > duration && base.isAuthority)
                 {
+                    if (pull)
+                    {
+                        new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
+                    }
+                    if (push)
+                    {
+                        new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
+                    }
+
                     this.outer.SetNextStateToMain();
                     return;
                 }
