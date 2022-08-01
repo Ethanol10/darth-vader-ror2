@@ -36,7 +36,7 @@ namespace DarthVaderMod.SkillStates
             if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
                 pushRange = 150f;
-                pullRange = -10f;
+                pullRange = 0f;
             }
             else //nerf rage buff since its infinite spam
             if (base.HasBuff(Modules.Buffs.RageBuff))
@@ -68,13 +68,13 @@ namespace DarthVaderMod.SkillStates
                 {
                     hasFired = true;                   
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
-                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction * 2f, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
+                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
 
                 }
                 else if (!base.IsKeyDownAuthority() && !hasFired)
                 {
                     hasFired = true;
-                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction * 2f, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
+                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
 
                 }

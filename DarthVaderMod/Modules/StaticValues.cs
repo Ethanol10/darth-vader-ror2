@@ -13,7 +13,6 @@ namespace DarthVaderMod.Modules
         internal const float forcepullDamageCoefficient = 4f;
         internal static float forceMaxRange = 100f;
         internal static float forceMaxTrackingAngle = 30f;
-        internal static float pullForceMultiplier;
 
         //ragemode
         internal const int ragebuffDuration = 15;

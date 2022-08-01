@@ -91,11 +91,11 @@ namespace DarthVaderMod.Modules.Networking
                         {
                             if (singularTarget.healthComponent.body.characterMotor)
                             {
-                                Weight = singularTarget.healthComponent.body.characterMotor.mass/10;
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass/5;
                             }
                             else if (singularTarget.healthComponent.body.rigidbody)
                             {
-                                Weight = singularTarget.healthComponent.body.rigidbody.mass/10;
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass/5;
                             }
 
                         }
@@ -115,7 +115,7 @@ namespace DarthVaderMod.Modules.Networking
                         Vector3 a2 = vector;
                         float d = Trajectory.CalculateInitialYSpeedForHeight(Mathf.Abs(pullRange - magnitude)) * Mathf.Sign(pullRange - magnitude);
                         a2 *= d;
-                        a2.y = -10f;
+                        //a2.y = -30f;
                         DamageInfo damageInfo = new DamageInfo
                         {
                             attacker = bodyObj,

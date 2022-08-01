@@ -48,6 +48,7 @@ namespace DarthVaderMod
         public DarthVaderMasterController DarthVadermastercon;
 
         private uint entranceID;
+        private uint entranceVoiceID;
 
         private void Awake()
         {
@@ -137,11 +138,12 @@ namespace DarthVaderMod
             orig(self);
             if (self.gameObject.name.Contains("DarthVaderDisplay"))
             {
-                AkSoundEngine.PostEvent("DarthVoice", this.gameObject);
+                entranceVoiceID = AkSoundEngine.PostEvent("DarthVoice", this.gameObject);
                 entranceID = AkSoundEngine.PostEvent("DarthIntroTheme", this.gameObject);
             }
             else
             {
+                AkSoundEngine.StopPlayingID(entranceVoiceID);
                 AkSoundEngine.StopPlayingID(entranceID);
             }
 
