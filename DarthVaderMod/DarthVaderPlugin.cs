@@ -252,55 +252,50 @@ namespace DarthVaderMod
                 }
             }
         }
-       
+
         private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
-            orig(self);
-            if (self)
+            // What the fuck?
+            if (self.healthComponent) 
             {
-                if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+                orig(self);
+                if (self)
                 {
-                    if (self.HasBuff(Modules.Buffs.DeflectBuff))
+                    if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
                     {
-                        self.moveSpeed *= 0.5f;
-                    }
-
-                    if (!self.HasBuff(Modules.Buffs.RageBuff))
-                    {
-                        float currentmovespeed = self.moveSpeed;
-                        if (currentmovespeed > 7f)
+                        if (self.HasBuff(Modules.Buffs.DeflectBuff))
                         {
-                            self.moveSpeed = 7f;
-                            float movespeedbonus = currentmovespeed - 7f;
-                            self.armor += movespeedbonus;
-                        }
-                        float currentattackspeed = self.attackSpeed;
-                        if (currentattackspeed > 1f)
-                        {
-                            self.attackSpeed = 1f;
-                            float attackspeedbonus = currentattackspeed / 1f;
-                            self.damage *= attackspeedbonus;
+                            self.moveSpeed *= 0.5f;
                         }
 
+                        if (!self.HasBuff(Modules.Buffs.RageBuff))
+                        {
+                            float currentmovespeed = self.moveSpeed;
+                            if (currentmovespeed > 7f)
+                            {
+                                self.moveSpeed = 7f;
+                                float movespeedbonus = currentmovespeed - 7f;
+                                self.armor += movespeedbonus;
+                            }
+                            float currentattackspeed = self.attackSpeed;
+                            if (currentattackspeed > 1f)
+                            {
+                                self.attackSpeed = 1f;
+                                float attackspeedbonus = currentattackspeed / 1f;
+                                self.damage *= attackspeedbonus;
+                            }
+                        }
+                        else if (self.HasBuff(Modules.Buffs.RageBuff))
+                        {
+                            self.moveSpeed *= 2f;
+                            self.armor = (self.moveSpeed - 7f) * 2f;
 
-
+                            self.attackSpeed *= 2f;
+                            self.damage *= self.attackSpeed;
+                        }
                     }
-                    else if (self.HasBuff(Modules.Buffs.RageBuff))
-                    {
-                        self.moveSpeed *= 2f;
-                        self.armor = (self.moveSpeed - 7f) * 2f;
-
-                        self.attackSpeed *= 2f;
-                        self.damage *= self.attackSpeed;
-
-
-                    }
-
                 }
-
-            }
-
-                        
+            }           
         }
 
         //private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
