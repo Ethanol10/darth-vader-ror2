@@ -431,7 +431,6 @@
 								<RandomSequenceContainer Name="DarthVoice" ID="{B19277EE-DD4A-4137-BE87-7263A1FC75B7}" ShortID="946451643">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>12</Value>
@@ -851,6 +850,7 @@
 										</Sound>
 										<Sound Name="darthBreatheOut" ID="{53509510-5E63-463B-BDD1-5E935EF117DA}" ShortID="731074158">
 											<PropertyList>
+												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
 														<Value>-1</Value>
