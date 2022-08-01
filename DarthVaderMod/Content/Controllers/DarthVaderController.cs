@@ -64,7 +64,7 @@ namespace DarthVaderMod.Modules.Survivors
         public void FixedUpdate()
         {
 
-            if (breathtimer > 5f)
+            if (breathtimer > 3f)
             {
                 AkSoundEngine.PostEvent("DarthBreathing", this.gameObject);
                 breathtimer = 0f;
