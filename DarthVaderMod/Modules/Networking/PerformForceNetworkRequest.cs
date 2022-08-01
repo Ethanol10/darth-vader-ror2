@@ -83,16 +83,33 @@ namespace DarthVaderMod.Modules.Networking
                     Vector3 a = singularTarget.transform.position - origin;
                     float magnitude = a.magnitude;
                     Vector3 vector = a / magnitude;
+
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
                         float Weight = 1f;
-                        if (singularTarget.healthComponent.body.characterMotor)
+                        if (singularTarget.healthComponent.body.isBoss)
                         {
-                            Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            if (singularTarget.healthComponent.body.characterMotor)
+                            {
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass/10;
+                            }
+                            else if (singularTarget.healthComponent.body.rigidbody)
+                            {
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass/10;
+                            }
+
                         }
-                        else if (singularTarget.healthComponent.body.rigidbody)
+                        else
                         {
-                            Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            if (singularTarget.healthComponent.body.characterMotor)
+                            {
+                                Weight = singularTarget.healthComponent.body.characterMotor.mass;
+                            }
+                            else if (singularTarget.healthComponent.body.rigidbody)
+                            {
+                                Weight = singularTarget.healthComponent.body.rigidbody.mass;
+                            }
+
                         }
 
                         Vector3 a2 = vector;

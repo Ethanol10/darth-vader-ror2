@@ -41,8 +41,8 @@ namespace DarthVaderMod.SkillStates
             else //nerf rage buff since its infinite spam
             if (base.HasBuff(Modules.Buffs.RageBuff))
             {
-                pushRange = 100f;
-                pullRange = -10f;
+                pushRange = 50f;
+                pullRange = 0f;
             }
 
             AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);

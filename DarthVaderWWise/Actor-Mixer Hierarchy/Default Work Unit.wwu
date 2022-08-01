@@ -198,57 +198,6 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
-								<RandomSequenceContainer Name="DarthBreathing" ID="{96FF270D-A0B1-43F2-84EC-BF9335F6C08F}" ShortID="262511857">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-2</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{A563ADBE-79E9-4540-BF64-CE09D26C8E77}" WorkUnitID="{9DCC4008-749F-4719-BCC6-C166D59C676F}"/>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{347191E0-A452-414D-B0FC-842695FB48E5}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<Sound Name="Breathing" ID="{6001BCBA-25FA-4F14-8514-58A5C6741BE6}" ShortID="11723790">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{347191E0-A452-414D-B0FC-842695FB48E5}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Breathing" ID="{BBE262F5-E014-4EA3-A45A-B7F622A8BE15}">
-													<PropertyList>
-														<Property Name="FadeInDuration" Type="Real64" Value="0.887816352739726"/>
-														<Property Name="FadeOutDuration" Type="Real64" Value="0.926570241152968"/>
-														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>Breathing.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="1002384198"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Breathing" ID="{BBE262F5-E014-4EA3-A45A-B7F622A8BE15}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="ForcePush" ID="{8DBF7C72-2A12-4B78-829D-89EB6E042F07}" ShortID="219397117">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="1"/>
@@ -331,8 +280,6 @@
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="EntranceTheme" ID="{B6D58D89-63E7-4CB8-B05C-83BEA2B5C2F3}" ShortID="758011297">
 									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="1"/>
-										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>6</Value>
@@ -340,9 +287,6 @@
 										</Property>
 									</PropertyList>
 									<ReferenceList>
-										<Reference Name="Attenuation">
-											<ObjectRef Name="Attenuation" ID="{A563ADBE-79E9-4540-BF64-CE09D26C8E77}" WorkUnitID="{9DCC4008-749F-4719-BCC6-C166D59C676F}"/>
-										</Reference>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
 										</Reference>
@@ -849,6 +793,94 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="Deflect4" ID="{257FBA4F-AE9B-42D8-8450-0FF6B1102FB1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="DarthBreathing" ID="{EC8DD46E-9E1F-4D97-9481-C5B1E3BF4461}" ShortID="143664077">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Attenuation" ID="{A563ADBE-79E9-4540-BF64-CE09D26C8E77}" WorkUnitID="{9DCC4008-749F-4719-BCC6-C166D59C676F}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{347191E0-A452-414D-B0FC-842695FB48E5}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="darthBreatheIn" ID="{5D3CAF4A-D91D-45C1-83B8-BEAA0FB344C3}" ShortID="230395311">
+											<PropertyList>
+												<Property Name="OverrideConversion" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{347191E0-A452-414D-B0FC-842695FB48E5}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="darthBreatheIn" ID="{912E4B74-B0E1-43EC-8B22-C5BA80C80CC6}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.597513127853882"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.08033"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>darthBreatheIn.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="277289723"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="darthBreatheIn" ID="{912E4B74-B0E1-43EC-8B22-C5BA80C80CC6}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="darthBreatheOut" ID="{53509510-5E63-463B-BDD1-5E935EF117DA}" ShortID="731074158">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{347191E0-A452-414D-B0FC-842695FB48E5}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="darthBreatheOut" ID="{55367A63-282C-4882-BDCD-1E6E9F808D36}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.24888698630137"/>
+														<Property Name="LoopBegin" Type="Real64" Value="0"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>darthBreatheOut.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="912488064"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="darthBreatheOut" ID="{55367A63-282C-4882-BDCD-1E6E9F808D36}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
