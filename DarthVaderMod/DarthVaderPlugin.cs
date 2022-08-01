@@ -11,6 +11,7 @@ using R2API.Networking;
 using EmotesAPI;
 using BepInEx.Bootstrap;
 using DarthVaderMod.SkillStates;
+using DarthVaderMod.Modules.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -46,9 +47,7 @@ namespace DarthVaderMod
         public DarthVaderController DarthVadercon;
         public DarthVaderMasterController DarthVadermastercon;
 
-        private static DamageReport _damageReport;
-        private static string _damageTaken;
-        private static string _attacker;
+        private uint entranceID;
 
         private void Awake()
         {
@@ -70,9 +69,14 @@ namespace DarthVaderMod
             new Modules.ContentPacks().Initialize();
 
             Hook();
+            SetupNetworkMessages();
 
         }
-
+        private void SetupNetworkMessages()
+        {
+            //Force
+            NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
+        }
         private void Hook()
         {
             // run hooks here, disabling one is as simple as commenting out the line
@@ -134,8 +138,11 @@ namespace DarthVaderMod
             if (self.gameObject.name.Contains("DarthVaderDisplay"))
             {
                 AkSoundEngine.PostEvent("DarthVoice", this.gameObject);
-                AkSoundEngine.PostEvent("DarthIntroTheme", this.gameObject);
-
+                entranceID = AkSoundEngine.PostEvent("DarthIntroTheme", this.gameObject);
+            }
+            else
+            {
+                AkSoundEngine.StopPlayingID(entranceID);
             }
 
         }
@@ -145,7 +152,7 @@ namespace DarthVaderMod
 
             if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
             {
-                AkSoundEngine.PostEvent("DarthDeath", this.gameObject);
+                 AkSoundEngine.PostEvent("DarthDeath", this.gameObject);
             }
         }
 

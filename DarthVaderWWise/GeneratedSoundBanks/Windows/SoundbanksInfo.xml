@@ -11,16 +11,20 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1057124356" Language="SFX" Hash="365635864">
+		<SoundBank Id="1057124356" Language="SFX" Hash="1159146504">
 			<ObjectPath>\SoundBanks\Default Work Unit\DarthVaderBank</ObjectPath>
 			<ShortName>DarthVaderBank</ShortName>
 			<Path>DarthVaderBank.bnk</Path>
 			<IncludedEvents>
 				<Event Id="130133524" Name="DarthBreathing" ObjectPath="\Events\Default Work Unit\DarthBreathing">
 					<IncludedMemoryFiles>
-						<File Id="1002384198" Language="SFX">
-							<ShortName>Breathing.wav</ShortName>
-							<Path>SFX\Breathing_4BA33ED1.wem</Path>
+						<File Id="277289723" Language="SFX">
+							<ShortName>darthBreatheIn.wav</ShortName>
+							<Path>SFX\darthBreatheIn_DD99789F.wem</Path>
+						</File>
+						<File Id="912488064" Language="SFX">
+							<ShortName>darthBreatheOut.wav</ShortName>
+							<Path>SFX\darthBreatheOut_519290C1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
