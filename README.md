@@ -50,6 +50,8 @@ If you enjoy our work, support us on Ko-fi!
   - Entrance theme no longer goes between left and right ears, also ends when character is changed.
   - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
   - Networked Force push/pull so non-hosts can use it in multiplayer.
+  - Added clarity on how Force push/pull works- the strength depends on the distance between yourself and the enemy. It is also weaker when in Rage Unleashed. 
+  - Force push/pull now properly pulls all enemies towards you and away from you with the correct height value, previously it was a limited height change. 
 - 1.1.1
   - Updated description for primary to properly say reduces all cooldowns by 1 second.
   - Updated readme.
@@ -111,7 +113,7 @@ If you enjoy our work, support us on Ko-fi!
   <tr>
     <td>Secondary<br><br>Force <br>Push/Pull<br></td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753373-e4a16ae3-a89b-42b8-bb3d-0a88a51c4efe.png" alt="Image" width="100" height="100"></td>
-    <td>Tap to push enemies for 350% damage.<br>Hold to pull enemies for 400% damage.</td>
+    <td>Tap to push enemies for 350% damage.<br>Hold to pull enemies for 400% damage.<br>Strength depends on the distance between the enemy and yourself.<br>Weaker when in Rage Unleashed.</td>
     <td>Proc: 1<br>CD: 5s</td>
   </tr>
   <tr>
