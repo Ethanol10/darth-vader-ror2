@@ -75,22 +75,21 @@ namespace DarthVaderMod.SkillStates
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
                     
                 }
+            }
 
-                if (base.fixedAge > duration && base.isAuthority)
+            if (base.fixedAge > duration && base.isAuthority)
+            {
+                if (base.IsKeyDownAuthority())
                 {
-                    if (base.IsKeyDownAuthority())
-                    {
-                        new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
-                    }
-                    else if (!base.IsKeyDownAuthority())
-                    {
-                        new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
-                    }
-
-                    this.outer.SetNextStateToMain();
-                    return;
+                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
+                }
+                else if (!base.IsKeyDownAuthority())
+                {
+                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
                 }
 
+                this.outer.SetNextStateToMain();
+                return;
             }
         }
 
