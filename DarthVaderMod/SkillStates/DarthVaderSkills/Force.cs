@@ -23,15 +23,17 @@ namespace DarthVaderMod.SkillStates
         public float pushRange;
         private ChildLocator child;
         public GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
-        public float chargeTime = 0.1f;
-        public float castTime = 0.3f;
+        public float chargeTime = 0.25f;
+        public float castTime = 0.25f;
         public float duration;
         public bool hasFired;
+        public bool isPull;
 
         public override void OnEnter()
         {            
             base.OnEnter();
             
+            isPull = false;
             if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
                 pushRange = 150f;
@@ -63,14 +65,16 @@ namespace DarthVaderMod.SkillStates
             base.FixedUpdate();
             if (base.fixedAge > chargeTime && base.isAuthority)
             {
-                if (base.IsKeyDownAuthority() && !hasFired)
+                if (base.inputBank.skill2.down && !hasFired)
                 {
+                    isPull = true;
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
                     
                 }
-                else if (!base.IsKeyDownAuthority() && !hasFired)
+                else if (!hasFired)
                 {
+                    isPull = false;
                     hasFired = true;
                     PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
                     
@@ -79,11 +83,11 @@ namespace DarthVaderMod.SkillStates
 
             if (base.fixedAge > duration && base.isAuthority)
             {
-                if (base.IsKeyDownAuthority())
+                if (isPull)
                 {
                     new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
                 }
-                else if (!base.IsKeyDownAuthority())
+                else
                 {
                     new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
                 }
