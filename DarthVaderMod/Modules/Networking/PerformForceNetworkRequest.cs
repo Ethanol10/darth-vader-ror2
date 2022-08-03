@@ -125,6 +125,7 @@ namespace DarthVaderMod.Modules.Networking
                             position = singularTarget.transform.position,
                             procCoefficient = 1f,
                             damageType = DamageType.Stun1s,
+                            crit = charBody.RollCrit(),
 
                         };
 
