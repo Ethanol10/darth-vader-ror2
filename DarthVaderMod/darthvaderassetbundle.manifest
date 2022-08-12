@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1506733680
+CRC: 3581627938
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 616dd96d8721fac6c1347c2060b8a0f2
+    Hash: e38e0c6f4619ca7416be8239c3266af5
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b6e75f03637d20d9a540c9e235be06cc
+    Hash: 96d1ce2ec12fd7b16b06412c371e559b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,6 +38,8 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
@@ -62,6 +64,12 @@ ClassTypes:
 - Class: 199
   Script: {instanceID: 0}
 - Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
   Script: {instanceID: 0}
 - Class: 319
   Script: {instanceID: 0}
@@ -101,6 +109,7 @@ Assets:
 - Assets/DarthVader/GUI/darkskin.png
 - Assets/DarthVader/Animations/Idle.anim
 - Assets/DarthVader/Animations/SwordSwing2.anim
+- Assets/DarthVader/Assets/Prefabs/darthCustomUI.prefab
 - Assets/DarthVader/Animations/EntranceLoop.anim
 - Assets/DarthVader/Assets/Emissive.png
 - Assets/DarthVader/Assets/Prefabs/DarkSaber.prefab
