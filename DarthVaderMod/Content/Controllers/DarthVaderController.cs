@@ -11,6 +11,8 @@ using RoR2.Projectile;
 using EntityStates.MiniMushroom;
 using UnityEngine.Networking;
 using R2API.Networking;
+using RoR2.UI;
+using TMPro;
 
 namespace DarthVaderMod.Modules.Survivors
 {
@@ -18,6 +20,7 @@ namespace DarthVaderMod.Modules.Survivors
     {
         string prefix = DarthVader.DARTHVADER_PREFIX;
 
+        //breath timing
         public float breathtimer;
 
         private CharacterBody characterBody;
@@ -28,7 +31,14 @@ namespace DarthVaderMod.Modules.Survivors
         //public DarthVaderMasterController DarthVadermastercon;
         public DarthVaderController DarthVadercon;
 
+        //for achievement
         public float maxDamage;
+
+
+        //UI Forcemeter
+        public GameObject CustomUIObject;
+        public RectTransform forceMeter;
+        public HGTextMeshProUGUI forceNumber;
 
         public void Awake()
         {
@@ -38,8 +48,37 @@ namespace DarthVaderMod.Modules.Survivors
             inputBank = gameObject.GetComponent<InputBankTest>();
 
 
+            //UI objects 
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
+            CustomUIObject.SetActive(false);
+            forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
+            //setup the UI element for the min/max
+            forceNumber = this.CreateLabel(CustomUIObject.transform, "willOWispTimer", $"{0}/{0}", new Vector2(0, -110), 24f);
+            forceNumber.enabled = false;
+
         }
 
+        //Creates the label.
+        private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
+        {
+            GameObject gameObject = new GameObject(name);
+            gameObject.transform.parent = parent;
+            gameObject.AddComponent<CanvasRenderer>();
+            RectTransform rectTransform = gameObject.AddComponent<RectTransform>();
+            HGTextMeshProUGUI hgtextMeshProUGUI = gameObject.AddComponent<HGTextMeshProUGUI>();
+            hgtextMeshProUGUI.text = text;
+            hgtextMeshProUGUI.fontSize = textScale;
+            hgtextMeshProUGUI.color = Color.white;
+            hgtextMeshProUGUI.alignment = TextAlignmentOptions.Center;
+            hgtextMeshProUGUI.enableWordWrapping = false;
+            rectTransform.localPosition = Vector2.zero;
+            rectTransform.anchorMin = Vector2.zero;
+            rectTransform.anchorMax = Vector2.one;
+            rectTransform.localScale = Vector3.one;
+            rectTransform.sizeDelta = Vector2.zero;
+            rectTransform.anchoredPosition = position;
+            return hgtextMeshProUGUI;
+        }
 
         public void Start()
         {
@@ -86,6 +125,11 @@ namespace DarthVaderMod.Modules.Survivors
                 };
             }
 
+        }
+
+        public void OnDestroy()
+        {
+            Destroy(CustomUIObject);
         }
 
 
