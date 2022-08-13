@@ -114,19 +114,47 @@ namespace DarthVaderMod.Modules.Survivors
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab);
             string prefix = DarthVaderPlugin.DEVELOPER_PREFIX;
+            Modules.Skills.CreatePassiveSkillClass();
 
             #region Passive
-            SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
-            skillloc.passiveSkill.enabled = true;
-            skillloc.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
-            skillloc.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
-            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+            //SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            //skillloc.passiveSkill.enabled = false;
+            //skillloc.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
+            //skillloc.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
+            //skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
 
-            SkillLocator skillloc2 = bodyPrefab.GetComponent<SkillLocator>();
-            skillloc2.passiveSkill.enabled = true;
-            skillloc2.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
-            skillloc2.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
-            skillloc2.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+            SkillDef defaultPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "_DARTHVADER_BODY_PASSIVE_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Force)),// This doesn't matter.
+                activationStateMachineName = "Slide",
+                baseMaxStock = 1,
+                baseRechargeInterval = 5f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE" }
+            });
+
+            Modules.Skills.AddPassiveSkills(bodyPrefab, defaultPassive);
+
+            //SkillLocator skillloc2 = bodyPrefab.GetComponent<SkillLocator>();
+            //skillloc2.passiveSkill.enabled = false;
+            //skillloc2.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
+            //skillloc2.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
+            //skillloc2.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
             #endregion
 
 
