@@ -121,6 +121,12 @@ namespace DarthVaderMod.Modules.Survivors
             skillloc.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
             skillloc.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
             skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+
+            SkillLocator skillloc2 = bodyPrefab.GetComponent<SkillLocator>();
+            skillloc2.passiveSkill.enabled = true;
+            skillloc2.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
+            skillloc2.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
+            skillloc2.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
             #endregion
 
 

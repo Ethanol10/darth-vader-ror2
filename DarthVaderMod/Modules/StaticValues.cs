@@ -19,5 +19,13 @@ namespace DarthVaderMod.Modules
 
         //deflect
         internal const int deflectbuffDuration = 6;
+
+        //energy
+        internal static float baseForceEnergy = 100f;
+        internal static float levelForceEnergy = 10f;
+        internal static float baseRegenForceEnergy = 10f;
+        internal static float levelRegenForceEnergy = 1f;
+        internal static float basecostmultiplierForceEnergy = 1f;
+        internal static float basemeleeForceEnergyGain = 1f;
     }
 }

@@ -53,6 +53,9 @@ namespace DarthVaderMod
         private uint entranceID;
         private uint entranceVoiceID;
 
+        
+        public float currentattackspeed;
+
         private void Awake()
         {
             instance = this;
@@ -264,6 +267,7 @@ namespace DarthVaderMod
                 {
                     if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
                     {
+                        DarthVaderController darthCon = self.GetComponent<DarthVaderController>();
                         if (self.HasBuff(Modules.Buffs.DeflectBuff))
                         {
                             self.moveSpeed *= 0.5f;
@@ -279,6 +283,10 @@ namespace DarthVaderMod
                                 self.armor += movespeedbonus;
                             }
                             float currentattackspeed = self.attackSpeed;
+                            if (darthCon)
+                            {
+                                darthCon.meleeForceEnergyGain = currentattackspeed;
+                            }
                             if (currentattackspeed > 1f)
                             {
                                 self.attackSpeed = 1f;

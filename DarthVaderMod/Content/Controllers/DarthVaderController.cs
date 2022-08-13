@@ -13,6 +13,7 @@ using UnityEngine.Networking;
 using R2API.Networking;
 using RoR2.UI;
 using TMPro;
+using DarthVaderMod.Modules;
 
 namespace DarthVaderMod.Modules.Survivors
 {
@@ -40,6 +41,13 @@ namespace DarthVaderMod.Modules.Survivors
         public RectTransform forceMeter;
         public HGTextMeshProUGUI forceNumber;
 
+        //Energy system
+        public float maxForceEnergy;
+        public float currentForceEnergy;
+        public float regenForceEnergy;
+        public float costmultiplierForceEnergy;
+        public float meleeForceEnergyGain;
+
         public void Awake()
         {
             child = GetComponentInChildren<ChildLocator>();
@@ -48,14 +56,45 @@ namespace DarthVaderMod.Modules.Survivors
             inputBank = gameObject.GetComponent<InputBankTest>();
 
 
+            //Energy
+            maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level-1) * StaticValues.levelForceEnergy);
+            currentForceEnergy = maxForceEnergy;
+            regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
+            costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
+            meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
+
             //UI objects 
             CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
             CustomUIObject.SetActive(false);
             forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
             //setup the UI element for the min/max
-            forceNumber = this.CreateLabel(CustomUIObject.transform, "willOWispTimer", $"{0}/{0}", new Vector2(0, -110), 24f);
+            forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{0}/{0}", new Vector2(0, -110), 24f);
             forceNumber.enabled = false;
 
+        }
+
+        private void CalculateEnergyStats()
+        {
+            //Energy updates
+            maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
+            regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
+            if(costmultiplierForceEnergy > 1f)
+            {
+                costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
+            }
+            if(meleeForceEnergyGain < 1f)
+            {
+                meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
+            }
+
+            //Energy Currently have
+            currentForceEnergy += regenForceEnergy * Time.fixedDeltaTime;
+            if (currentForceEnergy > maxForceEnergy)
+            {
+                currentForceEnergy = maxForceEnergy;
+            }
+
+            Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
         }
 
         //Creates the label.
@@ -102,6 +141,7 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
+            CalculateEnergyStats();
 
             if (breathtimer > 3f)
             {
