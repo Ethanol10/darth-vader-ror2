@@ -1,4 +1,5 @@
-﻿using DarthVaderMod.Modules.Survivors;
+﻿using DarthVaderMod.Modules;
+using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
@@ -37,6 +38,7 @@ namespace DarthVaderMod.SkillStates
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             base.OnEnter();
+            DarthVadercon = gameObject.GetComponent<DarthVaderController>();
         }
 
         private string ChooseAnimationString() 
@@ -74,6 +76,10 @@ namespace DarthVaderMod.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
+            if (DarthVadercon) 
+            {
+                DarthVadercon.currentForceEnergy += StaticValues.meleeOnHitForceEnergyGain;
+            }
         }
 
         protected override void SetNextState()

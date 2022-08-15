@@ -15,6 +15,7 @@ using RoR2.UI;
 using TMPro;
 using DarthVaderMod.Modules;
 using DarthVaderMod.Content.Controllers;
+using UnityEngine.UI;
 
 namespace DarthVaderMod.Modules.Survivors
 {
@@ -40,6 +41,7 @@ namespace DarthVaderMod.Modules.Survivors
         //UI Forcemeter
         public GameObject CustomUIObject;
         public RectTransform forceMeter;
+        public Image forceMeterGlowBackground;
         public HGTextMeshProUGUI forceNumber;
 
         //Energy system
@@ -56,9 +58,19 @@ namespace DarthVaderMod.Modules.Survivors
 
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
-            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+        }
 
-            if (passiveSkillSlot.isEnergyPassive()) 
+
+        public void Start()
+        {
+            //characterBody = gameObject.GetComponent<CharacterBody>();
+            //characterMaster = characterBody.master;
+            //if (!characterMaster.gameObject.GetComponent<DarthVaderMasterController>())
+            //{
+            //    DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
+            //}
+            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+            if (passiveSkillSlot.isEnergyPassive())
             {
                 //Energy
                 maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
@@ -69,24 +81,26 @@ namespace DarthVaderMod.Modules.Survivors
 
                 //UI objects 
                 CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
-                CustomUIObject.SetActive(false);
+                CustomUIObject.SetActive(true);
                 forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
+                forceMeterGlowBackground = CustomUIObject.transform.GetChild(1).GetComponent<Image>();
 
                 //setup the UI element for the min/max
-                forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{0}/{0}", new Vector2(0, -110), 24f);
-                forceNumber.enabled = false;
+                forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{(int)currentForceEnergy} / {maxForceEnergy}", new Vector2(0, -110), 24f);
+
             }
-
-
-
         }
 
         private void CalculateEnergyStats()
         {
             //Energy updates
-            maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
-            regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
-            if(costmultiplierForceEnergy > 1f)
+            if (characterBody) 
+            {
+                maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
+                regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
+            }
+
+            if (costmultiplierForceEnergy > 1f)
             {
                 costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
             }
@@ -102,7 +116,18 @@ namespace DarthVaderMod.Modules.Survivors
                 currentForceEnergy = maxForceEnergy;
             }
 
-            Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
+            if (forceNumber) 
+            {
+                forceNumber.SetText($"{(int)currentForceEnergy} / {maxForceEnergy}");
+            }
+
+            if (forceMeter) 
+            {
+                // 2f because meter is too small probably.
+                forceMeter.localScale = new Vector3(2.0f * (currentForceEnergy/maxForceEnergy), 0.05f, 1f);
+            }
+
+            //Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
         }
 
         //Creates the label.
@@ -125,17 +150,6 @@ namespace DarthVaderMod.Modules.Survivors
             rectTransform.sizeDelta = Vector2.zero;
             rectTransform.anchoredPosition = position;
             return hgtextMeshProUGUI;
-        }
-
-        public void Start()
-        {
-            //characterBody = gameObject.GetComponent<CharacterBody>();
-            //characterMaster = characterBody.master;
-            //if (!characterMaster.gameObject.GetComponent<DarthVaderMasterController>())
-            //{
-            //    DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
-            //}
-
         }
 
 

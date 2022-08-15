@@ -27,5 +27,6 @@ namespace DarthVaderMod.Modules
         internal static float levelRegenForceEnergy = 1f;
         internal static float basecostmultiplierForceEnergy = 1f;
         internal static float basemeleeForceEnergyGain = 1f;
+        internal static float meleeOnHitForceEnergyGain = 10f;
     }
 }
