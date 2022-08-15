@@ -11,8 +11,6 @@ namespace DarthVaderMod.Modules
 
     internal static class Skills
     {
-
-        private static SkillFamily passiveSkillFamily;
         #region genericskills
         public static void CreateSkillFamilies(GameObject targetPrefab, bool destroyExisting = true)
         {
@@ -88,10 +86,6 @@ namespace DarthVaderMod.Modules
         {
             AddSkillsToFamily(targetPrefab.GetComponent<SkillLocator>().special.skillFamily, skillDefs);
         }
-        public static void AddPassiveSkills(GameObject targetPrefab, params SkillDef[] skillDefs) 
-        {
-            AddSkillsToFamily(passiveSkillFamily, skillDefs);
-        }
 
         /// <summary>
         /// pass in an amount of unlockables equal to or less than skill variants, null for skills that aren't locked
@@ -109,12 +103,6 @@ namespace DarthVaderMod.Modules
             }
         }
         #endregion
-
-        public static void CreatePassiveSkillClass() 
-        {
-            passiveSkillFamily = ScriptableObject.CreateInstance<SkillFamily>();
-            ContentPacks.skillFamilies.Add(passiveSkillFamily);
-        }
 
         #region skilldefs
         public static SkillDef CreateSkillDef(SkillDefInfo skillDefInfo)
