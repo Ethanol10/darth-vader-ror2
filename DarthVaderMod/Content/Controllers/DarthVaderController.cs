@@ -14,6 +14,7 @@ using R2API.Networking;
 using RoR2.UI;
 using TMPro;
 using DarthVaderMod.Modules;
+using DarthVaderMod.Content.Controllers;
 
 namespace DarthVaderMod.Modules.Survivors
 {
@@ -47,6 +48,7 @@ namespace DarthVaderMod.Modules.Survivors
         public float regenForceEnergy;
         public float costmultiplierForceEnergy;
         public float meleeForceEnergyGain;
+        public DarthVaderPassive passiveSkillSlot;
 
         public void Awake()
         {
@@ -54,22 +56,28 @@ namespace DarthVaderMod.Modules.Survivors
 
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
+            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+
+            if (passiveSkillSlot.isEnergyPassive()) 
+            {
+                //Energy
+                maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
+                currentForceEnergy = maxForceEnergy;
+                regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
+                costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
+                meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
+
+                //UI objects 
+                CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
+                CustomUIObject.SetActive(false);
+                forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
+
+                //setup the UI element for the min/max
+                forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{0}/{0}", new Vector2(0, -110), 24f);
+                forceNumber.enabled = false;
+            }
 
 
-            //Energy
-            maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level-1) * StaticValues.levelForceEnergy);
-            currentForceEnergy = maxForceEnergy;
-            regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
-            costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
-            meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
-
-            //UI objects 
-            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
-            CustomUIObject.SetActive(false);
-            forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
-            //setup the UI element for the min/max
-            forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{0}/{0}", new Vector2(0, -110), 24f);
-            forceNumber.enabled = false;
 
         }
 
@@ -141,7 +149,10 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
-            CalculateEnergyStats();
+            if (passiveSkillSlot.isEnergyPassive()) 
+            {
+                CalculateEnergyStats();
+            }
 
             if (breathtimer > 3f)
             {
@@ -171,15 +182,7 @@ namespace DarthVaderMod.Modules.Survivors
         {
             Destroy(CustomUIObject);
         }
-
-
-
     }
-
-
-
-
-
 }
 
 

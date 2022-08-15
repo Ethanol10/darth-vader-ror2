@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using DarthVaderMod;
 using UnityEngine;
+using DarthVaderMod.Content.Controllers;
 
 namespace DarthVaderMod.Modules
 {
@@ -12,7 +13,7 @@ namespace DarthVaderMod.Modules
     internal static class Skills
     {
         #region genericskills
-        public static void CreateSkillFamilies(GameObject targetPrefab, bool destroyExisting = true)
+        public static void CreateSkillFamilies(GameObject targetPrefab, bool passiveEnabled, bool destroyExisting = true)
         {
             if (destroyExisting)
             {
@@ -23,6 +24,16 @@ namespace DarthVaderMod.Modules
             }
 
             SkillLocator skillLocator = targetPrefab.GetComponent<SkillLocator>();
+
+            // Add the passive if it's enabled. MAKE SURE THE CONTROLLER IS ADDED BEFOREHAND.
+            if (passiveEnabled)
+            {
+                DarthVaderPassive passive = targetPrefab.GetComponent<DarthVaderPassive>();
+                if (passive)
+                {
+                    passive.passiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
+                }
+            }
 
             skillLocator.primary = CreateGenericSkillWithSkillFamily(targetPrefab, "Primary");
             skillLocator.secondary = CreateGenericSkillWithSkillFamily(targetPrefab, "Secondary");
@@ -85,6 +96,10 @@ namespace DarthVaderMod.Modules
         public static void AddSpecialSkills(GameObject targetPrefab, params SkillDef[] skillDefs)
         {
             AddSkillsToFamily(targetPrefab.GetComponent<SkillLocator>().special.skillFamily, skillDefs);
+        }
+        public static void AddPassiveSkills(SkillFamily passiveSkillFamily,  params SkillDef[] skillDefs)
+        {
+            AddSkillsToFamily(passiveSkillFamily, skillDefs);
         }
 
         /// <summary>
