@@ -102,6 +102,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="DarthRageLooped" ID="{F4370EEF-DAFE-47E3-B000-832A092A1E3B}">
+					<ChildrenList>
+						<Action Name="" ID="{E7A46E41-C388-42AF-A676-90C20AB774CF}" ShortID="389929071">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RageThemeLooped" ID="{06969404-ACFB-400D-99F7-95E94535E399}" WorkUnitID="{65FEC6D3-DB97-478F-8FA3-C1715465C570}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
