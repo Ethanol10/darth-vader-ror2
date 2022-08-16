@@ -86,7 +86,7 @@ namespace DarthVaderMod.Modules.Survivors
             //{
             //    DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
             //}
-            DarthVadercon.ifEnergyRegenAllowed = true;
+            ifEnergyRegenAllowed = true;
 
 
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
@@ -168,9 +168,9 @@ namespace DarthVaderMod.Modules.Survivors
             {
                 // 2f because meter is too small probably.
                 // Logarithmically scale.
-                float logVal = Mathf.Log10(((maxForceEnergy / StaticValues.baseForceEnergy) * (currentForceEnergy / maxForceEnergy)) + 1);
+                float logVal = Mathf.Log10( ( (maxForceEnergy / StaticValues.baseForceEnergy) * 10f ) + 1) * (currentForceEnergy / maxForceEnergy);
                 forceMeter.localScale = new Vector3(2.0f * logVal, 0.05f, 1f);
-                forceMeterGlowRect.localScale = new Vector3(2.2f * logVal, 0.05f, 1f);
+                forceMeterGlowRect.localScale = new Vector3(2.3f * logVal, 0.1f, 1f);
             }
 
             //Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
