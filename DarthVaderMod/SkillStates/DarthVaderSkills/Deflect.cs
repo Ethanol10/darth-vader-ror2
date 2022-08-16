@@ -18,15 +18,19 @@ namespace DarthVaderMod.SkillStates
         {            
             base.OnEnter();
 
-            DarthVadercon = characterBody.GetComponent<DarthVaderController>();
+            DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
             if (passiveSkillSlot.isEnergyPassive())
             {
                 characterBody.skillLocator.utility.AddOneStock();
                 characterBody.AddBuff(Modules.Buffs.DeflectBuff.buffIndex);
-                DarthVadercon.ifEnergyRegenAllowed = false;
+                if (DarthVadercon)
+                {
+                    DarthVadercon.ifEnergyRegenAllowed = false;
+                }
 
-                this.outer.SetNextState(new DeflectCancel());
+                PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 10000f);
+                //this.outer.SetNextState(new DeflectCancel());
             }
             else
             {
@@ -39,8 +43,24 @@ namespace DarthVaderMod.SkillStates
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
             PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.1f);
-            if (base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority)
+
+            if (passiveSkillSlot.isEnergyPassive())
+            {
+                if (base.IsKeyDownAuthority())
+                {
+                    PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.1f);
+
+                }
+                else
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+
+                }
+            }
+            else if (base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
                 return;
@@ -53,6 +73,8 @@ namespace DarthVaderMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+            characterBody.RemoveBuff(Modules.Buffs.DeflectBuff.buffIndex);
+            DarthVadercon.ifEnergyRegenAllowed = true;
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

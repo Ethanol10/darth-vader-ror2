@@ -1,4 +1,5 @@
-﻿using DarthVaderMod.Modules.Networking;
+﻿using DarthVaderMod.Content.Controllers;
+using DarthVaderMod.Modules.Networking;
 using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
@@ -15,6 +16,7 @@ namespace DarthVaderMod.SkillStates
     public class Force : BaseSkillState
     {
         public DarthVaderController DarthVadercon;
+        public DarthVaderPassive passiveSkillSlot;
         //public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
         public float maxTrackingDistance = 100f;
@@ -52,17 +54,22 @@ namespace DarthVaderMod.SkillStates
             duration = chargeTime + castTime;
             base.StartAimMode(0.5f + this.duration, false);
 
-            DarthVadercon = characterBody.GetComponent<DarthVaderController>();
+            DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
+            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
 
-            if (DarthVadercon)
+            if (passiveSkillSlot.isEnergyPassive())
             {
-                if (DarthVadercon.currentForceEnergy > 30f)
+                if (DarthVadercon)
                 {
-                    DarthVadercon.currentForceEnergy -= 30f;
-                    characterBody.skillLocator.secondary.AddOneStock();
-                    DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                    if (DarthVadercon.currentForceEnergy > 30f)
+                    {
+                        DarthVadercon.currentForceEnergy -= 30f;
+                        characterBody.skillLocator.secondary.AddOneStock();
+                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                    }
                 }
             }
+
             
         }
 

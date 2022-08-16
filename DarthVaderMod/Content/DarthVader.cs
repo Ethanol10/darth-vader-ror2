@@ -18,6 +18,8 @@ namespace DarthVaderMod.Modules.Survivors
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => DARTHVADER_PREFIX;
 
+
+
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
             bodyName = "DarthVaderBody",
@@ -202,7 +204,7 @@ namespace DarthVaderMod.Modules.Survivors
             #endregion
 
             #region Secondary
-            SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef forceSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "_DARTHVADER_BODY_SECONDARY_FORCE_NAME",
                 skillNameToken = prefix + "_DARTHVADER_BODY_SECONDARY_FORCE_NAME",
@@ -227,11 +229,11 @@ namespace DarthVaderMod.Modules.Survivors
                 keywordTokens = new string[] { "KEYWORD_AGILE" }
             });
 
-            Modules.Skills.AddSecondarySkills(bodyPrefab, shootSkillDef);
+            Modules.Skills.AddSecondarySkills(bodyPrefab, forceSkillDef);
             #endregion
 
             #region Utility
-            SkillDef spatialSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef deflectSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "_DARTHVADER_BODY_UTILITY_DEFLECT_NAME",
                 skillNameToken = prefix + "_DARTHVADER_BODY_UTILITY_DEFLECT_NAME",
@@ -248,18 +250,18 @@ namespace DarthVaderMod.Modules.Survivors
                 interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
-                mustKeyPress = false,
+                mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1
             });
 
-            Modules.Skills.AddUtilitySkills(bodyPrefab, spatialSkillDef);
+            Modules.Skills.AddUtilitySkills(bodyPrefab, deflectSkillDef);
             #endregion
 
             #region Special
-            SkillDef transformSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SkillDef rageSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "_DARTHVADER_BODY_SPECIAL_RAGE_NAME",
                 skillNameToken = prefix + "_DARTHVADER_BODY_SPECIAL_RAGE_NAME",
@@ -283,7 +285,7 @@ namespace DarthVaderMod.Modules.Survivors
                 stockToConsume = 1,
             });
 
-            Modules.Skills.AddSpecialSkills(bodyPrefab, transformSkillDef);
+            Modules.Skills.AddSpecialSkills(bodyPrefab, rageSkillDef);
             #endregion
         }
 
