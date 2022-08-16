@@ -79,6 +79,7 @@ namespace DarthVaderMod.SkillStates
             if (DarthVadercon) 
             {
                 DarthVadercon.currentForceEnergy += StaticValues.meleeOnHitForceEnergyGain;
+                DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
             }
         }
 

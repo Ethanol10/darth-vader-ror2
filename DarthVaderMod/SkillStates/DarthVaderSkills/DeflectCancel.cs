@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DarthVaderMod.SkillStates
 {
-    public class Deflect : BaseSkillState
+    public class DeflectCancel : BaseSkillState
     {
 
         //Controller and energy system
@@ -19,20 +19,6 @@ namespace DarthVaderMod.SkillStates
             base.OnEnter();
 
             DarthVadercon = characterBody.GetComponent<DarthVaderController>();
-            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
-            if (passiveSkillSlot.isEnergyPassive())
-            {
-                characterBody.skillLocator.utility.AddOneStock();
-                characterBody.AddBuff(Modules.Buffs.DeflectBuff.buffIndex);
-                DarthVadercon.ifEnergyRegenAllowed = false;
-
-                this.outer.SetNextState(new DeflectCancel());
-            }
-            else
-            {
-                characterBody.AddTimedBuffAuthority(Modules.Buffs.DeflectBuff.buffIndex, Modules.StaticValues.deflectbuffDuration);
-                PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 6f);
-            }
 
         }
 
@@ -40,7 +26,8 @@ namespace DarthVaderMod.SkillStates
         {
             base.FixedUpdate();
             PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.1f);
-            if (base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority)
+
+            if (base.IsKeyDownAuthority())
             {
                 this.outer.SetNextStateToMain();
                 return;
@@ -53,6 +40,9 @@ namespace DarthVaderMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+
+            DarthVadercon.ifEnergyRegenAllowed = true;
+            characterBody.RemoveBuff(Modules.Buffs.DeflectBuff.buffIndex);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

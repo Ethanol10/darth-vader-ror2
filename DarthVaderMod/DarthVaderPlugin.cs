@@ -14,6 +14,7 @@ using DarthVaderMod.SkillStates;
 using DarthVaderMod.Modules.Networking;
 using DarthVaderMod.Modules;
 using R2API;
+using DarthVaderMod.Content.Controllers;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -47,7 +48,9 @@ namespace DarthVaderMod
 
         public static DarthVaderPlugin instance;
 
+        //Controller and energy system
         public DarthVaderController DarthVadercon;
+        public DarthVaderPassive passiveSkillSlot;
         //public DarthVaderMasterController DarthVadermastercon;
 
         private uint entranceID;
@@ -177,10 +180,6 @@ namespace DarthVaderMod
                         {
                             if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                             {
-                                AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
-
-                                damageInfo.rejected = true;
-
                                 var damageInfo2 = new DamageInfo();
 
                                 damageInfo2.damage = damageInfo.damage * 2f * (1f + self.body.master.luck);
@@ -194,39 +193,92 @@ namespace DarthVaderMod
                                 damageInfo2.procCoefficient = 1f;
                                 damageInfo2.procChainMask = default(ProcChainMask);
 
-                                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
-                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
-                                {
-                                    damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
-                                }
-
                                 Vector3 enemyPos = damageInfo.attacker.transform.position;
                                 Vector3 distance = (enemyPos - self.body.transform.position);
-                                if (distance.magnitude >= 3)
-                                {
-                                    EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
-                                    {
-                                        origin = self.body.transform.position,
-                                        scale = 1f,
-                                        rotation = Quaternion.LookRotation(distance)
 
-                                    }, true);
+                                //Energy passive
+                                passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+                                if (passiveSkillSlot.isEnergyPassive())
+                                {
+                                    DarthVadercon = self.body.GetComponent<DarthVaderController>();
+
+                                    if (DarthVadercon)
+                                    {
+                                        if (DarthVadercon.currentForceEnergy > 10f)
+                                        {
+                                            DarthVadercon.currentForceEnergy -= 10f;
+                                            DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                                            AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
+
+                                            damageInfo.rejected = true;
+
+                                           
+
+                                            if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                                != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                                            {
+                                                damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
+                                            }
+
+                                            if (distance.magnitude >= 3)
+                                            {
+                                                EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                                {
+                                                    origin = self.body.transform.position,
+                                                    scale = 1f,
+                                                    rotation = Quaternion.LookRotation(distance)
+
+                                                }, true);
+
+                                            }
+                                            else if (distance.magnitude < 3)
+                                            {
+                                                EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                                {
+                                                    origin = enemyPos,
+                                                    scale = 1f,
+                                                    rotation = Quaternion.LookRotation(distance)
+
+                                                }, true);
+
+                                            }
+                                        }
+                                    }
 
                                 }
-                                else if (distance.magnitude < 3)
+                                else
                                 {
-                                    EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
-                                    {
-                                        origin = enemyPos,
-                                        scale = 1f,
-                                        rotation = Quaternion.LookRotation(distance)
+                                    //CD passive
+                                    AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
 
-                                    }, true);
+                                    damageInfo.rejected = true;
+
+                                   
+                                    if (distance.magnitude >= 3)
+                                    {
+                                        EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                        {
+                                            origin = self.body.transform.position,
+                                            scale = 1f,
+                                            rotation = Quaternion.LookRotation(distance)
+
+                                        }, true);
+
+                                    }
+                                    else if (distance.magnitude < 3)
+                                    {
+                                        EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                        {
+                                            origin = enemyPos,
+                                            scale = 1f,
+                                            rotation = Quaternion.LookRotation(distance)
+
+                                        }, true);
+
+                                    }
 
                                 }
-
-
-
+                                
                             }
 
                         }

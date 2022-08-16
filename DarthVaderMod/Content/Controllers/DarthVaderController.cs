@@ -52,6 +52,7 @@ namespace DarthVaderMod.Modules.Survivors
         public float costmultiplierForceEnergy;
         public float meleeForceEnergyGain;
         public DarthVaderPassive passiveSkillSlot;
+        public bool ifEnergyRegenAllowed;
 
         //Energy bar glow
         private enum GlowState
@@ -85,6 +86,9 @@ namespace DarthVaderMod.Modules.Survivors
             //{
             //    DarthVadermastercon = characterMaster.gameObject.AddComponent<DarthVaderMasterController>();
             //}
+            DarthVadercon.ifEnergyRegenAllowed = true;
+
+
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
             if (passiveSkillSlot.isEnergyPassive())
             {
@@ -145,7 +149,11 @@ namespace DarthVaderMod.Modules.Survivors
             }
 
             //Energy Currently have
-            currentForceEnergy += regenForceEnergy * Time.fixedDeltaTime;
+            if (ifEnergyRegenAllowed)
+            {
+                currentForceEnergy += regenForceEnergy * Time.fixedDeltaTime;
+            }
+
             if (currentForceEnergy > maxForceEnergy)
             {
                 currentForceEnergy = maxForceEnergy;
@@ -160,7 +168,7 @@ namespace DarthVaderMod.Modules.Survivors
             {
                 // 2f because meter is too small probably.
                 // Logarithmically scale.
-                float logVal = Mathf.Log10(((maxForceEnergy / StaticValues.baseForceEnergy) * currentForceEnergy / maxForceEnergy) + 1);
+                float logVal = Mathf.Log10(((maxForceEnergy / StaticValues.baseForceEnergy) * (currentForceEnergy / maxForceEnergy)) + 1);
                 forceMeter.localScale = new Vector3(2.0f * logVal, 0.05f, 1f);
                 forceMeterGlowRect.localScale = new Vector3(2.2f * logVal, 0.05f, 1f);
             }

@@ -53,10 +53,15 @@ namespace DarthVaderMod.SkillStates
             base.StartAimMode(0.5f + this.duration, false);
 
             DarthVadercon = characterBody.GetComponent<DarthVaderController>();
-            if (DarthVadercon.currentForceEnergy > 50f)
+
+            if (DarthVadercon)
             {
-                DarthVadercon.currentForceEnergy -= 50f;
-                characterBody.skillLocator.secondary.AddOneStock();
+                if (DarthVadercon.currentForceEnergy > 30f)
+                {
+                    DarthVadercon.currentForceEnergy -= 30f;
+                    characterBody.skillLocator.secondary.AddOneStock();
+                    DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                }
             }
             
         }
