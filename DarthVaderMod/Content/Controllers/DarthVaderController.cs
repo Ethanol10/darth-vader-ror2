@@ -52,6 +52,21 @@ namespace DarthVaderMod.Modules.Survivors
         public float meleeForceEnergyGain;
         public DarthVaderPassive passiveSkillSlot;
 
+        //Energy bar glow
+        private enum GlowState
+        {
+            STOP,
+            FLASH,
+            DECAY
+        }
+        private float decayConst;
+        private float flashConst;
+        private float glowStopwatch;
+        private Color targetColor;
+        private Color originalColor;
+        private Color currentColor;
+        private GlowState state;
+
         public void Awake()
         {
             child = GetComponentInChildren<ChildLocator>();
@@ -87,8 +102,26 @@ namespace DarthVaderMod.Modules.Survivors
 
                 //setup the UI element for the min/max
                 forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{(int)currentForceEnergy} / {maxForceEnergy}", new Vector2(0, -110), 24f);
-
             }
+
+            // Start timer on 1f to turn off the timer.
+            state = GlowState.STOP;
+            decayConst = 1f;
+            flashConst = 1f;
+            glowStopwatch = 1f;
+            originalColor = new Color(1f, 1f, 1f, 0f);
+            targetColor = new Color(1f, 1f, 1f, 1f);
+            currentColor = originalColor;
+        }
+
+        public void TriggerGlow(float newDecayTimer, float newFlashTimer, Color newStartingColor)
+        {
+            decayConst = newDecayTimer;
+            flashConst = newFlashTimer;
+            originalColor = new Color(newStartingColor.r, newStartingColor.g, newStartingColor.b, 0f);
+            targetColor = newStartingColor;
+            glowStopwatch = 0f;
+            state = GlowState.FLASH;
         }
 
         private void CalculateEnergyStats()
@@ -124,7 +157,8 @@ namespace DarthVaderMod.Modules.Survivors
             if (forceMeter) 
             {
                 // 2f because meter is too small probably.
-                forceMeter.localScale = new Vector3(2.0f * (currentForceEnergy/maxForceEnergy), 0.05f, 1f);
+                // Logarithmically scale.
+                forceMeter.localScale = new Vector3(2.0f * Mathf.Log10( (currentForceEnergy/maxForceEnergy) * 10f ), 0.05f, 1f);
             }
 
             //Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
@@ -159,6 +193,48 @@ namespace DarthVaderMod.Modules.Survivors
             {
                 maxDamage = newVal;
             }
+        }
+
+        public void Update()
+        {
+            if (state != GlowState.STOP)
+            {
+                glowStopwatch += Time.deltaTime;
+                float lerpFraction;
+                switch (state)
+                {
+                    // Lerp to target color
+                    case GlowState.FLASH:
+
+                        lerpFraction = glowStopwatch / flashConst;
+                        currentColor = Color.Lerp(originalColor, targetColor, lerpFraction);
+
+                        if (glowStopwatch > flashConst)
+                        {
+                            state = GlowState.DECAY;
+                            glowStopwatch = 0f;
+                        }
+                        break;
+
+                    //Lerp back to original color;
+                    case GlowState.DECAY:
+                        //Linearlly lerp.
+                        lerpFraction = glowStopwatch / decayConst;
+                        currentColor = Color.Lerp(targetColor, originalColor, lerpFraction);
+
+                        if (glowStopwatch > decayConst)
+                        {
+                            state = GlowState.STOP;
+                            glowStopwatch = 0f;
+                        }
+                        break;
+                    case GlowState.STOP:
+                        //State does nothing.
+                        break;
+                }
+            }
+
+            forceMeterGlowBackground.color = currentColor;
         }
 
         public void FixedUpdate()
