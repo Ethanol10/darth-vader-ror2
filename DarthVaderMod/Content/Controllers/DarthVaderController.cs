@@ -158,7 +158,9 @@ namespace DarthVaderMod.Modules.Survivors
             {
                 // 2f because meter is too small probably.
                 // Logarithmically scale.
-                forceMeter.localScale = new Vector3(2.0f * Mathf.Log10( (currentForceEnergy/maxForceEnergy) * 10f ), 0.05f, 1f);
+                // Consider remathing this since the current function doesn't scale longer with more energy.
+                float logVal = Mathf.Log10(((maxForceEnergy / StaticValues.baseForceEnergy) * currentForceEnergy / maxForceEnergy) + 1);
+                forceMeter.localScale = new Vector3(2.0f * logVal, 0.05f, 1f);
             }
 
             //Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
