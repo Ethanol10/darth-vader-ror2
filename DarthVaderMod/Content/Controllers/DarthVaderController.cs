@@ -41,6 +41,7 @@ namespace DarthVaderMod.Modules.Survivors
         //UI Forcemeter
         public GameObject CustomUIObject;
         public RectTransform forceMeter;
+        public RectTransform forceMeterGlowRect;
         public Image forceMeterGlowBackground;
         public HGTextMeshProUGUI forceNumber;
 
@@ -99,6 +100,7 @@ namespace DarthVaderMod.Modules.Survivors
                 CustomUIObject.SetActive(true);
                 forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
                 forceMeterGlowBackground = CustomUIObject.transform.GetChild(1).GetComponent<Image>();
+                forceMeterGlowRect = CustomUIObject.transform.GetChild(1).GetComponent<RectTransform>();
 
                 //setup the UI element for the min/max
                 forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{(int)currentForceEnergy} / {maxForceEnergy}", new Vector2(0, -110), 24f);
@@ -158,9 +160,9 @@ namespace DarthVaderMod.Modules.Survivors
             {
                 // 2f because meter is too small probably.
                 // Logarithmically scale.
-                // Consider remathing this since the current function doesn't scale longer with more energy.
                 float logVal = Mathf.Log10(((maxForceEnergy / StaticValues.baseForceEnergy) * currentForceEnergy / maxForceEnergy) + 1);
                 forceMeter.localScale = new Vector3(2.0f * logVal, 0.05f, 1f);
+                forceMeterGlowRect.localScale = new Vector3(2.2f * logVal, 0.05f, 1f);
             }
 
             //Chat.AddMessage($"{currentForceEnergy}/{maxForceEnergy}");
