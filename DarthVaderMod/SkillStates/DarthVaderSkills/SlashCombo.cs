@@ -76,10 +76,25 @@ namespace DarthVaderMod.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
-            if (DarthVadercon) 
+            if (!base.HasBuff(Modules.Buffs.RageBuff))
             {
-                DarthVadercon.currentForceEnergy += StaticValues.meleeOnHitForceEnergyGain;
-                DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
+                base.skillLocator.DeductCooldownFromAllSkillsServer(1f);
+                //base.skillLocator.special.rechargeStopwatch += 1f;
+
+                if (DarthVadercon)
+                {
+                    DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGainFraction);
+                    DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
+                }
+            }
+            else if (base.HasBuff(Modules.Buffs.RageBuff))
+            {
+                if (DarthVadercon)
+                {
+                    DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGainFraction/base.attackSpeedStat);
+                    DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
+                }
+
             }
         }
 

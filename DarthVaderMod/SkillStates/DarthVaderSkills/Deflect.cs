@@ -24,10 +24,7 @@ namespace DarthVaderMod.SkillStates
             {
                 characterBody.skillLocator.utility.AddOneStock();
                 characterBody.AddBuff(Modules.Buffs.DeflectBuff.buffIndex);
-                if (DarthVadercon)
-                {
-                    DarthVadercon.ifEnergyRegenAllowed = false;
-                }
+
 
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 10000f);
                 //this.outer.SetNextState(new DeflectCancel());
@@ -74,7 +71,6 @@ namespace DarthVaderMod.SkillStates
         {
             base.OnExit();
             characterBody.RemoveBuff(Modules.Buffs.DeflectBuff.buffIndex);
-            DarthVadercon.ifEnergyRegenAllowed = true;
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

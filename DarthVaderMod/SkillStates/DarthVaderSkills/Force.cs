@@ -30,6 +30,7 @@ namespace DarthVaderMod.SkillStates
         public float duration;
         public bool hasFired;
         public bool isPull;
+        public bool enoughEnergy;
 
         public override void OnEnter()
         {            
@@ -51,6 +52,8 @@ namespace DarthVaderMod.SkillStates
             AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
             PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             hasFired = false;
+            enoughEnergy = false;
+
             duration = chargeTime + castTime;
             base.StartAimMode(0.5f + this.duration, false);
 
@@ -60,12 +63,26 @@ namespace DarthVaderMod.SkillStates
             if (passiveSkillSlot.isEnergyPassive())
             {
                 if (DarthVadercon)
-                {
-                    if (DarthVadercon.currentForceEnergy > 30f)
+                {            
+                    if (base.HasBuff(Modules.Buffs.RageBuff))
                     {
-                        DarthVadercon.currentForceEnergy -= 30f;
                         characterBody.skillLocator.secondary.AddOneStock();
                         DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                        enoughEnergy = true;
+
+                    }
+                    else if (DarthVadercon.currentForceEnergy > Modules.StaticValues.forcePushPullCost)
+                    {
+                        DarthVadercon.SpendEnergy(Modules.StaticValues.forcePushPullCost);
+                        characterBody.skillLocator.secondary.AddOneStock();
+                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                        enoughEnergy = true;
+
+                    }
+                    else
+                    {
+                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
+                        enoughEnergy = false;
                     }
                 }
             }
@@ -85,36 +102,87 @@ namespace DarthVaderMod.SkillStates
             base.FixedUpdate();
             if (base.fixedAge > chargeTime && base.isAuthority)
             {
-                if (base.inputBank.skill2.down && !hasFired)
-                {
-                    isPull = true;
-                    hasFired = true;
-                    PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
-                    
-                }
-                else if (!hasFired)
-                {
-                    isPull = false;
-                    hasFired = true;
-                    PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
-                    
-                }
-            }
 
-            if (base.fixedAge > duration && base.isAuthority)
-            {
-                if (isPull)
+                if (passiveSkillSlot.isEnergyPassive())
                 {
-                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
+                    if (enoughEnergy)
+                    {
+
+                        if (base.inputBank.skill2.down && !hasFired)
+                        {
+                            isPull = true;
+                            hasFired = true;
+                            PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
+
+                        }
+                        else if (!hasFired)
+                        {
+                            isPull = false;
+                            hasFired = true;
+                            PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
+
+                        }
+
+                        if (base.fixedAge > duration && base.isAuthority)
+                        {
+                            if (isPull)
+                            {
+                                new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
+                            }
+                            else
+                            {
+                                new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
+                            }
+
+                            this.outer.SetNextStateToMain();
+                            return;
+                        }
+
+                    }
+                    else
+                    {
+                        this.outer.SetNextStateToMain();
+                        return;
+
+                    }
+
                 }
                 else
                 {
-                    new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
-                }
+                    if (base.inputBank.skill2.down && !hasFired)
+                    {
+                        isPull = true;
+                        hasFired = true;
+                        PlayCrossfade("LeftArm, Override", "ForcePull", "Attack.playbackRate", castTime, 0.05f);
 
-                this.outer.SetNextStateToMain();
-                return;
+                    }
+                    else if (!hasFired)
+                    {
+                        isPull = false;
+                        hasFired = true;
+                        PlayCrossfade("LeftArm, Override", "ForcePush", "Attack.playbackRate", castTime, 0.05f);
+
+                    }
+
+                    if (base.fixedAge > duration && base.isAuthority)
+                    {
+                        if (isPull)
+                        {
+                            new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pullRange).Send(NetworkDestination.Clients);
+                        }
+                        else
+                        {
+                            new PerformForceNetworkRequest(base.characterBody.masterObjectId, base.GetAimRay().origin - GetAimRay().direction, base.GetAimRay().direction, pushRange).Send(NetworkDestination.Clients);
+                        }
+
+                        this.outer.SetNextStateToMain();
+                        return;
+                    }
+
+                }
             }
+
+            
         }
 
         //public void ForcePull()

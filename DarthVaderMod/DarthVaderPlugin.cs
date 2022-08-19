@@ -204,9 +204,9 @@ namespace DarthVaderMod
 
                                     if (DarthVadercon)
                                     {
-                                        if (DarthVadercon.currentForceEnergy > 10f)
+                                        if (DarthVadercon.currentForceEnergy > StaticValues.deflectPerHitCost)
                                         {
-                                            DarthVadercon.currentForceEnergy -= 10f;
+                                            DarthVadercon.SpendEnergy(StaticValues.deflectPerHitCost);
                                             DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
                                             AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
 
@@ -242,6 +242,11 @@ namespace DarthVaderMod
                                                 }, true);
 
                                             }
+                                        }
+                                        else
+                                        {
+
+                                            DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
                                         }
                                     }
 

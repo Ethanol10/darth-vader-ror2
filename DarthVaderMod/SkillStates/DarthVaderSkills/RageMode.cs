@@ -1,4 +1,5 @@
-﻿using DarthVaderMod.Modules.Survivors;
+﻿using DarthVaderMod.Content.Controllers;
+using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
 using RoR2;
@@ -10,8 +11,12 @@ namespace DarthVaderMod.SkillStates
     {
         public float timer;
 
+        public DarthVaderController DarthVadercon;
+        public DarthVaderPassive passiveSkillSlot;
         private GameObject blasteffectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
         public GameObject effectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
+        private bool enoughEnergy;
+
         public override void OnEnter()
         {            
             base.OnEnter();
@@ -33,13 +38,58 @@ namespace DarthVaderMod.SkillStates
                 origin = base.characterBody.footPosition,
                 scale = 1f,
             }, true);
+
+
+            if (passiveSkillSlot.isEnergyPassive())
+            {
+                if (DarthVadercon)
+                {
+                    if (DarthVadercon.currentForceEnergy == DarthVadercon.maxForceEnergy)
+                    {
+                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                        enoughEnergy = true;
+                    }
+                    else
+                    {
+                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
+                        enoughEnergy = false;
+                    }
+                }
+            }
         }
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            if (timer > 0.1f)
+            if (passiveSkillSlot.isEnergyPassive())
+            {
+                if (enoughEnergy)
+                {
+                    if (timer > 0.1f)
+                    {
+                        float num = 10f;
+                        Quaternion rotation = Util.QuaternionSafeLookRotation(Vector3.up);
+                        float num2 = 0.01f;
+                        rotation.x += UnityEngine.Random.Range(-num2, num2) * num;
+                        rotation.y += UnityEngine.Random.Range(-num2, num2) * num;
+
+                        timer = 0f;
+                        EffectManager.SpawnEffect(effectPrefab, new EffectData
+                        {
+                            origin = base.characterBody.corePosition,
+                            scale = 1f,
+                            rotation = rotation
+                        }, true);
+                    }
+                    else
+                    {
+                        timer += Time.fixedDeltaTime;
+                    }
+
+                }
+            }
+            else if (timer > 0.1f)
             {
                 float num = 10f;
                 Quaternion rotation = Util.QuaternionSafeLookRotation(Vector3.up);

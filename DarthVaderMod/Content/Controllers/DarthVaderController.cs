@@ -1,19 +1,8 @@
-﻿using EntityStates;
-using R2API;
-using RoR2;
-using RoR2.Orbs;
+﻿using RoR2;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using EntityStates.LunarExploderMonster;
-using RoR2.Projectile;
-using EntityStates.MiniMushroom;
-using UnityEngine.Networking;
-using R2API.Networking;
 using RoR2.UI;
 using TMPro;
-using DarthVaderMod.Modules;
 using DarthVaderMod.Content.Controllers;
 using UnityEngine.UI;
 
@@ -49,10 +38,14 @@ namespace DarthVaderMod.Modules.Survivors
         public float maxForceEnergy;
         public float currentForceEnergy;
         public float regenForceEnergy;
+        public float drainForceEnergy;
         public float costmultiplierForceEnergy;
+        public float costflatForceEnergy;
         public float meleeForceEnergyGain;
         public DarthVaderPassive passiveSkillSlot;
         public bool ifEnergyRegenAllowed;
+        public float rageTimer;
+        public float increasingRageTimer;
 
         //Energy bar glow
         private enum GlowState
@@ -95,8 +88,10 @@ namespace DarthVaderMod.Modules.Survivors
                 //Energy
                 maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
                 currentForceEnergy = maxForceEnergy;
-                regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
+                regenForceEnergy = maxForceEnergy * StaticValues.regenForceEnergyFraction;
+                drainForceEnergy = maxForceEnergy * StaticValues.drainForceEnergyFraction;
                 costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
+                costflatForceEnergy = 0f;
                 meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
 
                 //UI objects 
@@ -130,20 +125,37 @@ namespace DarthVaderMod.Modules.Survivors
             state = GlowState.FLASH;
         }
 
+        public void SpendEnergy(float Energy)
+        {
+            currentForceEnergy -= Energy * costmultiplierForceEnergy + costflatForceEnergy;
+        }
+
+        public void MeleeEnergyGain(float Energy)
+        {
+            currentForceEnergy += Energy * meleeForceEnergyGain;
+        }
+
         private void CalculateEnergyStats()
         {
             //Energy updates
             if (characterBody) 
             {
-                maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
-                regenForceEnergy = StaticValues.baseRegenForceEnergy + ((characterBody.level - 1) * StaticValues.levelRegenForceEnergy);
+                maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy) 
+                    + (10f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
+                    + (30f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
+                regenForceEnergy = maxForceEnergy * StaticValues.regenForceEnergyFraction 
+                    * (1 + 0.25f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead))
+                    + (1 + 5* characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
             }
 
+            costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy
+                * (-0.75f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
+            costflatForceEnergy -= (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
             if (costmultiplierForceEnergy > 1f)
             {
                 costmultiplierForceEnergy = StaticValues.basecostmultiplierForceEnergy;
             }
-            if(meleeForceEnergyGain < 1f)
+            if (meleeForceEnergyGain < 1f)
             {
                 meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
             }
@@ -266,9 +278,20 @@ namespace DarthVaderMod.Modules.Survivors
                 breathtimer += Time.fixedDeltaTime;
             }
 
-            if (characterBody.HasBuff(Modules.Buffs.RageBuff))
+            if (characterBody.HasBuff(Buffs.RageBuff))
             {
-                if(characterBody.skillLocator.secondary.stock == 0)
+                if(rageTimer > 1f)
+                {
+                    rageTimer = 0f;
+                    DarthVadercon.TriggerGlow(0.4f, 0.5f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
+                }
+                else
+                {
+                    rageTimer += Time.fixedDeltaTime;
+                }
+                increasingRageTimer += Time.fixedDeltaTime;
+
+                if (characterBody.skillLocator.secondary.stock == 0)
                 {
                     characterBody.skillLocator.secondary.AddOneStock();
                 };
@@ -276,6 +299,23 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     characterBody.skillLocator.utility.AddOneStock();
                 };
+
+                ifEnergyRegenAllowed = false;
+                currentForceEnergy -= (float)Math.Pow(increasingRageTimer, StaticValues.drainForceEnergyFraction);
+                
+            }
+            else
+            {
+                increasingRageTimer = 0f;
+            }
+            if (characterBody.HasBuff(Buffs.DeflectBuff))
+            {
+                ifEnergyRegenAllowed = false;                
+            }
+
+            if(!characterBody.HasBuff(Buffs.RageBuff) && !characterBody.HasBuff(Buffs.DeflectBuff))
+            {
+                ifEnergyRegenAllowed = true;
             }
 
         }
