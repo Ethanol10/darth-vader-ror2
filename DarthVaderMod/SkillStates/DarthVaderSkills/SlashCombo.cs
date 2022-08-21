@@ -83,18 +83,9 @@ namespace DarthVaderMod.SkillStates
 
                 if (DarthVadercon)
                 {
-                    DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGainFraction);
+                    DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGain);
                     DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
                 }
-            }
-            else if (base.HasBuff(Modules.Buffs.RageBuff))
-            {
-                if (DarthVadercon)
-                {
-                    DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGainFraction/base.attackSpeedStat);
-                    DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
-                }
-
             }
         }
 

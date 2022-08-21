@@ -25,9 +25,8 @@ namespace DarthVaderMod.Modules
         internal static float levelForceEnergy = 10f;
         internal static float regenForceEnergyFraction = 0.05f;
         internal static float drainForceEnergyFraction = 0.8f;
-        internal static float basecostmultiplierForceEnergy = 1f;
         internal static float basemeleeForceEnergyGain = 1f;
-        internal static float meleeOnHitForceEnergyGainFraction = 0.1f;
+        internal static float meleeOnHitForceEnergyGain = 10f;
         internal static float forcePushPullCost = 30f;
         internal static float deflectPerHitCost = 20f;
     }

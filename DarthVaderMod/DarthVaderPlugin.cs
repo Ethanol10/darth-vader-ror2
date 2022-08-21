@@ -197,7 +197,7 @@ namespace DarthVaderMod
                                 Vector3 distance = (enemyPos - self.body.transform.position);
 
                                 //Energy passive
-                                passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+                                passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
                                 DarthVadercon = self.body.gameObject.GetComponent<DarthVaderController>();
                                 if (passiveSkillSlot.isEnergyPassive())
                                 {
@@ -251,7 +251,7 @@ namespace DarthVaderMod
                                     }
 
                                 }
-                                else
+                                else if (!passiveSkillSlot.isEnergyPassive())
                                 {
                                     //CD passive
                                     AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);

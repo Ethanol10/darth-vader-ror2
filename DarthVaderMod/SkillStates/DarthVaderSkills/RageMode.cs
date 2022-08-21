@@ -15,82 +15,90 @@ namespace DarthVaderMod.SkillStates
         public DarthVaderPassive passiveSkillSlot;
         private GameObject blasteffectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
         public GameObject effectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
-        private bool enoughEnergy;
 
         public override void OnEnter()
         {            
             base.OnEnter();
 
-            characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
-            characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
+            DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
+            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
 
-            RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
-            if (!ragecontroller)
-            {
-                ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
-                ragecontroller.charbody = characterBody;
-            }
-
-            AkSoundEngine.PostEvent("DarthRage", this.gameObject);
-
-            EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
-            {
-                origin = base.characterBody.footPosition,
-                scale = 1f,
-            }, true);
 
 
             if (passiveSkillSlot.isEnergyPassive())
             {
+                characterBody.skillLocator.special.AddOneStock();
                 if (DarthVadercon)
                 {
                     if (DarthVadercon.currentForceEnergy == DarthVadercon.maxForceEnergy)
                     {
                         DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
-                        enoughEnergy = true;
+                        characterBody.AddBuff(Modules.Buffs.RageBuff.buffIndex);
+                        characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
+
+                        RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
+                        if (!ragecontroller)
+                        {
+                            ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
+                            ragecontroller.charbody = characterBody;
+                        }
+
+                        DarthVadercon.rageLoopID = AkSoundEngine.PostEvent("DarthRageLooped", characterBody.gameObject);
+
+                        EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
+                        {
+                            origin = base.characterBody.footPosition,
+                            scale = 1f,
+                        }, true);
+
                     }
                     else
                     {
                         DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
-                        enoughEnergy = false;
+                        this.outer.SetNextStateToMain();
+                        return;
                     }
                 }
             }
+            else
+            {
+                characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
+                characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
+
+                RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
+                if (!ragecontroller)
+                {
+                    ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
+                    ragecontroller.charbody = characterBody;
+                }
+
+                AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+
+                EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
+                {
+                    origin = base.characterBody.footPosition,
+                    scale = 1f,
+                }, true);
+
+            }
         }
+
 
         public override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            if (passiveSkillSlot.isEnergyPassive())
+            if (timer > 0.1f)
             {
-                if (enoughEnergy)
+
+                if (passiveSkillSlot.isEnergyPassive())
                 {
-                    if (timer > 0.1f)
+                    if (DarthVadercon)
                     {
-                        float num = 10f;
-                        Quaternion rotation = Util.QuaternionSafeLookRotation(Vector3.up);
-                        float num2 = 0.01f;
-                        rotation.x += UnityEngine.Random.Range(-num2, num2) * num;
-                        rotation.y += UnityEngine.Random.Range(-num2, num2) * num;
-
-                        timer = 0f;
-                        EffectManager.SpawnEffect(effectPrefab, new EffectData
-                        {
-                            origin = base.characterBody.corePosition,
-                            scale = 1f,
-                            rotation = rotation
-                        }, true);
+                        DarthVadercon.TriggerGlow(0.05f, 0.05f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
                     }
-                    else
-                    {
-                        timer += Time.fixedDeltaTime;
-                    }
-
                 }
-            }
-            else if (timer > 0.1f)
-            {
+
                 float num = 10f;
                 Quaternion rotation = Util.QuaternionSafeLookRotation(Vector3.up);
                 float num2 = 0.01f;
@@ -104,17 +112,19 @@ namespace DarthVaderMod.SkillStates
                     scale = 1f,
                     rotation = rotation
                 }, true);
+
             }
             else
             {
                 timer += Time.fixedDeltaTime;
             }
-            
-            if(base.fixedAge > 0.5f && base.isAuthority)
+            if (base.fixedAge > 0.5f && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
                 return;
             }
+            
+            
         }
 
 
