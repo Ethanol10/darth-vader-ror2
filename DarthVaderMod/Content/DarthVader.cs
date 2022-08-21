@@ -122,11 +122,11 @@ namespace DarthVaderMod.Modules.Survivors
             string prefix = DarthVaderPlugin.DEVELOPER_PREFIX;
 
             #region Passive
-            //SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
-            //skillloc.passiveSkill.enabled = true;
-            //skillloc.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
-            //skillloc.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
-            //skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+            SkillLocator skillloc = bodyPrefab.GetComponent<SkillLocator>();
+            skillloc.passiveSkill.enabled = true;
+            skillloc.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
+            skillloc.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
+            skillloc.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
 
             //SkillLocator skillloc2 = bodyPrefab.GetComponent<SkillLocator>();
             //skillloc2.passiveSkill.enabled = true;
@@ -135,9 +135,9 @@ namespace DarthVaderMod.Modules.Survivors
             //skillloc2.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
             passive.normalCooldownPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_DARTHVADER_BODY_PASSIVE_NAME",
-                skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME",
-                skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION",
+                skillName = prefix + "_DARTHVADER_BODY_PASSIVE_COOLDOWN_NAME",
+                skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_COOLDOWN_NAME",
+                skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_COOLDOWN_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.Force)),
                 activationStateMachineName = "Slide",

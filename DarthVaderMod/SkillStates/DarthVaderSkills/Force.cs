@@ -48,8 +48,6 @@ namespace DarthVaderMod.SkillStates
                 pullRange = 0f;
             }
 
-            AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
-            PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             hasFired = false;
 
             duration = chargeTime + castTime;
@@ -62,9 +60,12 @@ namespace DarthVaderMod.SkillStates
             {
                 characterBody.skillLocator.secondary.AddOneStock();
                 if (DarthVadercon)
-                {            
-                    if (DarthVadercon.currentForceEnergy > Modules.StaticValues.forcePushPullCost)
+                {
+                    if (DarthVadercon.currentForceEnergy > Modules.StaticValues.forcePushPullCost || characterBody.HasBuff(Modules.Buffs.RageBuff))
                     {
+
+                        AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
+                        PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
                         DarthVadercon.SpendEnergy(Modules.StaticValues.forcePushPullCost);
                         DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
 
@@ -76,6 +77,11 @@ namespace DarthVaderMod.SkillStates
                         return;
                     }
                 }
+            }
+            else
+            {
+                AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
+                PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
             }
 
             

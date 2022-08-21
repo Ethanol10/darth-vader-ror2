@@ -49,6 +49,8 @@ namespace DarthVaderMod.Modules.Survivors
         public float increasingRageTimer;
         public float rageMeleeMultiplier;
         public float rageEnergyCost;
+        public float energyDecayTimer;
+        public bool ifEnergyUsed;
 
         //rage loop sound
         public uint rageLoopID;
@@ -101,6 +103,7 @@ namespace DarthVaderMod.Modules.Survivors
                 meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
                 rageMeleeMultiplier = 1f;
                 rageEnergyCost = 1f;
+                ifEnergyUsed = false;
 
                 //UI objects 
                 CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
@@ -135,18 +138,26 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void SpendEnergy(float Energy)
         {
-            currentForceEnergy -= rageEnergyCost * (Energy * costmultiplierForceEnergy + costflatForceEnergy);
-            Chat.AddMessage(rageEnergyCost + "rageEnergyCost");
-            Chat.AddMessage(Energy + "Energy");
-            Chat.AddMessage(costmultiplierForceEnergy + "costmultiplierForceEnergy");
-            Chat.AddMessage(costflatForceEnergy + "costflatForceEnergy");
-            Chat.AddMessage(rageEnergyCost * (Energy * costmultiplierForceEnergy + costflatForceEnergy) + "spentenergy");
+            float energyflatCost = Energy - costflatForceEnergy;
+            if(energyflatCost < 0f) energyflatCost = 0f;
+
+            float energyCost = rageEnergyCost * costmultiplierForceEnergy * energyflatCost;
+            if(energyCost < 0f) energyCost = 0f;   
+            
+            currentForceEnergy -= energyCost;
+
+            ifEnergyUsed = true;
+            //Chat.AddMessage(rageEnergyCost + "rageEnergyCost");
+            //Chat.AddMessage(Energy + "Energy");
+            //Chat.AddMessage(costmultiplierForceEnergy + "costmultiplierForceEnergy");
+            //Chat.AddMessage(costflatForceEnergy + "costflatForceEnergy");
+            //Chat.AddMessage(rageEnergyCost * ((Energy - costflatForceEnergy) * costmultiplierForceEnergy) + "spentenergy");
         }
 
         public void MeleeEnergyGain(float Energy)
         {
             currentForceEnergy += rageMeleeMultiplier * (Energy * meleeForceEnergyGain);
-            Chat.AddMessage(rageMeleeMultiplier * (Energy * meleeForceEnergyGain) + "melee energy");
+            //Chat.AddMessage(rageMeleeMultiplier * (Energy * meleeForceEnergyGain) + "melee energy");
         }
 
         private void CalculateEnergyStats()
@@ -157,12 +168,10 @@ namespace DarthVaderMod.Modules.Survivors
                 maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy) 
                     + (10f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.SecondarySkillMagazine))
                     + (30f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.UtilitySkillMagazine));
-                regenForceEnergy = maxForceEnergy * StaticValues.regenForceEnergyFraction 
-                    * (1 + 0.25f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead))
-                    + (1 + 5* characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
+                regenForceEnergy = maxForceEnergy * StaticValues.regenForceEnergyFraction;
 
-                costmultiplierForceEnergy = 1f - 0.75f * characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead);
-                costflatForceEnergy -= (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
+                costmultiplierForceEnergy = (float)Math.Pow(0.75f, characterBody.master.inventory.GetItemCount(RoR2Content.Items.AlienHead));
+                costflatForceEnergy = (5 * characterBody.master.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck));
 
                 if (costmultiplierForceEnergy > 1f)
                 {
@@ -174,6 +183,21 @@ namespace DarthVaderMod.Modules.Survivors
                 }
             }
 
+            //Energy used
+            if (ifEnergyUsed)
+            {
+                if(energyDecayTimer > 2f)
+                {
+                    energyDecayTimer = 0f;
+                    ifEnergyRegenAllowed = true;
+                    ifEnergyUsed = false;
+                }
+                else
+                {
+                    ifEnergyRegenAllowed = false;
+                    energyDecayTimer += Time.fixedDeltaTime;
+                }
+            }
 
             //Energy Currently have
             if (ifEnergyRegenAllowed)
@@ -219,7 +243,7 @@ namespace DarthVaderMod.Modules.Survivors
             HGTextMeshProUGUI hgtextMeshProUGUI = gameObject.AddComponent<HGTextMeshProUGUI>();
             hgtextMeshProUGUI.text = text;
             hgtextMeshProUGUI.fontSize = textScale;
-            hgtextMeshProUGUI.color = Color.white;
+            hgtextMeshProUGUI.color = Color.red;
             hgtextMeshProUGUI.alignment = TextAlignmentOptions.Center;
             hgtextMeshProUGUI.enableWordWrapping = false;
             rectTransform.localPosition = Vector2.zero;
@@ -305,7 +329,7 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     //random glowing while rage
                     rageTimer = 0f;
-                    DarthVadercon.TriggerGlow(0.4f, 0.5f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
+                    TriggerGlow(0.4f, 0.5f, Color.red);
                 }
                 else
                 {
@@ -325,9 +349,9 @@ namespace DarthVaderMod.Modules.Survivors
 
                 //infinite energy, also reduced melee force gain
                 rageEnergyCost = 0f;
-                rageMeleeMultiplier = 0.3f;
+                rageMeleeMultiplier = 0.5f;
                 ifEnergyRegenAllowed = false;
-                currentForceEnergy -= (float)Math.Pow(increasingRageTimer, StaticValues.drainForceEnergyFraction);
+                currentForceEnergy -= (float)Math.Pow(increasingRageTimer, StaticValues.drainForceEnergyFraction)*Time.fixedDeltaTime;
                 
             }
             else if (!characterBody.HasBuff(Buffs.RageBuff))
@@ -338,6 +362,26 @@ namespace DarthVaderMod.Modules.Survivors
                 rageEnergyCost = 1f;
                 AkSoundEngine.StopPlayingID(rageLoopID);
             }
+
+            if(characterBody.HasBuff(Buffs.RageBuff) || characterBody.HasBuff(Buffs.DeflectBuff))
+            {
+                ifEnergyRegenAllowed = false;
+            }
+            else
+            {
+                if (!characterBody.HasBuff(Buffs.DeflectBuff))
+                {
+                    ifEnergyRegenAllowed = true;
+
+                }
+                if (!characterBody.HasBuff(Buffs.RageBuff))
+                {
+                    ifEnergyRegenAllowed = true;
+
+                }
+
+            } 
+
 
 
         }

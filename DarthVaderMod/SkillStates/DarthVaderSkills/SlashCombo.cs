@@ -1,4 +1,5 @@
-﻿using DarthVaderMod.Modules;
+﻿using DarthVaderMod.Content.Controllers;
+using DarthVaderMod.Modules;
 using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using RoR2;
@@ -9,6 +10,7 @@ namespace DarthVaderMod.SkillStates
     public class SlashCombo : BaseMeleeAttack
     {
         public DarthVaderController DarthVadercon;
+        public DarthVaderPassive passiveSkillSlot;
         //public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
         public override void OnEnter()
@@ -39,6 +41,8 @@ namespace DarthVaderMod.SkillStates
 
             base.OnEnter();
             DarthVadercon = gameObject.GetComponent<DarthVaderController>();
+            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+
         }
 
         private string ChooseAnimationString() 
@@ -76,17 +80,25 @@ namespace DarthVaderMod.SkillStates
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
-            if (!base.HasBuff(Modules.Buffs.RageBuff))
-            {
-                base.skillLocator.DeductCooldownFromAllSkillsServer(1f);
-                //base.skillLocator.special.rechargeStopwatch += 1f;
 
+            if (passiveSkillSlot.isEnergyPassive())
+            {
                 if (DarthVadercon)
                 {
                     DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGain);
                     DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
                 }
             }
+            else 
+            {
+                if (!base.HasBuff(Modules.Buffs.RageBuff))
+                {
+                    base.skillLocator.DeductCooldownFromAllSkillsServer(1f);
+                    //base.skillLocator.special.rechargeStopwatch += 1f;
+
+                }
+            }
+
         }
 
         protected override void SetNextState()
