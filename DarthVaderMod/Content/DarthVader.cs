@@ -93,7 +93,6 @@ namespace DarthVaderMod.Modules.Survivors
         {
             base.InitializeCharacter(isHidden);
             bodyPrefab.AddComponent<DarthVaderController>();
-            bodyPrefab.AddComponent<EnergySystem>();
             //EntityStateMachine DarthVaderEntityStateMachine = bodyPrefab.GetComponent<EntityStateMachine>();
             //DarthVaderEntityStateMachine.initialStateType = new SerializableEntityStateType(typeof(SkillStates.BaseStates.SpawnState));
         }

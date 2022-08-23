@@ -17,6 +17,7 @@ namespace DarthVaderMod.Modules.Survivors
         public float breathtimer;
 
         private CharacterBody characterBody;
+        private DarthVaderPassive passive;
         private InputBankTest inputBank;
         private ChildLocator child;
         private CharacterMaster characterMaster;
@@ -40,8 +41,15 @@ namespace DarthVaderMod.Modules.Survivors
 
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
-            energySystem = gameObject.GetComponent<EnergySystem>();
-
+            passive = gameObject.GetComponent<DarthVaderPassive>();
+            if (passive) 
+            {
+                if(passive.isEnergyPassive())
+                {
+                    energySystem = gameObject.AddComponent<EnergySystem>();
+                }
+            }
+            
         }
 
         public void SetMaxDamage(float newVal)
