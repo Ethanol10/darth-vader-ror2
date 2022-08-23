@@ -283,7 +283,7 @@ namespace DarthVaderMod.Content.Controllers
             state = GlowState.FLASH;
         }
 
-        public void SetRageState()
+        public void SetRageState(float increasingRageTimer)
         {
             //infinite energy, also reduced melee force gain
             rageEnergyCost = 0f;
