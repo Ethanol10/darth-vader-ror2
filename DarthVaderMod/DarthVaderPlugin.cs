@@ -49,7 +49,7 @@ namespace DarthVaderMod
         public static DarthVaderPlugin instance;
 
         //Controller and energy system
-        public DarthVaderController DarthVadercon;
+        public EnergySystem energySystem;
         public DarthVaderPassive passiveSkillSlot;
         //public DarthVaderMasterController DarthVadermastercon;
 
@@ -198,16 +198,16 @@ namespace DarthVaderMod
 
                                 //Energy passive
                                 passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
-                                DarthVadercon = self.body.gameObject.GetComponent<DarthVaderController>();
+                                energySystem = self.body.gameObject.GetComponent<EnergySystem>();
                                 if (passiveSkillSlot.isEnergyPassive())
                                 {
 
-                                    if (DarthVadercon)
+                                    if (energySystem)
                                     {
-                                        if (DarthVadercon.currentForceEnergy > StaticValues.deflectPerHitCost)
+                                        if (energySystem.currentForceEnergy > StaticValues.deflectPerHitCost)
                                         {
-                                            DarthVadercon.SpendEnergy(StaticValues.deflectPerHitCost);
-                                            DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                                            energySystem.SpendEnergy(StaticValues.deflectPerHitCost);
+                                            energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
                                             AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
 
                                             damageInfo.rejected = true;
@@ -246,7 +246,7 @@ namespace DarthVaderMod
                                         else
                                         {
 
-                                            DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
+                                            energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
                                         }
                                     }
 
@@ -324,7 +324,7 @@ namespace DarthVaderMod
                 {
                     if (self.baseNameToken == DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
                     {
-                        DarthVaderController darthCon = self.GetComponent<DarthVaderController>();
+                        EnergySystem darthCon = self.GetComponent<EnergySystem>();
                         if (self.HasBuff(Modules.Buffs.DeflectBuff))
                         {
                             self.moveSpeed *= 0.5f;
