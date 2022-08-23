@@ -13,16 +13,18 @@ namespace DarthVaderMod.SkillStates
         //Controller and energy system
         public DarthVaderController DarthVadercon;
         public DarthVaderPassive passiveSkillSlot;
+        public EnergySystem energySystem;
 
         public override void OnEnter()
         {            
             base.OnEnter();
 
             DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
+            energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
             if (passiveSkillSlot.isEnergyPassive())
             {
-                DarthVadercon.ifEnergyRegenAllowed = false;
+                energySystem.ifEnergyRegenAllowed = false;
                 characterBody.skillLocator.utility.AddOneStock();
                 characterBody.AddBuff(Modules.Buffs.DeflectBuff.buffIndex);
 
@@ -71,7 +73,7 @@ namespace DarthVaderMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            DarthVadercon.ifEnergyRegenAllowed = true;
+            energySystem.ifEnergyRegenAllowed = true;
             characterBody.RemoveBuff(Modules.Buffs.DeflectBuff.buffIndex);
         }
 

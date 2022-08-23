@@ -11,6 +11,7 @@ namespace DarthVaderMod.SkillStates
     {
         public float timer;
 
+        public EnergySystem energySystem;
         public DarthVaderController DarthVadercon;
         public DarthVaderPassive passiveSkillSlot;
         private GameObject blasteffectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
@@ -22,7 +23,7 @@ namespace DarthVaderMod.SkillStates
 
             DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
-
+            energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
 
             if (passiveSkillSlot.isEnergyPassive())
@@ -30,9 +31,9 @@ namespace DarthVaderMod.SkillStates
                 characterBody.skillLocator.special.AddOneStock();
                 if (DarthVadercon)
                 {
-                    if (DarthVadercon.currentForceEnergy == DarthVadercon.maxForceEnergy)
+                    if (energySystem.currentForceEnergy == energySystem.maxForceEnergy)
                     {
-                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
                         characterBody.AddBuff(Modules.Buffs.RageBuff.buffIndex);
                         characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
@@ -54,7 +55,7 @@ namespace DarthVaderMod.SkillStates
                     }
                     else
                     {
-                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
                         this.outer.SetNextStateToMain();
                         return;
                     }
@@ -93,9 +94,9 @@ namespace DarthVaderMod.SkillStates
 
                 if (passiveSkillSlot.isEnergyPassive())
                 {
-                    if (DarthVadercon)
+                    if (energySystem)
                     {
-                        DarthVadercon.TriggerGlow(0.05f, 0.05f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
+                        energySystem.TriggerGlow(0.05f, 0.05f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
                     }
                 }
 
