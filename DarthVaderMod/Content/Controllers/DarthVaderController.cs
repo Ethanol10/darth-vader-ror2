@@ -66,19 +66,26 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
-            if (!characterBody.characterMotor.isGrounded)
+            if (passive.isEnergyPassive())
             {
-                if (characterBody.inputBank.jump.justPressed)
+                if (!characterBody.characterMotor.isGrounded && energySystem.currentForceEnergy > 5f)
                 {
-                    energySystem.SpendEnergy(StaticValues.jumpEnergyCost);
-                }
-                if (characterBody.inputBank.jump.down)
-                {
-                    characterBody.characterMotor.velocity.y = StaticValues.jumpFlySpeed * (characterBody.moveSpeed / 7f);
-                    energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
+                    if (characterBody.inputBank.jump.justPressed)
+                    {
+                        energySystem.SpendEnergy(StaticValues.jumpEnergyCost);
+                    }
+                    if (characterBody.inputBank.jump.down)
+                    {
+                        characterBody.characterMotor.velocity.y = StaticValues.jumpFlySpeed * (characterBody.moveSpeed / 7f);
+                        energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
+
+                    }
 
                 }
-
+                else
+                {
+                    energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                }
             }
 
 
@@ -98,7 +105,7 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     //random glowing while rage
                     rageTimer = 0f;
-                    energySystem.TriggerGlow(0.2f, 0.3f, new Color(0.3f,0f,0.59f,0.3f));
+                    energySystem.TriggerGlow(0.2f, 0.5f, new Color(0.3f,0f,0.59f,0.6f));
                 }
                 else
                 {

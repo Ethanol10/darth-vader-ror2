@@ -62,11 +62,10 @@ namespace DarthVaderMod.SkillStates
             {
                 if (energySystem)
                 {
-                    characterBody.skillLocator.secondary.AddOneStock();
 
                     if (energySystem.currentForceEnergy > Modules.StaticValues.forcePushPullCost || characterBody.HasBuff(Modules.Buffs.RageBuff))
                     {
-
+                        characterBody.skillLocator.secondary.AddOneStock();
                         AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
                         PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
                         energySystem.SpendEnergy(Modules.StaticValues.forcePushPullCost);
@@ -75,6 +74,7 @@ namespace DarthVaderMod.SkillStates
                     }
                     else
                     {
+                        characterBody.skillLocator.secondary.AddOneStock();
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
                         this.outer.SetNextStateToMain();
                         return;

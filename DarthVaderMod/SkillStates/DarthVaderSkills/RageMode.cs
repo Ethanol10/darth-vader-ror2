@@ -2,6 +2,7 @@
 using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
+using R2API.Networking;
 using RoR2;
 using UnityEngine;
 
@@ -30,12 +31,11 @@ namespace DarthVaderMod.SkillStates
             {
                 if (energySystem && DarthVadercon)
                 {
-                    characterBody.skillLocator.special.AddOneStock();
 
-                    if (energySystem.currentForceEnergy == energySystem.maxForceEnergy)
+                    if (energySystem.currentForceEnergy > (energySystem.maxForceEnergy * 0.98f))
                     {
-                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
-                        characterBody.AddBuff(Modules.Buffs.RageBuff.buffIndex);
+                        characterBody.skillLocator.special.AddOneStock();
+                        characterBody.ApplyBuff(Modules.Buffs.RageBuff.buffIndex, 1, -1);
                         characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
                         RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
@@ -56,6 +56,7 @@ namespace DarthVaderMod.SkillStates
                     }
                     else
                     {
+                        characterBody.skillLocator.special.AddOneStock();
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
                         this.outer.SetNextStateToMain();
                         return;

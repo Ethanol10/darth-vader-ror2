@@ -2,6 +2,7 @@
 using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
+using R2API.Networking;
 using RoR2;
 using UnityEngine;
 
@@ -26,7 +27,7 @@ namespace DarthVaderMod.SkillStates
             {
                 if(energySystem) energySystem.ifEnergyRegenAllowed = false;
                 characterBody.skillLocator.utility.AddOneStock();
-                characterBody.AddBuff(Modules.Buffs.DeflectBuff.buffIndex);
+                characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, -1);
 
 
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 10000f);
@@ -34,7 +35,7 @@ namespace DarthVaderMod.SkillStates
             }
             else
             {
-                characterBody.AddTimedBuffAuthority(Modules.Buffs.DeflectBuff.buffIndex, Modules.StaticValues.deflectbuffDuration);
+                characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, Modules.StaticValues.deflectbuffDuration);
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 6f);
             }
 
