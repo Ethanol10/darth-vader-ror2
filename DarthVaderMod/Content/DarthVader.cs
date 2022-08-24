@@ -155,8 +155,7 @@ namespace DarthVaderMod.Modules.Survivors
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                stockToConsume = 1
             });
 
             passive.energyPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -180,8 +179,7 @@ namespace DarthVaderMod.Modules.Survivors
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                stockToConsume = 1
             });
 
             Modules.Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, new SkillDef[]{

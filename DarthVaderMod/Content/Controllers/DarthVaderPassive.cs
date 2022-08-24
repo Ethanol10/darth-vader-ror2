@@ -18,7 +18,7 @@ namespace DarthVaderMod.Content.Controllers
 
 			if (energyPassive && this.passiveSkillSlot) 
 			{
-				return this.passiveSkillSlot.skillDef.skillNameToken == energyPassive.skillNameToken;
+				return this.passiveSkillSlot.skillDef == energyPassive;
 			}
 
 			return false;

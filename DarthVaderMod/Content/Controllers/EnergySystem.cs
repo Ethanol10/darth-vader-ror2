@@ -35,6 +35,7 @@ namespace DarthVaderMod.Content.Controllers
         public float rageEnergyCost;
         public float energyDecayTimer;
         public bool ifEnergyUsed;
+        public bool SetActiveTrue;
 
         //Energy bar glow
         private enum GlowState
@@ -67,38 +68,31 @@ namespace DarthVaderMod.Content.Controllers
             ifEnergyRegenAllowed = true;
 
 
-            passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
-            if (passiveSkillSlot.isEnergyPassive())
-            {
-                //Energy
-                maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
-                currentForceEnergy = maxForceEnergy;
-                regenForceEnergy = maxForceEnergy * StaticValues.regenForceEnergyFraction;
-                drainForceEnergy = maxForceEnergy * StaticValues.drainForceEnergyFraction;
-                costmultiplierForceEnergy = 1f;
-                costflatForceEnergy = 0f;
-                meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
-                rageMeleeMultiplier = 1f;
-                rageEnergyCost = 1f;
-                ifEnergyUsed = false;
 
-                //UI objects 
-                CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
-                if (characterBody.hasEffectiveAuthority)
-                {
-                    CustomUIObject.SetActive(true);
-                }
-                else 
-                {
-                    CustomUIObject.SetActive(false);
-                }
-                forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
-                forceMeterGlowBackground = CustomUIObject.transform.GetChild(1).GetComponent<Image>();
-                forceMeterGlowRect = CustomUIObject.transform.GetChild(1).GetComponent<RectTransform>();
+            //Energy
+            maxForceEnergy = StaticValues.baseForceEnergy + ((characterBody.level - 1) * StaticValues.levelForceEnergy);
+            currentForceEnergy = maxForceEnergy;
+            regenForceEnergy = maxForceEnergy * StaticValues.regenForceEnergyFraction;
+            drainForceEnergy = maxForceEnergy * StaticValues.drainForceEnergyFraction;
+            costmultiplierForceEnergy = 1f;
+            costflatForceEnergy = 0f;
+            meleeForceEnergyGain = StaticValues.basemeleeForceEnergyGain;
+            rageMeleeMultiplier = 1f;
+            rageEnergyCost = 1f;
+            ifEnergyUsed = false;
 
-                //setup the UI element for the min/max
-                forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{(int)currentForceEnergy} / {maxForceEnergy}", new Vector2(0, -110), 24f);
-            }
+            //UI objects 
+            CustomUIObject = UnityEngine.Object.Instantiate(Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("darthCustomUI"));
+            CustomUIObject.SetActive(false);
+            SetActiveTrue = false;
+
+            forceMeter = CustomUIObject.transform.GetChild(0).GetComponent<RectTransform>();
+            forceMeterGlowBackground = CustomUIObject.transform.GetChild(1).GetComponent<Image>();
+            forceMeterGlowRect = CustomUIObject.transform.GetChild(1).GetComponent<RectTransform>();
+
+            //setup the UI element for the min/max
+            forceNumber = this.CreateLabel(CustomUIObject.transform, "forceNumber", $"{(int)currentForceEnergy} / {maxForceEnergy}", new Vector2(0, -110), 24f);
+            
 
             // Start timer on 1f to turn off the timer.
             state = GlowState.STOP;
@@ -119,14 +113,7 @@ namespace DarthVaderMod.Content.Controllers
             gameObject.AddComponent<CanvasRenderer>();
             RectTransform rectTransform = gameObject.AddComponent<RectTransform>();
             HGTextMeshProUGUI hgtextMeshProUGUI = gameObject.AddComponent<HGTextMeshProUGUI>();
-            if (characterBody.hasEffectiveAuthority)
-            {
-                hgtextMeshProUGUI.enabled = true;
-            }
-            else 
-            {
-                hgtextMeshProUGUI.enabled = false;
-            }
+            hgtextMeshProUGUI.enabled = true;
             hgtextMeshProUGUI.text = text;
             hgtextMeshProUGUI.fontSize = textScale;
             hgtextMeshProUGUI.color = Color.red;
@@ -216,11 +203,13 @@ namespace DarthVaderMod.Content.Controllers
 
         public void FixedUpdate()
         {
-            if (passiveSkillSlot.isEnergyPassive())
-            {
-                CalculateEnergyStats();
-            }
+            CalculateEnergyStats();
 
+            if (characterBody.hasAuthority && !SetActiveTrue)
+            {
+                CustomUIObject.SetActive(true);
+                SetActiveTrue = true;
+            }
         }
 
         public void Update()

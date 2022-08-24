@@ -1,11 +1,6 @@
-﻿using RoR2;
-using System;
+﻿using DarthVaderMod.Content.Controllers;
+using RoR2;
 using UnityEngine;
-using RoR2.UI;
-using TMPro;
-using DarthVaderMod.Content.Controllers;
-using UnityEngine.UI;
-using R2API.Networking;
 
 namespace DarthVaderMod.Modules.Survivors
 {
@@ -37,19 +32,25 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void Awake()
         {
-            child = GetComponentInChildren<ChildLocator>();
-
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
             passive = gameObject.GetComponent<DarthVaderPassive>();
+            child = GetComponentInChildren<ChildLocator>();
+        }
+
+        public void Start()
+        {
+
+
             Debug.Log($"Passive: {passive}");
             Debug.Log($"Passive.isEnergyPassive(): {passive.isEnergyPassive()}");
-            
-            if (passive) 
+
+            if (passive)
             {
-                if(passive.isEnergyPassive())
+                if (passive.isEnergyPassive())
                 {
                     energySystem = gameObject.AddComponent<EnergySystem>();
+
                 }
             }
             Debug.Log($"energySystem: {energySystem}");
@@ -65,6 +66,22 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void FixedUpdate()
         {
+            if (!characterBody.characterMotor.isGrounded)
+            {
+                if (characterBody.inputBank.jump.justPressed)
+                {
+                    energySystem.SpendEnergy(StaticValues.jumpEnergyCost);
+                }
+                if (characterBody.inputBank.jump.down)
+                {
+                    characterBody.characterMotor.velocity.y = StaticValues.jumpFlySpeed * (characterBody.moveSpeed / 7f);
+                    energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
+
+                }
+
+            }
+
+
             if (breathtimer > 3f)
             {
                 AkSoundEngine.PostEvent("DarthBreathing", this.gameObject);
@@ -81,7 +98,7 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     //random glowing while rage
                     rageTimer = 0f;
-                    energySystem.TriggerGlow(0.4f, 0.5f, Color.red);
+                    energySystem.TriggerGlow(0.2f, 0.3f, new Color(0.3f,0f,0.59f,0.3f));
                 }
                 else
                 {

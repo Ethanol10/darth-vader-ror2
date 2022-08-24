@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1057124356" Language="SFX" Hash="3737577384">
+		<SoundBank Id="1057124356" Language="SFX" Hash="3491197615">
 			<ObjectPath>\SoundBanks\Default Work Unit\DarthVaderBank</ObjectPath>
 			<ShortName>DarthVaderBank</ShortName>
 			<Path>DarthVaderBank.bnk</Path>
@@ -120,7 +120,7 @@
 					<IncludedMemoryFiles>
 						<File Id="304198977" Language="SFX">
 							<ShortName>Imperial_March_Full.wav</ShortName>
-							<Path>SFX\Imperial_March_Full_71E37085.wem</Path>
+							<Path>SFX\Imperial_March_Full_FAC9BB71.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -128,7 +128,7 @@
 					<IncludedMemoryFiles>
 						<File Id="726683182" Language="SFX">
 							<ShortName>Imperial_March_Full.wav</ShortName>
-							<Path>SFX\Imperial_March_Full_62D48CAA.wem</Path>
+							<Path>SFX\Imperial_March_Full_7337C244.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
