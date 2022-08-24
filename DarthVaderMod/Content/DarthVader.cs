@@ -133,6 +133,7 @@ namespace DarthVaderMod.Modules.Survivors
             //skillloc2.passiveSkill.skillNameToken = prefix + "_DARTHVADER_BODY_PASSIVE_NAME";
             //skillloc2.passiveSkill.skillDescriptionToken = prefix + "_DARTHVADER_BODY_PASSIVE_DESCRIPTION";
             //skillloc2.passiveSkill.icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("passive");
+
             passive.normalCooldownPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "_DARTHVADER_BODY_PASSIVE_COOLDOWN_NAME",
@@ -183,8 +184,10 @@ namespace DarthVaderMod.Modules.Survivors
                 keywordTokens = new string[] { "KEYWORD_AGILE" }
             });
 
-            Modules.Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, passive.normalCooldownPassive);
-            Modules.Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, passive.energyPassive);
+            Modules.Skills.AddPassiveSkills(passive.passiveSkillSlot.skillFamily, new SkillDef[]{
+                passive.energyPassive,
+                passive.normalCooldownPassive
+            });
 
 
             #endregion

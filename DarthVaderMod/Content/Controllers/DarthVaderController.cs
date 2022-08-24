@@ -42,6 +42,9 @@ namespace DarthVaderMod.Modules.Survivors
             characterBody = gameObject.GetComponent<CharacterBody>();
             inputBank = gameObject.GetComponent<InputBankTest>();
             passive = gameObject.GetComponent<DarthVaderPassive>();
+            Debug.Log($"Passive: {passive}");
+            Debug.Log($"Passive.isEnergyPassive(): {passive.isEnergyPassive()}");
+            
             if (passive) 
             {
                 if(passive.isEnergyPassive())
@@ -49,7 +52,7 @@ namespace DarthVaderMod.Modules.Survivors
                     energySystem = gameObject.AddComponent<EnergySystem>();
                 }
             }
-            
+            Debug.Log($"energySystem: {energySystem}");
         }
 
         public void SetMaxDamage(float newVal)

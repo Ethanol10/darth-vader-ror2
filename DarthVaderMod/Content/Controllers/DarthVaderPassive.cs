@@ -12,9 +12,13 @@ namespace DarthVaderMod.Content.Controllers
 
 		public bool isEnergyPassive()
 		{
+			Debug.Log($"passiveSkillSlot: {passiveSkillSlot.skillDef.skillNameToken}");
+			Debug.Log($"energyPassive: {energyPassive.skillNameToken}");
+			Debug.Log($"normal: {normalCooldownPassive.skillNameToken}");
+
 			if (energyPassive && this.passiveSkillSlot) 
 			{
-				return this.passiveSkillSlot.skillDef.skillName == energyPassive.skillName;
+				return this.passiveSkillSlot.skillDef.skillNameToken == energyPassive.skillNameToken;
 			}
 
 			return false;
