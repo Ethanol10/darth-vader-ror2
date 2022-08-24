@@ -24,7 +24,7 @@ namespace DarthVaderMod.SkillStates
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
             if (passiveSkillSlot.isEnergyPassive())
             {
-                energySystem.ifEnergyRegenAllowed = false;
+                if(energySystem) energySystem.ifEnergyRegenAllowed = false;
                 characterBody.skillLocator.utility.AddOneStock();
                 characterBody.AddBuff(Modules.Buffs.DeflectBuff.buffIndex);
 
@@ -73,7 +73,7 @@ namespace DarthVaderMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
-            energySystem.ifEnergyRegenAllowed = true;
+            if(energySystem) energySystem.ifEnergyRegenAllowed = true;
             characterBody.RemoveBuff(Modules.Buffs.DeflectBuff.buffIndex);
         }
 
