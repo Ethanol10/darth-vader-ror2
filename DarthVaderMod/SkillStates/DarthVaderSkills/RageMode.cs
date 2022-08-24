@@ -28,9 +28,10 @@ namespace DarthVaderMod.SkillStates
 
             if (passiveSkillSlot.isEnergyPassive())
             {
-                characterBody.skillLocator.special.AddOneStock();
-                if (DarthVadercon)
+                if (energySystem && DarthVadercon)
                 {
+                    characterBody.skillLocator.special.AddOneStock();
+
                     if (energySystem.currentForceEnergy == energySystem.maxForceEnergy)
                     {
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
@@ -59,6 +60,8 @@ namespace DarthVaderMod.SkillStates
                         this.outer.SetNextStateToMain();
                         return;
                     }
+                    
+
                 }
             }
             else

@@ -60,9 +60,10 @@ namespace DarthVaderMod.SkillStates
 
             if (passiveSkillSlot.isEnergyPassive())
             {
-                characterBody.skillLocator.secondary.AddOneStock();
-                if (DarthVadercon)
+                if (energySystem)
                 {
+                    characterBody.skillLocator.secondary.AddOneStock();
+
                     if (energySystem.currentForceEnergy > Modules.StaticValues.forcePushPullCost || characterBody.HasBuff(Modules.Buffs.RageBuff))
                     {
 
@@ -78,7 +79,10 @@ namespace DarthVaderMod.SkillStates
                         this.outer.SetNextStateToMain();
                         return;
                     }
+                    
+
                 }
+
             }
             else
             {
