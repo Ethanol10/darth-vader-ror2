@@ -97,28 +97,28 @@ namespace DarthVaderMod.Modules.Survivors
                 };
 
                 //infinite energy, also reduced melee force gain
-                energySystem.SetRageState(increasingRageTimer);
+                if(energySystem) energySystem.SetRageState(increasingRageTimer);
             }
             else if (!characterBody.HasBuff(Buffs.RageBuff))
             {
-                energySystem.ExitRage();
+                if(energySystem) energySystem.ExitRage();
                 increasingRageTimer = 0f;
                 AkSoundEngine.StopPlayingID(rageLoopID);
             }
 
             if(characterBody.HasBuff(Buffs.RageBuff) || characterBody.HasBuff(Buffs.DeflectBuff))
             {
-                energySystem.ifEnergyRegenAllowed = false;
+                if (energySystem) energySystem.ifEnergyRegenAllowed = false;
             }
             else
             {
                 if (!characterBody.HasBuff(Buffs.DeflectBuff))
                 {
-                    energySystem.ifEnergyRegenAllowed = true;
+                    if (energySystem) energySystem.ifEnergyRegenAllowed = true;
                 }
                 if (!characterBody.HasBuff(Buffs.RageBuff))
                 {
-                    energySystem.ifEnergyRegenAllowed = true;
+                    if (energySystem) energySystem.ifEnergyRegenAllowed = true;
                 }
             }
         }
