@@ -88,8 +88,8 @@ namespace DarthVaderMod.SkillStates
             {
                 if (DarthVadercon)
                 {
-                    energySystem.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGain);
-                    energySystem.TriggerGlow(0.1f, 0.3f, Color.white);
+                    if(energySystem) energySystem.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGain);
+                    if(energySystem) energySystem.TriggerGlow(0.1f, 0.3f, Color.white);
                 }
             }
             else 
