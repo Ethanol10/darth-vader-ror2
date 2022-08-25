@@ -25,12 +25,14 @@ namespace DarthVaderMod.SkillStates
             DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
             energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+
+
+            characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, -1);
             if (passiveSkillSlot.isEnergyPassive())
             {
                 isEnergy = true;
                 if (energySystem) energySystem.ifEnergyRegenAllowed = false;
                 characterBody.skillLocator.utility.AddOneStock();
-                characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, -1);
 
 
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 10000f);
@@ -39,7 +41,6 @@ namespace DarthVaderMod.SkillStates
             else
             {
                 isEnergy = false;
-                characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, -1);
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 6f);
             }
 

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2198741080
+CRC: 282609242
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 92568ca18add50dd0fca46d1e7b007d1
+    Hash: dc61d4fc9a6a173225545ecd9fefb2be
   TypeTreeHash:
     serializedVersion: 2
     Hash: 96d1ce2ec12fd7b16b06412c371e559b
@@ -101,7 +101,9 @@ Assets:
 - Assets/DarthVader/Assets/LightSaberMat.mat
 - Assets/DarthVader/Assets/Prefabs/Lightsaber.prefab
 - Assets/DarthVader/Assets/EmptyMat.mat
+- Assets/DarthVader/GUI/energypassive.png
 - Assets/DarthVader/Animations/SwordSwing3.anim
+- Assets/DarthVader/GUI/cooldownpassive.png
 - Assets/DarthVader/Assets/CapeMesh.mesh
 - Assets/DarthVader/Assets/DarkSaberGripMesh.mesh
 - Assets/DarthVader/Assets/LightsaberRed.mat
