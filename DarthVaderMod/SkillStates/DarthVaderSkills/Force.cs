@@ -76,8 +76,11 @@ namespace DarthVaderMod.SkillStates
                     {
                         characterBody.skillLocator.secondary.AddOneStock();
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
-                        this.outer.SetNextStateToMain();
-                        return;
+                        if (base.isAuthority)
+                        {
+                            this.outer.SetNextStateToMain();
+                            return;
+                        }
                     }
                     
 

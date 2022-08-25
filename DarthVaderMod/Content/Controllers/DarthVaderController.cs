@@ -77,14 +77,34 @@ namespace DarthVaderMod.Modules.Survivors
                     if (characterBody.inputBank.jump.down)
                     {
                         characterBody.characterMotor.velocity.y = StaticValues.jumpFlySpeed * (characterBody.moveSpeed / 7f);
-                        energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
-
+                        //energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
+                        energySystem.SpendEnergy(StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy);
                     }
+                    
 
                 }
                 else
                 {
                     energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                }
+            }
+            else
+            {
+                if (!characterBody.characterMotor.isGrounded)
+                {
+                    if(characterBody.characterMotor.velocity.y < -20f)
+                    {
+                        if (characterBody.inputBank.jump.down)
+                        {
+
+                        }
+                        else
+                        {
+                            characterBody.characterMotor.velocity.y *= StaticValues.slowFallSpeedMultiplier;
+                            
+                        }
+                        
+                    }
                 }
             }
 

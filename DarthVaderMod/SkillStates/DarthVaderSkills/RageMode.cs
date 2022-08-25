@@ -18,6 +18,8 @@ namespace DarthVaderMod.SkillStates
         private GameObject blasteffectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
         public GameObject effectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
 
+        public bool isEnergy;
+
         public override void OnEnter()
         {            
             base.OnEnter();
@@ -31,6 +33,7 @@ namespace DarthVaderMod.SkillStates
             {
                 if (energySystem && DarthVadercon)
                 {
+                    isEnergy = true;
 
                     if (energySystem.currentForceEnergy > (energySystem.maxForceEnergy * 0.98f))
                     {
@@ -58,8 +61,11 @@ namespace DarthVaderMod.SkillStates
                     {
                         characterBody.skillLocator.special.AddOneStock();
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
-                        this.outer.SetNextStateToMain();
-                        return;
+                        if (base.isAuthority)
+                        {
+                            this.outer.SetNextStateToMain();
+                            return;
+                        }
                     }
                     
 
@@ -67,6 +73,9 @@ namespace DarthVaderMod.SkillStates
             }
             else
             {
+
+                isEnergy = false;
+
                 characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
                 characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
@@ -96,7 +105,7 @@ namespace DarthVaderMod.SkillStates
             if (timer > 0.1f)
             {
 
-                if (passiveSkillSlot.isEnergyPassive())
+                if (isEnergy)
                 {
                     if (energySystem)
                     {

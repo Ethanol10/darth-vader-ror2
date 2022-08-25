@@ -16,6 +16,8 @@ namespace DarthVaderMod.SkillStates
         public DarthVaderPassive passiveSkillSlot;
         public EnergySystem energySystem;
 
+        public bool isEnergy;
+
         public override void OnEnter()
         {            
             base.OnEnter();
@@ -25,7 +27,8 @@ namespace DarthVaderMod.SkillStates
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
             if (passiveSkillSlot.isEnergyPassive())
             {
-                if(energySystem) energySystem.ifEnergyRegenAllowed = false;
+                isEnergy = true;
+                if (energySystem) energySystem.ifEnergyRegenAllowed = false;
                 characterBody.skillLocator.utility.AddOneStock();
                 characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, -1);
 
@@ -35,6 +38,7 @@ namespace DarthVaderMod.SkillStates
             }
             else
             {
+                isEnergy = false;
                 characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, Modules.StaticValues.deflectbuffDuration);
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 6f);
             }
@@ -45,26 +49,26 @@ namespace DarthVaderMod.SkillStates
         {
             base.FixedUpdate();
 
-            PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.1f);
-
-            if (passiveSkillSlot.isEnergyPassive())
+            if (isEnergy)
             {
                 if (base.IsKeyDownAuthority())
                 {
-                    PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.1f);
 
                 }
-                else
+                else if (!base.IsKeyDownAuthority())
                 {
                     this.outer.SetNextStateToMain();
                     return;
 
                 }
             }
-            else if (base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority)
-            {
-                this.outer.SetNextStateToMain();
-                return;
+            else
+            { 
+                if((base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority))
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
             }
             
 

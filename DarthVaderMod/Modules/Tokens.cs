@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using DarthVaderMod.Content.Controllers;
+using R2API;
 using System;
 
 namespace DarthVaderMod.Modules
@@ -36,33 +37,44 @@ namespace DarthVaderMod.Modules
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "The Chosen One");
             LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Attackspeed bonuses are converted to Damage. Movespeed bonuses are converted to Armor.");
+            LanguageAPI.Add(prefix + "PASSIVE_COOLDOWN_NAME", "Cooldown based");
+            LanguageAPI.Add(prefix + "PASSIVE_COOLDOWN_DESCRIPTION", "Skills have cooldowns, melee attacks reduce all cooldowns by 1 second. " + Environment.NewLine +
+                "Reduced fallspeed, holding jump fastfalls.");
+            LanguageAPI.Add(prefix + "PASSIVE_ENERGY_NAME", "Energy based");
+            LanguageAPI.Add(prefix + "PASSIVE_ENERGY_DESCRIPTION", "Skills have energy costs, melee attacks regen energy. " + Environment.NewLine +
+                "Stock-based items increases total energy. Cooldown-based items decreases energy costs. " + Environment.NewLine +
+                "Holding jump allows Darth Vader to fly at a cost.");
             #endregion
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Lightsaber");
             LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>. " +
-                $"Hitting enemies <style=cIsUtility>reduces all cooldowns</style> by 1 second.");
+                $"[Cooldown] Hitting enemies <style=cIsUtility>reduces all cooldowns</style> by 1 second. " + Environment.NewLine +
+                $"[Energy] Hitting enemies <style=cIsUtility>regens {StaticValues.meleeOnHitForceEnergyGain} energy</style>, scaling with attackspeed. ");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_FORCE_NAME", "Force Push/Pull");
             LanguageAPI.Add(prefix + "SECONDARY_FORCE_DESCRIPTION", Helpers.agilePrefix + $"Tap to push enemies for <style=cIsDamage>{100f * StaticValues.forcepushDamageCoefficient}% damage</style>. " +
                 $"Hold to pull enemies for <style=cIsDamage>{100f * StaticValues.forcepullDamageCoefficient}% damage</style>. " +
-                $"Strength depends on the distance between the enemy and yourself. Weaker when in Rage Unleashed.");
+                $"Strength depends on the distance between the enemy and yourself. Weaker when in Rage Unleashed. " + Environment.NewLine +
+                $"[Energy] Costs 30 Energy.");
             #endregion
 
             #region Utility
             LanguageAPI.Add(prefix + "UTILITY_DEFLECT_NAME", "Deflect");
             LanguageAPI.Add(prefix + "UTILITY_DEFLECT_DESCRIPTION", $"<style=cIsUtility>Deflect all attacks for {StaticValues.deflectbuffDuration} seconds</style> " +
                 $"for <style=cIsDamage>2x the damage, multiplied by luck</style>. " +
-                $"Movespeed is halved and you're unable to attack with your lightsaber while deflecting.");
+                $"Movespeed is halved and you're unable to attack with your lightsaber while deflecting. " + Environment.NewLine +
+                $"[Energy] Holding the button toggles the skill on rather than a set duration. Costs 20 Energy per hit blocked.");
             #endregion
 
             #region Special
             LanguageAPI.Add(prefix + "SPECIAL_RAGE_NAME", "Rage Unleashed");
             LanguageAPI.Add(prefix + "SPECIAL_RAGE_DESCRIPTION", $"Unleashes your rage, <style=cIsHealing>fully healing yourself</style> and " +
                 $"<style=cIsUtility>removing your attackspeed and movespeed limiters</style>. " +
-                $"<style=cIsDamage>Double your attackspeed, movespeed and armor as well as remove all cooldowns for {StaticValues.ragebuffDuration} seconds</style>.");
+                $"<style=cIsDamage>Double your attackspeed, movespeed and armor as well as remove all cooldowns for {StaticValues.ragebuffDuration} seconds</style>. " + Environment.NewLine +
+                $"[Energy]Requires a full energy bar. When activated, lasts until you run out of energy. Remove all energy costs.");
             #endregion
 
             #region Achievements
