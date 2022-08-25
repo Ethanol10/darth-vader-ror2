@@ -39,7 +39,7 @@ namespace DarthVaderMod.SkillStates
             else
             {
                 isEnergy = false;
-                characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, Modules.StaticValues.deflectbuffDuration);
+                characterBody.ApplyBuff(Modules.Buffs.DeflectBuff.buffIndex, 1, -1);
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 6f);
             }
 
@@ -49,6 +49,7 @@ namespace DarthVaderMod.SkillStates
         {
             base.FixedUpdate();
 
+            PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.01f);
             if (isEnergy)
             {
                 if (base.IsKeyDownAuthority())
@@ -68,6 +69,7 @@ namespace DarthVaderMod.SkillStates
                 {
                     this.outer.SetNextStateToMain();
                     return;
+
                 }
             }
             

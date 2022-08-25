@@ -125,7 +125,7 @@ namespace DarthVaderMod.Modules.Survivors
                 {
                     //random glowing while rage
                     rageTimer = 0f;
-                    energySystem.TriggerGlow(0.2f, 0.5f, new Color(0.3f,0f,0.59f,0.6f));
+                    if(energySystem) energySystem.TriggerGlow(0.2f, 0.5f, new Color(0.3f,0f,0.59f,0.6f));
                 }
                 else
                 {
