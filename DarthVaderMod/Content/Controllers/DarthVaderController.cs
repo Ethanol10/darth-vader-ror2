@@ -17,6 +17,7 @@ namespace DarthVaderMod.Modules.Survivors
         private ChildLocator child;
         private CharacterMaster characterMaster;
         private EnergySystem energySystem;
+        public float jumpTimer;
 
         //public DarthVaderMasterController DarthVadermastercon;
         public DarthVaderController DarthVadercon;
@@ -68,39 +69,75 @@ namespace DarthVaderMod.Modules.Survivors
         {
             if (passive.isEnergyPassive())
             {
-                if (!characterBody.characterMotor.isGrounded && energySystem.currentForceEnergy > 5f)
+                if (!characterBody.characterMotor.isGrounded)
                 {
-                    if (characterBody.inputBank.jump.justPressed)
+                    if(characterBody.characterMotor.velocity.y > 0f)
                     {
-                        energySystem.SpendEnergy(StaticValues.jumpEnergyCost);
+                        if (energySystem.currentForceEnergy > 5f)
+                        {
+                            if (characterBody.inputBank.jump.justPressed)
+                            {
+                                energySystem.SpendEnergy(StaticValues.jumpEnergyCost);
+                                energySystem.TriggerGlow(0.1f, 0.3f, Color.white);
+                            }
+                            if (characterBody.inputBank.jump.down)
+                            {
+                                jumpTimer += Time.fixedDeltaTime;
+                                if (jumpTimer < 1f)
+                                {
+                                    characterBody.characterMotor.velocity.y += StaticValues.jumpFlySpeed;
+                                    //energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
+                                    energySystem.SpendEnergy(StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                        }
+
                     }
-                    if (characterBody.inputBank.jump.down)
+                    else if (characterBody.characterMotor.velocity.y <= -10f)
                     {
-                        characterBody.characterMotor.velocity.y = StaticValues.jumpFlySpeed * (characterBody.moveSpeed / 7f);
-                        //energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
-                        energySystem.SpendEnergy(StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy);
+                        float currentFallSpeed = characterBody.characterMotor.velocity.y;
+                        if (characterBody.inputBank.jump.down)
+                        {
+                            characterBody.characterMotor.velocity.y = -10f;
+                            //energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
+                            energySystem.SpendEnergy(StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy);
+                        }
+                        else
+                        {
+                            characterBody.characterMotor.velocity.y = currentFallSpeed;
+                        }
+
                     }
-                    
+
 
                 }
-                else
+                else 
                 {
-                    energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                    if (characterBody.characterMotor.isGrounded)
+                    {
+                        jumpTimer = 0f;
+                    }
+                    
                 }
             }
             else
             {
                 if (!characterBody.characterMotor.isGrounded)
                 {
-                    if(characterBody.characterMotor.velocity.y < -20f)
+                    if (characterBody.characterMotor.velocity.y <= -10f)
                     {
+                        float currentFallSpeed = characterBody.characterMotor.velocity.y;
                         if (characterBody.inputBank.jump.down)
                         {
-
+                            characterBody.characterMotor.velocity.y = currentFallSpeed;
                         }
                         else
                         {
-                            characterBody.characterMotor.velocity.y *= StaticValues.slowFallSpeedMultiplier;
+                            characterBody.characterMotor.velocity.y = -10f;
                             
                         }
                         
