@@ -196,7 +196,7 @@ namespace DarthVaderMod.Modules.Survivors
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_DARTHVADER_BODY_PRIMARY_SLASH_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("lightsaber"),
-                                                                                      new string[] { "KEYWORD_COOLDOWN_SLASH", "KEYWORD_ENERGY_SLASH"},
+                                                                                      new string[] { prefix + "_DARTHVADER_BODY_KEYWORD_COOLDOWN_SLASH", prefix + "_DARTHVADER_BODY_KEYWORD_ENERGY_SLASH"},
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
                                                                                       "Weapon",
                                                                                       true));
@@ -228,7 +228,7 @@ namespace DarthVaderMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE", "KEYWORD_COOLDOWN_FORCE", "KEYWORD_ENERGY_FORCE" }
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "_DARTHVADER_BODY_KEYWORD_COOLDOWN_FORCE", prefix + "_DARTHVADER_BODY_KEYWORD_ENERGY_FORCE" }
             });
 
             Modules.Skills.AddSecondarySkills(bodyPrefab, forceSkillDef);
@@ -257,7 +257,7 @@ namespace DarthVaderMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE", "KEYWORD_COOLDOWN_DEFLECT", "KEYWORD_ENERGY_DEFLECT" }
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "_DARTHVADER_BODY_KEYWORD_COOLDOWN_DEFLECT", prefix + "_DARTHVADER_BODY_KEYWORD_ENERGY_DEFLECT" }
             });
 
             Modules.Skills.AddUtilitySkills(bodyPrefab, deflectSkillDef);
@@ -286,7 +286,7 @@ namespace DarthVaderMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE", "KEYWORD_COOLDOWN_RAGE", "KEYWORD_ENERGY_RAGE" }
+                keywordTokens = new string[] { "KEYWORD_AGILE", prefix + "_DARTHVADER_BODY_KEYWORD_COOLDOWN_RAGE", prefix + "_DARTHVADER_BODY_KEYWORD_ENERGY_RAGE" }
             });
 
             Modules.Skills.AddSpecialSkills(bodyPrefab, rageSkillDef);
