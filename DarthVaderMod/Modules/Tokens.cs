@@ -48,33 +48,28 @@ namespace DarthVaderMod.Modules
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Lightsaber");
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>. " +
-                $"[Cooldown] Hitting enemies <style=cIsUtility>reduces all cooldowns</style> by 1 second. " + Environment.NewLine +
-                $"[Energy] Hitting enemies <style=cIsUtility>regens {StaticValues.meleeOnHitForceEnergyGain} energy</style>, scaling with attackspeed. ");
+            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_FORCE_NAME", "Force Push/Pull");
             LanguageAPI.Add(prefix + "SECONDARY_FORCE_DESCRIPTION", Helpers.agilePrefix + $"Tap to push enemies for <style=cIsDamage>{100f * StaticValues.forcepushDamageCoefficient}% damage</style>. " +
                 $"Hold to pull enemies for <style=cIsDamage>{100f * StaticValues.forcepullDamageCoefficient}% damage</style>. " +
-                $"Strength depends on the distance between the enemy and yourself. Weaker when in Rage Unleashed. " + Environment.NewLine +
-                $"[Energy] Costs 30 Energy.");
+                $"Strength depends on the distance between the enemy and yourself. Weaker when in Rage Unleashed.");
             #endregion
 
             #region Utility
             LanguageAPI.Add(prefix + "UTILITY_DEFLECT_NAME", "Deflect");
             LanguageAPI.Add(prefix + "UTILITY_DEFLECT_DESCRIPTION", $"<style=cIsUtility>Deflect all attacks for {StaticValues.deflectbuffDuration} seconds</style> " +
                 $"for <style=cIsDamage>2x the damage, multiplied by luck</style>. " +
-                $"Movespeed is halved and you're unable to attack with your lightsaber while deflecting. " + Environment.NewLine +
-                $"[Energy] Holding the button toggles the skill on rather than a set duration. Costs 20 Energy per hit blocked.");
+                $"Movespeed is halved and you're unable to attack with your lightsaber while deflecting.");
             #endregion
 
             #region Special
             LanguageAPI.Add(prefix + "SPECIAL_RAGE_NAME", "Rage Unleashed");
             LanguageAPI.Add(prefix + "SPECIAL_RAGE_DESCRIPTION", $"Unleashes your rage, <style=cIsHealing>fully healing yourself</style> and " +
                 $"<style=cIsUtility>removing your attackspeed and movespeed limiters</style>. " +
-                $"<style=cIsDamage>Double your attackspeed, movespeed and armor as well as remove all cooldowns for {StaticValues.ragebuffDuration} seconds</style>. " + Environment.NewLine +
-                $"[Energy]Requires a full energy bar. When activated, lasts until you run out of energy. Remove all energy costs.");
+                $"<style=cIsDamage>Double your attackspeed, movespeed and armor as well as remove all cooldowns for {StaticValues.ragebuffDuration} seconds</style>.");
             #endregion
 
             #region Achievements
@@ -90,6 +85,18 @@ namespace DarthVaderMod.Modules
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_ACHIEVEMENT_ID_DESCRIPTION", "As Darth Vader, complete 20 stages in a single run.");
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_UNLOCKABLE_ID", "This will be a day long remembered");
             #endregion
+
+            #region Keywords
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_SLASH", $"[ Cooldown Passive ]\nHitting enemies <style=cIsUtility>reduces all cooldowns</style> by 1 second. ");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_SLASH", $"[ Energy Passive ]\nHitting enemies <style=cIsUtility>regens {StaticValues.meleeOnHitForceEnergyGain}" +
+                $" energy</style>, scaling with attackspeed. ");
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_FORCE", "[ Cooldown Passive ]\nHas a 5 second cooldown.");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_FORCE", "[ Energy Passive ]\nCosts 30 Energy");
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_DEFLECT", "[ Cooldown Passive ]\nHas a 10 second cooldown.");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_DEFLECT", "[ Energy Passive ]\nHolding the button toggles the skill on rather than a set duration. Costs 20 Energy per hit blocked.");
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_RAGE", "[ Cooldown Passive ]\nHas a 125 second cooldown.");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_RAGE", "[ Energy Passive ]\nRequires a full energy bar. When activated, lasts until you run out of energy. Removes all energy costs.");
+
             #endregion
         }
     }

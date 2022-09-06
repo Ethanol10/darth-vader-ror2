@@ -204,7 +204,7 @@ namespace DarthVaderMod.Modules
         public SkillDefInfo(string skillNameToken,
                             string skillDescriptionToken,
                             Sprite skillIcon,
-
+                            string[] additionalKeywordTokens,
                             SerializableEntityStateType activationState,
                             string activationStateMachineName = "Weapon",
                             bool agile = false)
@@ -226,7 +226,17 @@ namespace DarthVaderMod.Modules
 
             this.cancelSprintingOnActivation = !agile;
 
-            if (agile) this.keywordTokens = new string[] { "KEYWORD_AGILE" };
+            List<string> tempTokens = new List<string>();
+
+            for (int i = 0; i < additionalKeywordTokens.Length; i++)
+            {
+                tempTokens.Add(additionalKeywordTokens[i]);
+            }
+
+            if (agile) tempTokens.Add("KEYWORD_AGILE");
+
+            this.keywordTokens = tempTokens.ToArray();
+            
 
         }
         #endregion construction complete
