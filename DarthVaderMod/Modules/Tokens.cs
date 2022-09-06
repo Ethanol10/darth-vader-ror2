@@ -96,7 +96,7 @@ namespace DarthVaderMod.Modules
             LanguageAPI.Add(prefix + "KEYWORD_ENERGY_DEFLECT", "[ Energy Passive ]\nHolding the button toggles the skill on rather than a set duration. Costs 20 Energy per hit blocked.");
             LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_RAGE", "[ Cooldown Passive ]\nHas a 125 second cooldown.");
             LanguageAPI.Add(prefix + "KEYWORD_ENERGY_RAGE", "[ Energy Passive ]\nRequires a full energy bar. When activated, lasts until you run out of energy. Removes all energy costs.");
-
+            #endregion
             #endregion
         }
     }
