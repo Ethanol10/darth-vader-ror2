@@ -41,9 +41,6 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void Start()
         {
-            Debug.Log($"Passive: {passive}");
-            Debug.Log($"Passive.isEnergyPassive(): {passive.isEnergyPassive()}");
-
             if (passive)
             {
                 if (passive.isEnergyPassive())
@@ -52,7 +49,6 @@ namespace DarthVaderMod.Modules.Survivors
 
                 }
             }
-            Debug.Log($"energySystem: {energySystem}");
         }
 
         public void SetMaxDamage(float newVal)

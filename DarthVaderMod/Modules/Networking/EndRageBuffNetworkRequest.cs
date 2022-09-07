@@ -43,7 +43,6 @@ namespace DarthVaderMod.Modules.Networking
 
             if (NetworkServer.active)
             {
-                Chat.AddMessage("I'm trying to remove the buff from the server side");
                 if (charBody)
                 {
                     charBody.SetBuffCount(Modules.Buffs.RageBuff.buffIndex, 0);
