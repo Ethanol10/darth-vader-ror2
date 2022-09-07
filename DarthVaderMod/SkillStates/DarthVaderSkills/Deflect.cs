@@ -50,26 +50,29 @@ namespace DarthVaderMod.SkillStates
         {
             base.Update();
             PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.01f);
-            if (isEnergy)
+            if (base.isAuthority)
             {
-                if (base.IsKeyDownAuthority())
+                if (isEnergy)
                 {
+                    if (base.IsKeyDownAuthority())
+                    {
 
+                    }
+                    else if (!base.IsKeyDownAuthority())
+                    {
+                        this.outer.SetNextStateToMain();
+                        return;
+
+                    }
                 }
-                else if (!base.IsKeyDownAuthority())
+                else
                 {
-                    this.outer.SetNextStateToMain();
-                    return;
+                    if ((base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority))
+                    {
+                        this.outer.SetNextStateToMain();
+                        return;
 
-                }
-            }
-            else
-            {
-                if ((base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority))
-                {
-                    this.outer.SetNextStateToMain();
-                    return;
-
+                    }
                 }
             }
         }
