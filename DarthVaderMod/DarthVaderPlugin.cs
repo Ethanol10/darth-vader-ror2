@@ -258,7 +258,12 @@ namespace DarthVaderMod
 
                                     damageInfo.rejected = true;
 
-                                   
+                                    if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                        != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                                    {
+                                        damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
+                                    }
+
                                     if (distance.magnitude >= 3)
                                     {
                                         EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData

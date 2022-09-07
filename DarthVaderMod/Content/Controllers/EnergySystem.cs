@@ -5,6 +5,9 @@ using RoR2.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using R2API.Networking;
+using DarthVaderMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace DarthVaderMod.Content.Controllers
 {
@@ -178,10 +181,12 @@ namespace DarthVaderMod.Content.Controllers
                 currentForceEnergy = maxForceEnergy;
             }
             //stop Rage mode
-            if (currentForceEnergy < 0f)
+            if (currentForceEnergy <= 0f)
             {
                 currentForceEnergy = 0f;
-                characterBody.RemoveBuff(Modules.Buffs.RageBuff);
+
+                new EndRageBuffNetworkRequest(characterBody.masterObjectId).Send(NetworkDestination.Clients);
+                
             }
 
             if (forceNumber)

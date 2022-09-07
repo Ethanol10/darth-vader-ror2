@@ -46,10 +46,9 @@ namespace DarthVaderMod.SkillStates
 
         }
 
-        public override void FixedUpdate()
+        public override void Update()
         {
-            base.FixedUpdate();
-
+            base.Update();
             PlayCrossfade("RightArm, Override", "Deflect", "Attack.playbackRate", 1f, 0.01f);
             if (isEnergy)
             {
@@ -65,14 +64,20 @@ namespace DarthVaderMod.SkillStates
                 }
             }
             else
-            { 
-                if((base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority))
+            {
+                if ((base.fixedAge > Modules.StaticValues.deflectbuffDuration && base.isAuthority))
                 {
                     this.outer.SetNextStateToMain();
                     return;
 
                 }
             }
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+
             
 
         }
