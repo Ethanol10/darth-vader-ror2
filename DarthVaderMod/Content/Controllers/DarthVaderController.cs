@@ -41,8 +41,6 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void Start()
         {
-
-
             Debug.Log($"Passive: {passive}");
             Debug.Log($"Passive.isEnergyPassive(): {passive.isEnergyPassive()}");
 
@@ -187,7 +185,6 @@ namespace DarthVaderMod.Modules.Survivors
             {
                 if(energySystem) energySystem.ExitRage();
                 increasingRageTimer = 0f;
-                AkSoundEngine.StopPlayingID(rageLoopID);
             }
 
             if(characterBody.HasBuff(Buffs.RageBuff) || characterBody.HasBuff(Buffs.DeflectBuff))
@@ -205,6 +202,16 @@ namespace DarthVaderMod.Modules.Survivors
                     if (energySystem) energySystem.ifEnergyRegenAllowed = true;
                 }
             }
+        }
+
+        public void PlayRageLoop() 
+        {
+            rageLoopID = AkSoundEngine.PostEvent("DarthRageLooped", characterBody.gameObject);
+        }
+
+        public void StopRageLoop() 
+        {
+            AkSoundEngine.StopPlayingID(rageLoopID);
         }
     }
 }

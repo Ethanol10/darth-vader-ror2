@@ -1,4 +1,5 @@
-﻿using R2API.Networking.Interfaces;
+﻿using DarthVaderMod.Modules.Survivors;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,16 +42,22 @@ namespace DarthVaderMod.Modules.Networking
 
         public void OnReceived()
         {
-
+            GameObject masterobject = Util.FindNetworkObject(netID);
+            CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
+            CharacterBody charBody = charMaster.GetBody();
             if (NetworkServer.active)
             {
-                GameObject masterobject = Util.FindNetworkObject(netID);
-                CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
-                CharacterBody charBody = charMaster.GetBody();
+                if (charBody)
+                {
+                    charBody.RemoveBuff(Buffs.RageBuff.buffIndex);
+                }
+            }
 
-                charBody.RemoveBuff(Buffs.RageBuff.buffIndex);
+            DarthVaderController darthVaderCon = charBody.gameObject.GetComponent<DarthVaderController>();
+            if (darthVaderCon) 
+            {
+                darthVaderCon.StopRageLoop();
             }
         }
-
     }
 }

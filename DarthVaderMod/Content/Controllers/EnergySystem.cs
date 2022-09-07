@@ -181,12 +181,14 @@ namespace DarthVaderMod.Content.Controllers
                 currentForceEnergy = maxForceEnergy;
             }
             //stop Rage mode
-            if (currentForceEnergy <= 0f)
+            if (characterBody.hasAuthority)
             {
-                currentForceEnergy = 0f;
+                if (currentForceEnergy <= 0f)
+                {
+                    currentForceEnergy = 0f;
 
-                new EndRageBuffNetworkRequest(characterBody.masterObjectId).Send(NetworkDestination.Clients);
-                
+                    new EndRageBuffNetworkRequest(characterBody.masterObjectId).Send(NetworkDestination.Clients);
+                }
             }
 
             if (forceNumber)

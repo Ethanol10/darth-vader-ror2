@@ -47,8 +47,8 @@ namespace DarthVaderMod.SkillStates
                             ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
                             ragecontroller.charbody = characterBody;
                         }
-
-                        DarthVadercon.rageLoopID = AkSoundEngine.PostEvent("DarthRageLooped", characterBody.gameObject);
+                        
+                        DarthVadercon.PlayRageLoop();
 
                         EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
                         {
