@@ -15,6 +15,7 @@ using DarthVaderMod.Modules.Networking;
 using DarthVaderMod.Modules;
 using R2API;
 using DarthVaderMod.Content.Controllers;
+using R2API.Networking.Interfaces;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -87,6 +88,7 @@ namespace DarthVaderMod
             //Networking
             NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
             NetworkingAPI.RegisterMessageType<EndRageBuffNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<TakeDeflectDamageNetworkRequest>();
         }
         private void Hook()
         {
@@ -181,7 +183,7 @@ namespace DarthVaderMod
                         {
                             if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                             {
-                                var damageInfo2 = new DamageInfo();
+                                DamageInfo damageInfo2 = new DamageInfo();
 
                                 damageInfo2.damage = damageInfo.damage * 2f * (1f + self.body.master.luck);
                                 damageInfo2.position = damageInfo.attacker.transform.position;
@@ -200,9 +202,8 @@ namespace DarthVaderMod
                                 //Energy passive
                                 passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
                                 energySystem = self.body.gameObject.GetComponent<EnergySystem>();
-                                if (passiveSkillSlot.isEnergyPassive())
+                                if (passiveSkillSlot.isEnergyPassive() && self.body.hasAuthority)
                                 {
-
                                     if (energySystem)
                                     {
                                         if (energySystem.currentForceEnergy > StaticValues.deflectPerHitCost)
@@ -213,35 +214,12 @@ namespace DarthVaderMod
 
                                             damageInfo.rejected = true;
 
-                                           
-
                                             if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
                                                 != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
                                             {
-                                                damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
-                                            }
-
-                                            if (distance.magnitude >= 3)
-                                            {
-                                                EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
-                                                {
-                                                    origin = self.body.transform.position,
-                                                    scale = 1f,
-                                                    rotation = Quaternion.LookRotation(distance)
-
-                                                }, true);
-
-                                            }
-                                            else if (distance.magnitude < 3)
-                                            {
-                                                EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
-                                                {
-                                                    origin = enemyPos,
-                                                    scale = 1f,
-                                                    rotation = Quaternion.LookRotation(distance)
-
-                                                }, true);
-
+                                                //attacker netid, darth's netid, damage
+                                                new TakeDeflectDamageNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
+                                                                                       self.body.masterObjectId, damageInfo.damage ).Send(NetworkDestination.Clients);
                                             }
                                         }
                                         else
