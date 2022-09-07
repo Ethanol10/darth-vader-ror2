@@ -192,21 +192,6 @@ namespace DarthVaderMod.Modules.Survivors
                 }
             }
 
-            if(characterBody.HasBuff(Buffs.RageBuff) || characterBody.HasBuff(Buffs.DeflectBuff))
-            {
-                if (energySystem) energySystem.ifEnergyRegenAllowed = false;
-            }
-            else
-            {
-                if (!characterBody.HasBuff(Buffs.DeflectBuff))
-                {
-                    if (energySystem) energySystem.ifEnergyRegenAllowed = true;
-                }
-                if (!characterBody.HasBuff(Buffs.RageBuff))
-                {
-                    if (energySystem) energySystem.ifEnergyRegenAllowed = true;
-                }
-            }
         }
 
         public void PlayRageLoop() 

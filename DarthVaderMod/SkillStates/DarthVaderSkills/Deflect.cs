@@ -1,8 +1,10 @@
 ﻿using DarthVaderMod.Content.Controllers;
+using DarthVaderMod.Modules.Networking;
 using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
@@ -44,6 +46,7 @@ namespace DarthVaderMod.SkillStates
                 PlayAnimation("RightArm, Override", "Deflect", "Attack.playbackRate", 6f);
             }
 
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
         }
 
         public override void Update()
@@ -90,12 +93,124 @@ namespace DarthVaderMod.SkillStates
         {
             base.OnExit();
             if(energySystem) energySystem.ifEnergyRegenAllowed = true;
-            characterBody.RemoveBuff(Modules.Buffs.DeflectBuff.buffIndex);
+            characterBody.SetBuffCount(Modules.Buffs.DeflectBuff.buffIndex, 0);
+
+            On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Pain;
+        }
+
+
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            orig.Invoke(self, damageInfo);
+            if (self)
+            {
+                if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+                {
+                    bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
+                    if (!flag && damageInfo.damage > 0f)
+                    {
+                        if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
+                        {
+                            DamageInfo damageInfo2 = new DamageInfo();
+
+                            damageInfo2.damage = damageInfo.damage * 2f * (1f + self.body.master.luck);
+                            damageInfo2.position = damageInfo.attacker.transform.position;
+                            damageInfo2.force = Vector3.zero;
+                            damageInfo2.damageColorIndex = DamageColorIndex.Default;
+                            damageInfo2.crit = Util.CheckRoll(self.body.crit, self.body.master);
+                            damageInfo2.attacker = self.gameObject;
+                            damageInfo2.inflictor = null;
+                            damageInfo2.damageType = DamageType.Generic;
+                            damageInfo2.procCoefficient = 1f;
+                            damageInfo2.procChainMask = default(ProcChainMask);
+
+                            Vector3 enemyPos = damageInfo.attacker.transform.position;
+                            Vector3 distance = (enemyPos - self.body.transform.position);
+
+                            //Energy passive
+                            passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
+                            energySystem = self.body.gameObject.GetComponent<EnergySystem>();
+                            if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority)
+                            {
+                                if (energySystem)
+                                {
+                                    if (energySystem.currentForceEnergy > Modules.StaticValues.deflectPerHitCost)
+                                    {
+                                        energySystem.SpendEnergy(Modules.StaticValues.deflectPerHitCost);
+                                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
+                                        AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
+
+                                        damageInfo.rejected = true;
+
+                                        if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                            != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                                        {
+                                            //attacker netid, darth's netid, damage
+                                            new TakeDeflectDamageNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
+                                                                                    self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                                    }
+                                }
+
+                            }
+                            else if (!passiveSkillSlot.isEnergyPassive())
+                            {
+                                //CD passive
+                                AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
+
+                                damageInfo.rejected = true;
+
+                                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                                {
+                                    damageInfo.attacker.GetComponent<CharacterBody>().healthComponent.TakeDamage(damageInfo2);
+                                }
+
+                                if (distance.magnitude >= 3)
+                                {
+                                    EffectManager.SpawnEffect(Modules.Assets.blasterShotEffect, new EffectData
+                                    {
+                                        origin = self.body.transform.position,
+                                        scale = 1f,
+                                        rotation = Quaternion.LookRotation(distance)
+
+                                    }, true);
+
+                                }
+                                else if (distance.magnitude < 3)
+                                {
+                                    EffectManager.SpawnEffect(Modules.Assets.swordHitImpactEffect, new EffectData
+                                    {
+                                        origin = enemyPos,
+                                        scale = 1f,
+                                        rotation = Quaternion.LookRotation(distance)
+
+                                    }, true);
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+
+                }
+                
+
+            }
+
         }
     }
 }
