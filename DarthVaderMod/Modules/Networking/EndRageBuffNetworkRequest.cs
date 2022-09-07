@@ -40,6 +40,7 @@ namespace DarthVaderMod.Modules.Networking
             GameObject masterobject = Util.FindNetworkObject(netID);
             CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
             CharacterBody charBody = charMaster.GetBody();
+            Chat.AddMessage("calling endRage");
             if (NetworkServer.active)
             {
                 if (charBody)

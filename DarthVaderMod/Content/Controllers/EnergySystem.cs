@@ -181,14 +181,12 @@ namespace DarthVaderMod.Content.Controllers
                 currentForceEnergy = maxForceEnergy;
             }
             //stop Rage mode
-            if (characterBody.hasAuthority)
+
+            if (currentForceEnergy <= 1f)
             {
-                if (currentForceEnergy <= 1f)
-                {
-                    currentForceEnergy = 0f;
-                    ExitRage();
-                    new EndRageBuffNetworkRequest(characterBody.masterObjectId).Send(NetworkDestination.Clients);
-                }
+                currentForceEnergy = 0f;
+                ExitRage();
+                new EndRageBuffNetworkRequest(characterBody.masterObjectId).Send(NetworkDestination.Clients);
             }
 
             if (forceNumber)
@@ -210,12 +208,12 @@ namespace DarthVaderMod.Content.Controllers
 
         public void FixedUpdate()
         {
-            if (characterBody.hasAuthority)
+            if (characterBody.hasEffectiveAuthority)
             {
                 CalculateEnergyStats();
             }
 
-            if (characterBody.hasAuthority && !SetActiveTrue)
+            if (characterBody.hasEffectiveAuthority && !SetActiveTrue)
             {
                 CustomUIObject.SetActive(true);
                 SetActiveTrue = true;

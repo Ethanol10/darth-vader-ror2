@@ -202,7 +202,7 @@ namespace DarthVaderMod
                                 //Energy passive
                                 passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
                                 energySystem = self.body.gameObject.GetComponent<EnergySystem>();
-                                if (passiveSkillSlot.isEnergyPassive() && self.body.hasAuthority)
+                                if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority)
                                 {
                                     if (energySystem)
                                     {
