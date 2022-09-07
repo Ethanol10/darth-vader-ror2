@@ -182,7 +182,7 @@ namespace DarthVaderMod.Content.Controllers
             }
             //stop Rage mode
 
-            if (currentForceEnergy <= 1f)
+            if (currentForceEnergy <= 1f && characterBody.HasBuff(Modules.Buffs.RageBuff))
             {
                 currentForceEnergy = 0f;
                 ExitRage();
@@ -308,7 +308,6 @@ namespace DarthVaderMod.Content.Controllers
         public void ExitRage()
         {
             rageMeleeMultiplier = 1f;
-            increasingRageTimer = 0f;
             ifEnergyRegenAllowed = true;
             rageEnergyCost = 1f;
         }

@@ -156,11 +156,11 @@ namespace DarthVaderMod.Modules.Survivors
 
             if (characterBody.HasBuff(Buffs.RageBuff))
             {
-                if(rageTimer > 1f)
+                if (rageTimer > 1f)
                 {
                     //random glowing while rage
                     rageTimer = 0f;
-                    if(energySystem) energySystem.TriggerGlow(0.2f, 0.5f, new Color(0.3f,0f,0.59f,0.6f));
+                    if (energySystem) energySystem.TriggerGlow(0.2f, 0.5f, new Color(0.3f, 0f, 0.59f, 0.6f));
                 }
                 else
                 {
@@ -179,16 +179,18 @@ namespace DarthVaderMod.Modules.Survivors
                 };
 
                 //infinite energy, also reduced melee force gain
-                if(energySystem) energySystem.SetRageState(increasingRageTimer);
+                if (energySystem) energySystem.SetRageState(increasingRageTimer);
             }
-            if (energySystem) 
+            else 
             {
-                if (energySystem.currentForceEnergy < 1f) 
+                if (energySystem)
                 {
-                    increasingRageTimer = 0f;
+                    if (energySystem.currentForceEnergy < 1f)
+                    {
+                        increasingRageTimer = 0f;
+                    }
                 }
             }
-
 
             if(characterBody.HasBuff(Buffs.RageBuff) || characterBody.HasBuff(Buffs.DeflectBuff))
             {

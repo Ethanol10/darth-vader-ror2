@@ -14,7 +14,6 @@ namespace DarthVaderMod.Modules.Networking
         //Network these ones.
         NetworkInstanceId netID;
 
-
         public EndRageBuffNetworkRequest()
         {
 
@@ -40,9 +39,11 @@ namespace DarthVaderMod.Modules.Networking
             GameObject masterobject = Util.FindNetworkObject(netID);
             CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
             CharacterBody charBody = charMaster.GetBody();
-            Chat.AddMessage("calling endRage");
+
+
             if (NetworkServer.active)
             {
+                Chat.AddMessage("I'm trying to remove the buff from the server side");
                 if (charBody)
                 {
                     charBody.RemoveBuff(Buffs.RageBuff);
@@ -54,6 +55,8 @@ namespace DarthVaderMod.Modules.Networking
             {
                 darthVaderCon.StopRageLoop();
             }
+
+            return;
         }
     }
 }
