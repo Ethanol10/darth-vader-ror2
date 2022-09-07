@@ -183,10 +183,10 @@ namespace DarthVaderMod.Content.Controllers
             //stop Rage mode
             if (characterBody.hasAuthority)
             {
-                if (currentForceEnergy <= 0f)
+                if (currentForceEnergy <= 1f)
                 {
                     currentForceEnergy = 0f;
-
+                    ExitRage();
                     new EndRageBuffNetworkRequest(characterBody.masterObjectId).Send(NetworkDestination.Clients);
                 }
             }

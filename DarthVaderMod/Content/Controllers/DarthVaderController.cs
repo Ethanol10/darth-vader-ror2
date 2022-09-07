@@ -181,11 +181,14 @@ namespace DarthVaderMod.Modules.Survivors
                 //infinite energy, also reduced melee force gain
                 if(energySystem) energySystem.SetRageState(increasingRageTimer);
             }
-            else if (!characterBody.HasBuff(Buffs.RageBuff))
+            if (energySystem) 
             {
-                if(energySystem) energySystem.ExitRage();
-                increasingRageTimer = 0f;
+                if (energySystem.currentForceEnergy < 1f) 
+                {
+                    increasingRageTimer = 0f;
+                }
             }
+
 
             if(characterBody.HasBuff(Buffs.RageBuff) || characterBody.HasBuff(Buffs.DeflectBuff))
             {

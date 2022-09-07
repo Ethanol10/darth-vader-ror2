@@ -44,7 +44,7 @@ namespace DarthVaderMod.Modules.Networking
             {
                 if (charBody)
                 {
-                    charBody.RemoveBuff(Buffs.RageBuff.buffIndex);
+                    charBody.RemoveBuff(Buffs.RageBuff);
                 }
             }
 
