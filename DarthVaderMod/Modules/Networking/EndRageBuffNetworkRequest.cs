@@ -14,11 +14,6 @@ namespace DarthVaderMod.Modules.Networking
         //Network these ones.
         NetworkInstanceId netID;
 
-        //Don't network these.
-        GameObject bodyObj;
-        private BullseyeSearch search;
-        private List<HurtBox> trackingTargets;
-        private GameObject blastEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
 
         public EndRageBuffNetworkRequest()
         {
