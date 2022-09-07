@@ -203,7 +203,10 @@ namespace DarthVaderMod.Content.Controllers
 
         public void FixedUpdate()
         {
-            CalculateEnergyStats();
+            if (characterBody.hasAuthority)
+            {
+                CalculateEnergyStats();
+            }
 
             if (characterBody.hasAuthority && !SetActiveTrue)
             {
