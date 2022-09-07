@@ -43,7 +43,7 @@ namespace DarthVaderMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_ENERGY_NAME", "Energy based");
             LanguageAPI.Add(prefix + "PASSIVE_ENERGY_DESCRIPTION", "Skills have energy costs, melee attacks regen energy. " + Environment.NewLine +
                 "Stock-based items increases total energy. Cooldown-based items decreases energy costs. " + Environment.NewLine +
-                "Holding jump allows Darth Vader to fly at a cost.");
+                "Holding jump allows Darth Vader to super jump at a cost, holding it also slows down his fall at a cost.");
             #endregion
 
             #region Primary
