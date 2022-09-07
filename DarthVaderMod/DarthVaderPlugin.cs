@@ -84,8 +84,9 @@ namespace DarthVaderMod
         }
         private void SetupNetworkMessages()
         {
-            //Force
+            //Networking
             NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<EndRageBuffNetworkRequest>();
         }
         private void Hook()
         {
