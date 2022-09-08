@@ -38,6 +38,7 @@ namespace DarthVaderMod.SkillStates
                     if (energySystem.currentForceEnergy > (energySystem.maxForceEnergy * 0.98f))
                     {
                         characterBody.skillLocator.special.AddOneStock();
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
                         characterBody.ApplyBuff(Modules.Buffs.RageBuff.buffIndex, 1, -1);
                         characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
