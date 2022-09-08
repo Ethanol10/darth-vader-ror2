@@ -10,9 +10,11 @@ namespace DarthVaderMod.SkillStates
     public class SlashCombo : BaseMeleeAttack
     {
         public DarthVaderController DarthVadercon;
+        public EnergySystem energySystem;
         public DarthVaderPassive passiveSkillSlot;
         //public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
+
         public override void OnEnter()
         {
             this.hitboxName = "Sword";
@@ -42,6 +44,7 @@ namespace DarthVaderMod.SkillStates
             base.OnEnter();
             DarthVadercon = gameObject.GetComponent<DarthVaderController>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+            energySystem = gameObject.GetComponent<EnergySystem>(); 
 
         }
 
@@ -85,8 +88,8 @@ namespace DarthVaderMod.SkillStates
             {
                 if (DarthVadercon)
                 {
-                    DarthVadercon.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGain);
-                    DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.white);
+                    if(energySystem) energySystem.MeleeEnergyGain(Modules.StaticValues.meleeOnHitForceEnergyGain);
+                    if(energySystem) energySystem.TriggerGlow(0.1f, 0.3f, Color.white);
                 }
             }
             else 

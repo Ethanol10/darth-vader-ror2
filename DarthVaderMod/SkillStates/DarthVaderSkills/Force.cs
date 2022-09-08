@@ -16,6 +16,7 @@ namespace DarthVaderMod.SkillStates
     public class Force : BaseSkillState
     {
         public DarthVaderController DarthVadercon;
+        public EnergySystem energySystem;
         public DarthVaderPassive passiveSkillSlot;
         //public DarthVaderMasterController DarthVadermastercon;
         public HurtBox Target;
@@ -55,28 +56,36 @@ namespace DarthVaderMod.SkillStates
 
             DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
+            energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
             if (passiveSkillSlot.isEnergyPassive())
             {
-                characterBody.skillLocator.secondary.AddOneStock();
-                if (DarthVadercon)
+                if (energySystem)
                 {
-                    if (DarthVadercon.currentForceEnergy > Modules.StaticValues.forcePushPullCost || characterBody.HasBuff(Modules.Buffs.RageBuff))
-                    {
 
+                    if (energySystem.currentForceEnergy > Modules.StaticValues.forcePushPullCost)
+                    {
+                        characterBody.skillLocator.secondary.AddOneStock();
                         AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
                         PlayCrossfade("LeftArm, Override", "ForceStart", "Attack.playbackRate", chargeTime, 0.05f);
-                        DarthVadercon.SpendEnergy(Modules.StaticValues.forcePushPullCost);
-                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
+                        energySystem.SpendEnergy(Modules.StaticValues.forcePushPullCost);
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
 
                     }
                     else
                     {
-                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
-                        this.outer.SetNextStateToMain();
-                        return;
+                        characterBody.skillLocator.secondary.AddOneStock();
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                        if (base.isAuthority)
+                        {
+                            this.outer.SetNextStateToMain();
+                            return;
+                        }
                     }
+                    
+
                 }
+
             }
             else
             {

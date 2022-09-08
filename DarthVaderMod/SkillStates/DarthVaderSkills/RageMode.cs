@@ -2,6 +2,7 @@
 using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
+using R2API.Networking;
 using RoR2;
 using UnityEngine;
 
@@ -11,10 +12,13 @@ namespace DarthVaderMod.SkillStates
     {
         public float timer;
 
+        public EnergySystem energySystem;
         public DarthVaderController DarthVadercon;
         public DarthVaderPassive passiveSkillSlot;
         private GameObject blasteffectPrefab = Resources.Load<GameObject>("prefabs/effects/ImpBossBlink");
         public GameObject effectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/effects/SonicBoomEffect");
+
+        public bool isEnergy;
 
         public override void OnEnter()
         {            
@@ -22,18 +26,20 @@ namespace DarthVaderMod.SkillStates
 
             DarthVadercon = characterBody.gameObject.GetComponent<DarthVaderController>();
             passiveSkillSlot = gameObject.GetComponent<DarthVaderPassive>();
-
+            energySystem = characterBody.gameObject.GetComponent<EnergySystem>();
 
 
             if (passiveSkillSlot.isEnergyPassive())
             {
-                characterBody.skillLocator.special.AddOneStock();
-                if (DarthVadercon)
+                if (energySystem && DarthVadercon)
                 {
-                    if (DarthVadercon.currentForceEnergy == DarthVadercon.maxForceEnergy)
+                    isEnergy = true;
+
+                    if (energySystem.currentForceEnergy > (energySystem.maxForceEnergy * 0.98f))
                     {
-                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.black);
-                        characterBody.AddBuff(Modules.Buffs.RageBuff.buffIndex);
+                        characterBody.skillLocator.special.AddOneStock();
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
+                        characterBody.ApplyBuff(Modules.Buffs.RageBuff.buffIndex, 1, -1);
                         characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
                         RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
@@ -43,7 +49,10 @@ namespace DarthVaderMod.SkillStates
                             ragecontroller.charbody = characterBody;
                         }
 
-                        DarthVadercon.rageLoopID = AkSoundEngine.PostEvent("DarthRageLooped", characterBody.gameObject);
+                        if (base.isAuthority) 
+                        {
+                            DarthVadercon.PlayRageLoop();
+                        }
 
                         EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
                         {
@@ -54,14 +63,23 @@ namespace DarthVaderMod.SkillStates
                     }
                     else
                     {
-                        DarthVadercon.TriggerGlow(0.1f, 0.3f, Color.blue);
-                        this.outer.SetNextStateToMain();
-                        return;
+                        characterBody.skillLocator.special.AddOneStock();
+                        energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
+                        if (base.isAuthority)
+                        {
+                            this.outer.SetNextStateToMain();
+                            return;
+                        }
                     }
+                    
+
                 }
             }
             else
             {
+
+                isEnergy = false;
+
                 characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
                 characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
@@ -72,7 +90,10 @@ namespace DarthVaderMod.SkillStates
                     ragecontroller.charbody = characterBody;
                 }
 
-                AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+                if (base.isAuthority)
+                {
+                    AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+                }
 
                 EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
                 {
@@ -91,11 +112,11 @@ namespace DarthVaderMod.SkillStates
             if (timer > 0.1f)
             {
 
-                if (passiveSkillSlot.isEnergyPassive())
+                if (isEnergy)
                 {
-                    if (DarthVadercon)
+                    if (energySystem)
                     {
-                        DarthVadercon.TriggerGlow(0.05f, 0.05f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
+                        energySystem.TriggerGlow(0.05f, 0.05f, new Color(UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), UnityEngine.Random.Range(0f, 1.0f), 1f));
                     }
                 }
 

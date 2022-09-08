@@ -1,4 +1,5 @@
-﻿using R2API;
+﻿using DarthVaderMod.Content.Controllers;
+using R2API;
 using System;
 
 namespace DarthVaderMod.Modules
@@ -36,12 +37,18 @@ namespace DarthVaderMod.Modules
             #region Passive
             LanguageAPI.Add(prefix + "PASSIVE_NAME", "The Chosen One");
             LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Attackspeed bonuses are converted to Damage. Movespeed bonuses are converted to Armor.");
+            LanguageAPI.Add(prefix + "PASSIVE_COOLDOWN_NAME", "Cooldown based");
+            LanguageAPI.Add(prefix + "PASSIVE_COOLDOWN_DESCRIPTION", "Skills have cooldowns, melee attacks reduce all cooldowns by 1 second. " + Environment.NewLine +
+                "Reduced fallspeed, holding jump fastfalls.");
+            LanguageAPI.Add(prefix + "PASSIVE_ENERGY_NAME", "Energy based");
+            LanguageAPI.Add(prefix + "PASSIVE_ENERGY_DESCRIPTION", $"Skills have energy costs, regenerate {Modules.StaticValues.regenForceEnergyFraction * 100}% energy per second, melee attacks regen 10 energy, scaling with attackspeed. " + Environment.NewLine +
+                "Stock-based items increases total energy. Cooldown-based items decreases energy costs. " + Environment.NewLine +
+                "Holding jump allows Darth Vader to super jump at a cost, holding it also slows down his fall at a cost.");
             #endregion
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Lightsaber");
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>. " +
-                $"Hitting enemies <style=cIsUtility>reduces all cooldowns</style> by 1 second.");
+            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
             #endregion
 
             #region Secondary
@@ -77,6 +84,18 @@ namespace DarthVaderMod.Modules
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_ACHIEVEMENT_ID_NAME", "This will be a day long remembered");
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_ACHIEVEMENT_ID_DESCRIPTION", "As Darth Vader, complete 20 stages in a single run.");
             LanguageAPI.Add("ACHIEVEMENT_" + prefix + "STAGE_UNLOCKABLE_ID", "This will be a day long remembered");
+            #endregion
+
+            #region Keywords
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_SLASH", $"[ Cooldown Passive ]\nHitting enemies <style=cIsUtility>reduces all cooldowns</style> by 1 second. ");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_SLASH", $"[ Energy Passive ]\nHitting enemies <style=cIsUtility>regens {StaticValues.meleeOnHitForceEnergyGain}" +
+                $" energy</style>, scaling with attackspeed. ");
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_FORCE", "[ Cooldown Passive ]\nHas a 5 second cooldown.");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_FORCE", "[ Energy Passive ]\nCosts 30 Energy");
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_DEFLECT", "[ Cooldown Passive ]\nHas a 10 second cooldown.");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_DEFLECT", "[ Energy Passive ]\nHolding the button toggles the skill on rather than a set duration. Costs 20 Energy per hit blocked.");
+            LanguageAPI.Add(prefix + "KEYWORD_COOLDOWN_RAGE", "[ Cooldown Passive ]\nHas a 125 second cooldown.");
+            LanguageAPI.Add(prefix + "KEYWORD_ENERGY_RAGE", "[ Energy Passive ]\nRequires a full energy bar. When activated, lasts until you run out of energy. Removes all energy costs.");
             #endregion
             #endregion
         }

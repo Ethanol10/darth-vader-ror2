@@ -400,9 +400,6 @@
 									</ReferenceList>
 									<ChildrenList>
 										<Sound Name="Imperial_March_Full" ID="{1AA83224-D88D-49A1-98E1-EADDCE9E4AD3}" ShortID="48220019">
-											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{B5F94DFB-B674-4BBF-8D67-4B1BAA66DD9D}"/>
@@ -914,6 +911,7 @@
 										<Sound Name="Imperial_March_Full" ID="{8CFBB22E-DF2C-4F80-B313-2E15561B99AC}" ShortID="121363949">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+												<Property Name="OverrideConversion" Type="bool" Value="True"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
