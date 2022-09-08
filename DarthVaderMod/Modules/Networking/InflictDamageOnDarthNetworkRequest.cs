@@ -65,7 +65,11 @@ namespace DarthVaderMod.Modules.Networking
                 damageInfo.procChainMask = default(ProcChainMask);
 
                 //apply damage to enemy
-                darthBody.healthComponent.TakeDamage(damageInfo);
+                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
+                {
+                    darthBody.healthComponent.TakeDamage(damageInfo);
+                }
             }
         }
     }
