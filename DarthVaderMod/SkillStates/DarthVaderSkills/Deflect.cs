@@ -108,14 +108,13 @@ namespace DarthVaderMod.SkillStates
         {
             if (self)
             {
-                if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
+                if (damageInfo != null && damageInfo.attacker)
                 {
                     bool flag = (damageInfo.damageType & DamageType.BypassArmor) > DamageType.Generic;
                     if (!flag && damageInfo.damage > 0f)
                     {
                         if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                         {
-                            damageInfo.rejected = true;
 
                             DamageInfo damageInfo2 = new DamageInfo();
 
@@ -136,11 +135,20 @@ namespace DarthVaderMod.SkillStates
                             Vector3 enemyPos = damageInfo.attacker.transform.position;
                             Vector3 distance = (enemyPos - self.body.transform.position);
 
-                            //Energy passive
-                            if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority)
+                            bool damageTypeCheckPassed = damageInfo.damageColorIndex != DamageColorIndex.Fragile && damageInfo.damageType != (DamageType.AOE | DamageType.Generic);
+                            if (damageTypeCheckPassed)
                             {
-                                new DeflectClientHandlerNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
+                                damageInfo.rejected = true;
+                            }
+                            //Energy passive
+                            if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority && damageTypeCheckPassed)
+                            {
+                                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
+                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
+                                {
+                                    new DeflectClientHandlerNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
                                         self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
+                                }
                             }
 
                             //Cooldown passive

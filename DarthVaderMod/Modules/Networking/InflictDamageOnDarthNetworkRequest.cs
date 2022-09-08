@@ -56,20 +56,16 @@ namespace DarthVaderMod.Modules.Networking
                 damageInfo.damage = damage;
                 damageInfo.position = darthBody.gameObject.transform.position;
                 damageInfo.force = Vector3.zero;
-                damageInfo.damageColorIndex = DamageColorIndex.Default;
+                damageInfo.damageColorIndex = DamageColorIndex.Fragile;
                 damageInfo.crit = false;
                 damageInfo.attacker = attackerBody.gameObject;
                 damageInfo.inflictor = null;
-                damageInfo.damageType = DamageType.Generic;
+                damageInfo.damageType = DamageType.AOE | DamageType.Generic;
                 damageInfo.procCoefficient = 1f;
                 damageInfo.procChainMask = default(ProcChainMask);
 
                 //apply damage to enemy
-                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
-                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
-                {
-                    darthBody.healthComponent.TakeDamage(damageInfo);
-                }
+                darthBody.healthComponent.TakeDamage(damageInfo);
             }
         }
     }
