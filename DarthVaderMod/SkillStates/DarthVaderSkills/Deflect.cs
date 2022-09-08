@@ -135,7 +135,7 @@ namespace DarthVaderMod.SkillStates
                             Vector3 enemyPos = damageInfo.attacker.transform.position;
                             Vector3 distance = (enemyPos - self.body.transform.position);
 
-                            bool damageTypeCheckPassed = damageInfo.damageColorIndex != DamageColorIndex.Fragile && damageInfo.damageType != (DamageType.AOE | DamageType.Generic);
+                            bool damageTypeCheckPassed = damageInfo.damageColorIndex != DamageColorIndex.Fragile && damageInfo.damageType != (DamageType.AOE | DamageType.Generic | DamageType.WeakPointHit);
                             if (damageTypeCheckPassed)
                             {
                                 damageInfo.rejected = true;

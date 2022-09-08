@@ -48,8 +48,11 @@ namespace DarthVaderMod.SkillStates
                             ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
                             ragecontroller.charbody = characterBody;
                         }
-                        
-                        DarthVadercon.PlayRageLoop();
+
+                        if (base.isAuthority) 
+                        {
+                            DarthVadercon.PlayRageLoop();
+                        }
 
                         EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
                         {

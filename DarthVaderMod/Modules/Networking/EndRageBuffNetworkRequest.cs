@@ -40,7 +40,6 @@ namespace DarthVaderMod.Modules.Networking
             CharacterMaster charMaster = masterobject.GetComponent<CharacterMaster>();
             CharacterBody charBody = charMaster.GetBody();
 
-
             if (NetworkServer.active)
             {
                 if (charBody)
@@ -50,7 +49,7 @@ namespace DarthVaderMod.Modules.Networking
             }
 
             DarthVaderController darthVaderCon = charBody.gameObject.GetComponent<DarthVaderController>();
-            if (darthVaderCon) 
+            if (darthVaderCon && charBody.hasEffectiveAuthority) 
             {
                 darthVaderCon.StopRageLoop();
             }
