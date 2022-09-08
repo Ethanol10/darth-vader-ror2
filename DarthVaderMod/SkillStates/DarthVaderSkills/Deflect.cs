@@ -106,7 +106,6 @@ namespace DarthVaderMod.SkillStates
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
-            orig.Invoke(self, damageInfo);
             if (self)
             {
                 if (damageInfo != null && damageInfo.attacker && damageInfo.attacker.GetComponent<CharacterBody>())
@@ -161,7 +160,6 @@ namespace DarthVaderMod.SkillStates
                                         energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
                                     }
                                 }
-
                             }
                             else if (!passiveSkillSlot.isEnergyPassive())
                             {
@@ -196,20 +194,13 @@ namespace DarthVaderMod.SkillStates
                                         rotation = Quaternion.LookRotation(distance)
 
                                     }, true);
-
                                 }
-
                             }
-
                         }
-
                     }
-
-
                 }
-                
-
             }
+            orig.Invoke(self, damageInfo);
 
         }
     }
