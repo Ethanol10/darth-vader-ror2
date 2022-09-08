@@ -144,7 +144,7 @@ namespace DarthVaderMod.SkillStates
                             Chat.AddMessage($"haseffectiveAuthority: {self.body.hasEffectiveAuthority}");
                             Chat.AddMessage($"damageTypeCheck: {damageTypeCheckPassed}");
                             //Energy passive
-                            if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority && damageTypeCheckPassed)
+                            if (passiveSkillSlot.isEnergyPassive() && damageTypeCheckPassed)
                             {
                                 new DeflectClientHandlerNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
                                     self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
