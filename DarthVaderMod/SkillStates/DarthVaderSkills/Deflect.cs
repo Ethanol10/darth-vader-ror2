@@ -140,15 +140,14 @@ namespace DarthVaderMod.SkillStates
                             {
                                 damageInfo.rejected = true;
                             }
+                            Chat.AddMessage($"passiveSkill: {passiveSkillSlot.isEnergyPassive()}");
+                            Chat.AddMessage($"haseffectiveAuthority: {self.body.hasEffectiveAuthority}");
+                            Chat.AddMessage($"damageTypeCheck: {damageTypeCheckPassed}");
                             //Energy passive
                             if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority && damageTypeCheckPassed)
                             {
-                                if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
-                                    != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME")
-                                {
-                                    new DeflectClientHandlerNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
-                                        self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
-                                }
+                                new DeflectClientHandlerNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
+                                    self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
                             }
 
                             //Cooldown passive
