@@ -115,6 +115,8 @@ namespace DarthVaderMod.SkillStates
                     {
                         if (self.body.HasBuff(Modules.Buffs.DeflectBuff.buffIndex))
                         {
+                            damageInfo.rejected = true;
+
                             DamageInfo damageInfo2 = new DamageInfo();
 
                             damageInfo2.damage = damageInfo.damage * 2f * (1f + self.body.master.luck);
@@ -128,42 +130,22 @@ namespace DarthVaderMod.SkillStates
                             damageInfo2.procCoefficient = 1f;
                             damageInfo2.procChainMask = default(ProcChainMask);
 
+                            passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
+                            energySystem = self.body.gameObject.GetComponent<EnergySystem>();
+
                             Vector3 enemyPos = damageInfo.attacker.transform.position;
                             Vector3 distance = (enemyPos - self.body.transform.position);
 
                             //Energy passive
-                            passiveSkillSlot = self.gameObject.GetComponent<DarthVaderPassive>();
-                            energySystem = self.body.gameObject.GetComponent<EnergySystem>();
                             if (passiveSkillSlot.isEnergyPassive() && self.body.hasEffectiveAuthority)
                             {
-                                if (energySystem)
-                                {
-                                    if (energySystem.currentForceEnergy > Modules.StaticValues.deflectPerHitCost)
-                                    {
-                                        energySystem.SpendEnergy(Modules.StaticValues.deflectPerHitCost);
-                                        energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
-                                        AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
-
-                                        damageInfo.rejected = true;
-
-                                        if (damageInfo.attacker.gameObject.GetComponent<CharacterBody>().baseNameToken
-                                            != DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_NAME" && damageInfo.attacker != null)
-                                        {
-                                            //attacker netid, darth's netid, damage
-                                            new TakeDeflectDamageNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
-                                                                                    self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
-                                        }
-                                    }
-                                    else
-                                    {
-
-                                        energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
-                                    }
-                                }
+                                new DeflectClientHandlerNetworkRequest(damageInfo.attacker.gameObject.GetComponent<CharacterBody>().masterObjectId,
+                                        self.body.masterObjectId, damageInfo.damage).Send(NetworkDestination.Clients);
                             }
+
+                            //Cooldown passive
                             else if (!passiveSkillSlot.isEnergyPassive())
                             {
-                                //CD passive
                                 AkSoundEngine.PostEvent("DarthDeflect", self.body.gameObject);
 
                                 damageInfo.rejected = true;

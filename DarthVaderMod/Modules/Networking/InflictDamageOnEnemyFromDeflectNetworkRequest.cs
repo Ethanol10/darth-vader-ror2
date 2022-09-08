@@ -1,28 +1,25 @@
-﻿using DarthVaderMod.Modules.Survivors;
-using R2API.Networking.Interfaces;
+﻿using R2API.Networking.Interfaces;
 using RoR2;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-
 namespace DarthVaderMod.Modules.Networking
 {
-    internal class TakeDeflectDamageNetworkRequest : INetMessage
+    internal class InflictDamageOnEnemyFromDeflectNetworkRequest : INetMessage
     {
-        //Network these ones.
-        NetworkInstanceId attackerNetID;
-        NetworkInstanceId darthNetID;
-        float damage;
+        public NetworkInstanceId attackerNetID;
+        public NetworkInstanceId darthNetID;
+        public float damage;
 
-
-        public TakeDeflectDamageNetworkRequest()
+        public InflictDamageOnEnemyFromDeflectNetworkRequest()
         {
 
         }
 
-        public TakeDeflectDamageNetworkRequest(NetworkInstanceId attackerNetID, NetworkInstanceId darthNetID, float damage)
+        public InflictDamageOnEnemyFromDeflectNetworkRequest(NetworkInstanceId attackerNetID, NetworkInstanceId darthNetID, float damage)
         {
             this.attackerNetID = attackerNetID;
             this.darthNetID = darthNetID;
@@ -52,7 +49,7 @@ namespace DarthVaderMod.Modules.Networking
             CharacterMaster darthMaster = darthMasterObj.GetComponent<CharacterMaster>();
             CharacterBody darthBody = darthMaster.GetBody();
 
-            if (NetworkServer.active) 
+            if (NetworkServer.active)
             {
                 if (darthBody && attackerBody)
                 {

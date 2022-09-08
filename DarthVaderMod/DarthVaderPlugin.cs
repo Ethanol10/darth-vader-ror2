@@ -88,7 +88,9 @@ namespace DarthVaderMod
             //Networking
             NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
             NetworkingAPI.RegisterMessageType<EndRageBuffNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<TakeDeflectDamageNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<DeflectClientHandlerNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<InflictDamageOnDarthNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<InflictDamageOnEnemyFromDeflectNetworkRequest>();
         }
         private void Hook()
         {
