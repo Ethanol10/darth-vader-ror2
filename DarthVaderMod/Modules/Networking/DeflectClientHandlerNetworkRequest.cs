@@ -63,7 +63,6 @@ namespace DarthVaderMod.Modules.Networking
                     //If we have enough energy, spend it and deflect.
                     if (energySystem.currentForceEnergy > Modules.StaticValues.deflectPerHitCost) 
                     {
-                        Chat.AddMessage("Spending Energy");
                         energySystem.SpendEnergy(Modules.StaticValues.deflectPerHitCost);
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
                         AkSoundEngine.PostEvent("DarthDeflect", darthBody.gameObject);
@@ -72,7 +71,6 @@ namespace DarthVaderMod.Modules.Networking
                     }
 
                     //Otherwise, make darth take damage.
-                    Chat.AddMessage("Inflicting damage on darth.");
                     energySystem.TriggerGlow(0.1f, 0.3f, Color.blue);
                     new InflictDamageOnDarthNetworkRequest(attackerNetID, darthNetID, damage).Send(NetworkDestination.Clients);
                 }

@@ -140,9 +140,6 @@ namespace DarthVaderMod.SkillStates
                             {
                                 damageInfo.rejected = true;
                             }
-                            Chat.AddMessage($"passiveSkill: {passiveSkillSlot.isEnergyPassive()}");
-                            Chat.AddMessage($"haseffectiveAuthority: {self.body.hasEffectiveAuthority}");
-                            Chat.AddMessage($"damageTypeCheck: {damageTypeCheckPassed}");
                             //Energy passive
                             if (passiveSkillSlot.isEnergyPassive() && damageTypeCheckPassed)
                             {
