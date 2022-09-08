@@ -46,35 +46,22 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
-- 1.1.2
-  - Entrance theme no longer goes between left and right ears, also ends when character is changed.
-  - Death sound should now play.
-  - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
-  - Networked Force push/pull so non-hosts can use it in multiplayer.
-  - Added clarity on how Force push/pull works- the strength depends on the distance between yourself and the enemy. It is also weaker when in Rage Unleashed. 
-  - Force push/pull now properly pulls all enemies towards you and away from you with the correct height value, previously it was a limited height change. 
-  - Force push/pull animation timing matches the effect.
-- 1.1.1
-  - Updated description for primary to properly say reduces all cooldowns by 1 second.
-  - Updated readme.
-- 1.1.0
-  - Changed grip to Darth Vader's grip.
-  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previous updates.
-    - Force push/pull: 3s -> 5s. 
-    - Deflect: 6s -> 10s.
-    - Rage Unleashed: 90s -> 125s.
-  - Force push/pull damage coeffecient buffed from 200%/250% to 350%/400%, increased force strength.
-  - Updated impact effect when hitting enemies with the lightsaber.
-  - Fixed Darksaber being invisible from 1.0.1.
-- 1.0.1
-  - Fixed the Shield Overlay from being extremely intrusive.
-- 1.0.0 
-  - Initial release.
+- 2.0.0
+  - NEW PASSIVE- ENERGY PASSIVE! (MOD COMMISSION/IDEA BY Delta the Wize#5938)
+    - Naturally regen 2.5% of energy per second, Melee attacks also regenerate energy (Flat 10, scaling with attackspeed even when not in rage mode, less energy gained while in rage mode).
+    - Rage mode now requires max energy, will drain constantly when activated until it reaches 0.
+    - Energy capacity increases per level, as well with stock based items (backup magazine, hardlight afterburner).
+    - Skills cost energy. Deflect is now active while holding down the button rather than a duration as each 'hit' costs 20 energy to deflect.
+    - Energy cost decreases with cooldown based items (purity, alien head).
+    - Holding down jump while on the ground does a super jump, costing energy. Holding down jump while falling slows down falling, costing energy.
+  - Cooldown based Darth Vader is still an option.
+    - Cooldown based also now has in-built slow-falling, holding jump will stop the slow-fall, falling normally.
+
 
 - Next update(s)
     - Bug fixes. 
 
-<img src="https://user-images.githubusercontent.com/93917577/182024358-cb346d5c-5066-456b-9e5d-3c0babb9b1ea.PNG">
+<img src="https://user-images.githubusercontent.com/93917577/189161332-af9c5572-bab5-4c42-8b92-eb7830d70dbe.PNG">
 
 ## Known Issues
 - Stuttering when using Aetherium.
@@ -107,27 +94,39 @@ If you enjoy our work, support us on Ko-fi!
     <td></td>
   </tr>
   <tr>
+    <td>Passive<br><br>Energy<br>Based</td>
+    <td><img src="https://user-images.githubusercontent.com/93917577/189158817-1bf3bf58-d897-4314-a582-98b488e0f47c.png" width="100" height="100"></td>
+    <td>Skills now cost energy, no cooldowns.<br>Naturally regenerate 2.5% energy per second.<br>Hold jump to super jump.<br>Hold jump to slow-fall.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Passive<br><br>Cooldown <br>Based</td>
+    <td><img src="https://user-images.githubusercontent.com/93917577/189158828-faf81450-4255-48b9-ac2c-5c5a2ec49a50.png" width="100" height="100"></td>
+    <td>Skills have cooldowns.<br>Naturally slow-fall, hold jump to stop slow-falling.<br></td>
+    <td></td>
+  </tr>
+  <tr>
     <td>Primary<br><br>Lightsaber</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753381-a09e0e66-9020-4473-8d16-d649398fcf79.png" alt="Image" width="100" height="100"></td>
-    <td>Swing forward for 200% damage. <br>Hitting enemies reduces all cooldowns by 1 second.</td>
+    <td>Swing forward for 200% damage.<br>Hitting enemies reduces cooldowns by 1 second per hit.<br>Hitting enemies regen 10 energy per hit, scaling with attack speed.</td>
     <td>Proc: 1</td>
   </tr>
   <tr>
     <td>Secondary<br><br>Force <br>Push/Pull<br></td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753373-e4a16ae3-a89b-42b8-bb3d-0a88a51c4efe.png" alt="Image" width="100" height="100"></td>
-    <td>Tap to push enemies for 350% damage.<br>Hold to pull enemies for 400% damage.<br>Strength depends on the distance between the enemy and yourself.<br>Weaker when in Rage Unleashed.</td>
+    <td>Tap to push enemies for 350% damage.<br>Hold to pull enemies for 400% damage.<br><br>Costs 30 energy.</td>
     <td>Proc: 1<br>CD: 5s</td>
   </tr>
   <tr>
     <td>Utility<br><br>Deflect</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753370-704b0353-592d-473c-999c-ef218b38a0dd.png" alt="Image" width="100" height="100"></td>
-    <td>Deflect all attacks for 6 seconds,<br>for 2x the damage, multiplied by luck.<br>Movespeed is halved, and you're unable<br>to attack with your lightsaber.</td>
+    <td>Deflect all attacks for 6 seconds,<br>for 2x the damage, multiplied by luck.<br>Movespeed is halved, and you're unable<br>to attack with your lightsaber.<br>In energy mode, holding the button toggles deflect. <br>Deflecting a hit costs 20 energy.</td>
     <td>Proc: 1<br>CD: 10s</td>
   </tr>
   <tr>
     <td>Special<br><br>Rage<br>Unleashed</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753387-4c98d23d-6b29-4cc1-9fc6-fdc38caf1d16.png" alt="Image" width="100" height="100"></td>
-    <td>Unleashes your rage, fully healing yourself<br>and removing your Attackspeed and<br>Movespeed limiters.<br>Double your Attackspeed, Movespeed and<br>Armor as well as remove all cooldowns for<br>15 seconds. </td>
+    <td>Unleashes your rage, fully healing yourself<br>and removing your Attackspeed and<br>Movespeed limiters.<br>Double your Attackspeed, Movespeed and<br>Armor as well as remove all cooldowns for<br>15 seconds. <br>In energy mode, requires max energy, drains over time and stops at 0 energy.</td>
     <td>CD: 125s</td>
   </tr>
 </tbody>
@@ -162,8 +161,30 @@ These stats are prone to change.
 <details>
 <summary>Click to expand previous patch notes:</summary>
 
+- 1.1.2
+  - Entrance theme no longer goes between left and right ears, also ends when character is changed.
+  - Death sound should now play.
+  - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
+  - Networked Force push/pull so non-hosts can use it in multiplayer.
+  - Added clarity on how Force push/pull works- the strength depends on the distance between yourself and the enemy. It is also weaker when in Rage Unleashed. 
+  - Force push/pull now properly pulls all enemies towards you and away from you with the correct height value, previously it was a limited height change. 
+  - Force push/pull animation timing matches the effect.
+- 1.1.1
+  - Updated description for primary to properly say reduces all cooldowns by 1 second.
+  - Updated readme.
+- 1.1.0
+  - Changed grip to Darth Vader's grip.
+  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previous updates.
+    - Force push/pull: 3s -> 5s. 
+    - Deflect: 6s -> 10s.
+    - Rage Unleashed: 90s -> 125s.
+  - Force push/pull damage coeffecient buffed from 200%/250% to 350%/400%, increased force strength.
+  - Updated impact effect when hitting enemies with the lightsaber.
+  - Fixed Darksaber being invisible from 1.0.1.
+- 1.0.1
+  - Fixed the Shield Overlay from being extremely intrusive.
 - 1.0.0 
-    - Initial release.
+  - Initial release.
 
 </details>
 
@@ -177,11 +198,14 @@ These stats are prone to change.
 
 ## OG pics
 ![darthvaderIcon](https://user-images.githubusercontent.com/93917577/180753359-4906ca0b-6ce5-4ff7-9962-bdec3329682c.png)
-![Menupicture](https://user-images.githubusercontent.com/93917577/182024358-cb346d5c-5066-456b-9e5d-3c0babb9b1ea.PNG)
+![Menupicture](https://user-images.githubusercontent.com/93917577/189161332-af9c5572-bab5-4c42-8b92-eb7830d70dbe.PNG)
+
 ![bluesaber](https://user-images.githubusercontent.com/93917577/182024352-14674c3f-8556-49d0-8d73-f3da974e001f.PNG)
 ![yellowsaber](https://user-images.githubusercontent.com/93917577/182024400-cf0bc84f-9d3a-45d8-9d32-02a51e5df685.PNG)
 ![darksaber](https://user-images.githubusercontent.com/93917577/182024354-fa61b73d-5ab0-4d66-870d-6900c4b4b2fa.PNG)
 
+![cooldownpassive](https://user-images.githubusercontent.com/93917577/189158817-1bf3bf58-d897-4314-a582-98b488e0f47c.png)
+![energypassive](https://user-images.githubusercontent.com/93917577/189158828-faf81450-4255-48b9-ac2c-5c5a2ec49a50.png)
 ![passive](https://user-images.githubusercontent.com/93917577/180753383-4953862b-208e-40a9-adbc-820edea6ce79.png)
 ![lightsaber](https://user-images.githubusercontent.com/93917577/180753381-a09e0e66-9020-4473-8d16-d649398fcf79.png)
 
