@@ -63,7 +63,7 @@ namespace DarthVaderMod.SkillStates
                 if (energySystem)
                 {
 
-                    if (energySystem.currentForceEnergy > Modules.StaticValues.forcePushPullCost || characterBody.HasBuff(Modules.Buffs.RageBuff))
+                    if (energySystem.currentForceEnergy > Modules.StaticValues.forcePushPullCost)
                     {
                         characterBody.skillLocator.secondary.AddOneStock();
                         AkSoundEngine.PostEvent("DarthForcePush", this.gameObject);
