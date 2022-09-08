@@ -60,7 +60,7 @@ namespace DarthVaderMod.Modules.Networking
                 damageInfo.crit = false;
                 damageInfo.attacker = attackerBody.gameObject;
                 damageInfo.inflictor = null;
-                damageInfo.damageType = DamageType.AOE | DamageType.Generic;
+                damageInfo.damageType = DamageType.AOE | DamageType.Generic | DamageType.WeakPointHit;
                 damageInfo.procCoefficient = 1f;
                 damageInfo.procChainMask = default(ProcChainMask);
 
