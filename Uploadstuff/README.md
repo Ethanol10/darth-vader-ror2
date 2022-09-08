@@ -120,13 +120,13 @@ If you enjoy our work, support us on Ko-fi!
   <tr>
     <td>Utility<br><br>Deflect</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753370-704b0353-592d-473c-999c-ef218b38a0dd.png" alt="Image" width="100" height="100"></td>
-    <td>Deflect all attacks for 6 seconds,<br>for 2x the damage, multiplied by luck.<br>Movespeed is halved, and you're unable<br>to attack with your lightsaber.<br>In energy mode, holding the button toggles deflect. <br>Deflecting a hit costs 20 energy.</td>
+    <td>Deflect all attacks for 6 seconds,<br>for 2x the damage, multiplied by luck.<br>Movespeed is halved, and you're unable to attack with your lightsaber.<br>In energy mode, holding the button toggles deflect. <br>Deflecting a hit costs 20 energy.</td>
     <td>Proc: 1<br>CD: 10s</td>
   </tr>
   <tr>
     <td>Special<br><br>Rage<br>Unleashed</td>
     <td><img src="https://user-images.githubusercontent.com/93917577/180753387-4c98d23d-6b29-4cc1-9fc6-fdc38caf1d16.png" alt="Image" width="100" height="100"></td>
-    <td>Unleashes your rage, fully healing yourself<br>and removing your Attackspeed and<br>Movespeed limiters.<br>Double your Attackspeed, Movespeed and<br>Armor as well as remove all cooldowns for<br>15 seconds. <br>In energy mode, requires max energy, drains over time and stops at 0 energy.</td>
+    <td>Unleashes your rage, fully healing yourself.<br>Removes your Attackspeed and Movespeed limiters.<br>Double your Attackspeed, Movespeed and Armor as well as remove all cooldowns for<br>15 seconds. <br>In energy mode, requires max energy, drains over time and stops at 0 energy.</td>
     <td>CD: 125s</td>
   </tr>
 </tbody>

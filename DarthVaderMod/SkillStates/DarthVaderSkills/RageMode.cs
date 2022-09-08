@@ -90,7 +90,10 @@ namespace DarthVaderMod.SkillStates
                     ragecontroller.charbody = characterBody;
                 }
 
-                AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+                if (base.isAuthority)
+                {
+                    AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+                }
 
                 EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
                 {
