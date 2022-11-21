@@ -43,7 +43,7 @@ namespace DarthVaderMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.DarthVaderMod";
         public const string MODNAME = "DarthVaderMod";
-        public const string MODVERSION = "2.1.1";
+        public const string MODVERSION = "2.1.2";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";

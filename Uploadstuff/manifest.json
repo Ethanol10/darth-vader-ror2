@@ -1,6 +1,6 @@
 {
     "name": "DarthVaderMod",
-    "version_number": "2.1.1",
+    "version_number": "2.1.2",
     "website_url": "https://github.com/Ethanol10/darth-vader-ror2",
     "description": "Adds DarthVader, The Chosen One. 2.0.0 -> NEW ENERGY PASSIVE! 2.1.0- rage bug fix, movespeed options support!",
     "dependencies": [
