@@ -1,14 +1,17 @@
 ﻿using BepInEx.Configuration;
 using UnityEngine;
+using RiskOfOptions.OptionConfigs;
+using RiskOfOptions.Options;
+using RiskOfOptions;
 
 namespace DarthVaderMod.Modules
 {
     public static class Config
     {
-        public static ConfigEntry<float> basedamage;
+        public static ConfigEntry<bool> limitMovespeed;
         public static void ReadConfig()
         {
-            //basedamage = DarthVaderPlugin.instance.Config.Bind<float>("General", "base damage multiplier", 10f, "Adjusts base damage.");
+            limitMovespeed = DarthVaderPlugin.instance.Config.Bind<bool>("General", "Limit Movespeed", true, "Limits Movespeed but grants armor. Setting to false removes armor bonus while outside of rage.");
 
 
         }
@@ -20,6 +23,15 @@ namespace DarthVaderMod.Modules
                                                           "Enable " + characterName,
                                                           enabledDefault,
                                                           description);
+        }
+
+
+        public static void SetupRiskOfOptions()
+        {
+            //Risk of Options intialization
+            ModSettingsManager.AddOption(new CheckBoxOption(
+                limitMovespeed));
+
         }
     }
 }

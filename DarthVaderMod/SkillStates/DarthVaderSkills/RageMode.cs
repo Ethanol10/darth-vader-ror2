@@ -3,6 +3,7 @@ using DarthVaderMod.Modules.Survivors;
 using DarthVaderMod.SkillStates.BaseStates;
 using EntityStates;
 using R2API.Networking;
+using R2API.Utils;
 using RoR2;
 using UnityEngine;
 
@@ -39,26 +40,32 @@ namespace DarthVaderMod.SkillStates
                     {
                         characterBody.skillLocator.special.AddOneStock();
                         energySystem.TriggerGlow(0.1f, 0.3f, Color.black);
-                        characterBody.ApplyBuff(Modules.Buffs.RageBuff.buffIndex, 1, -1);
-                        characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
 
-                        RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
-                        if (!ragecontroller)
+                        //check if you are already in rage mode
+                        if (!characterBody.HasBuff(Modules.Buffs.RageBuff))
                         {
-                            ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
-                            ragecontroller.charbody = characterBody;
+                            characterBody.ApplyBuff(Modules.Buffs.RageBuff.buffIndex, 1, -1);
+                            characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
+
+                            RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
+                            if (!ragecontroller)
+                            {
+                                ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
+                                ragecontroller.charbody = characterBody;
+                            }
+
+                            if (base.isAuthority)
+                            {
+                                DarthVadercon.PlayRageLoop();
+                            }
+
+                            EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
+                            {
+                                origin = base.characterBody.footPosition,
+                                scale = 1f,
+                            }, true);
+
                         }
-
-                        if (base.isAuthority) 
-                        {
-                            DarthVadercon.PlayRageLoop();
-                        }
-
-                        EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
-                        {
-                            origin = base.characterBody.footPosition,
-                            scale = 1f,
-                        }, true);
 
                     }
                     else
@@ -80,26 +87,34 @@ namespace DarthVaderMod.SkillStates
 
                 isEnergy = false;
 
-                characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
-                characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
-
-                RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
-                if (!ragecontroller)
+                if (!characterBody.HasBuff(Modules.Buffs.RageBuff))
                 {
-                    ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
-                    ragecontroller.charbody = characterBody;
+                    characterBody.AddTimedBuffAuthority(Modules.Buffs.RageBuff.buffIndex, Modules.StaticValues.ragebuffDuration);
+                    characterBody.healthComponent.Heal(characterBody.healthComponent.fullCombinedHealth, new ProcChainMask(), true);
+                    RageEffectController ragecontroller = characterBody.gameObject.GetComponent<RageEffectController>();
+                    if (!ragecontroller)
+                    {
+                        ragecontroller = characterBody.gameObject.AddComponent<RageEffectController>();
+                        ragecontroller.charbody = characterBody;
+                    }
+
+                    if (base.isAuthority)
+                    {
+                        AkSoundEngine.PostEvent("DarthRage", this.gameObject);
+                    }
+
+                    EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
+                    {
+                        origin = base.characterBody.footPosition,
+                        scale = 1f,
+                    }, true);
+                }
+                else
+                {
+                    characterBody.skillLocator.special.AddOneStock();
+
                 }
 
-                if (base.isAuthority)
-                {
-                    AkSoundEngine.PostEvent("DarthRage", this.gameObject);
-                }
-
-                EffectManager.SpawnEffect(blasteffectPrefab, new EffectData
-                {
-                    origin = base.characterBody.footPosition,
-                    scale = 1f,
-                }, true);
 
             }
         }

@@ -24,6 +24,7 @@ namespace DarthVaderMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
     [R2APISubmoduleDependency(new string[]
@@ -42,7 +43,7 @@ namespace DarthVaderMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.DarthVaderMod";
         public const string MODNAME = "DarthVaderMod";
-        public const string MODVERSION = "1.1.2";
+        public const string MODVERSION = "2.1.1";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -67,6 +68,10 @@ namespace DarthVaderMod
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
             Modules.Config.ReadConfig();
+            if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions")) //risk of options support
+            {
+                Modules.Config.SetupRiskOfOptions();
+            }
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
@@ -208,12 +213,16 @@ namespace DarthVaderMod
                         if (!self.HasBuff(Modules.Buffs.RageBuff))
                         {
                             float currentmovespeed = self.moveSpeed;
-                            if (currentmovespeed > 7f)
+                            if (Modules.Config.limitMovespeed.Value)
                             {
-                                self.moveSpeed = 7f;
-                                float movespeedbonus = currentmovespeed - 7f;
-                                self.armor += movespeedbonus;
+                                if (currentmovespeed > 7f)
+                                {
+                                    self.moveSpeed = 7f;
+                                    float movespeedbonus = currentmovespeed - 7f;
+                                    self.armor += movespeedbonus;
+                                }
                             }
+
                             float currentattackspeed = self.attackSpeed;
                             if (darthCon)
                             {

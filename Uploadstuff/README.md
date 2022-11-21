@@ -46,6 +46,12 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 2.1.1
+  - Forgot to change internal version of Darth Vader.
+- 2.1.0
+  - Fixed the ability to use Rage whil still in rage mode, causing multiple instances of music. 
+  - Added Config of disabling the movespeed limiter while outside of rage, but removing the armor bonus. Rage mode still provides the double movespeed and armor bonus in both cases regardless.
+  - Added Risk of Options Support for the config!
 - 2.0.0
   - NEW PASSIVE- ENERGY PASSIVE! (MOD COMMISSION/IDEA BY Delta the Wize#5938)
     - Naturally regen 2.5% of energy per second, Melee attacks also regenerate energy (Flat 10, scaling with attackspeed even when not in rage mode, less energy gained while in rage mode).
