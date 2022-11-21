@@ -46,6 +46,8 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 2.1.2
+  - Fixed rage music playing after quitting the game.
 - 2.1.1
   - Forgot to change internal version of Darth Vader.
 - 2.1.0
