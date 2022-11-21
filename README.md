@@ -46,6 +46,8 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 2.1.1
+  - Forgot to change internal version of Darth Vader.
 - 2.1.0
   - Fixed the ability to use Rage whil still in rage mode, causing multiple instances of music. 
   - Added Config of disabling the movespeed limiter while outside of rage, but removing the armor bonus. Rage mode still provides the double movespeed and armor bonus in both cases regardless.
