@@ -23,18 +23,22 @@ using R2API.Networking.Interfaces;
 namespace DarthVaderMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.prefab", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.language", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
-    [R2APISubmoduleDependency(new string[]
-    {
-        "PrefabAPI",
-        "LanguageAPI",
-        "SoundAPI",
-        "UnlockableAPI",
-        "NetworkingAPI"
-    })]
+    //[R2APISubmoduleDependency(new string[]
+    //{
+    //    "PrefabAPI",
+    //    "LanguageAPI",
+    //    "SoundAPI",
+    //    "NetworkingAPI"
+    //})]
 
     public class DarthVaderPlugin : BaseUnityPlugin
     {
@@ -43,7 +47,7 @@ namespace DarthVaderMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.DarthVaderMod";
         public const string MODNAME = "DarthVaderMod";
-        public const string MODVERSION = "2.1.2";
+        public const string MODVERSION = "2.1.3";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
