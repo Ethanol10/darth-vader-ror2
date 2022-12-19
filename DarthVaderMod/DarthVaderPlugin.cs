@@ -32,13 +32,6 @@ namespace DarthVaderMod
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
-    //[R2APISubmoduleDependency(new string[]
-    //{
-    //    "PrefabAPI",
-    //    "LanguageAPI",
-    //    "SoundAPI",
-    //    "NetworkingAPI"
-    //})]
 
     public class DarthVaderPlugin : BaseUnityPlugin
     {
