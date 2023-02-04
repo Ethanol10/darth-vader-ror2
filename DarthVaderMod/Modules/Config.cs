@@ -23,7 +23,10 @@ namespace DarthVaderMod.Modules
          */
         public static ConfigEntry<bool> limitMovespeed;
         public static ConfigEntry<float> primaryCoefficient;
-        public static ConfigEntry<float> secondaryCoefficient;
+        public static ConfigEntry<float> secondaryCoefficientPull;
+        public static ConfigEntry<float> secondaryCoefficientPush;
+        public static ConfigEntry<float> secondaryForceOnWeightMultiplier;
+        public static ConfigEntry<float> secondaryForceReductionForBosses;
         public static ConfigEntry<float> secondaryCooldown;
         public static ConfigEntry<float> utilityMultiplier;
         public static ConfigEntry<float> utilityCooldown;
@@ -32,6 +35,7 @@ namespace DarthVaderMod.Modules
         public static ConfigEntry<float> specialMultiplier;
         public static ConfigEntry<float> passiveEnergyRecovery;
         public static ConfigEntry<float> energyGainedOnHit;
+        public static ConfigEntry<float> cooldownReducedOnHit;
         public static ConfigEntry<float> baseDamage;
         public static ConfigEntry<float> damageGainedPerLevel;
 
@@ -43,11 +47,14 @@ namespace DarthVaderMod.Modules
             damageGainedPerLevel = DarthVaderPlugin.instance.Config.Bind<float>("01 - General", "02 - Damage growth per level", 2.4f, "Sets the damage gained per level. Requires a restart to apply.");
             #endregion
             #region Primary - 02
-            primaryCoefficient = DarthVaderPlugin.instance.Config.Bind<float>("02 - Primary", "02 - Primary Coefficient", Modules.StaticValues.swordDamageCoefficient, "Sets the coefficient for primary, 1.0 = 100%. Requires a restart to show in the UI.");
+            primaryCoefficient = DarthVaderPlugin.instance.Config.Bind<float>("02 - Primary", "01 - Lightsaber Coefficient", Modules.StaticValues.swordDamageCoefficient, "Sets the coefficient for lightsabre, 1.0 = 100%. Can change in runtime, but requires a restart to show in the UI.");
             #endregion
             #region Secondary - 03
-            secondaryCoefficient = DarthVaderPlugin.instance.Config.Bind<float>("02 - Primary", "02 - Primary Coefficient", Modules.StaticValues.swordDamageCoefficient, "Sets the coefficient for primary, 1.0 = 100%. Requires a restart to show in the UI.");
-
+            secondaryCoefficientPull = DarthVaderPlugin.instance.Config.Bind<float>("03 - Secondary", "01 - Force Push Coefficient", Modules.StaticValues.forcepushDamageCoefficient, "Sets the coefficient for Force Push, 1.0 = 100%. Can change in runtime, but requires a restart to show in the UI.");
+            secondaryCoefficientPush = DarthVaderPlugin.instance.Config.Bind<float>("03 - Secondary", "02 - Force Pull Coefficient", Modules.StaticValues.forcepullDamageCoefficient, "Sets the coefficient for Force Pull, 1.0 = 100%. Can change in runtime, but requires a restart to show in the UI.");
+            secondaryForceOnWeightMultiplier = DarthVaderPlugin.instance.Config.Bind<float>("03 - Secondary", "03 - Mulitplier on Force", 1f, "Multiplies the force applied on an enemy affected by pull/push by the set value.");
+            secondaryForceReductionForBosses = DarthVaderPlugin.instance.Config.Bind<float>("03 - Secondary", "04 - Reduction on boss enemies", 5f, "Reduces the amount of force applied for boss enemies affected by Push/Pull");
+            secondaryCooldown = DarthVaderPlugin.instance.Config.Bind<float>("03 - Secondary", "05 - Force Push/Pull Cooldown", 5f, "Sets the cooldown for Force Pull/Push. Requires a restart to apply.");
             #endregion
             #region Utility - 04
             #endregion
