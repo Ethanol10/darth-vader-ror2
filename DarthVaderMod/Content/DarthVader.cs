@@ -35,11 +35,12 @@ namespace DarthVaderMod.Modules.Survivors
             maxHealth = 377f,
             healthRegen = 1f,
             armor = 10f,
-            damage = 10f,
+            damage = Modules.Config.baseDamage.Value,
             healthGrowth = 78f,
             jumpCount = 1,
             moveSpeed = 7f,
             jumpPower = 20f,
+            damageGrowth = Modules.Config.damageGainedPerLevel.Value,
             
         };
 

@@ -21,7 +21,7 @@ namespace DarthVaderMod.SkillStates
 
             this.damageType = DamageType.Generic;
 
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
+            this.damageCoefficient = Modules.Config.primaryCoefficient.Value;
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = new Vector3(0f, -300f, 0f);
