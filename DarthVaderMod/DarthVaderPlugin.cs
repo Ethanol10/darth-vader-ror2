@@ -40,7 +40,7 @@ namespace DarthVaderMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.DarthVaderMod";
         public const string MODNAME = "DarthVaderMod";
-        public const string MODVERSION = "2.1.5";
+        public const string MODVERSION = "2.1.6";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -154,7 +154,10 @@ namespace DarthVaderMod
             if (self.gameObject.name.Contains("DarthVaderDisplay"))
             {
                 entranceVoiceID = AkSoundEngine.PostEvent("DarthVoice", self.gameObject);
-                entranceID = AkSoundEngine.PostEvent("DarthIntroTheme", self.gameObject);
+                if (Modules.Config.enableMusic.Value)
+                {
+                    entranceID = AkSoundEngine.PostEvent("DarthIntroTheme", self.gameObject);
+                }
             }
             else
             {

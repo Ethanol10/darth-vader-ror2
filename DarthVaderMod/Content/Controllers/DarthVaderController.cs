@@ -197,7 +197,10 @@ namespace DarthVaderMod.Modules.Survivors
 
         public void PlayRageLoop() 
         {
-            rageLoopID = AkSoundEngine.PostEvent("DarthRageLooped", characterBody.gameObject);
+            if (Modules.Config.enableMusic.Value)
+            {
+                rageLoopID = AkSoundEngine.PostEvent("DarthRageLooped", characterBody.gameObject);
+            }
         }
 
         public void StopRageLoop() 

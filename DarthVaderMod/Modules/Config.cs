@@ -22,6 +22,7 @@ namespace DarthVaderMod.Modules
 
          */
         public static ConfigEntry<bool> limitMovespeed;
+        public static ConfigEntry<bool> enableMusic;
         public static ConfigEntry<float> primaryCoefficient;
         public static ConfigEntry<float> secondaryCoefficientPull;
         public static ConfigEntry<float> secondaryCoefficientPush;
@@ -44,7 +45,8 @@ namespace DarthVaderMod.Modules
             #region General - 01
             limitMovespeed = DarthVaderPlugin.instance.Config.Bind<bool>("01 - General", "01 - Limit Movespeed", true, "Limits Movespeed but grants armor. Setting to false removes armor bonus while outside of rage.");
             baseDamage = DarthVaderPlugin.instance.Config.Bind<float>("01 - General", "02 - Base Damage", 10f, "Sets the base damage at Level 1. Requires a restart to apply.");
-            damageGainedPerLevel = DarthVaderPlugin.instance.Config.Bind<float>("01 - General", "02 - Damage growth per level", 2.4f, "Sets the damage gained per level. Requires a restart to apply.");
+            damageGainedPerLevel = DarthVaderPlugin.instance.Config.Bind<float>("01 - General", "03 - Damage growth per level", 2.4f, "Sets the damage gained per level. Requires a restart to apply.");
+            enableMusic = DarthVaderPlugin.instance.Config.Bind<bool>("01 - General", "04 - Music is enabled", true, "Enables music. Setting to false mutes music.");
             #endregion
             #region Primary - 02
             primaryCoefficient = DarthVaderPlugin.instance.Config.Bind<float>("02 - Primary", "01 - Lightsaber Coefficient", Modules.StaticValues.swordDamageCoefficient, "Sets the coefficient for lightsabre, 1.0 = 100%. Can change in runtime, but requires a restart to show in the UI.");
@@ -100,6 +102,8 @@ namespace DarthVaderMod.Modules
                     increment = 0.5f
                 }
                 ));
+            ModSettingsManager.AddOption(new CheckBoxOption(
+                enableMusic));
             #endregion
 
             #region Primary - 02
