@@ -8,6 +8,12 @@ If you enjoy our work, support us on Ko-fi!
 ## Popcorn Factory
 <b>Check out other mods from the Popcorn Factory team!</b>
 <div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
+      <img width="130" src="https://cdn.discordapp.com/attachments/928130606662049892/1088442099432706068/PopcornFactory-Arsonist_Mod-1.png"/>
+      <p>Arsonist Mod (Popcorn Factory Team)</p>
+    </a>
+</div>	
+<div>
     <a href="https://thunderstore.io/package/PopcornFactory/DittoMod/">
         <img src="https://user-images.githubusercontent.com/93917577/168004690-23b6d040-5f89-4b62-916b-c40d774bff02.png"><br>
         <p>DittoMod (TeaL)</p>
@@ -43,15 +49,31 @@ If you enjoy our work, support us on Ko-fi!
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Rimuru_Tempest_Mod/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086161045283950602/PopcornFactory-Rimuru_Tempest_Mod-0.png"><br>
+        <p>Rimuru Tempest Mod (Popcorn Factory Team)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/BokChoyWithSoy/Bok_Choy_Items/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086162390783111198/BokChoyWithSoy-Bok_Choy_Items-1.png"><br>
+        <p>Bok Choy Items (BokChoyWithSoy)</p>
+    </a>
+</div>
 
 ## Latest Changelog, Next update(s)
 
+- 2.1.5
+  - Changed activation state machine on Rage, Rage should not cancel M1 now.
+- 2.1.3
+  - Changed R2API support to rely on submodules.
 - 2.1.2
   - Fixed rage music playing after quitting the game.
 - 2.1.1
   - Forgot to change internal version of Darth Vader.
 - 2.1.0
-  - Fixed the ability to use Rage while still in rage mode, causing multiple instances of music. 
+  - Fixed the ability to use Rage whil still in rage mode, causing multiple instances of music. 
   - Added Config of disabling the movespeed limiter while outside of rage, but removing the armor bonus. Rage mode still provides the double movespeed and armor bonus in both cases regardless.
   - Added Risk of Options Support for the config!
 - 2.0.0
@@ -203,20 +225,3 @@ These stats are prone to change.
 ##### Konstantin Koretskyi for the darksaber- https://sketchfab.com/3d-models/lightsaber-cbe49b9203d547188b2767fced53fdc4
 ##### Battlefront 2 Darth Vader model.
 ##### HenryMod for the template.
-
-## OG pics
-![darthvaderIcon](https://user-images.githubusercontent.com/93917577/180753359-4906ca0b-6ce5-4ff7-9962-bdec3329682c.png)
-![Menupicture](https://user-images.githubusercontent.com/93917577/189161332-af9c5572-bab5-4c42-8b92-eb7830d70dbe.PNG)
-
-![bluesaber](https://user-images.githubusercontent.com/93917577/182024352-14674c3f-8556-49d0-8d73-f3da974e001f.PNG)
-![yellowsaber](https://user-images.githubusercontent.com/93917577/182024400-cf0bc84f-9d3a-45d8-9d32-02a51e5df685.PNG)
-![darksaber](https://user-images.githubusercontent.com/93917577/182024354-fa61b73d-5ab0-4d66-870d-6900c4b4b2fa.PNG)
-
-![cooldownpassive](https://user-images.githubusercontent.com/93917577/189158817-1bf3bf58-d897-4314-a582-98b488e0f47c.png)
-![energypassive](https://user-images.githubusercontent.com/93917577/189158828-faf81450-4255-48b9-ac2c-5c5a2ec49a50.png)
-![passive](https://user-images.githubusercontent.com/93917577/180753383-4953862b-208e-40a9-adbc-820edea6ce79.png)
-![lightsaber](https://user-images.githubusercontent.com/93917577/180753381-a09e0e66-9020-4473-8d16-d649398fcf79.png)
-
-![force2](https://user-images.githubusercontent.com/93917577/180753373-e4a16ae3-a89b-42b8-bb3d-0a88a51c4efe.png)
-![deflect2](https://user-images.githubusercontent.com/93917577/180753370-704b0353-592d-473c-999c-ef218b38a0dd.png)
-![ragemode](https://user-images.githubusercontent.com/93917577/180753387-4c98d23d-6b29-4cc1-9fc6-fdc38caf1d16.png)

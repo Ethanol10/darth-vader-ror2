@@ -8,6 +8,12 @@ If you enjoy our work, support us on Ko-fi!
 ## Popcorn Factory
 <b>Check out other mods from the Popcorn Factory team!</b>
 <div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
+      <img width="130" src="https://cdn.discordapp.com/attachments/928130606662049892/1088442099432706068/PopcornFactory-Arsonist_Mod-1.png"/>
+      <p>Arsonist Mod (Popcorn Factory Team)</p>
+    </a>
+</div>	
+<div>
     <a href="https://thunderstore.io/package/PopcornFactory/DittoMod/">
         <img src="https://user-images.githubusercontent.com/93917577/168004690-23b6d040-5f89-4b62-916b-c40d774bff02.png"><br>
         <p>DittoMod (TeaL)</p>
@@ -43,9 +49,23 @@ If you enjoy our work, support us on Ko-fi!
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
+<div>
+    <a href="https://thunderstore.io/package/PopcornFactory/Rimuru_Tempest_Mod/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086161045283950602/PopcornFactory-Rimuru_Tempest_Mod-0.png"><br>
+        <p>Rimuru Tempest Mod (Popcorn Factory Team)</p>
+    </a>
+</div>
+<div>
+    <a href="https://thunderstore.io/package/BokChoyWithSoy/Bok_Choy_Items/">
+        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086162390783111198/BokChoyWithSoy-Bok_Choy_Items-1.png"><br>
+        <p>Bok Choy Items (BokChoyWithSoy)</p>
+    </a>
+</div>
 
 ## Latest Changelog, Next update(s)
 
+- 2.1.5
+  - Changed activation state machine on Rage, Rage should not cancel M1 now.
 - 2.1.3
   - Changed R2API support to rely on submodules.
 - 2.1.2
