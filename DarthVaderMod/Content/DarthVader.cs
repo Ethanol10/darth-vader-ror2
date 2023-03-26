@@ -272,7 +272,7 @@ namespace DarthVaderMod.Modules.Survivors
                 skillDescriptionToken = prefix + "_DARTHVADER_BODY_SPECIAL_RAGE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("ragemode"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.RageMode)),
-                activationStateMachineName = "Weapon",
+                activationStateMachineName = "Slide",
                 baseMaxStock = 1,
                 baseRechargeInterval = 125f,
                 beginSkillCooldownOnSkillEnd = true,
