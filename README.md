@@ -64,6 +64,8 @@ If you enjoy our work, support us on Ko-fi!
 
 ## Latest Changelog, Next update(s)
 
+- 2.1.6
+  - Added Config options for disabling music on rage and breathing SFX.
 - 2.1.5
   - Changed activation state machine on Rage, Rage should not cancel M1 now.
 - 2.1.3

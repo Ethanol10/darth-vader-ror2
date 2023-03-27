@@ -142,7 +142,10 @@ namespace DarthVaderMod.Modules.Survivors
 
             if (breathtimer > 3f)
             {
-                AkSoundEngine.PostEvent("DarthBreathing", this.gameObject);
+                if (Modules.Config.enableBreathing.Value) 
+                {
+                    AkSoundEngine.PostEvent("DarthBreathing", this.gameObject);
+                }
                 breathtimer = 0f;
             }
             else
