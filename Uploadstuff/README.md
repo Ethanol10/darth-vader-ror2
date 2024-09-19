@@ -5,14 +5,9 @@ Adds Darth Vader, the chosen one.
 #### Message me/the team on the Risk of Rain 2 Modding Discord if there are any issues- TeaL#5571. Ethanol 10#6656. BokChoyWithSoy#3842.  
 #### <a href="https://ko-fi.com/popcornfactory"><img src="https://user-images.githubusercontent.com/93917577/160220529-efed5020-90ac-467e-98f2-27b5c162d744.png"> </a>
 If you enjoy our work, support us on Ko-fi!
-## Popcorn Factory
-<b>Check out other mods from the Popcorn Factory team!</b>
-<div>
-    <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
-      <img width="130" src="https://cdn.discordapp.com/attachments/928130606662049892/1088442099432706068/PopcornFactory-Arsonist_Mod-1.png"/>
-      <p>Arsonist Mod (Popcorn Factory Team)</p>
-    </a>
-</div>	
+## Other Mods by Popcorn Factory
+<details>
+<summary>Check out other mods from the Popcorn Factory team!</summary>
 <div>
     <a href="https://thunderstore.io/package/PopcornFactory/DittoMod/">
         <img src="https://user-images.githubusercontent.com/93917577/168004690-23b6d040-5f89-4b62-916b-c40d774bff02.png"><br>
@@ -27,68 +22,47 @@ If you enjoy our work, support us on Ko-fi!
 </div>
 <div>
     <a href="https://thunderstore.io/package/TeaL/DekuMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043614036168784/TeaL-DekuMod-3.1.1.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/TeaL-DekuMod-4.1.2.png.128x128_q95.png"><br>
         <p>DekuMod (TeaL)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/Ethanol10/Ganondorf_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613428011079/Ethanol10-Ganondorf_Mod-2.1.5.png.128x128_q95.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/Ethanol10-Ganondorf_Mod-3.1.5.png.128x128_q95.png"><br>
         <p>Ganondorf Mod (Ethanol 10)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/BokChoyWithSoy/Phoenix_Wright_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960054458790850570/BokChoyWithSoy-Phoenix_Wright_Mod-1.6.2.png.128x128_q95.png"><br>
-        <p>Phoenix Wright Mod (BokChoyWithSoy)</p>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Arsonist_Mod-2.2.1.png.128x128_q95.jpg"><br>
+        <p>Arsonist Mod (Popcorn Factory Team)</p>
     </a>
 </div>
 <div>
-    <a href="https://thunderstore.io/package/PopcornFactory/Wisp_WarframeSurvivorMod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/960043613692239942/PopcornFactory-Wisp_WarframeSurvivorMod-1.0.2.png.128x128_q95.png"><br>
+    <a href="https://thunderstore.io/package/PopcornFactory/Arsonist_Mod/">
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Wisp_WarframeSurvivorMod-3.0.6.png.128x128_q95.png"><br>
         <p>Wisp Mod (Popcorn Factory Team)</p>
     </a>
 </div>
 <div>
     <a href="https://thunderstore.io/package/PopcornFactory/Rimuru_Tempest_Mod/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086161045283950602/PopcornFactory-Rimuru_Tempest_Mod-0.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/PopcornFactory-Rimuru_Tempest_Mod-1.0.4.png.128x128_q95.png"><br>
         <p>Rimuru Tempest Mod (Popcorn Factory Team)</p>
     </a>
 </div>
 <div>
+    <a href="https://thunderstore.io/package/BokChoyWithSoy/Phoenix_Wright_Mod/">
+      <img width="130" src="https://gcdn.thunderstore.io/live/repository/icons/BokChoyWithSoy-Phoenix_Wright_Mod-1.9.0.png.128x128_q95.png"/>
+      <p>Phoenix Wright Mod (BokChoyWithSoy)</p>
+    </a>
+</div>
+<div>
     <a href="https://thunderstore.io/package/BokChoyWithSoy/Bok_Choy_Items/">
-        <img src="https://cdn.discordapp.com/attachments/399901440023330816/1086162390783111198/BokChoyWithSoy-Bok_Choy_Items-1.png"><br>
+        <img src="https://gcdn.thunderstore.io/live/repository/icons/BokChoyWithSoy-Bok_Choy_Items-1.0.3.png.128x128_q95.png"><br>
         <p>Bok Choy Items (BokChoyWithSoy)</p>
     </a>
 </div>
-
-## Latest Changelog, Next update(s)
-
-- 2.1.6
-  - Added Config options for disabling music on rage and breathing SFX.
-- 2.1.5
-  - Changed activation state machine on Rage, Rage should not cancel M1 now.
-- 2.1.3
-  - Changed R2API support to rely on submodules.
-- 2.1.2
-  - Fixed rage music playing after quitting the game.
-- 2.1.1
-  - Forgot to change internal version of Darth Vader.
-- 2.1.0
-  - Fixed the ability to use Rage whil still in rage mode, causing multiple instances of music. 
-  - Added Config of disabling the movespeed limiter while outside of rage, but removing the armor bonus. Rage mode still provides the double movespeed and armor bonus in both cases regardless.
-  - Added Risk of Options Support for the config!
-- 2.0.0
-  - NEW PASSIVE- ENERGY PASSIVE! (MOD COMMISSION/IDEA BY Delta the Wize#5938)
-    - Naturally regen 2.5% of energy per second, Melee attacks also regenerate energy (Flat 10, scaling with attackspeed even when not in rage mode, less energy gained while in rage mode).
-    - Rage mode now requires max energy, will drain constantly when activated until it reaches 0.
-    - Energy capacity increases per level, as well with stock based items (backup magazine, hardlight afterburner).
-    - Skills cost energy. Deflect is now active while holding down the button rather than a duration as each 'hit' costs 20 energy to deflect.
-    - Energy cost decreases with cooldown based items (purity, alien head).
-    - Holding down jump while on the ground does a super jump, costing energy. Holding down jump while falling slows down falling, costing energy.
-  - Cooldown based Darth Vader is still an option.
-    - Cooldown based also now has in-built slow-falling, holding jump will stop the slow-fall, falling normally.
-
+</details>
 
 - Next update(s)
     - Bug fixes. 
@@ -188,37 +162,6 @@ As Darth Vader, complete 20 stages in a single run.
 ##### Movespeed = 7
 
 These stats are prone to change.
-
-## Changelog
-<details>
-<summary>Click to expand previous patch notes:</summary>
-
-- 1.1.2
-  - Entrance theme no longer goes between left and right ears, also ends when character is changed.
-  - Death sound should now play.
-  - Added exhale for his breathing, adjusted time for breath sounds from 5s -> 3s as it now includes inhaling and exhaling.
-  - Networked Force push/pull so non-hosts can use it in multiplayer.
-  - Added clarity on how Force push/pull works- the strength depends on the distance between yourself and the enemy. It is also weaker when in Rage Unleashed. 
-  - Force push/pull now properly pulls all enemies towards you and away from you with the correct height value, previously it was a limited height change. 
-  - Force push/pull animation timing matches the effect.
-- 1.1.1
-  - Updated description for primary to properly say reduces all cooldowns by 1 second.
-  - Updated readme.
-- 1.1.0
-  - Changed grip to Darth Vader's grip.
-  - Melee attacks now reduce cooldown for all skills (this is to exemplify his juggernaut playstlye), in exchange his skills have longer cooldowns. If you're constantly attacking the skills have lower cooldowns than previous updates.
-    - Force push/pull: 3s -> 5s. 
-    - Deflect: 6s -> 10s.
-    - Rage Unleashed: 90s -> 125s.
-  - Force push/pull damage coeffecient buffed from 200%/250% to 350%/400%, increased force strength.
-  - Updated impact effect when hitting enemies with the lightsaber.
-  - Fixed Darksaber being invisible from 1.0.1.
-- 1.0.1
-  - Fixed the Shield Overlay from being extremely intrusive.
-- 1.0.0 
-  - Initial release.
-
-</details>
 
 ## Credits
 ##### Alpharius#3125 - Mod Commission and Overall kit.
