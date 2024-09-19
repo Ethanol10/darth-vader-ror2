@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="DarthVader" GUID="{621A6F88-02EA-4995-84D7-2CA4EAAD86ED}" Generator="2023.1.4.8496"/>
+	<CacheRoot>../.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Windows" GUID="{411FA94F-1EA1-4BD7-9E35-14C35736D534}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{91CD9D68-A7DE-4665-9F72-8CD6A0336CD1}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{34EA406A-F4F4-E35B-C47B-35D07CAE0756}</FileHash>
+</ProjectInfo>

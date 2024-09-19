@@ -5,7 +5,7 @@ using RoR2.Achievements;
 namespace DarthVaderMod.Modules.Achievements
 {
     [RegisterAchievement(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY_ACHIEVEMENT_ID",
-           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY_UNLOCKABLE_ID", null, null)]
+           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_ANYDIFFICULTY_UNLOCKABLE_ID", null, 0)]
     internal class AnyDifficultyAchievement : BaseAchievement
     {
         private DarthVaderController darthCon;

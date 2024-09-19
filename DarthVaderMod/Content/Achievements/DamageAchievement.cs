@@ -7,7 +7,7 @@ using DarthVaderMod.Modules.Survivors;
 namespace DarthVaderMod.Modules.Achievements
 {
     [RegisterAchievement(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_ACHIEVEMENT_ID",
-           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_UNLOCKABLE_ID", null, null)]
+           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DAMAGE_UNLOCKABLE_ID", null, 0)]
     internal class DamageAchievement : BaseAchievement
     {
         private DarthVaderController darthCon;

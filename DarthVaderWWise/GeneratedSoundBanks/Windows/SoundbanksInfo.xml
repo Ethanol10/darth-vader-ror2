@@ -1,163 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
 	<RootPaths>
-		<ProjectRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\</ProjectRoot>
-		<SourceFilesRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\Theodore 3\GameDev\Mods\darth-vader-ror2\DarthVaderWWise\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
-	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1057124356" Language="SFX" Hash="3491197615">
-			<ObjectPath>\SoundBanks\Default Work Unit\DarthVaderBank</ObjectPath>
+		<SoundBank Id="1057124356" Type="User" Language="SFX" Hash="{024DACB4-D21D-0C5C-556E-E11DDF75C4E1}">
 			<ShortName>DarthVaderBank</ShortName>
 			<Path>DarthVaderBank.bnk</Path>
-			<IncludedEvents>
-				<Event Id="130133524" Name="DarthBreathing" ObjectPath="\Events\Default Work Unit\DarthBreathing">
-					<IncludedMemoryFiles>
-						<File Id="277289723" Language="SFX">
-							<ShortName>darthBreatheIn.wav</ShortName>
-							<Path>SFX\darthBreatheIn_B996EAEE.wem</Path>
-						</File>
-						<File Id="912488064" Language="SFX">
-							<ShortName>darthBreatheOut.wav</ShortName>
-							<Path>SFX\darthBreatheOut_4B31908A.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+			<Media>
+				<File Id="3401795" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Deflect3.wav</ShortName>
+					<CachePath>SFX/Deflect3_8E324C96.wem</CachePath>
+				</File>
+				<File Id="7934420" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LightsaberSwing1.wav</ShortName>
+					<CachePath>SFX/LightsaberSwing1_8E324C96.wem</CachePath>
+				</File>
+				<File Id="19781021" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Deflect4.wav</ShortName>
+					<CachePath>SFX/Deflect4_8E324C96.wem</CachePath>
+				</File>
+				<File Id="23881410" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LightsaberSwing2.wav</ShortName>
+					<CachePath>SFX/LightsaberSwing2_8E324C96.wem</CachePath>
+				</File>
+				<File Id="28149369" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Weapon_Hit_2.wav</ShortName>
+					<CachePath>SFX/Weapon_Hit_2_8E324C96.wem</CachePath>
+				</File>
+				<File Id="61829549" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Deflect2.wav</ShortName>
+					<CachePath>SFX/Deflect2_8E324C96.wem</CachePath>
+				</File>
+				<File Id="71403054" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Weapon_Hit_3.wav</ShortName>
+					<CachePath>SFX/Weapon_Hit_3_8E324C96.wem</CachePath>
+				</File>
+				<File Id="74220798" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Lack_Of_Faith.wav</ShortName>
+					<CachePath>SFX/Lack_Of_Faith_99D98CBE.wem</CachePath>
+				</File>
+				<File Id="131557054" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Aspirations.wav</ShortName>
+					<CachePath>SFX/Aspirations_8E324C96.wem</CachePath>
+				</File>
+				<File Id="277289723" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>darthBreatheIn.wav</ShortName>
+					<CachePath>SFX/darthBreatheIn_7C53B2D9.wem</CachePath>
+				</File>
+				<File Id="290950456" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Imperial_March_Shortened.wav</ShortName>
+					<CachePath>SFX/Imperial_March_Shortened_E93A502C.wem</CachePath>
+				</File>
+				<File Id="304198977" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Imperial_March_Full.wav</ShortName>
+					<CachePath>SFX/Imperial_March_Full_C4D0581E.wem</CachePath>
+				</File>
+				<File Id="306023084" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Altering_Deal.wav</ShortName>
+					<CachePath>SFX/Altering_Deal_8E324C96.wem</CachePath>
+				</File>
+				<File Id="352724000" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LightsaberSwing4.wav</ShortName>
+					<CachePath>SFX/LightsaberSwing4_8E324C96.wem</CachePath>
+				</File>
+				<File Id="540590061" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Force_Push_2.wav</ShortName>
+					<CachePath>SFX/Force_Push_2_631720A2.wem</CachePath>
+				</File>
+				<File Id="582526380" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Weapon_Hit_1.wav</ShortName>
+					<CachePath>SFX/Weapon_Hit_1_8E324C96.wem</CachePath>
+				</File>
+				<File Id="606105522" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LightsaberSwing3.wav</ShortName>
+					<CachePath>SFX/LightsaberSwing3_8E324C96.wem</CachePath>
+				</File>
+				<File Id="680209595" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Weapon_Hit_4.wav</ShortName>
+					<CachePath>SFX/Weapon_Hit_4_8E324C96.wem</CachePath>
+				</File>
+				<File Id="726683182" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Imperial_March_Full.wav</ShortName>
+					<CachePath>SFX/Imperial_March_Full_3B9B092B.wem</CachePath>
+				</File>
+				<File Id="753213582" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Force_Push_1.wav</ShortName>
+					<CachePath>SFX/Force_Push_1_0ACE1BE9.wem</CachePath>
+				</File>
+				<File Id="776009937" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>NOOOOO_Sound_Effect.wav</ShortName>
+					<CachePath>SFX/NOOOOO_Sound_Effect_3AD20A3E.wem</CachePath>
+				</File>
+				<File Id="912488064" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>darthBreatheOut.wav</ShortName>
+					<CachePath>SFX/darthBreatheOut_23D111AD.wem</CachePath>
+				</File>
+				<File Id="1009254951" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Deflect1.wav</ShortName>
+					<CachePath>SFX/Deflect1_8E324C96.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="130133524" Name="DarthBreathing">
+					<MediaRefs>
+						<MediaRef Id="277289723"/>
+						<MediaRef Id="912488064"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="1097166440" Name="DarthDeath" ObjectPath="\Events\Default Work Unit\DarthDeath">
-					<IncludedMemoryFiles>
-						<File Id="776009937" Language="SFX">
-							<ShortName>NOOOOO_Sound_Effect.wav</ShortName>
-							<Path>SFX\NOOOOO_Sound_Effect_4BBEC8A1.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="1097166440" Name="DarthDeath">
+					<MediaRefs>
+						<MediaRef Id="776009937"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="1907738779" Name="DarthDeflect" ObjectPath="\Events\Default Work Unit\DarthDeflect">
-					<IncludedMemoryFiles>
-						<File Id="3401795" Language="SFX">
-							<ShortName>Deflect3.wav</ShortName>
-							<Path>SFX\Deflect3_3F75BDB9.wem</Path>
-						</File>
-						<File Id="19781021" Language="SFX">
-							<ShortName>Deflect4.wav</ShortName>
-							<Path>SFX\Deflect4_3F75BDB9.wem</Path>
-						</File>
-						<File Id="61829549" Language="SFX">
-							<ShortName>Deflect2.wav</ShortName>
-							<Path>SFX\Deflect2_3F75BDB9.wem</Path>
-						</File>
-						<File Id="1009254951" Language="SFX">
-							<ShortName>Deflect1.wav</ShortName>
-							<Path>SFX\Deflect1_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="1907738779" Name="DarthDeflect">
+					<MediaRefs>
+						<MediaRef Id="3401795"/>
+						<MediaRef Id="19781021"/>
+						<MediaRef Id="61829549"/>
+						<MediaRef Id="1009254951"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="3503886523" Name="DarthForcePush" ObjectPath="\Events\Default Work Unit\DarthForcePush">
-					<IncludedMemoryFiles>
-						<File Id="540590061" Language="SFX">
-							<ShortName>Force_Push_2.wav</ShortName>
-							<Path>SFX\Force_Push_2_1C1D0F1D.wem</Path>
-						</File>
-						<File Id="753213582" Language="SFX">
-							<ShortName>Force_Push_1.wav</ShortName>
-							<Path>SFX\Force_Push_1_59B1B692.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="3503886523" Name="DarthForcePush">
+					<MediaRefs>
+						<MediaRef Id="540590061"/>
+						<MediaRef Id="753213582"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="3450048475" Name="DarthIntroTheme" ObjectPath="\Events\Default Work Unit\DarthIntroTheme">
-					<IncludedMemoryFiles>
-						<File Id="290950456" Language="SFX">
-							<ShortName>Imperial_March_Shortened.wav</ShortName>
-							<Path>SFX\Imperial_March_Shortened_62C5947B.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="3450048475" Name="DarthIntroTheme">
+					<MediaRefs>
+						<MediaRef Id="290950456"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="2582637128" Name="DarthLightsaberHit" ObjectPath="\Events\Default Work Unit\DarthLightsaberHit">
-					<IncludedMemoryFiles>
-						<File Id="28149369" Language="SFX">
-							<ShortName>Weapon_Hit_2.wav</ShortName>
-							<Path>SFX\Weapon_Hit_2_3F75BDB9.wem</Path>
-						</File>
-						<File Id="71403054" Language="SFX">
-							<ShortName>Weapon_Hit_3.wav</ShortName>
-							<Path>SFX\Weapon_Hit_3_3F75BDB9.wem</Path>
-						</File>
-						<File Id="582526380" Language="SFX">
-							<ShortName>Weapon_Hit_1.wav</ShortName>
-							<Path>SFX\Weapon_Hit_1_3F75BDB9.wem</Path>
-						</File>
-						<File Id="680209595" Language="SFX">
-							<ShortName>Weapon_Hit_4.wav</ShortName>
-							<Path>SFX\Weapon_Hit_4_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="2582637128" Name="DarthLightsaberHit">
+					<MediaRefs>
+						<MediaRef Id="28149369"/>
+						<MediaRef Id="71403054"/>
+						<MediaRef Id="582526380"/>
+						<MediaRef Id="680209595"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="804739637" Name="DarthLightSaberSwing" ObjectPath="\Events\Default Work Unit\DarthLightSaberSwing">
-					<IncludedMemoryFiles>
-						<File Id="7934420" Language="SFX">
-							<ShortName>LightsaberSwing1.wav</ShortName>
-							<Path>SFX\LightsaberSwing1_3F75BDB9.wem</Path>
-						</File>
-						<File Id="23881410" Language="SFX">
-							<ShortName>LightsaberSwing2.wav</ShortName>
-							<Path>SFX\LightsaberSwing2_3F75BDB9.wem</Path>
-						</File>
-						<File Id="352724000" Language="SFX">
-							<ShortName>LightsaberSwing4.wav</ShortName>
-							<Path>SFX\LightsaberSwing4_3F75BDB9.wem</Path>
-						</File>
-						<File Id="606105522" Language="SFX">
-							<ShortName>LightsaberSwing3.wav</ShortName>
-							<Path>SFX\LightsaberSwing3_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="804739637" Name="DarthLightSaberSwing">
+					<MediaRefs>
+						<MediaRef Id="7934420"/>
+						<MediaRef Id="23881410"/>
+						<MediaRef Id="352724000"/>
+						<MediaRef Id="606105522"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="2942166337" Name="DarthRage" ObjectPath="\Events\Default Work Unit\DarthRage">
-					<IncludedMemoryFiles>
-						<File Id="304198977" Language="SFX">
-							<ShortName>Imperial_March_Full.wav</ShortName>
-							<Path>SFX\Imperial_March_Full_FAC9BB71.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="2942166337" Name="DarthRage">
+					<MediaRefs>
+						<MediaRef Id="304198977"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="2102519880" Name="DarthRageLooped" ObjectPath="\Events\Default Work Unit\DarthRageLooped">
-					<IncludedMemoryFiles>
-						<File Id="726683182" Language="SFX">
-							<ShortName>Imperial_March_Full.wav</ShortName>
-							<Path>SFX\Imperial_March_Full_7337C244.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="2102519880" Name="DarthRageLooped">
+					<MediaRefs>
+						<MediaRef Id="726683182"/>
+					</MediaRefs>
 				</Event>
-				<Event Id="1756512100" Name="DarthVoice" ObjectPath="\Events\Default Work Unit\DarthVoice">
-					<IncludedMemoryFiles>
-						<File Id="74220798" Language="SFX">
-							<ShortName>Lack_Of_Faith.wav</ShortName>
-							<Path>SFX\Lack_Of_Faith_D59762AD.wem</Path>
-						</File>
-						<File Id="131557054" Language="SFX">
-							<ShortName>Aspirations.wav</ShortName>
-							<Path>SFX\Aspirations_3F75BDB9.wem</Path>
-						</File>
-						<File Id="306023084" Language="SFX">
-							<ShortName>Altering_Deal.wav</ShortName>
-							<Path>SFX\Altering_Deal_3F75BDB9.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
+				<Event Id="1756512100" Name="DarthVoice">
+					<MediaRefs>
+						<MediaRef Id="74220798"/>
+						<MediaRef Id="131557054"/>
+						<MediaRef Id="306023084"/>
+					</MediaRefs>
 				</Event>
-			</IncludedEvents>
+			</Events>
 			<GameParameters>
-				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
-				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3701367528">
-			<ObjectPath>Init</ObjectPath>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B6AB6487-4EA7-7230-6789-B3907F5B0A32}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="985987111" Name="Motion Factory Bus"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="796049864" Name="RPM"/>
+				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
+				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
+				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
+				<GameParameter Id="1524500807" Name="Playback_Rate"/>
+				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
+				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
+				<GameParameter Id="3074696722" Name="SS_Air_Size"/>
+				<GameParameter Id="3203397129" Name="SS_Air_TimeOfDay"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master"/>
+				<GameParameter Id="3715662592" Name="SS_Air_Storm"/>
+				<GameParameter Id="3847924954" Name="SS_Air_Presence"/>
+				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
+			</GameParameters>
+			<AcousticTextures>
+				<AcousticTexture Id="504532776" Name="Brick">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="12"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="18"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="23"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="513139656" Name="Mountain">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="0"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="841620460" Name="Concrete">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="14"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1755085759" Name="Wood_Deep">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="1"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="8"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="20"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1873957695" Name="Anechoic">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1970351858" Name="Fabric">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="3"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="13"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="48"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="72"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2058049674" Name="Wood">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="32"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="25"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="20"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2412606308" Name="Carpet">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="46"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="45"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="76"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2637588553" Name="Tile">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="67"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="41"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="12"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="0"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2928161104" Name="Curtains">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="7"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="60"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="84"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="3195498748" Name="Cork_Tiles">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="14"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="30"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="73"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="3670307564" Name="Drywall">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="2"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="4168643977" Name="Acoustic_Banner">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="37"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="4262522749" Name="Wood_Bright">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="32"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="25"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="10"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="9"/>
+						<Property Name="Scattering" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+			</AcousticTextures>
 		</SoundBank>
 	</SoundBanks>
+	<FileHash>{FAE575DD-5A88-C521-BA62-F2C243B4CA80}</FileHash>
 </SoundBanksInfo>

@@ -1,87 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ValidationCache Version="1" SchemaVersion="97">
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Virtual Acoustics\Factory Reflect Acoustic Textures.wwu" DateLow="1646651825" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Virtual Acoustics\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Triggers\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Switches\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\States\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\SoundBanks\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Queries\Factory Queries.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Queries\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Presets\Factory Spatial Audio.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Presets\Factory Reflect.wwu" DateLow="1646651825" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Presets\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Modulators\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Mixing Sessions\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1646651827" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Game Parameters\Factory Motion.wwu" DateLow="1646651828" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Game Parameters\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Events\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory Reflect.wwu" DateLow="1646651825" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory McDSP Effects.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Multiband Distortion.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Hybrid Reverb Effects.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Filters.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Dynamics.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Delay.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory iZotope Box Modeler.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory Effects.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Factory Auro Headphone.wwu" DateLow="1646651816" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Effects\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\DarthVader.wproj" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Conversion Settings\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Control Surface Sessions\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Audio Devices\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Attenuations\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Actor-Mixer Hierarchy\Factory Synth One.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Actor-Mixer Hierarchy\Factory SoundSeed Air Objects.wwu" DateLow="1646651827" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Actor-Mixer Hierarchy\Factory Motion.wwu" DateLow="1646651828" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\WwiseProjects\DarthVader\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Virtual Acoustics\Factory Reflect Acoustic Textures.wwu" DateLow="1646651825" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Virtual Acoustics\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Triggers\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Switches\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\States\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\SoundBanks\Default Work Unit.wwu" DateLow="1657544571" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Queries\Factory Queries.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Queries\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Presets\Factory Spatial Audio.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Presets\Factory Reflect.wwu" DateLow="1646651825" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Presets\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Modulators\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Mixing Sessions\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1657541782" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1646651827" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Game Parameters\Factory Motion.wwu" DateLow="1646651828" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Game Parameters\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Events\Default Work Unit.wwu" DateLow="1657544571" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory Reflect.wwu" DateLow="1646651825" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory McDSP Effects.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Multiband Distortion.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Hybrid Reverb Effects.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Filters.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Dynamics.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Delay.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Box Modeler.wwu" DateLow="1646651824" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory Effects.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory Auro Headphone.wwu" DateLow="1646651816" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\DarthVader.wproj" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\DarthVader.BokChoyWithSoy.wsettings" DateLow="1657544571" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1646651802" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Conversion Settings\Default Work Unit.wwu" DateLow="1657544571" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Audio Devices\Default Work Unit.wwu" DateLow="1657541782" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Attenuations\Default Work Unit.wwu" DateLow="1657539497" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\evilz\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1657544571" DateHigh="0"/>
+<ValidationCache Version="1" SchemaVersion="119">
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Virtual Acoustics\Factory Reflect Acoustic Textures.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Virtual Acoustics\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Triggers\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Switches\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\States\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\SoundBanks\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Queries\Factory Queries.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Queries\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Presets\Factory Spatial Audio.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Presets\Factory Reflect.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Presets\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Modulators\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Mixing Sessions\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Game Parameters\Factory SoundSeed Air Game Syncs.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Game Parameters\Factory Motion.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Game Parameters\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Events\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory Reflect.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory McDSP Effects.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Singleband Distortion.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Multiband Distortion.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Hybrid Reverb Effects.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Filters.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Dynamics.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Delay.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory iZotope Box Modeler.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory Effects.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Factory Auro Headphone.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Effects\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\DarthVader.wproj" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\DarthVader.BokChoyWithSoy.wsettings" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Conversion Settings\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Control Surface Sessions\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Audio Devices\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Attenuations\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\bokch\Documents\GitHub\darth-vader-ror2\DarthVaderWWise\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1726763789" DateHigh="0"/>
 </ValidationCache>

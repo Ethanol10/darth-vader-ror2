@@ -7,7 +7,7 @@ using System;
 namespace DarthVaderMod.Modules.Achievements
 {
     [RegisterAchievement(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_STAGE_ACHIEVEMENT_ID",
-           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_STAGE_UNLOCKABLE_ID", null, null)]
+           DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_STAGE_UNLOCKABLE_ID", null, 0)]
     internal class StageAchievement : BaseAchievement
     {
         private bool listeningForStats;
