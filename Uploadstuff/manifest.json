@@ -1,8 +1,8 @@
 {
     "name": "DarthVaderMod",
-    "version_number": "2.2.0",
+    "version_number": "2.2.1",
     "website_url": "https://github.com/Ethanol10/darth-vader-ror2",
-    "description": "Adds DarthVader, The Chosen One. Updated for SotS 2.1.6 -> Music and breathing disable config.",
+    "description": "Adds DarthVader, The Chosen One. 2.2.1 -> Recompilation for latest version of mod.",
     "dependencies": [
         "RiskofThunder-HookGenPatcher-1.2.3",
         "RiskofThunder-R2API_Core-5.0.0",

@@ -1,5 +1,7 @@
 ## Latest Changelog
 
+- 2.2.1
+  - Recompilation.
 - 2.2.0
   - Updated for Seekers of the Storm
 - 2.1.6
