@@ -1,5 +1,7 @@
 ## Latest Changelog
 
+- 2.2.2
+  - Added cachedName property on body to properly track Eclipse.
 - 2.2.1
   - Recompilation.
 - 2.2.0
