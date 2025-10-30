@@ -1,5 +1,10 @@
 ## Latest Changelog
 
+- 2.2.3
+  - Removed old option to disable movespeed limiter while outside of rage.
+    - Replaced with new options in 04 - Misc
+      - Separate options to Enable/Disable Armor scaling from move speed
+      - Provided options to limit movespeed on rage and normal modes
 - 2.2.2
   - Added cachedName property on body to properly track Eclipse.
 - 2.2.1

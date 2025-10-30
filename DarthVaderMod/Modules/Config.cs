@@ -21,7 +21,6 @@ namespace DarthVaderMod.Modules
             Rage multiplier
 
          */
-        public static ConfigEntry<bool> limitMovespeed;
         public static ConfigEntry<bool> enableMusic;
         public static ConfigEntry<bool> enableBreathing;
         public static ConfigEntry<float> primaryCoefficient;
@@ -50,7 +49,6 @@ namespace DarthVaderMod.Modules
         public static void ReadConfig()
         {
             #region General - 01
-            limitMovespeed = DarthVaderPlugin.instance.Config.Bind<bool>("01 - General", "01 - Limit Movespeed", true, "Limits Movespeed but grants armor. Setting to false removes armor bonus while outside of rage.");
             baseDamage = DarthVaderPlugin.instance.Config.Bind<float>("01 - General", "02 - Base Damage", 10f, "Sets the base damage at Level 1. Requires a restart to apply.");
             damageGainedPerLevel = DarthVaderPlugin.instance.Config.Bind<float>("01 - General", "03 - Damage growth per level", 2.4f, "Sets the damage gained per level. Requires a restart to apply.");
             enableMusic = DarthVaderPlugin.instance.Config.Bind<bool>("01 - General", "04 - Music is enabled", true, "Enables music. Setting to false mutes music.");
@@ -98,8 +96,6 @@ namespace DarthVaderMod.Modules
             //Risk of Options intialization
 
             #region General - 01
-            ModSettingsManager.AddOption(new CheckBoxOption(
-                limitMovespeed));
             ModSettingsManager.AddOption(new StepSliderOption(
                 baseDamage,
                 new StepSliderConfig 
