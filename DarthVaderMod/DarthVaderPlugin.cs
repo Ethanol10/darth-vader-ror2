@@ -210,16 +210,29 @@ namespace DarthVaderMod
                             self.moveSpeed *= 0.5f;
                         }
 
+                        float currentmovespeed = self.moveSpeed;
+                        //Check to see if armour conversion is necessary.
+                        if (Modules.Config.armorBonusPassiveActive.Value)
+                        {
+                            if (currentmovespeed > 7f)
+                            {
+                                float movespeedbonus = currentmovespeed - 7f;
+                                self.armor += movespeedbonus;
+                            }
+                        }
+
                         if (!self.HasBuff(Modules.Buffs.RageBuff))
                         {
-                            float currentmovespeed = self.moveSpeed;
-                            if (Modules.Config.limitMovespeed.Value)
+                            //Apply Speed cap if necessary
+                            if (Modules.Config.speedCapBaseActive.Value) 
                             {
-                                if (currentmovespeed > 7f)
+                                //Otherwise do nothing if cap is set to 0
+                                if (Modules.Config.maxSpeedNormal.Value != 0) 
                                 {
-                                    self.moveSpeed = 7f;
-                                    float movespeedbonus = currentmovespeed - 7f;
-                                    self.armor += movespeedbonus;
+                                    float[] floats = new float[2];
+                                    floats[0] = currentmovespeed;
+                                    floats[1] = Modules.Config.maxSpeedNormal.Value;
+                                    self.moveSpeed = Mathf.Min(floats);
                                 }
                             }
 
@@ -238,10 +251,22 @@ namespace DarthVaderMod
                         else if (self.HasBuff(Modules.Buffs.RageBuff))
                         {
                             self.moveSpeed *= 2f;
-                            self.armor = (self.moveSpeed - 7f) * 2f;
-
+                            self.armor *= 2f;
                             self.attackSpeed *= 2f;
                             self.damage *= self.attackSpeed;
+
+                            //Apply Speed cap if necessary
+                            if (Modules.Config.speedCapRageActive.Value)
+                            {
+                                //Otherwise do nothing if cap is set to 0
+                                if (Modules.Config.maxSpeedRage.Value != 0)
+                                {
+                                    float[] floats = new float[2];
+                                    floats[0] = currentmovespeed;
+                                    floats[1] = Modules.Config.maxSpeedRage.Value;
+                                    self.moveSpeed = Mathf.Min(floats);
+                                }
+                            }
                         }
                     }
                 }

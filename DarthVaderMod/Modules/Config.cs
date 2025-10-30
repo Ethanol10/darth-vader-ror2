@@ -69,9 +69,9 @@ namespace DarthVaderMod.Modules
 
             #region Misc - 04
             armorBonusPassiveActive = DarthVaderPlugin.instance.Config.Bind<bool>("04 - Misc", "01 - Armor Bonus Passive", true, "Determines if Armor should scale based on movespeed.");
-            speedCapBaseActive = DarthVaderPlugin.instance.Config.Bind<bool>("04 - Misc", "02 - Move Speed Limiter", true, "Determines if the move speed should be limited in Normal Mode, outside of Rage.");
+            speedCapBaseActive = DarthVaderPlugin.instance.Config.Bind<bool>("04 - Misc", "02 - Move Speed Limiter", true, "Determines if the move speed should be limited in Normal Mode, outside of Rage. If unticked, speed will be uncapped.");
             maxSpeedNormal = DarthVaderPlugin.instance.Config.Bind<float>("04 - Misc", "03 - Max Speed in Normal Mode", 0f, "Determines the maximum speed Darth Vader can move at. Setting it to 0 uncaps the speed.");
-            speedCapRageActive = DarthVaderPlugin.instance.Config.Bind<bool>("04 - Misc", "04 - Rage: Move Speed Limiter", true, "Determines if the move speed should be limited in Normal Mode, outside of Rage.");
+            speedCapRageActive = DarthVaderPlugin.instance.Config.Bind<bool>("04 - Misc", "04 - Rage: Move Speed Limiter", true, "Determines if the move speed should be limited in Rage Mode. If unticked, speed will be uncapped.");
             maxSpeedRage = DarthVaderPlugin.instance.Config.Bind<float>("04 - Misc", "05 - Max Speed in Rage Mode", 0f, "Determines the maximum speed Darth Vader can move at in Rage mode. Setting it to 0 uncaps the speed.");
             #endregion
             #region Utility - 04
@@ -146,7 +146,7 @@ namespace DarthVaderMod.Modules
                 maxSpeedNormal,
                 new StepSliderConfig
                 {
-                    min = 1f,
+                    min = 0f,
                     max = 1000f,
                     increment = 0.5f
                 }
@@ -156,7 +156,7 @@ namespace DarthVaderMod.Modules
                 maxSpeedRage,
                 new StepSliderConfig
                 {
-                    min = 1f,
+                    min = 0f,
                     max = 1000f,
                     increment = 0.5f
                 }
