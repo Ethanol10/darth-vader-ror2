@@ -77,7 +77,7 @@ namespace DarthVaderMod.Modules.Survivors
                             if (characterBody.inputBank.jump.down)
                             {
                                 jumpTimer += Time.fixedDeltaTime;
-                                if (jumpTimer < 1f)
+                                if (jumpTimer < 1f && energySystem.CanAffordEnergy(StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy))
                                 {
                                     characterBody.characterMotor.velocity.y += StaticValues.jumpFlySpeed;
                                     //energySystem.currentForceEnergy -= (StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy) * Time.fixedDeltaTime;
@@ -91,7 +91,7 @@ namespace DarthVaderMod.Modules.Survivors
                         }
 
                     }
-                    else if (characterBody.characterMotor.velocity.y <= -10f)
+                    else if (characterBody.characterMotor.velocity.y <= -10f && energySystem.CanAffordEnergy(StaticValues.jumpDrainForceEnergyFraction * energySystem.maxForceEnergy))
                     {
                         float currentFallSpeed = characterBody.characterMotor.velocity.y;
                         if (characterBody.inputBank.jump.down)

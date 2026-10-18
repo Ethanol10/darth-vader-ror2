@@ -40,7 +40,7 @@ namespace DarthVaderMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.DarthVaderMod";
         public const string MODNAME = "DarthVaderMod";
-        public const string MODVERSION = "2.2.3";
+        public const string MODVERSION = "2.2.4";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";
@@ -109,7 +109,7 @@ namespace DarthVaderMod
             }
 
             //Changing death message
-            GlobalEventManager.onCharacterDeathGlobal += (damageReport) =>
+            GlobalEventManager.onCharacterDeathServer += (damageReport) =>
             {
                 // This should never happen, but protect against it just in case
                 if (damageReport == null) return;

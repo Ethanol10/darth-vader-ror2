@@ -268,6 +268,16 @@ namespace DarthVaderMod.Content.Controllers
             //Chat.AddMessage(rageMeleeMultiplier * (Energy * meleeForceEnergyGain) + "melee energy");
         }
 
+        public bool CanAffordEnergy(float energy) 
+        {
+            if (currentForceEnergy < energy) 
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public void SpendEnergy(float Energy)
         {
             float energyflatCost = Energy - costflatForceEnergy;
@@ -277,6 +287,11 @@ namespace DarthVaderMod.Content.Controllers
             if (energyCost < 0f) energyCost = 0f;
 
             currentForceEnergy -= energyCost;
+
+            if (currentForceEnergy < 0f) 
+            {
+                currentForceEnergy = 0f;
+            }
 
             ifEnergyUsed = true;
             //Chat.AddMessage(rageEnergyCost + "rageEnergyCost");

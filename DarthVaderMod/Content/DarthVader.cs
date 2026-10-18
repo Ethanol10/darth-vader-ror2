@@ -299,7 +299,14 @@ namespace DarthVaderMod.Modules.Survivors
             GameObject model = bodyPrefab.GetComponentInChildren<ModelLocator>().modelTransform.gameObject;
             CharacterModel characterModel = model.GetComponent<CharacterModel>();
 
-            ModelSkinController skinController = model.AddComponent<ModelSkinController>();
+            ModelSkinController skinController = model.GetComponent<ModelSkinController>();
+
+            if (!skinController)
+            {
+                skinController = model.gameObject.AddComponent<ModelSkinController>();
+            }
+
+
             ChildLocator childLocator = model.GetComponent<ChildLocator>();
 
             SkinnedMeshRenderer mainRenderer = characterModel.mainSkinnedMeshRenderer;
@@ -328,34 +335,13 @@ namespace DarthVaderMod.Modules.Survivors
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DEFAULT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("redskin"),
                 defaultRendererInfo,
-                mainRenderer,
                 model);
 
-            defaultSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
-                    renderer = defaultRendererInfo[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
-                    renderer = defaultRendererInfo[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
-                    renderer = defaultRendererInfo[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
-                    renderer = defaultRendererInfo[3].renderer
-                },
-            };
+            defaultSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererInfo,
+                "DarthVaderMesh",
+                "CapeMesh",
+                "LightsaberGripMesh",
+                "LightsaberBladeMesh");
 
             skins.Add(defaultSkin);
             #endregion
@@ -371,35 +357,14 @@ namespace DarthVaderMod.Modules.Survivors
             SkinDef bluesaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_BLUESABER_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("blueskin"),
                 bluesaberRendererInfos,
-                mainRenderer,
                 model,
                 Modules.Unlockables.darthAnyDifficultyUnlockable);
 
-            bluesaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
-                    renderer = bluesaberRendererInfos[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
-                    renderer = bluesaberRendererInfos[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
-                    renderer = bluesaberRendererInfos[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
-                    renderer = bluesaberRendererInfos[3].renderer
-                },
-            };
+            bluesaberSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(bluesaberRendererInfos,
+                "DarthVaderMesh",
+                "CapeMesh",
+                "LightsaberGripMesh",
+                "LightsaberBladeMesh");
 
             skins.Add(bluesaberSkin);
             #endregion
@@ -415,35 +380,14 @@ namespace DarthVaderMod.Modules.Survivors
             SkinDef yellowsaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_YELLOWSABER_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("yellowskin"),
                 yellowsaberRendererInfos,
-                mainRenderer,
                 model,
                 Modules.Unlockables.darthDamageUnlockable);
 
-            yellowsaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
-                    renderer = yellowsaberRendererInfos[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
-                    renderer = yellowsaberRendererInfos[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberGripMesh"),
-                    renderer = yellowsaberRendererInfos[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("LightsaberBladeMesh"),
-                    renderer = yellowsaberRendererInfos[3].renderer
-                },
-            };
+            yellowsaberSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(yellowsaberRendererInfos,
+                "DarthVaderMesh",
+                "CapeMesh",
+                "LightsaberGripMesh",
+                "LightsaberBladeMesh");
 
             skins.Add(yellowsaberSkin);
             #endregion
@@ -459,35 +403,14 @@ namespace DarthVaderMod.Modules.Survivors
             SkinDef darksaberSkin = Modules.Skins.CreateSkinDef(DarthVaderPlugin.DEVELOPER_PREFIX + "_DARTHVADER_BODY_DARKSABER_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("darkskin"),
                 darksaberRendererInfos,
-                mainRenderer,
                 model,
                 Modules.Unlockables.darthStageUnlockable);
 
-            darksaberSkin.meshReplacements = new SkinDef.MeshReplacement[]
-            {
-                //place your mesh replacements here
-                //unnecessary if you don't have multiple skins
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarthVaderMesh"),
-                    renderer = darksaberRendererInfos[0].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("CapeMesh"),
-                    renderer = darksaberRendererInfos[1].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarkSaberGripMesh"),
-                    renderer = darksaberRendererInfos[2].renderer
-                },
-                new SkinDef.MeshReplacement
-                {
-                    mesh = Modules.Assets.mainAssetBundle.LoadAsset<Mesh>("DarkSaberBladeMesh"),
-                    renderer = darksaberRendererInfos[3].renderer
-                },
-            };
+            darksaberSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(darksaberRendererInfos,
+                "DarthVaderMesh",
+                "CapeMesh",
+                "DarkSaberGripMesh",
+                "DarkSaberBladeMesh");
 
             skins.Add(darksaberSkin);
             #endregion
@@ -531,6 +454,13 @@ namespace DarthVaderMod.Modules.Survivors
 
             skinController.skins = skins.ToArray();
 
+            ModelSkinController displayPrefabMSC = displayPrefab.GetComponent<ModelSkinController>();
+            if (!displayPrefabMSC)
+            {
+                displayPrefabMSC = displayPrefab.AddComponent<ModelSkinController>();
+            }
+
+            displayPrefabMSC.skins = skins.ToArray();
 
         }
 

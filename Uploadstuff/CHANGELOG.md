@@ -1,5 +1,8 @@
 ## Latest Changelog
 
+- 2.2.4
+  - Updated for Hallowed Concepts
+  - Prevented jump and float down from consuming energy even though there was 0 energy.
 - 2.2.3
   - Removed old option to disable movespeed limiter while outside of rage.
     - Replaced with new options in 04 - Misc
